@@ -31,8 +31,9 @@ os.makedirs(os.path.join(os.path.dirname(OUT), 'village'), exist_ok=True)
 json.dump(district.to_json(plan), open(os.path.join(os.path.dirname(OUT), 'village', 'district_layout.json'), 'w'), indent=1)     # the town planner reads it
 dgroup = district.build_group(gn, plan_data=plan)
 tplan = town.plan()
-tgroup = district.build_group(gn, name='GN_EdoKitTown', plan_data=tplan, plaza=False)
-for g_ in (tgroup, fgroup, egroup, dgroup, gn): g_.use_fake_user = True      # keep every group in the saved kit even without a user
+tgroup = district.build_group(gn, name='GN_EdoKitTown', plan_data=dict(tplan, slots=[x for x in tplan['slots'] if not x['outer']]), plaza=False)
+ogroup = district.build_group(gn, name='GN_EdoKitTownOuter', plan_data=dict(tplan, slots=[x for x in tplan['slots'] if x['outer']]), plaza=False)      # beyond x = 62: stands on the full terrain
+for g_ in (tgroup, ogroup, fgroup, egroup, dgroup, gn): g_.use_fake_user = True      # keep every group in the saved kit even without a user
 
 # ---------------------------------------------------------------- test houses (dwellA and size variants)
 tests = bpy.data.collections.new('KIT_TestHouses'); scene.collection.children.link(tests)

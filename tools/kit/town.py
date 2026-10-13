@@ -25,6 +25,15 @@ NEW_ROADS = [
     dict(name='EAST_LINK', pts=[(22.5, -150.3), (22.5, -175), (22.5, -201), (22.5, -226)], width=4.0),
     dict(name='LANE3_EAST', pts=[(-150, -229), (-110, -228.5), (-60, -227.5), (-20, -226.5), (22.5, -226)], width=3.5),
 ]
+# ---- streets from the district towards the mountain trail (ground = the full terrain beyond x = OUTER_X), lined with farms and huts
+OUTER_X = 62.0                   # the town ground patch ends at x = 68: houses and streets east of this use EDO_Terrain
+OUTER_ROADS = [
+    dict(name='EAST_TRAIL', pts=[(58, -88), (85, -95), (110, -108), (128, -122), (144, -136)], width=3.5, mix=['hutB', 'hutA', 'hutC', 'farmhouse']),
+    dict(name='NE_ROAD', pts=[(-28, -22), (-10, -14), (20, -10), (60, -10), (100, -9), (140, -11), (170, -11), (198, -10)], width=3.5,
+         mix=['farmhouse', 'hutA', 'barn', 'hutC', 'farmhouse', 'hutB', 'kura', 'hutA']),
+    dict(name='SE_ROAD', pts=[(22.5, -226), (50, -238), (80, -246), (105, -250)], width=3.5, mix=['farmhouse', 'barn', 'hutA', 'farmhouse', 'hutC', 'kura']),
+]
+LINK_ROADS = [dict(name='SW2_LINK', pts=[(-152, -164), (-151, -172), (-150, -179.5)], width=3.5)]
 # ---- areas drawn in blue (pixel polygons of the marked image) and the farm areas
 ZONES = [
     dict(id='Z1', px=[(925, 205), (1000, 200), (1045, 250), (1052, 330), (1005, 365), (950, 330), (918, 265)],
@@ -93,7 +102,7 @@ def plan(seed=7):
     rnd = random.Random(seed)
     obstacles = []          # polygons (4 corners) houses must not overlap
     for h in man['houses']:
-        if h['house'].startswith('DISTRICT_') or h['house'].startswith(('K_', 'EdoHouse', 'MT_')):
+        if not h['house'].startswith(('TWN_', 'FARM_')):       # your original town and farm houses only (not our own earlier output)
             continue
         p = h['params']
         d = dict(bx=p['Bays X'], by=p['Bays Y'], eng=p['Engawa'], shop=p['Shopfront'], lan=p['Lanterns'], fence=p['Fence'], gate=p['Gate'], props=p['Props'], cat=p.get('Category', 0))
@@ -113,7 +122,7 @@ def plan(seed=7):
     for pr in ctx['props']:
         x, y = pr['loc'][:2]; obstacles.append([(x - 2.5, y - 2.5), (x + 2.5, y - 2.5), (x + 2.5, y + 2.5), (x - 2.5, y + 2.5)])
 
-    roads = [dict(r, kind='road') for r in NEW_ROADS]
+    roads = [dict(r, kind='road') for r in NEW_ROADS + LINK_ROADS + OUTER_ROADS]
     all_roads = [(r['pts'], r['width']) for r in ctx['roads']] + [(r['pts'], r['width']) for r in lay['roads'] if r['name'] not in ('RING1',)] + \
                 [(r['pts'], r['width']) for r in roads] + [(r['pts'], r['width'] + 2.0) for r in ctx['streams'] if r['name'] != 'WT_Stream']
     road_polys = [(polyline_samples([tuple(p) for p in pts], 2.0), w / 2.0) for pts, w in all_roads]
@@ -122,8 +131,28 @@ def plan(seed=7):
     zones = zones_world()
     slots = []
 
+    TER = ctx.get('terrain')
+
+    def terrain_z(x, y):
+        if not TER: return 0.0
+        fx, fy = (x - TER['x0']) / TER['step'], (y - TER['y0']) / TER['step']
+        i, j = int(math.floor(fx)), int(math.floor(fy))
+        if i < 0 or j < 0 or i >= TER['nx'] - 1 or j >= TER['ny'] - 1: return None
+        v = [TER['rows'][j][i], TER['rows'][j][i + 1], TER['rows'][j + 1][i], TER['rows'][j + 1][i + 1]]
+        if any(a is None for a in v): return None
+        u, w = fx - i, fy - j
+        return (v[0] * (1 - u) + v[1] * u) * (1 - w) + (v[2] * (1 - u) + v[3] * u) * w
+
+    def too_steep(P, pos):
+        if pos[0] < OUTER_X - 20: return False
+        zs = [terrain_z(*q) for q in P + [pos]]
+        zs = [z for z in zs if z is not None]
+        return bool(zs) and max(zs) - min(zs) > 3.6
+
     def fits(slot):
         P = corners(slot)
+        if too_steep(P, slot['pos']):
+            return False
         for Q in obstacles + [corners(o) for o in slots]:
             if abs(slot['pos'][0] - Q[0][0]) < 90 and sat_overlap(P, Q):
                 return False
@@ -143,6 +172,7 @@ def plan(seed=7):
         return d
 
     counters = {z['id']: 0 for z in zones}
+    counters.update({'O' + r['name'][:2]: 0 for r in OUTER_ROADS})
 
     def try_place(zone, pos_fn, nx, ny, name):
         d = make(name, 0.5 if name in ('farmhouse', 'barn', 'hutC', 'kura') else 0.35)
@@ -150,7 +180,7 @@ def plan(seed=7):
         pos = pos_fn(rect)
         ang = math.atan2(-nx, ny)
         slot = dict(id='', arch=name, ring=zone['id'], **d, pos=pos, angle=ang, rect=rect, seed=3000 + len(slots) * 7)
-        if inpoly(pos, zone['poly']) and fits(slot):
+        if (zone['poly'] is None or inpoly(pos, zone['poly'])) and fits(slot):
             slot['id'] = f"T_{zone['id']}_{len([s for s in slots if s['ring'] == zone['id']]):02d}"
             slots.append(slot)
             return slot
@@ -183,6 +213,26 @@ def plan(seed=7):
                 else:
                     s += 3.0
 
+    # ---- 1b. farms and huts along the streets towards the trail
+    for r in OUTER_ROADS:
+        L = [tuple(p) for p in r['pts']]
+        cum = [0.0]
+        for a, b in zip(L[:-1], L[1:]): cum.append(cum[-1] + math.hypot(b[0] - a[0], b[1] - a[1]))
+        zone = dict(id='O' + r['name'][:2], poly=None)
+        for side, k in ((1, 0), (-1, 3)):
+            s = 14.0
+            while s < cum[-1] - 4.0:
+                i = max(kk for kk in range(len(L) - 1) if cum[kk] <= s)
+                t = (s - cum[i]) / max(cum[i + 1] - cum[i], 1e-9); a, b = L[i], L[i + 1]
+                Tn = ((b[0] - a[0]) / (cum[i + 1] - cum[i]), (b[1] - a[1]) / (cum[i + 1] - cum[i]))
+                pt = (a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t)
+                n = (-Tn[1] * side, Tn[0] * side)
+                got = try_place(zone, lambda rect: (pt[0] + n[0] * (r['width'] / 2.0 + 1.4 - rect[2]), pt[1] + n[1] * (r['width'] / 2.0 + 1.4 - rect[2])), n[0], n[1], r['mix'][k % len(r['mix'])])
+                if got:
+                    k += 1; s += (got['rect'][1] - got['rect'][0]) * 0.5 + 7.0
+                else:
+                    s += 4.0
+
     # ---- 2. infill: houses in the rest of every area, turned towards the nearest street
     def nearest_road(pt):
         best = (1e9, None, None)
@@ -205,7 +255,7 @@ def plan(seed=7):
             got = try_place(zone, lambda rect: (c[0] - nx * 0.0, c[1]), nx, ny, name)
             if got: counters[zone['id']] += 1
     for sl in slots:
-        sl['pos_local'] = tuple(sl['pos'])
+        sl['pos_local'] = tuple(sl['pos']); sl['outer'] = sl['pos'][0] > OUTER_X
     fields = []
     for i, b in enumerate(ctx['fields']):
         fields.append(dict(id=f'FIELD_{i:02d}', center=[(b[0] + b[1]) / 2, (b[2] + b[3]) / 2], size=[b[1] - b[0] - 0.4, b[3] - b[2] - 0.4], crop=CROPS[i % len(CROPS)], seed=500 + i))

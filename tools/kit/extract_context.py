@@ -50,5 +50,13 @@ def z(x, y):
     return None if h[0] is None else round(h[0].z, 3)
 out['canal_profile'] = {str(y): [[x, z(x, y)] for x in range(-196, -160, 2)] for y in (-60, -100, -150, -200)}
 out['stream_profile'] = {str(x): [[y, z(x, y)] for y in range(-52, -28, 2)] for x in (-250, -230)}
+# terrain heights east and south-east of the village (5 m grid) so the planner can keep houses off steep slopes
+t = D.objects['EDO_Terrain']; tev = t.evaluated_get(dg); tme = tev.to_mesh(); tme.transform(t.matrix_world)
+tb = BVHTree.FromPolygons([v.co[:] for v in tme.vertices], [p.vertices[:] for p in tme.polygons])
+def tz(x, y):
+    h = tb.ray_cast(mathutils.Vector((x, y, 2000)), mathutils.Vector((0, 0, -1)))
+    return None if h[0] is None else round(h[0].z, 1)
+X0, Y0, ST, NX, NY = -40.0, -275.0, 5.0, 52, 70
+out['terrain'] = dict(x0=X0, y0=Y0, step=ST, nx=NX, ny=NY, rows=[[tz(X0 + i * ST, Y0 + j * ST) for i in range(NX)] for j in range(NY)])
 json.dump(out, open(os.path.abspath(sys.argv[2]), 'w'), indent=1)
 print('roads', len(out['roads']), 'streams', len(out['streams']), 'fields', len(out['fields']), 'paddies', len(out['paddies']))

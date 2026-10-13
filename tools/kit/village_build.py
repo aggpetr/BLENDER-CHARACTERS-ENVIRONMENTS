@@ -139,7 +139,7 @@ tl_path = os.path.join(kdir, 'village', 'town_layout.json')
 if town_obj is not None and os.path.exists(tl_path):
     TL = json.load(open(tl_path))
     tb = {sl['id']: [] for sl in TL['slots']}
-    for n, M in inst.get(town_obj.name, []):
+    for n, M in inst.get(town_obj.name, []) + inst.get('EdoKitTownOuter_01', []):
         t = M.translation
         sid_ = next((sl['id'] for sl in TL['slots'] if _inside(sl['plot_corners_world'], t.x, t.y)), None)
         if sid_: tb[sid_].append((n, M))
