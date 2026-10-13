@@ -242,10 +242,10 @@ folder `EdoVillage/...` in the World Outliner) before placing again.
 
 ## 16. The village border
 
-`EdoKitBorder_01` (node group `GN_EdoKitBorder`) places 414 parts along an irregular line around the village: a standing stone every 6 m with a sacred rope (shimenawa)
+`EdoKitBorder_01` (node group `GN_EdoKitBorder`) places 412 parts along an irregular line around the village: a tall standing stone (2 to 2.6 m) every 6 m with a thick white sacred rope (shimenawa, 26 cm)
 and paper streamers between them, three torii gates (north on `RD_Main`, west on the new `WEST_ROAD`, south on the bridge over the river), stone gate piers and stone lanterns
 at the north and west gates, and an open gap (a stone on each side, a Jizo statue) where every other street or trail crosses the line. The river is the south border and is
-12 m wide (it was 7 m). In Unreal the border comes with the fields: `PLACE_FIELDS = True` places the stones, ropes and torii from `fields_manifest.json`
+12 m wide (it was 7 m); it now continues up into the mountain as `KITRIVER_Upper` (9 m wide, on the full terrain). The east side of the border follows the line you drew. In Unreal the border comes with the fields: `PLACE_FIELDS = True` places the stones, ropes and torii from `fields_manifest.json`
 (object `EdoKitBorder_01`). Torii collision is the two pillars only, the rope has none. The rope is a visual line: add an invisible *Blocking Volume* or a soft barrier along it if
 the border must stop the player.
 

@@ -135,3 +135,4 @@ furniture (stone lantern, well, bench, notice board), 103 FBX files in total, di
 - The river (`WT_Stream`) is the south border and is widened from 7 m to 12 m (the installer sets its ribbon width).
 - Modules: `SM_Edo_BorderStone_A/B/C`, `SM_Edo_BorderRope` (6 m, paper streamers), `SM_Edo_Jizo`. Manifest: 236 houses, 42,042 module instances; 160 module FBX files.
 - Plan and shape: `tools/kit/border.py` (seed 11), `kit/village/village_border.json`, `kit/previews/village_border_plan.jpg`.
+- Update: stones are now 1.9 to 2.6 m tall, the rope is 26 cm thick and white (`T_Edo_RopeWhite`), the east side of the border follows the S-curve you drew (the hub hut and its trails stay outside), and the river continues up into the mountain as `KITRIVER_Upper` (9 m wide, around the hut at (195, -265)). 412 border parts.

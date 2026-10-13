@@ -1507,36 +1507,36 @@
  {
   "collection": "KIT_BorderStone",
   "module": "SM_Edo_BorderStone_A",
-  "tris": 84,
+  "tris": 153,
   "materials": [
    "M_Edo_StoneWall",
-   "M_Edo_Iron"
+   "M_Edo_Stone"
   ]
  },
  {
   "collection": "KIT_BorderStone",
   "module": "SM_Edo_BorderStone_B",
-  "tris": 84,
+  "tris": 153,
   "materials": [
    "M_Edo_StoneWall",
-   "M_Edo_Iron"
+   "M_Edo_Stone"
   ]
  },
  {
   "collection": "KIT_BorderStone",
   "module": "SM_Edo_BorderStone_C",
-  "tris": 84,
+  "tris": 153,
   "materials": [
    "M_Edo_StoneWall",
-   "M_Edo_Iron"
+   "M_Edo_Stone"
   ]
  },
  {
   "collection": "KIT_BorderRope",
   "module": "SM_Edo_BorderRope",
-  "tris": 548,
+  "tris": 868,
   "materials": [
-   "M_Edo_Thatch",
+   "M_Edo_RopeWhite",
    "M_Edo_Paper"
   ]
  },
