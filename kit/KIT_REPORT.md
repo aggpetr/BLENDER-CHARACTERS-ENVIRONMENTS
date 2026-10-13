@@ -127,3 +127,11 @@ furniture (stone lantern, well, bench, notice board), 103 FBX files in total, di
 - `EAST_TRAIL` (district east street to `PATH_p2_p3`), `NE_ROAD` (north street to `PATH_p3_p4` at about (198, -10)), `SE_ROAD` (from the south-east corner to the foothills) and a short link from the south-west street to `RD_Lane2`; they follow the terrain (ribbons use `EDO_Terrain`).
 - 32 more houses along them (outer houses on the full terrain, kept off slopes steeper than 3.6 m across the plot, extracted terrain heights in `town_context.json`). Town extension now: 91 houses; manifest 237 houses, 42,285 module instances.
 - Not done: nothing is built on the steeper slopes between x = 100 and the trail (terraces and steps would be needed there).
+
+## Village border
+
+- `EdoKitBorder_01` (`GN_EdoKitBorder`): 414 parts, a standing stone every 6 m with a shimenawa rope, about 1.7 km around the village, always 20 m or more outside every house, field and the canal bank (and outside the hub hut on the east).
+- Torii gates (new modules `SM_Edo_Torii`, `SM_Edo_ToriiPier`, texture sets `T_Edo_Vermilion`, `T_Edo_Lacquer`): north on `RD_Main` (new `NORTH_ROAD` from its end to the gate), west on the new `WEST_ROAD`, south on the arch bridge. No east gate: open gaps with a stone on each side where the trails cross.
+- The river (`WT_Stream`) is the south border and is widened from 7 m to 12 m (the installer sets its ribbon width).
+- Modules: `SM_Edo_BorderStone_A/B/C`, `SM_Edo_BorderRope` (6 m, paper streamers), `SM_Edo_Jizo`. Manifest: 236 houses, 42,042 module instances; 160 module FBX files.
+- Plan and shape: `tools/kit/border.py` (seed 11), `kit/village/village_border.json`, `kit/previews/village_border_plan.jpg`.

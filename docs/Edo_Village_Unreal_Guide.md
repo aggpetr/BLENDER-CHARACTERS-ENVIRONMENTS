@@ -15,12 +15,12 @@ Everything is in the repository branch `claude/unreal-mcp-server-access-xyax0u`,
 
 | Item | Where | Numbers |
 |---|---|---|
-| Module meshes with simple collision (`UCX_`) | `kit/export/modules/<collection>/SM_Edo_*.fbx` | 153 files in 53 collections, Nanite-ready, metric scale, origin at the module pivot |
-| Textures | `kit/textures/T_Edo_<Set>/{BaseColor, Normal_DX, ORM}.jpg` | 17 sets, 173 MB of JPG. Normal maps are DirectX (Unreal's convention), ORM = R ambient occlusion, G roughness, B metallic |
+| Module meshes with simple collision (`UCX_`) | `kit/export/modules/<collection>/SM_Edo_*.fbx` | 160 files in 58 collections, Nanite-ready, metric scale, origin at the module pivot |
+| Textures | `kit/textures/T_Edo_<Set>/{BaseColor, Normal_DX, ORM}.jpg` | 19 sets, about 175 MB of JPG. Normal maps are DirectX (Unreal's convention), ORM = R ambient occlusion, G roughness, B metallic |
 | Ground meshes in world space | `kit/export/district/*.fbx` | plaza, district streets, town streets and trails, water, plazas, field soil (flat placeholder materials) |
 | Heightmap for a Landscape | `kit/export/terrain/Edo_Heightmap_1009.png` (+ `.r16`, `heightmap_info.json`) | 1009 x 1009, 1 m per quad, built from the surfaces your houses stand on |
-| Village manifest | `kit/village/village_manifest.json` | 237 houses, 42,285 module instances (world transforms), 108 lantern positions |
-| Fields and canal bank | `kit/village/fields_manifest.json` | 47,286 instances: crops, ridges, paddy bunds, curbs, cobbles, boulders |
+| Village manifest | `kit/village/village_manifest.json` | 236 houses, 42,042 module instances (world transforms), 108 lantern positions |
+| Fields and canal bank | `kit/village/fields_manifest.json` | about 47,700 instances: crops, ridges, paddy bunds, canal bank, and the village border (stones, ropes, torii) |
 | Clustered lights | `kit/village/lights_clustered.json` | 30 lights merged from the 108 lanterns (radius 30 m) |
 | Import script | `tools/kit/unreal_import.py` | imports textures, builds the master material, imports meshes, places everything |
 | Planning data | `kit/village/town_layout.json`, `district_layout.json`, `town_context.json` | plots, streets, fields (useful for PCG and splines) |
@@ -74,7 +74,7 @@ To regenerate the heightmap after changing the terrain in Blender:
 2. **First run, no placement:** leave `PLACE_VILLAGE = False`, `PLACE_FIELDS = False`. This imports textures and meshes, builds the master
    material and the material instances, and imports the ground meshes. In Unreal: *Tools > Execute Python Script*, pick the file.
 3. Watch the **Output Log** (filter by `LogPython`) and read every warning. The script logs `EdoKit: N meshes, N material instances` at the end of
-   the first part; expect 153 meshes and 17 material instances.
+   the first part; expect 160 meshes and 19 material instances.
 
 Settings at the top of the script:
 
@@ -106,7 +106,7 @@ Settings at the top of the script:
 
 ### Check list after the first run
 
-- Content Browser: `/Game/EdoKit/Meshes` has 53 sub folders; open `SM_Edo_Wall_A_Plaster` or a roof module: Nanite enabled, one `UCX_` hull in *Collision*.
+- Content Browser: `/Game/EdoKit/Meshes` has 58 sub folders; open `SM_Edo_Wall_A_Plaster` or a roof module: Nanite enabled, one `UCX_` hull in *Collision*.
 - Open `MI_Edo_Timber`: the three textures are assigned; `MI_Edo_Lantern`: `EmissiveStrength` is 6.
 - Place the test set: `PLACE_VILLAGE = True`, `HOUSES = ['DISTRICT_HALL']`, `IMPORT_*` False. The hall (13 x 8 bays, two storeys) should look like
   `kit/previews/district_hall_front.jpg` and `district_plaza_hall.jpg`. Compare materials with the Blender previews.
@@ -165,7 +165,7 @@ with Virtual Shadow Maps and add little.
 ## 10. Collision
 
 - **What exists:** every module FBX carries one convex hull (`UCX_`, at most 120 vertices) except thin or hanging things (noren, lanterns, balcony brackets, shop signs,
-  laundry poles, drying racks, herb racks, sword and axe racks, crops, ridges, paddy bunds, cobble tiles). The gate and the two timber bridges use boxes; the stone arch bridge uses 14
+  laundry poles, drying racks, herb racks, sword and axe racks, the border rope, crops, ridges, paddy bunds, cobble tiles). The roofed gate, the two timber bridges and the torii (two pillar boxes, the opening stays free) use boxes; the stone arch bridge uses 14
   convex columns so the arch stays open for the water and the deck is walkable.
 - **Check in the viewport:** *Show > Collision* (or *Player Collision*) and walk the streets with a test character. Things to check: the walls of the houses
   (no walking through), the stilts and footing stones (blocking, but the space between is open), the engawa steps (14 risers of 19 cm: the default step height of 45 cm
@@ -240,7 +240,16 @@ folder `EdoVillage/...` in the World Outliner) before placing again.
 | Light leaks inside houses | closed shells are thin | add a ceiling plane or enable *Lumen Surface Cache* tweaks; interiors are not modelled yet |
 | Editor is slow with all actors | too many actors | `PLACE_AS = 'instances'`, data layers, cull distances |
 
-## 16. What comes next
+## 16. The village border
+
+`EdoKitBorder_01` (node group `GN_EdoKitBorder`) places 414 parts along an irregular line around the village: a standing stone every 6 m with a sacred rope (shimenawa)
+and paper streamers between them, three torii gates (north on `RD_Main`, west on the new `WEST_ROAD`, south on the bridge over the river), stone gate piers and stone lanterns
+at the north and west gates, and an open gap (a stone on each side, a Jizo statue) where every other street or trail crosses the line. The river is the south border and is
+12 m wide (it was 7 m). In Unreal the border comes with the fields: `PLACE_FIELDS = True` places the stones, ropes and torii from `fields_manifest.json`
+(object `EdoKitBorder_01`). Torii collision is the two pillars only, the rope has none. The rope is a visual line: add an invisible *Blocking Volume* or a soft barrier along it if
+the border must stop the player.
+
+## 17. What comes next
 
 The next additions (shrine, temple, watchtower, gates, samurai quarter, watermill, terraces and more) are laid out on the planning map
 `kit/previews/village_additions_plan.jpg` (data in `tools/kit/additions.py`). Nothing on it is built yet. Do the Unreal import and the checks above first, so

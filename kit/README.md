@@ -88,6 +88,7 @@ file by `tools/kit/extract_context.py`) and written to `kit/village/town_layout.
 | Fields | `EdoKitField_*` (node group `GN_EdoKitField`: Size X / Size Y / Crop 0 vegetables, 1 barley, 2 rice paddy with bunds). 6 farmland patches and 7 paddies from your `LD_Field*` / `LD_Paddy*` meshes (their crop meshes are hidden, soil and water stay). About 47,000 crop instances from 7 crop modules (cabbage x2, daikon, barley x2, rice x2), ridges and bunds |
 | Canal bank | `KITEMBANK_Canal` (node group `GN_EdoKitEmbank`) along the vertical canal at x = -178: ashlar curb on both banks, 2 x 2 m cobblestone tiles (individual stones) 4 m wide on each side, scattered boulders; no bank where the bridges are |
 | Bridges | `BR_*` replaced by kit bridges (`BR_*_KIT`): 2 timber bridges (4.0 and 6.4 m wide, stone abutments, beams, planks, balustrade with onion caps) and the stone arch bridge (18 m, cobbled deck, parapets). Originals are hidden, not deleted |
+| Border | `EdoKitBorder_01` (`GN_EdoKitBorder`): standing stones with a sacred rope around the village, torii gates north / west / south, open gaps where trails cross, the river as the south border (widened to 12 m). `VILLAGE_BORDER = False` in `install_kit.py` skips it |
 | Props | your 12 `PR_*` props replaced by kit modules (well, notice board, stall, bench, stone lantern); originals hidden |
 
 Unreal: the manifest has `TOWN_*`, `BRIDGE_*` and `PROP_*` entries; fields and canal bank are in `kit/village/fields_manifest.json`
