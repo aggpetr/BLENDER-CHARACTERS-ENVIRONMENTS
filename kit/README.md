@@ -26,7 +26,30 @@
 The object's origin is the centre of the house footprint; the front (door, engawa) faces -Y.
 To use the kit in another .blend, append the node group `GN_EdoKitHouse` (its `KIT_*` collections come with it).
 
-## Rebuild your village with the kit (Blender)
+## Install everything in your village .blend (Blender)
+
+1. Pull the repo branch; keep the `kit/` folder together (the `.blend` finds `kit/textures/` next to it).
+2. Open your village `.blend`. In the Text Editor open `tools/kit/install_kit.py`, set `KIT_PATH` at the top to the
+   full path of `kit/Edo_Kit.blend`, and click Run Script. It is safe to run again later: each run replaces the previous
+   kit install.
+
+It (1) refreshes the kit data, (2) makes a kit twin `<name>_KIT` of every generated house in the collection `KIT_Village` and
+hides the original, (3) creates the new plaza district `EdoKitVillage_01`, (4) creates the district streets as curves with your
+own `GN_EdoRibbon` group, joined to the existing town streets and the mountain trail, (5) hides the old compound village
+`EdoVillage_01` and its lights and adds point lights for the new lanterns (collection `EDO_KitLights`).
+
+### The plaza district (`GN_EdoKitVillage`)
+
+A round plaza (radius 20 m, centred at x -48, y -122) with a well, stone lanterns, benches and a notice board; one very big
+hall (13 x 8 bays, two storeys, stone compound wall and gate) on the east side facing the plaza on the axis of the west entrance;
+shops, tea houses and restaurants around the plaza; a second ring of dwellings, farmhouses and huts; a small hamlet along the
+north street. Streets: ring street, outer ring street, the west street (continues your `RD_VillageRoad`), north-west and
+south-west streets (continue `RD_Lane1`/`RD_Lane2`), the trail to the mountain hub (joins `PATH_hub_p2`), the north street.
+The houses are nested `GN_EdoKitHouse` nodes inside the group (open `GN_EdoKitVillage`: every house is a labelled group node
+whose Bays/Floors/Roof/... you can change); the plaza radius is a modifier input. Move the object `EdoKitVillage_01` to move
+the whole district. The layout comes from `tools/kit/district.py` (`python tools/kit/plot_plan.py out.png` draws the plan).
+
+## Rebuild your village with the kit (Blender), manifest only
 
 Open your village .blend, open `tools/kit/village_build.py` in Blender's Text Editor, set `KIT_PATH` at the top to
 `kit/Edo_Kit.blend`, and run it. Every `GN_EdoHouse` house gets a kit twin in the collection `KIT_Village` with the same
@@ -39,8 +62,12 @@ transform, terrain and parameters; the originals are hidden, not deleted.
 - `kit/export/SM_Edo_House_dwellA_4x3_test.fbx`: one merged dwellA house for a quick look.
 - Textures: `T_Edo_<Set>/BaseColor` (sRGB), `Normal_DX` (DirectX, Unreal's convention, no flip needed), `ORM` (R = AO, G = Roughness, B = Metallic; sRGB off).
 - `tools/kit/unreal_import.py` (run in the Unreal editor, **untested**): imports textures and meshes, builds a master material
-  (with the moss blend) and instances, and can place houses from `kit/village/village_manifest.json` with lantern lights.
-  Bring the terrain over from Blender with the same world origin.
+  (with the moss blend) and instances, imports the plaza and street meshes of the district
+  (`kit/export/district/`, world space, placed at the origin), and can place houses from `kit/village/village_manifest.json`
+  (the 94 town houses plus the 37 district entries `DISTRICT_*`) with lantern lights. Set `KIT_DIR`, then the flags at the top
+  (`HOUSES = ['DISTRICT_*']` places only the new district). Bring the terrain over from Blender with the same world origin.
+- To refresh the manifest and the district ground after changing the village in Blender: run `tools/kit/village_build.py`
+  (manifest) and `tools/kit/export_district_ground.py` (plaza and streets) in your village file.
 
 ## Rebuild from scratch
 

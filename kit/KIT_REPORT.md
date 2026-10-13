@@ -71,3 +71,17 @@ Whole village: 1.74 million triangles from 86 reusable meshes (original: 1.84 mi
 - Upper-storey windows use the same wall modules as the ground floor; there are no interiors (doors and windows are closed).
 - Moss and plaster grime are material effects (in Blender and in the Unreal master material), not baked into the textures.
 - The fence plot is whole bays (1 bay at the sides and back, 2 at the front), slightly different from the original plot size.
+
+## Plaza district (replaces the old compound village)
+
+`EdoVillage_01` (7 compounds of up to 5 houses, set by hand-entered positions) is replaced by `EdoKitVillage_01`, built by the
+node group `GN_EdoKitVillage` from kit houses: 36 houses, the plaza and its furniture, in 7,413 module instances / 664K triangles.
+Houses: 1 hall (13 x 8 bays, 2 storeys, roof depth 8), 12 around the plaza, 19 in the outer ring, 4 along the north street.
+The layout is planned by `tools/kit/district.py` (no plot overlaps, no plot on a street; checked in code), relative to the plaza
+centre, so the district can be moved as one object. Streets are built with the existing `GN_EdoRibbon` group and end exactly at
+the end points of the town streets (`RD_VillageRoad`, `RD_Lane1`, `RD_Lane2`) and the trail (`PATH_hub_p2`); ground is flat
+(-0.05 m) across the district and all three ground objects agree there, so houses, plaza and streets meet the terrain cleanly.
+
+Added to the kit for this: roof modules for depths 7 and 8, bays up to 16, `Offset`/`Angle` inputs on `GN_EdoKitHouse`, plaza
+furniture (stone lantern, well, bench, notice board), 103 FBX files in total, district plaza and street meshes
+(`kit/export/district/`), and district entries (`DISTRICT_*`) in the village manifest (131 houses, 24,974 module instances).

@@ -1,0 +1,20 @@
+"""The 17 original house designs (parameters of GN_EdoHouse, see analysis/KIT_ANALYSIS.md)."""
+ARCH = {
+    'kura':      dict(bx=2, by=2, fl=2, roof=3),
+    'shopA':     dict(bx=3, by=3, roof=1, shop=1, lan=1),
+    'dwellA':    dict(bx=4, by=3, roof=1, eng=1, fence=1),
+    'farmhouse': dict(bx=5, by=3, roof=2, eng=1, fence=1),
+    'dwellB':    dict(bx=4, by=3, fl=2, roof=3, bal=1, fence=1),
+    'barn':      dict(bx=3, by=4, roof=2),
+    'dwellC':    dict(bx=3, by=3, roof=3, eng=1, fence=1),
+    'hutB':      dict(bx=4, by=3, roof=2, eng=1, lan=1, fence=1),
+    'restA':     dict(bx=5, by=4, roof=1, shop=1, eng=1, lan=1),
+    'shopB':     dict(bx=3, by=4, fl=2, roof=3, shop=1, bal=1, lan=1),
+    'tea':       dict(bx=3, by=3, roof=2, eng=1, lan=1),
+    'hutA':      dict(bx=3, by=3, roof=2, eng=1, fence=1),
+    'hutC':      dict(bx=3, by=2, roof=2),
+    'inn':       dict(bx=9, by=6, fl=2, roof=1, eng=1, bal=1, lan=1, gate=1, fence=2),
+    'restB':     dict(bx=6, by=4, fl=2, roof=3, shop=1, bal=1, lan=1),
+    'row':       dict(bx=7, by=2, roof=3),
+    'EdoHouse01': dict(bx=4, by=3, fl=2, roof=1, fence=1),
+}

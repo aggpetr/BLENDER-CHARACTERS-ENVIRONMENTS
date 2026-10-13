@@ -175,8 +175,8 @@ def build():
         s.description = desc
         return s
     sock('Ground', 'NodeSocketObject', None, desc='Terrain the house stands on (floor = highest ground under the posts + 1.30 m)')
-    sock('Bays X', 'NodeSocketInt', 4, 1, 9, 'Bays along X (1 bay = 1.82 m)')
-    sock('Bays Y', 'NodeSocketInt', 3, 1, MAX_DEPTH, 'Bays along Y')
+    sock('Bays X', 'NodeSocketInt', 4, 1, 16, 'Bays along X (1 bay = 1.82 m)')
+    sock('Bays Y', 'NodeSocketInt', 3, 1, MAX_DEPTH, 'Bays along Y (the short side, up to 8)')
     sock('Floors', 'NodeSocketInt', 1, 1, 2, 'Storeys (2 adds the pent roof ring between the floors)')
     sock('Roof', 'NodeSocketInt', 1, 0, 3, '0 none, 1 tile hip, 2 thatched gable, 3 tile hip')
     sock('Engawa', 'NodeSocketBool', False, desc='Veranda with railing and steps on the front (-Y) side')
@@ -188,6 +188,8 @@ def build():
     sock('Props', 'NodeSocketFloat', 0.6, 0.0, 1.0, 'Amount of yard props along the back and sides')
     sock('Raise', 'NodeSocketFloat', 1.12, 0.0, 3.0, 'Stilt height: floor = highest ground under the posts + Raise + 0.18 m (original default 1.12)')
     sock('Seed', 'NodeSocketInt', 0, 0, 100000, 'Variant seed (wall layout, footing stones, props)')
+    s_off = sock('Offset', 'NodeSocketVector', (0.0, 0.0, 0.0), None, None, 'Place the house at this position (used when the house sits inside a district group)')
+    sock('Angle', 'NodeSocketFloat', 0.0, -100.0, 100.0, 'Rotation around Z in radians (used together with Offset)')
     sock('Realize', 'NodeSocketBool', False, desc='Output real geometry instead of instances (for export as one mesh)')
     it.new_socket('Geometry', in_out='OUTPUT', socket_type='NodeSocketGeometry')
 
@@ -200,6 +202,11 @@ def build():
     empty = g.node('GeometryNodeJoinGeometry').outputs[0]
     fx0 = g.add(g.mul(hW, -1), B / 2); fy = g.mul(hD, -1)
 
+    # placement (district use): ground is sampled at the placed position
+    off_sep = g.node('ShaderNodeSeparateXYZ'); g.L.new(G('Offset'), off_sep.inputs[0])
+    ox, oy = off_sep.outputs['X'], off_sep.outputs['Y']
+    cosA = g.m('COSINE', G('Angle')); sinA = g.m('SINE', G('Angle'))
+
     # ground
     oi = g.node('GeometryNodeObjectInfo', transform_space='RELATIVE'); g.L.new(G('Ground'), g.I(oi, 'Object'))
     ground = g.O(oi, 'Geometry')
@@ -207,9 +214,12 @@ def build():
     def gz(dx=0.0, dy=0.0):
         """ground height under the current point (field), optionally sampled at an offset."""
         x, y, _ = g.pos()
+        lx, ly = g.add(x, dx), g.add(y, dy)
+        wx = g.add(g.sub(g.mul(lx, cosA), g.mul(ly, sinA)), ox)
+        wy = g.add(g.add(g.mul(lx, sinA), g.mul(ly, cosA)), oy)
         rc = g.node('GeometryNodeRaycast')
         g.L.new(ground, g.I(rc, 'Target Geometry'))
-        g.put(rc, 'Source Position', g.vec(g.add(x, dx), g.add(y, dy), 2000.0))
+        g.put(rc, 'Source Position', g.vec(wx, wy, 2000.0))
         g.put(rc, 'Ray Direction', g.vec(0.0, 0.0, -1.0)); g.put(rc, 'Ray Length', 5000.0)
         return g.sw('FLOAT', g.O(rc, 'Is Hit'), 0.0, _hitz(g, rc))
 
@@ -355,6 +365,10 @@ def build():
 
     # ---------------------------------------------------------- output
     allg = g.join(*parts)
+    tn = g.node('GeometryNodeTransform'); g.L.new(allg, g.I(tn, 'Geometry'))
+    e = g.node('FunctionNodeEulerToRotation'); g.put(e, 'Euler', g.vec(0.0, 0.0, G('Angle')))
+    g.L.new(e.outputs[0], g.I(tn, 'Rotation')); g.put(tn, 'Translation', G('Offset'))
+    allg = tn.outputs[0]
     rz = g.node('GeometryNodeRealizeInstances'); g.L.new(allg, g.I(rz, 'Geometry'))
     g.L.new(g.sw('GEOMETRY', G('Realize'), allg, rz.outputs[0]), g.I(go, 'Geometry'))
     return t

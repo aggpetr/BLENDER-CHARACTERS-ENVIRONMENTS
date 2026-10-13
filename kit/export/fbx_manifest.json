@@ -330,6 +330,42 @@
   ]
  },
  {
+  "collection": "KIT_RoofEnd",
+  "module": "SM_Edo_RoofEnd_D7",
+  "file": "modules/KIT_RoofEnd/SM_Edo_RoofEnd_D7.fbx",
+  "tris": 9775,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofEnd_D7_00.001",
+    "verts": 54
+   }
+  ]
+ },
+ {
+  "collection": "KIT_RoofEnd",
+  "module": "SM_Edo_RoofEnd_D8",
+  "file": "modules/KIT_RoofEnd/SM_Edo_RoofEnd_D8.fbx",
+  "tris": 11975,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofEnd_D8_00.001",
+    "verts": 53
+   }
+  ]
+ },
+ {
   "collection": "KIT_RoofEndApex",
   "module": "SM_Edo_RoofEndApex_D1",
   "file": "modules/KIT_RoofEndApex/SM_Edo_RoofEndApex_D1.fbx",
@@ -434,6 +470,42 @@
    {
     "name": "UCX_SM_Edo_RoofEndApex_D6_00.001",
     "verts": 46
+   }
+  ]
+ },
+ {
+  "collection": "KIT_RoofEndApex",
+  "module": "SM_Edo_RoofEndApex_D7",
+  "file": "modules/KIT_RoofEndApex/SM_Edo_RoofEndApex_D7.fbx",
+  "tris": 9734,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofEndApex_D7_00.001",
+    "verts": 52
+   }
+  ]
+ },
+ {
+  "collection": "KIT_RoofEndApex",
+  "module": "SM_Edo_RoofEndApex_D8",
+  "file": "modules/KIT_RoofEndApex/SM_Edo_RoofEndApex_D8.fbx",
+  "tris": 11934,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofEndApex_D8_00.001",
+    "verts": 51
    }
   ]
  },
@@ -546,6 +618,42 @@
   ]
  },
  {
+  "collection": "KIT_RoofMid",
+  "module": "SM_Edo_RoofMid_D7",
+  "file": "modules/KIT_RoofMid/SM_Edo_RoofMid_D7.fbx",
+  "tris": 1932,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofMid_D7_00",
+    "verts": 18
+   }
+  ]
+ },
+ {
+  "collection": "KIT_RoofMid",
+  "module": "SM_Edo_RoofMid_D8",
+  "file": "modules/KIT_RoofMid/SM_Edo_RoofMid_D8.fbx",
+  "tris": 2156,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofMid_D8_00",
+    "verts": 18
+   }
+  ]
+ },
+ {
   "collection": "KIT_RoofApex",
   "module": "SM_Edo_RoofApex_D1",
   "file": "modules/KIT_RoofApex/SM_Edo_RoofApex_D1.fbx",
@@ -631,6 +739,36 @@
   "collision": [
    {
     "name": "UCX_SM_Edo_RoofApex_D6_00",
+    "verts": 44
+   }
+  ]
+ },
+ {
+  "collection": "KIT_RoofApex",
+  "module": "SM_Edo_RoofApex_D7",
+  "file": "modules/KIT_RoofApex/SM_Edo_RoofApex_D7.fbx",
+  "tris": 100,
+  "materials": [
+   "M_Edo_Kawara"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofApex_D7_00",
+    "verts": 44
+   }
+  ]
+ },
+ {
+  "collection": "KIT_RoofApex",
+  "module": "SM_Edo_RoofApex_D8",
+  "file": "modules/KIT_RoofApex/SM_Edo_RoofApex_D8.fbx",
+  "tris": 100,
+  "materials": [
+   "M_Edo_Kawara"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofApex_D8_00",
     "verts": 44
    }
   ]
@@ -1236,6 +1374,40 @@
   ]
  },
  {
+  "collection": "KIT_ThatchEnd",
+  "module": "SM_Edo_ThatchEnd_D7",
+  "file": "modules/KIT_ThatchEnd/SM_Edo_ThatchEnd_D7.fbx",
+  "tris": 342,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_ThatchEnd_D7_00",
+    "verts": 49
+   }
+  ]
+ },
+ {
+  "collection": "KIT_ThatchEnd",
+  "module": "SM_Edo_ThatchEnd_D8",
+  "file": "modules/KIT_ThatchEnd/SM_Edo_ThatchEnd_D8.fbx",
+  "tris": 342,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_ThatchEnd_D8_00",
+    "verts": 51
+   }
+  ]
+ },
+ {
   "collection": "KIT_ThatchMid",
   "module": "SM_Edo_ThatchMid_D1",
   "file": "modules/KIT_ThatchMid/SM_Edo_ThatchMid_D1.fbx",
@@ -1338,6 +1510,40 @@
   ]
  },
  {
+  "collection": "KIT_ThatchMid",
+  "module": "SM_Edo_ThatchMid_D7",
+  "file": "modules/KIT_ThatchMid/SM_Edo_ThatchMid_D7.fbx",
+  "tris": 284,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_ThatchMid_D7_00",
+    "verts": 22
+   }
+  ]
+ },
+ {
+  "collection": "KIT_ThatchMid",
+  "module": "SM_Edo_ThatchMid_D8",
+  "file": "modules/KIT_ThatchMid/SM_Edo_ThatchMid_D8.fbx",
+  "tris": 284,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_ThatchMid_D8_00",
+    "verts": 22
+   }
+  ]
+ },
+ {
   "collection": "KIT_Wall2Seg",
   "module": "SM_Edo_Wall2Seg",
   "file": "modules/KIT_Wall2Seg/SM_Edo_Wall2Seg.fbx",
@@ -1397,6 +1603,74 @@
    {
     "name": "UCX_SM_Edo_Gate_02",
     "verts": 8
+   }
+  ]
+ },
+ {
+  "collection": "KIT_Toro",
+  "module": "SM_Edo_Toro",
+  "file": "modules/KIT_Toro/SM_Edo_Toro.fbx",
+  "tris": 266,
+  "materials": [
+   "M_Edo_Stone",
+   "M_Edo_Lantern"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Toro_00",
+    "verts": 29
+   }
+  ]
+ },
+ {
+  "collection": "KIT_Well",
+  "module": "SM_Edo_Well",
+  "file": "modules/KIT_Well/SM_Edo_Well.fbx",
+  "tris": 340,
+  "materials": [
+   "M_Edo_StoneWall",
+   "M_Edo_Ceramic",
+   "M_Edo_Timber",
+   "M_Edo_Kawara",
+   "M_Edo_Planks"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Well_00",
+    "verts": 44
+   }
+  ]
+ },
+ {
+  "collection": "KIT_Bench",
+  "module": "SM_Edo_Bench",
+  "file": "modules/KIT_Bench/SM_Edo_Bench.fbx",
+  "tris": 76,
+  "materials": [
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Bench_00",
+    "verts": 12
+   }
+  ]
+ },
+ {
+  "collection": "KIT_Board",
+  "module": "SM_Edo_Board",
+  "file": "modules/KIT_Board/SM_Edo_Board.fbx",
+  "tris": 176,
+  "materials": [
+   "M_Edo_Timber",
+   "M_Edo_Planks",
+   "M_Edo_Kawara"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Board_00",
+    "verts": 18
    }
   ]
  },
