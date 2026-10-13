@@ -241,4 +241,18 @@ if want('ClothRed'):
     col = np.array([0.46, 0.065, 0.045], dtype=np.float32) * (0.9 + 0.2 * weave)[..., None]
     col = col + (np.clip((fade - 0.55) * 2, 0, 1) * 0.07)[..., None] * np.array([1.0, 0.7, 0.5], dtype=np.float32)
     save_set('ClothRed', np.clip(col, 0, 1), normal_from_height(weave * 0.0003, px2), np.full((N2, N2), 0.88, np.float32), 0.92 + 0.08 * weave)
+# ---------------------------------------------------------------- Soil (field ridges, 1K, 1 m)
+if want('Soil'):
+    N3 = 1024; px3 = 1.0 / N3
+    c1 = periodic_noise(N3, 1.4, seed=111); c2 = periodic_noise(N3, 2.6, seed=112); cl = periodic_noise(N3, 0.9, seed=113)
+    col = np.array([0.17, 0.105, 0.065], dtype=np.float32) * (0.7 + 0.7 * c1)[..., None]
+    col = col + (np.clip((c2 - 0.6) * 3, 0, 1) * 0.05)[..., None]
+    save_set('Soil', np.clip(col, 0, 1), normal_from_height((c1 * 0.7 + cl * 0.3) * 0.02, px3), np.clip(0.9 + 0.08 * (c2 - 0.5), 0.6, 1.0), np.clip(0.55 + 0.45 * c1, 0, 1).astype(np.float32))
+# ---------------------------------------------------------------- Grain (ripe barley / rice straw, 1K, 0.5 m)
+if want('Grain'):
+    N3 = 1024; px3 = 0.5 / N3
+    g1 = periodic_noise(N3, 1.2, aniso=(1.0, 0.2), seed=121); g2 = periodic_noise(N3, 2.0, seed=122)
+    col = np.array([0.55, 0.42, 0.16], dtype=np.float32) * (0.75 + 0.5 * g1)[..., None]
+    col = col + (np.clip((g2 - 0.6) * 3, 0, 1) * 0.06)[..., None] * np.array([1.0, 0.8, 0.3], dtype=np.float32)
+    save_set('Grain', np.clip(col, 0, 1), normal_from_height(g1 * 0.002, px3), np.clip(0.62 + 0.2 * g2, 0.3, 0.9), np.clip(0.6 + 0.4 * g1, 0, 1).astype(np.float32))
 print('done')

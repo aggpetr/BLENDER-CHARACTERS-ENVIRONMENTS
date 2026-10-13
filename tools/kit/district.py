@@ -227,7 +227,7 @@ def to_json(pl):
 
 
 # ======================================================================= node group
-def build_group(house_group, name='GN_EdoKitVillage', plan_data=None):
+def build_group(house_group, name='GN_EdoKitVillage', plan_data=None, plaza=True):
     import bpy
     from gn_house import GB
     pl = plan_data or plan()
@@ -237,7 +237,8 @@ def build_group(house_group, name='GN_EdoKitVillage', plan_data=None):
     it = t.interface
     it.new_socket('Geometry', in_out='INPUT', socket_type='NodeSocketGeometry')
     it.new_socket('Ground', in_out='INPUT', socket_type='NodeSocketObject').description = 'Terrain the district stands on'
-    pr = it.new_socket('Plaza Radius', in_out='INPUT', socket_type='NodeSocketFloat'); pr.default_value = PLAZA_R; pr.min_value = 5.0; pr.max_value = 60.0
+    if plaza:
+        pr = it.new_socket('Plaza Radius', in_out='INPUT', socket_type='NodeSocketFloat'); pr.default_value = PLAZA_R; pr.min_value = 5.0; pr.max_value = 60.0
     rl = it.new_socket('Realize', in_out='INPUT', socket_type='NodeSocketBool'); rl.default_value = False
     it.new_socket('Geometry', in_out='OUTPUT', socket_type='NodeSocketGeometry')
     g = GB(t)
@@ -267,31 +268,32 @@ def build_group(house_group, name='GN_EdoKitVillage', plan_data=None):
         g.L.new(G('Ground'), n.inputs['Ground'])
         parts.append(n.outputs['Geometry'])
 
-    # ---- plaza disc (conforms to the terrain)
-    mc = g.node('GeometryNodeMeshCircle', fill_type='TRIANGLE_FAN'); g.put(mc, 'Vertices', 64); g.put(mc, 'Radius', G('Plaza Radius'))
-    sub = g.node('GeometryNodeSubdivideMesh'); g.L.new(mc.outputs[0], g.I(sub, 'Mesh')); g.put(sub, 'Level', 3)
-    disc = g.set_pos(sub.outputs[0], position=None, offset=g.vec(0.0, 0.0, g.add(gz(), 0.04)))
-    # the above offset adds the terrain height to z (the disc is flat at z = 0)
-    sm = g.node('GeometryNodeSetMaterial'); g.L.new(disc, g.I(sm, 'Geometry'))
-    mat = bpy.data.materials.get('MAT_Edo_Plaza')
-    if mat is None:
-        mat = bpy.data.materials.new('MAT_Edo_Plaza'); mat.diffuse_color = (0.52, 0.46, 0.34, 1.0)
-    sm.inputs['Material'].default_value = mat
-    parts.append(sm.outputs[0])
+    if plaza:
+        # ---- plaza disc (conforms to the terrain)
+        mc = g.node('GeometryNodeMeshCircle', fill_type='TRIANGLE_FAN'); g.put(mc, 'Vertices', 64); g.put(mc, 'Radius', G('Plaza Radius'))
+        sub = g.node('GeometryNodeSubdivideMesh'); g.L.new(mc.outputs[0], g.I(sub, 'Mesh')); g.put(sub, 'Level', 3)
+        disc = g.set_pos(sub.outputs[0], position=None, offset=g.vec(0.0, 0.0, g.add(gz(), 0.04)))
+        # the above offset adds the terrain height to z (the disc is flat at z = 0)
+        sm = g.node('GeometryNodeSetMaterial'); g.L.new(disc, g.I(sm, 'Geometry'))
+        mat = bpy.data.materials.get('MAT_Edo_Plaza')
+        if mat is None:
+            mat = bpy.data.materials.new('MAT_Edo_Plaza'); mat.diffuse_color = (0.52, 0.46, 0.34, 1.0)
+        sm.inputs['Material'].default_value = mat
+        parts.append(sm.outputs[0])
 
-    # ---- plaza furniture
-    def circle_points(count, radius):
-        c = g.node('GeometryNodeMeshCircle', fill_type='NONE'); g.put(c, 'Vertices', count); g.put(c, 'Radius', radius)
-        p = g.node('GeometryNodeMeshToPoints'); g.L.new(c.outputs[0], g.I(p, 'Mesh'))
-        return p.outputs[0]
-    on_ground = lambda pts: g.set_pos(pts, offset=g.vec(0.0, 0.0, g.add(gz(), 0.04)))
-    parts.append(g.inst(on_ground(circle_points(12, g.sub(G('Plaza Radius'), 2.6))), 'KIT_Toro', 0, 0.0))
-    ang = g.add(g.mul(g.index(), 2 * math.pi / 8), math.pi / 2)
-    parts.append(g.inst(on_ground(circle_points(8, g.sub(G('Plaza Radius'), 6.5))), 'KIT_Bench', 0, ang))
-    parts.append(g.inst(on_ground(g.point(g.vec(0.0, 0.0, 0.0))), 'KIT_Well', 0, 0.0))
-    bx = g.mul(g.sub(G('Plaza Radius'), 1.4), math.cos(math.radians(150)))
-    by = g.mul(g.sub(G('Plaza Radius'), 1.4), math.sin(math.radians(150)))
-    parts.append(g.inst(on_ground(g.point(g.vec(bx, by, 0.0))), 'KIT_Board', 0, math.radians(60)))
+        # ---- plaza furniture
+        def circle_points(count, radius):
+            c = g.node('GeometryNodeMeshCircle', fill_type='NONE'); g.put(c, 'Vertices', count); g.put(c, 'Radius', radius)
+            p = g.node('GeometryNodeMeshToPoints'); g.L.new(c.outputs[0], g.I(p, 'Mesh'))
+            return p.outputs[0]
+        on_ground = lambda pts: g.set_pos(pts, offset=g.vec(0.0, 0.0, g.add(gz(), 0.04)))
+        parts.append(g.inst(on_ground(circle_points(12, g.sub(G('Plaza Radius'), 2.6))), 'KIT_Toro', 0, 0.0))
+        ang = g.add(g.mul(g.index(), 2 * math.pi / 8), math.pi / 2)
+        parts.append(g.inst(on_ground(circle_points(8, g.sub(G('Plaza Radius'), 6.5))), 'KIT_Bench', 0, ang))
+        parts.append(g.inst(on_ground(g.point(g.vec(0.0, 0.0, 0.0))), 'KIT_Well', 0, 0.0))
+        bx = g.mul(g.sub(G('Plaza Radius'), 1.4), math.cos(math.radians(150)))
+        by = g.mul(g.sub(G('Plaza Radius'), 1.4), math.sin(math.radians(150)))
+        parts.append(g.inst(on_ground(g.point(g.vec(bx, by, 0.0))), 'KIT_Board', 0, math.radians(60)))
 
     allg = g.join(*parts)
     rz = g.node('GeometryNodeRealizeInstances'); g.L.new(allg, g.I(rz, 'Geometry'))

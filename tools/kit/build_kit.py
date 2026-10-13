@@ -5,7 +5,7 @@
 import sys, os, math, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bpy
-import kit_lib, modules, gn_house, district
+import kit_lib, modules, gn_house, district, gn_town, town
 
 OUT = os.path.abspath(sys.argv[-1])
 bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -24,8 +24,15 @@ for cname, mbs in modules.build_all().items():
 bpy.context.view_layer.layer_collection.children['KIT_Modules'].exclude = True
 
 gn = gn_house.build()
+BRIDGE_GAPS = town.bridge_gaps()     # canal x -178: where the town's bridges are (no bank there)
+fgroup = gn_town.build_field(); egroup = gn_town.build_embank(BRIDGE_GAPS)
 plan = district.plan()
+os.makedirs(os.path.join(os.path.dirname(OUT), 'village'), exist_ok=True)
+json.dump(district.to_json(plan), open(os.path.join(os.path.dirname(OUT), 'village', 'district_layout.json'), 'w'), indent=1)     # the town planner reads it
 dgroup = district.build_group(gn, plan_data=plan)
+tplan = town.plan()
+tgroup = district.build_group(gn, name='GN_EdoKitTown', plan_data=tplan, plaza=False)
+for g_ in (tgroup, fgroup, egroup, dgroup, gn): g_.use_fake_user = True      # keep every group in the saved kit even without a user
 
 # ---------------------------------------------------------------- test houses (dwellA and size variants)
 tests = bpy.data.collections.new('KIT_TestHouses'); scene.collection.children.link(tests)
@@ -65,6 +72,25 @@ for i, (name, a) in enumerate(ARCH.items()):
              'Fence': a.get('fence', 0), 'Gate': bool(a.get('gate')), 'Props': 0.6, 'Seed': 10 + i, 'Category': a.get('cat', 0)})
 json.dump(ARCH, open(os.path.join(os.path.dirname(OUT), 'archetypes.json'), 'w'), indent=1)
 
+# fields and canal bank tests
+def mod_obj(name, loc, group, **kw):
+    ob = bpy.data.objects.new(name, bpy.data.meshes.new(name)); tests.objects.link(ob); ob.location = loc
+    m = ob.modifiers.new(group.name, 'NODES'); m.node_group = group
+    ids = {x.name: x.identifier for x in group.interface.items_tree if x.item_type == 'SOCKET' and x.in_out == 'INPUT'}
+    m.properties.inputs[ids['Ground']]['value'] = flat
+    for k, v in kw.items(): m.properties.inputs[ids[k]]['value'] = v
+    return ob
+mod_obj('TEST_Field_Veg', (-60, 40, 0), fgroup, **{'Size X': 24.0, 'Size Y': 14.0, 'Crop': 0, 'Seed': 3})
+mod_obj('TEST_Field_Grain', (-60, 60, 0), fgroup, **{'Size X': 24.0, 'Size Y': 14.0, 'Crop': 1, 'Seed': 4})
+mod_obj('TEST_Paddy', (-60, 80, 0), fgroup, **{'Size X': 24.0, 'Size Y': 14.0, 'Crop': 2, 'Seed': 5})
+cu = bpy.data.curves.new('TEST_Canal', 'CURVE'); cu.dimensions = '3D'
+sp = cu.splines.new('POLY'); sp.points.add(2)
+for p_, (x_, y_) in zip(sp.points, ((60, 40), (60, 90), (60, 140))): p_.co = (x_, y_, 0.0, 1.0)
+cob = bpy.data.objects.new('TEST_Canal', cu); tests.objects.link(cob)
+em = cob.modifiers.new('EdoKitEmbank', 'NODES'); em.node_group = egroup
+eid = {x.name: x.identifier for x in egroup.interface.items_tree if x.item_type == 'SOCKET' and x.in_out == 'INPUT'}
+em.properties.inputs[eid['Ground']]['value'] = flat
+
 # district test: the whole plaza district on its own flat ground
 dg_ground = ground('TEST_Ground_District', 400, (0, 900, 0))
 dobj = bpy.data.objects.new('DISTRICT_TEST', bpy.data.meshes.new('DISTRICT_TEST')); tests.objects.link(dobj)
@@ -75,6 +101,7 @@ dm.properties.inputs[did['Ground']]['value'] = dg_ground
 os.makedirs(os.path.join(os.path.dirname(OUT), 'village'), exist_ok=True)
 json.dump(district.to_json(plan), open(os.path.join(os.path.dirname(OUT), 'village', 'district_layout.json'), 'w'), indent=1)
 
+json.dump(town.to_json(tplan), open(os.path.join(os.path.dirname(OUT), 'village', 'town_layout.json'), 'w'), indent=1)
 bpy.ops.wm.save_as_mainfile(filepath=OUT, relative_remap=True)
 json.dump(report, open(os.path.join(os.path.dirname(OUT), 'module_report.json'), 'w'), indent=1)
 for r in report:

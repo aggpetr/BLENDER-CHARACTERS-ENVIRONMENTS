@@ -988,6 +988,7 @@ def build_all():
         'KIT_Bench': [bench()],
         'KIT_Board': [board()],
     }
-    import modules_cat
+    import modules_cat, modules_town
     kit.update(modules_cat.build_cat())
+    kit.update(modules_town.build_town())
     return kit

@@ -25,7 +25,8 @@ IMPORT_MESHES = True
 IMPORT_DISTRICT_GROUND = True  # the new plaza district: plaza + streets meshes from kit/export/district/*.fbx
 PLACE_GROUND = True            # put the plaza and street meshes at the world origin (they are exported in world space)
 PLACE_VILLAGE = False          # place the houses from the manifest as actors (25,000 module actors for everything: start small)
-HOUSES = ['DISTRICT_*']        # fnmatch patterns on house names in the manifest, e.g. ['DISTRICT_*'], ['TWN_1*', 'DISTRICT_HALL'], None = all
+HOUSES = ['DISTRICT_*', 'TOWN_*', 'BRIDGE_*', 'PROP_*']   # fnmatch patterns on house names in the manifest, e.g. ['DISTRICT_*'], ['TWN_1*', 'DISTRICT_HALL'], None = all
+PLACE_FIELDS = False           # crops, paddies and canal bank from village/fields_manifest.json as instanced static meshes (about 100k instances)
 LANTERN_LIGHTS = True
 
 MOSS = {'Kawara': 0.50, 'Stone': 0.38, 'Timber': 0.10, 'Planks': 0.08, 'Thatch': 0.30, 'StoneWall': 0.40}
@@ -261,3 +262,28 @@ if PLACE_VILLAGE:
                 c.set_editor_property('light_color', unreal.Color(255, 160, 80, 255))
                 l.set_folder_path(folder)
     log(f'EdoKit: placed {n} module actors')
+
+
+# ------------------------------------------------------------------ fields and canal bank (instanced static meshes)
+if PLACE_FIELDS:
+    fm = json.load(open(os.path.join(KIT_DIR, 'village', 'fields_manifest.json')))
+    actors = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
+    sub = unreal.get_engine_subsystem(unreal.SubobjectDataSubsystem)
+    total = 0
+    for oname, per in fm['objects'].items():
+        for mname, rows in per.items():
+            mesh = meshes.get(mname)
+            if mesh is None or not rows: continue
+            try:                                                   # one actor with a hierarchical instanced mesh per module
+                a = actors.spawn_actor_from_class(unreal.Actor, unreal.Vector(0, 0, 0))
+                root = sub.k2_gather_subobject_data_for_instance(a)[0]
+                params = unreal.AddNewSubobjectParams(parent_handle=root, new_class=unreal.HierarchicalInstancedStaticMeshComponent)
+                handle, fail = sub.add_new_subobject(params)
+                comp = unreal.SubobjectDataBlueprintFunctionLibrary.get_object(sub.k2_find_subobject_data_from_handle(handle))
+                comp.set_static_mesh(mesh)
+                for x, y, z, yaw, sx, sy, sz in rows:
+                    comp.add_instance(unreal.Transform(unreal.Vector(x * 100, -y * 100, z * 100), unreal.Rotator(0, 0, -yaw), unreal.Vector(sx, sy, sz)))
+                a.set_actor_label(f'{oname}_{mname}'); a.set_folder_path('EdoVillage/Fields'); total += len(rows)
+            except Exception as e:
+                unreal.log_warning(f'instanced placement failed for {oname}/{mname}: {e}'); break
+    log(f'EdoKit: {total} field / canal bank instances')
