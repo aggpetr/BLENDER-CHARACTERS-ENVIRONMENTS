@@ -186,6 +186,7 @@ def build():
     sock('Fence', 'NodeSocketInt', 0, 0, 2, '0 none, 1 board fence, 2 stone compound wall')
     sock('Gate', 'NodeSocketBool', False, desc='Roofed gate in the front opening of the fence')
     sock('Props', 'NodeSocketFloat', 0.6, 0.0, 1.0, 'Amount of yard props along the back and sides')
+    sock('Raise', 'NodeSocketFloat', 1.12, 0.0, 3.0, 'Stilt height: floor = highest ground under the posts + Raise + 0.18 m (original default 1.12)')
     sock('Seed', 'NodeSocketInt', 0, 0, 100000, 'Variant seed (wall layout, footing stones, props)')
     sock('Realize', 'NodeSocketBool', False, desc='Output real geometry instead of instances (for export as one mesh)')
     it.new_socket('Geometry', in_out='OUTPUT', socket_type='NodeSocketGeometry')
@@ -223,7 +224,7 @@ def build():
 
     # ---------------------------------------------------------- foundation and floor
     gp = g.grid(g.add(nx, 1), g.add(ny, 1), W, D)
-    F = g.add(g.stat_max(gp, gz()), FLOOR_ABOVE_GROUND)
+    F = g.add(g.add(g.stat_max(gp, gz()), G('Raise')), FLOOR_ABOVE_GROUND - 1.12)
     parts.append(g.inst(g.set_z(gp, gz()), 'KIT_Footing', g.rnd('INT', 0, 2, seed, 3), g.rnd('FLOAT', 0.0, 2 * PI, seed, 4)))
     parts.append(g.inst(g.set_z(gp, F), 'KIT_Stilt', stilt_index(g.sub(F, 0.25), gz())))
     parts.append(g.inst(g.set_z(gp, F), 'KIT_PostStorey'))

@@ -6,6 +6,12 @@
   "tris": 70,
   "materials": [
    "M_Edo_Stone"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Footing_A_00",
+    "verts": 40
+   }
   ]
  },
  {
@@ -15,6 +21,12 @@
   "tris": 70,
   "materials": [
    "M_Edo_Stone"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Footing_B_00",
+    "verts": 40
+   }
   ]
  },
  {
@@ -24,6 +36,12 @@
   "tris": 70,
   "materials": [
    "M_Edo_Stone"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Footing_C_00",
+    "verts": 40
+   }
   ]
  },
  {
@@ -33,6 +51,12 @@
   "tris": 10,
   "materials": [
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Stilt_L1_00",
+    "verts": 8
+   }
   ]
  },
  {
@@ -42,6 +66,12 @@
   "tris": 10,
   "materials": [
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Stilt_L2_00",
+    "verts": 8
+   }
   ]
  },
  {
@@ -51,6 +81,12 @@
   "tris": 10,
   "materials": [
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Stilt_L3_00",
+    "verts": 8
+   }
   ]
  },
  {
@@ -60,6 +96,12 @@
   "tris": 12,
   "materials": [
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_FloorBeam_00",
+    "verts": 8
+   }
   ]
  },
  {
@@ -69,6 +111,12 @@
   "tris": 12,
   "materials": [
    "M_Edo_Planks"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_FloorDeck_00",
+    "verts": 8
+   }
   ]
  },
  {
@@ -78,6 +126,12 @@
   "tris": 10,
   "materials": [
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Post_Storey_00",
+    "verts": 8
+   }
   ]
  },
  {
@@ -89,6 +143,12 @@
    "M_Edo_Plaster",
    "M_Edo_Planks",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Wall_A_Plaster_00",
+    "verts": 18
+   }
   ]
  },
  {
@@ -101,6 +161,12 @@
    "M_Edo_Planks",
    "M_Edo_Timber",
    "M_Edo_Paper"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Wall_B_Lattice_00",
+    "verts": 20
+   }
   ]
  },
  {
@@ -112,6 +178,12 @@
    "M_Edo_Timber",
    "M_Edo_Planks",
    "M_Edo_Plaster"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Wall_C_Door_00",
+    "verts": 16
+   }
   ]
  },
  {
@@ -124,6 +196,12 @@
    "M_Edo_Planks",
    "M_Edo_Paper",
    "M_Edo_Plaster"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Wall_D_Shoji_00",
+    "verts": 14
+   }
   ]
  },
  {
@@ -135,6 +213,12 @@
    "M_Edo_Plaster",
    "M_Edo_Planks",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Wall_E_PlasterFull_00",
+    "verts": 14
+   }
   ]
  },
  {
@@ -147,6 +231,12 @@
    "M_Edo_Planks",
    "M_Edo_Plaster",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofEnd_D1_00.001",
+    "verts": 52
+   }
   ]
  },
  {
@@ -159,6 +249,12 @@
    "M_Edo_Planks",
    "M_Edo_Plaster",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofEnd_D2_00.001",
+    "verts": 63
+   }
   ]
  },
  {
@@ -171,6 +267,12 @@
    "M_Edo_Planks",
    "M_Edo_Plaster",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofEnd_D3_00.001",
+    "verts": 61
+   }
   ]
  },
  {
@@ -183,6 +285,12 @@
    "M_Edo_Planks",
    "M_Edo_Plaster",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofEnd_D4_00.001",
+    "verts": 52
+   }
   ]
  },
  {
@@ -195,6 +303,12 @@
    "M_Edo_Planks",
    "M_Edo_Plaster",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofEnd_D5_00.001",
+    "verts": 59
+   }
   ]
  },
  {
@@ -207,6 +321,12 @@
    "M_Edo_Planks",
    "M_Edo_Plaster",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofEnd_D6_00.001",
+    "verts": 51
+   }
   ]
  },
  {
@@ -219,6 +339,12 @@
    "M_Edo_Planks",
    "M_Edo_Plaster",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofEndApex_D1_00.001",
+    "verts": 47
+   }
   ]
  },
  {
@@ -231,6 +357,12 @@
    "M_Edo_Planks",
    "M_Edo_Plaster",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofEndApex_D2_00.001",
+    "verts": 56
+   }
   ]
  },
  {
@@ -243,6 +375,12 @@
    "M_Edo_Planks",
    "M_Edo_Plaster",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofEndApex_D3_00.001",
+    "verts": 54
+   }
   ]
  },
  {
@@ -255,6 +393,12 @@
    "M_Edo_Planks",
    "M_Edo_Plaster",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofEndApex_D4_00.001",
+    "verts": 49
+   }
   ]
  },
  {
@@ -267,6 +411,12 @@
    "M_Edo_Planks",
    "M_Edo_Plaster",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofEndApex_D5_00.001",
+    "verts": 53
+   }
   ]
  },
  {
@@ -279,6 +429,12 @@
    "M_Edo_Planks",
    "M_Edo_Plaster",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofEndApex_D6_00.001",
+    "verts": 46
+   }
   ]
  },
  {
@@ -291,6 +447,12 @@
    "M_Edo_Planks",
    "M_Edo_Plaster",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofMid_D1_00",
+    "verts": 18
+   }
   ]
  },
  {
@@ -303,6 +465,12 @@
    "M_Edo_Planks",
    "M_Edo_Plaster",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofMid_D2_00",
+    "verts": 18
+   }
   ]
  },
  {
@@ -315,6 +483,12 @@
    "M_Edo_Planks",
    "M_Edo_Plaster",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofMid_D3_00",
+    "verts": 18
+   }
   ]
  },
  {
@@ -327,6 +501,12 @@
    "M_Edo_Planks",
    "M_Edo_Plaster",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofMid_D4_00",
+    "verts": 18
+   }
   ]
  },
  {
@@ -339,6 +519,12 @@
    "M_Edo_Planks",
    "M_Edo_Plaster",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofMid_D5_00",
+    "verts": 18
+   }
   ]
  },
  {
@@ -351,6 +537,12 @@
    "M_Edo_Planks",
    "M_Edo_Plaster",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofMid_D6_00",
+    "verts": 18
+   }
   ]
  },
  {
@@ -360,6 +552,12 @@
   "tris": 100,
   "materials": [
    "M_Edo_Kawara"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofApex_D1_00",
+    "verts": 44
+   }
   ]
  },
  {
@@ -369,6 +567,12 @@
   "tris": 100,
   "materials": [
    "M_Edo_Kawara"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofApex_D2_00",
+    "verts": 44
+   }
   ]
  },
  {
@@ -378,6 +582,12 @@
   "tris": 100,
   "materials": [
    "M_Edo_Kawara"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofApex_D3_00",
+    "verts": 44
+   }
   ]
  },
  {
@@ -387,6 +597,12 @@
   "tris": 100,
   "materials": [
    "M_Edo_Kawara"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofApex_D4_00",
+    "verts": 44
+   }
   ]
  },
  {
@@ -396,6 +612,12 @@
   "tris": 100,
   "materials": [
    "M_Edo_Kawara"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofApex_D5_00",
+    "verts": 44
+   }
   ]
  },
  {
@@ -405,6 +627,12 @@
   "tris": 100,
   "materials": [
    "M_Edo_Kawara"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RoofApex_D6_00",
+    "verts": 44
+   }
   ]
  },
  {
@@ -415,6 +643,12 @@
   "materials": [
    "M_Edo_Planks",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_EngawaDeck_00",
+    "verts": 18
+   }
   ]
  },
  {
@@ -424,6 +658,12 @@
   "tris": 10,
   "materials": [
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_EngawaPost_L1_00",
+    "verts": 8
+   }
   ]
  },
  {
@@ -433,6 +673,12 @@
   "tris": 10,
   "materials": [
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_EngawaPost_L2_00",
+    "verts": 8
+   }
   ]
  },
  {
@@ -442,6 +688,12 @@
   "tris": 10,
   "materials": [
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_EngawaPost_L3_00",
+    "verts": 8
+   }
   ]
  },
  {
@@ -451,6 +703,12 @@
   "tris": 204,
   "materials": [
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Railing_Bay_00",
+    "verts": 18
+   }
   ]
  },
  {
@@ -460,6 +718,12 @@
   "tris": 12,
   "materials": [
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Railing_Open_00",
+    "verts": 8
+   }
   ]
  },
  {
@@ -469,6 +733,12 @@
   "tris": 108,
   "materials": [
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RailingEnd_00",
+    "verts": 12
+   }
   ]
  },
  {
@@ -478,6 +748,12 @@
   "tris": 12,
   "materials": [
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_RailPost_00",
+    "verts": 8
+   }
   ]
  },
  {
@@ -488,6 +764,12 @@
   "materials": [
    "M_Edo_Planks",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Steps_N02_00",
+    "verts": 10
+   }
   ]
  },
  {
@@ -498,6 +780,12 @@
   "materials": [
    "M_Edo_Planks",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Steps_N03_00",
+    "verts": 10
+   }
   ]
  },
  {
@@ -508,6 +796,12 @@
   "materials": [
    "M_Edo_Planks",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Steps_N04_00",
+    "verts": 10
+   }
   ]
  },
  {
@@ -518,6 +812,12 @@
   "materials": [
    "M_Edo_Planks",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Steps_N05_00",
+    "verts": 10
+   }
   ]
  },
  {
@@ -528,6 +828,12 @@
   "materials": [
    "M_Edo_Planks",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Steps_N06_00",
+    "verts": 10
+   }
   ]
  },
  {
@@ -538,6 +844,12 @@
   "materials": [
    "M_Edo_Planks",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Steps_N07_00",
+    "verts": 10
+   }
   ]
  },
  {
@@ -548,6 +860,12 @@
   "materials": [
    "M_Edo_Planks",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Steps_N08_00",
+    "verts": 10
+   }
   ]
  },
  {
@@ -558,6 +876,12 @@
   "materials": [
    "M_Edo_Planks",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Steps_N09_00",
+    "verts": 10
+   }
   ]
  },
  {
@@ -568,6 +892,12 @@
   "materials": [
    "M_Edo_Planks",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Steps_N10_00",
+    "verts": 10
+   }
   ]
  },
  {
@@ -578,6 +908,12 @@
   "materials": [
    "M_Edo_Planks",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Steps_N11_00",
+    "verts": 10
+   }
   ]
  },
  {
@@ -588,6 +924,12 @@
   "materials": [
    "M_Edo_Planks",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Steps_N12_00",
+    "verts": 10
+   }
   ]
  },
  {
@@ -598,6 +940,12 @@
   "materials": [
    "M_Edo_Planks",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Steps_N13_00",
+    "verts": 10
+   }
   ]
  },
  {
@@ -608,6 +956,12 @@
   "materials": [
    "M_Edo_Planks",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Steps_N14_00",
+    "verts": 10
+   }
   ]
  },
  {
@@ -618,6 +972,12 @@
   "materials": [
    "M_Edo_Planks",
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_FenceSeg_00",
+    "verts": 20
+   }
   ]
  },
  {
@@ -627,6 +987,12 @@
   "tris": 22,
   "materials": [
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_FencePost_00",
+    "verts": 12
+   }
   ]
  },
  {
@@ -636,6 +1002,12 @@
   "tris": 308,
   "materials": [
    "M_Edo_Thatch"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Prop_Bale_00",
+    "verts": 96
+   }
   ]
  },
  {
@@ -646,6 +1018,12 @@
   "materials": [
    "M_Edo_Planks",
    "M_Edo_Thatch"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Prop_Barrel_00",
+    "verts": 84
+   }
   ]
  },
  {
@@ -655,6 +1033,12 @@
   "tris": 220,
   "materials": [
    "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Prop_Firewood_00",
+    "verts": 41
+   }
   ]
  },
  {
@@ -665,6 +1049,355 @@
   "materials": [
    "M_Edo_Ceramic",
    "M_Edo_Planks"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Prop_Jar_00",
+    "verts": 60
+   }
+  ]
+ },
+ {
+  "collection": "KIT_PentSide",
+  "module": "SM_Edo_PentSide",
+  "file": "modules/KIT_PentSide/SM_Edo_PentSide.fbx",
+  "tris": 174,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_PentSide_00",
+    "verts": 18
+   }
+  ]
+ },
+ {
+  "collection": "KIT_PentCorner",
+  "module": "SM_Edo_PentCorner",
+  "file": "modules/KIT_PentCorner/SM_Edo_PentCorner.fbx",
+  "tris": 227,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_PentCorner_00",
+    "verts": 58
+   }
+  ]
+ },
+ {
+  "collection": "KIT_BalconyBracket",
+  "module": "SM_Edo_BalconyBracket",
+  "file": "modules/KIT_BalconyBracket/SM_Edo_BalconyBracket.fbx",
+  "tris": 12,
+  "materials": [
+   "M_Edo_Timber"
+  ],
+  "collision": []
+ },
+ {
+  "collection": "KIT_Noren",
+  "module": "SM_Edo_Noren",
+  "file": "modules/KIT_Noren/SM_Edo_Noren.fbx",
+  "tris": 72,
+  "materials": [
+   "M_Edo_Timber",
+   "M_Edo_Cloth"
+  ],
+  "collision": []
+ },
+ {
+  "collection": "KIT_ShopSign",
+  "module": "SM_Edo_ShopSign",
+  "file": "modules/KIT_ShopSign/SM_Edo_ShopSign.fbx",
+  "tris": 60,
+  "materials": [
+   "M_Edo_Timber",
+   "M_Edo_Planks"
+  ],
+  "collision": []
+ },
+ {
+  "collection": "KIT_Lantern",
+  "module": "SM_Edo_Lantern",
+  "file": "modules/KIT_Lantern/SM_Edo_Lantern.fbx",
+  "tris": 232,
+  "materials": [
+   "M_Edo_Timber",
+   "M_Edo_Lantern"
+  ],
+  "collision": []
+ },
+ {
+  "collection": "KIT_ThatchEnd",
+  "module": "SM_Edo_ThatchEnd_D1",
+  "file": "modules/KIT_ThatchEnd/SM_Edo_ThatchEnd_D1.fbx",
+  "tris": 342,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_ThatchEnd_D1_00",
+    "verts": 35
+   }
+  ]
+ },
+ {
+  "collection": "KIT_ThatchEnd",
+  "module": "SM_Edo_ThatchEnd_D2",
+  "file": "modules/KIT_ThatchEnd/SM_Edo_ThatchEnd_D2.fbx",
+  "tris": 342,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_ThatchEnd_D2_00",
+    "verts": 35
+   }
+  ]
+ },
+ {
+  "collection": "KIT_ThatchEnd",
+  "module": "SM_Edo_ThatchEnd_D3",
+  "file": "modules/KIT_ThatchEnd/SM_Edo_ThatchEnd_D3.fbx",
+  "tris": 342,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_ThatchEnd_D3_00",
+    "verts": 35
+   }
+  ]
+ },
+ {
+  "collection": "KIT_ThatchEnd",
+  "module": "SM_Edo_ThatchEnd_D4",
+  "file": "modules/KIT_ThatchEnd/SM_Edo_ThatchEnd_D4.fbx",
+  "tris": 342,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_ThatchEnd_D4_00",
+    "verts": 39
+   }
+  ]
+ },
+ {
+  "collection": "KIT_ThatchEnd",
+  "module": "SM_Edo_ThatchEnd_D5",
+  "file": "modules/KIT_ThatchEnd/SM_Edo_ThatchEnd_D5.fbx",
+  "tris": 342,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_ThatchEnd_D5_00",
+    "verts": 37
+   }
+  ]
+ },
+ {
+  "collection": "KIT_ThatchEnd",
+  "module": "SM_Edo_ThatchEnd_D6",
+  "file": "modules/KIT_ThatchEnd/SM_Edo_ThatchEnd_D6.fbx",
+  "tris": 342,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_ThatchEnd_D6_00",
+    "verts": 49
+   }
+  ]
+ },
+ {
+  "collection": "KIT_ThatchMid",
+  "module": "SM_Edo_ThatchMid_D1",
+  "file": "modules/KIT_ThatchMid/SM_Edo_ThatchMid_D1.fbx",
+  "tris": 284,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_ThatchMid_D1_00",
+    "verts": 14
+   }
+  ]
+ },
+ {
+  "collection": "KIT_ThatchMid",
+  "module": "SM_Edo_ThatchMid_D2",
+  "file": "modules/KIT_ThatchMid/SM_Edo_ThatchMid_D2.fbx",
+  "tris": 284,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_ThatchMid_D2_00",
+    "verts": 14
+   }
+  ]
+ },
+ {
+  "collection": "KIT_ThatchMid",
+  "module": "SM_Edo_ThatchMid_D3",
+  "file": "modules/KIT_ThatchMid/SM_Edo_ThatchMid_D3.fbx",
+  "tris": 284,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_ThatchMid_D3_00",
+    "verts": 14
+   }
+  ]
+ },
+ {
+  "collection": "KIT_ThatchMid",
+  "module": "SM_Edo_ThatchMid_D4",
+  "file": "modules/KIT_ThatchMid/SM_Edo_ThatchMid_D4.fbx",
+  "tris": 284,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_ThatchMid_D4_00",
+    "verts": 18
+   }
+  ]
+ },
+ {
+  "collection": "KIT_ThatchMid",
+  "module": "SM_Edo_ThatchMid_D5",
+  "file": "modules/KIT_ThatchMid/SM_Edo_ThatchMid_D5.fbx",
+  "tris": 284,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_ThatchMid_D5_00",
+    "verts": 18
+   }
+  ]
+ },
+ {
+  "collection": "KIT_ThatchMid",
+  "module": "SM_Edo_ThatchMid_D6",
+  "file": "modules/KIT_ThatchMid/SM_Edo_ThatchMid_D6.fbx",
+  "tris": 284,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_ThatchMid_D6_00",
+    "verts": 22
+   }
+  ]
+ },
+ {
+  "collection": "KIT_Wall2Seg",
+  "module": "SM_Edo_Wall2Seg",
+  "file": "modules/KIT_Wall2Seg/SM_Edo_Wall2Seg.fbx",
+  "tris": 170,
+  "materials": [
+   "M_Edo_StoneWall",
+   "M_Edo_Plaster",
+   "M_Edo_Timber",
+   "M_Edo_Kawara",
+   "M_Edo_Planks"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Wall2Seg_00",
+    "verts": 18
+   }
+  ]
+ },
+ {
+  "collection": "KIT_Wall2Pier",
+  "module": "SM_Edo_Wall2Pier",
+  "file": "modules/KIT_Wall2Pier/SM_Edo_Wall2Pier.fbx",
+  "tris": 54,
+  "materials": [
+   "M_Edo_StoneWall",
+   "M_Edo_Plaster",
+   "M_Edo_Timber",
+   "M_Edo_Kawara"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Wall2Pier_00",
+    "verts": 21
+   }
+  ]
+ },
+ {
+  "collection": "KIT_Gate",
+  "module": "SM_Edo_Gate",
+  "file": "modules/KIT_Gate/SM_Edo_Gate.fbx",
+  "tris": 420,
+  "materials": [
+   "M_Edo_Timber",
+   "M_Edo_Stone",
+   "M_Edo_Kawara",
+   "M_Edo_Planks"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Gate_00",
+    "verts": 8
+   },
+   {
+    "name": "UCX_SM_Edo_Gate_01",
+    "verts": 8
+   },
+   {
+    "name": "UCX_SM_Edo_Gate_02",
+    "verts": 8
+   }
   ]
  },
  {
