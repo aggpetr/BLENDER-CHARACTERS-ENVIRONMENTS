@@ -230,7 +230,7 @@ if want('Iron'):
 # ---------------------------------------------------------------- Leaf (shrubs, pine needles, 1K, 0.5 m)
 if want('Leaf'):
     l1 = periodic_noise(N3, 1.2, seed=91); l2 = periodic_noise(N3, 2.0, seed=92); l3 = periodic_noise(N3, 0.8, seed=93)
-    col = np.array([0.075, 0.17, 0.045], dtype=np.float32) * (0.65 + 0.9 * l1)[..., None]
+    col = np.array([0.14, 0.34, 0.075], dtype=np.float32) * (0.7 + 0.8 * l1)[..., None]
     col = col + (np.clip((l2 - 0.6) * 3, 0, 1) * 0.05)[..., None] * np.array([1.0, 0.9, 0.2], dtype=np.float32)
     save_set('Leaf', np.clip(col, 0, 1), normal_from_height(l3 * 0.004, px3), np.clip(0.6 + 0.2 * l1, 0.3, 0.9), np.clip(0.5 + 0.5 * l1, 0, 1).astype(np.float32))
 # ---------------------------------------------------------------- Red cloth (stall awnings, parasol, 2K, 1 m)

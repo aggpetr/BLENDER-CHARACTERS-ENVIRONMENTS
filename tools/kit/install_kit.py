@@ -191,7 +191,8 @@ if TOWN_EXTENSION:
         if src is None: continue
         half = 9.1 if 'Arch' in mod else 4.6
         ca, sa = math.cos(math.radians(rotd)), math.sin(math.radians(rotd))
-        z = max(zat(bx_ + ca * half, by_ + sa * half), zat(bx_ - ca * half, by_ - sa * half)) + (0.05 if 'Arch' in mod else 0.18)
+        ends = (zat(bx_ + ca * half, by_ + sa * half), zat(bx_ - ca * half, by_ - sa * half))
+        z = (min(ends) + 0.05) if 'Arch' in mod else (max(ends) + 0.18)      # the arch sinks into the higher bank, a flat bridge sits on the higher end
         ob = D.objects.new(oname + '_KIT', src.data); ob.location = (bx_, by_, z); ob.rotation_euler = (0, 0, math.radians(rotd)); bcoll.objects.link(ob)
         if orig is not None: orig.hide_viewport = True; orig.hide_render = True
         n_br += 1

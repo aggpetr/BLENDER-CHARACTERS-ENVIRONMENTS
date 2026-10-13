@@ -176,7 +176,7 @@ def embank_cobble():
                 continue
             s = len(mb.bm.verts)
             h = rnd.uniform(0.07, 0.10)
-            mb.lathe([(0.0, 0.0), (r, 0.0), (r * 1.02, h * 0.45), (r * 0.78, h * 0.9), (0.0, h)], 7, 'StoneWall', cap_top=False, smooth=True, phase=rnd.random() * 3)
+            mb.lathe([(0.0, 0.0), (r, 0.0), (r * 1.02, h * 0.45), (r * 0.78, h * 0.9), (0.0, h)], 7, 'Stone' if rnd.random() < 0.4 else 'StoneWall', cap_top=False, smooth=True, phase=rnd.random() * 3)
             for v in list(mb.bm.verts)[s:]:
                 v.co += Vector((cx, cy, 0.0))
     return mb
