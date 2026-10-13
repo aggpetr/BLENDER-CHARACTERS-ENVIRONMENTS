@@ -1355,6 +1355,17 @@
   ]
  },
  {
+  "collection": "KIT_Bridge",
+  "module": "SM_Edo_Bridge_Foot",
+  "tris": 1392,
+  "materials": [
+   "M_Edo_StoneWall",
+   "M_Edo_Stone",
+   "M_Edo_Timber",
+   "M_Edo_Planks"
+  ]
+ },
+ {
   "collection": "KIT_Stall",
   "module": "SM_Edo_Stall",
   "tris": 788,
