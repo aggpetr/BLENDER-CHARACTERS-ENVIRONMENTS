@@ -52,8 +52,8 @@ out = Image.new('RGBA', (base.width + LW, base.height), (248, 246, 240, 255)); o
 g = ImageDraw.Draw(out); x = base.width + 24; y = 20
 g.text((x, y), 'Village border and torii gates (plan)', fill=(20, 20, 20, 255), font=FT); y += 40
 for t in (f"Irregular closed line, {b['length'] / 1000:.1f} km, always {BD.MARGIN:.0f} m or more outside every house, field and the canal bank.",
-          "It meets four torii gates (N, S, E, W) and runs straight and square to the road for 16 m on each side of each gate; between the gates",
-          "it wanders (four arcs). The river is the border on the south, so the arch bridge is the south gate. Nothing here is built yet."):
+          "It meets three torii gates (N, W, S) and an open gap where each trail crosses; the border runs straight and square to the road for 16 m on each side of each gate; between the gates",
+          "it wanders . The river is the border on the south, so the arch bridge is the south gate. Nothing here is built yet."):
     g.text((x, y), t, fill=(70, 70, 70, 255), font=FS); y += 17
 y += 12
 g.text((x, y), 'A. Where the border meets a gate (plan view)', fill=(20, 20, 20, 255), font=FB); y += 28

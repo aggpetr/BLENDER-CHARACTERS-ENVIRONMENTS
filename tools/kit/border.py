@@ -22,7 +22,6 @@ GATES = [                # name, a point on the road inside the village, directi
     ('north', (-212.0, 40.0), (0.0, 1.0), 'RD_Main', 'torii'),
     ('south', (-212.0, -200.0), (0.0, -1.0), 'RD_Main (arch bridge)', 'torii'),
     ('west', (-228.0, -130.0), (-1.0, 0.0), 'WEST_ROAD (new)', 'torii'),
-    ('east', (60.0, -150.0), (1.0, 0.0), 'PATH_hub_p2 (mountain trail)', 'open'),        # no gate: the trail just passes through a gap in the border
 ]
 RIVER_WIDTH = 12.0       # the river is made wider (it was 7 m); the border stays 5 m back from its bank on the south
 GAP_TORII = 11.2         # border stones stop this far from a torii gate centre (the stone piers stand 5.2 m out, the rope runs pier to stone)
@@ -66,6 +65,10 @@ def resample(poly, step):
 def make(seed=11):
     C = A._setup(); ctx = town.load_context()[0]
     pts = [p for name, poly in C['polys'] for p in poly]
+    man = town.load_context()[2]                                                          # the mountain hub hut stays inside the border
+    for h in man['houses']:
+        if h['house'].startswith('MT_') and h['location'][0] < 150:
+            hx, hy = h['location'][:2]; pts += [(hx - 10, hy - 10), (hx + 10, hy - 10), (hx + 10, hy + 10), (hx - 10, hy + 10)]
     xs = [p[0] for p in pts]; ys = [p[1] for p in pts]
     c0 = ((min(xs) + max(xs)) / 2.0, (min(ys) + max(ys)) / 2.0)
     river = [tuple(p) for p in next(r for r in ctx['streams'] if r['name'] == 'WT_Stream')['pts']]
