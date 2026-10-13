@@ -69,7 +69,7 @@ for x, y in A.FURNITURE['field_sheds']:
 # short labels next to the footprints
 for it in A.ITEMS:
     w, dd = it['size']; short = it['name'].split(' (')[0].split(' +')[0]; tw = d.textlength(short, font=FS)
-    side = {9: 'up', 12: 'left', 13: 'down'}.get(it['id'], 'right')
+    side = {'Sake brewery (large kura, cedar ball)': 'left', 'Indigo dye works + cloth poles': 'down'}.get(it['name'], 'right')
     if side == 'right': x, y = P(it['c'][0] + w / 2 + 1.5, it['c'][1]); x0 = x + 2
     elif side == 'left': x, y = P(it['c'][0] - w / 2 - 1.5, it['c'][1]); x0 = x - tw - 12
     elif side == 'up': x, y = P(it['c'][0], it['c'][1] + dd / 2 + 4); x0 = x - tw / 2 - 5

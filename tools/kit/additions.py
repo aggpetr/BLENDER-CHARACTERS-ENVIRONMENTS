@@ -12,18 +12,15 @@ import town
 from district import corners, sat_overlap, point_poly_dist, polyline_samples
 
 # group: landmark, civic, work, water, farm, trail, street
+# The village border with its four torii gates (north, south, east, west) is planned separately: tools/kit/border.py
 ITEMS = [
     # ---- inside the village
-    dict(id=1, name='Fire-watch tower (hinomi yagura)', group='landmark', area='in', c=(-61.0, -108.0), size=(6, 6), plaza=True, note='at the plaza edge, 12 m tall, bell + ladder'),
-    dict(id=2, name='Temple + pagoda / bell tower', group='landmark', area='in', c=(-100.0, 94.0), size=(46, 40), note='north-west, stone stairs, own street (TEMPLE_ST)'),
-    dict(id=3, name='Graveyard', group='landmark', area='in', c=(-148.0, 96.0), size=(24, 16), note='beside the temple, stone markers, Jizo statues'),
+    dict(id=1, name='Fire-watch tower (hinomi yagura)', group='landmark', area='in', c=(-27.0, -84.0), size=(6, 6), note='beside the north street, off the plaza, 12 m tall, bell + ladder'),
+    dict(id=2, name='Temple + pagoda / bell tower', group='landmark', area='in', c=(-100.0, 108.0), size=(46, 40), note='outside the north border, stone stairs, reached by a side gate'),
+    dict(id=3, name='Graveyard', group='landmark', area='in', c=(-148.0, 110.0), size=(24, 16), note='beside the temple, stone markers, Jizo statues'),
     dict(id=4, name='Samurai quarter (3 walled compounds)', group='civic', area='in', c=(-48.0, 58.0), size=(64, 28), note='long walls + gate houses along a new street (LANE_NORTH)'),
-    dict(id=5, name='Public bathhouse (sento)', group='civic', area='in', c=(-124.0, -142.0), size=(16, 12), note='west of the district, by the canal'),
     dict(id=6, name='School (terakoya)', group='civic', area='in', c=(-72.0, -50.0), size=(16, 12), note='next to the hospital, small yard, bell'),
     dict(id=7, name='Stable + horse yard', group='civic', area='in', c=(38.0, -66.0), size=(22, 16), note='east entrance, hitching rails, troughs'),
-    dict(id=8, name='North gate (checkpoint)', group='civic', area='in', c=(-212.0, 52.0), size=(10, 6), on_street=True, note='on RD_Main, guard house'),
-    dict(id=9, name='South gate at the arch bridge', group='civic', area='in', c=(-212.0, -268.0), size=(10, 6), on_street=True, note='on RD_Main'),
-    dict(id=10, name='East gate', group='civic', area='in', c=(38.0, -91.0), size=(10, 6), on_street=True, note='on the district east street'),
     dict(id=11, name='Watermill', group='water', area='in', c=(-178.0, -96.0), size=(14, 8), plaza=True, note='on the canal, wheel in the water'),
     dict(id=12, name='Sake brewery (large kura, cedar ball)', group='work', area='in', c=(-238.0, -268.0), size=(24, 16), note='west of RD_Main'),
     dict(id=13, name='Indigo dye works + cloth poles', group='work', area='in', c=(-196.0, -280.0), size=(20, 14), note='canal end, cloth drying over the water'),
@@ -36,13 +33,15 @@ ITEMS = [
     dict(id=19, name='Mill pond + waterwheel', group='water', area='out', c=(-8.0, -283.0), size=(14, 12), note='where the channel (WT_Channel) ends'),
     dict(id=20, name='Ferry pier + fisher hut', group='water', area='out', c=(-70.2, -289.0), size=(10, 8), note='on the river, footpath between the paddies'),
 ]
+for _k, _it in enumerate(ITEMS, 1):
+    _it['id'] = _k
 TERRACES = [
-    dict(id=21, name='Rice terraces + stone retaining walls (south-east foothills)', poly=[(72, -172), (118, -178), (125, -215), (78, -222)]),
-    dict(id=22, name='Rice terraces + stone retaining walls (north-east foothills)', poly=[(105, 20), (150, 22), (155, 58), (108, 60)]),
+    dict(id=len(ITEMS) + 1, name='Rice terraces + stone retaining walls (south-east foothills)', poly=[(72, -172), (118, -178), (125, -215), (78, -222)]),
+    dict(id=len(ITEMS) + 2, name='Rice terraces + stone retaining walls (north-east foothills)', poly=[(105, 20), (150, 22), (155, 58), (108, 60)]),
 ]
 STREETS = [      # new streets / paths the additions need (dashed in the map)
     dict(name='LANE_NORTH', pts=[(-128, 27), (-95, 30), (-55, 31), (-28, 27), (-28, -6), (-28, -22)], note='links FIELD_RING, the samurai quarter and the north street'),
-    dict(name='TEMPLE_ST', pts=[(-96, 30), (-99, 52), (-100, 73)], note='stone paved, to the temple'),
+    dict(name='TEMPLE_ST', pts=[(-96, 30), (-99, 52), (-100, 88)], note='stone paved, to the temple through a side torii in the border'),
     dict(name='SHRINE_PATH', pts=[(103, -104), (116, -82), (124, -72)], note='torii avenue'),
     dict(name='WATCH_PATH', pts=[(138, -11), (148, 4), (150, 14)], note=''),
     dict(name='FERRY_PATH', pts=[(-70.2, -228), (-70.2, -285)], note='3 m footpath between the paddies'),
