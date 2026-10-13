@@ -26,8 +26,10 @@ IMPORT_DISTRICT_GROUND = True  # the new plaza district: plaza + streets meshes 
 PLACE_GROUND = True            # put the plaza and street meshes at the world origin (they are exported in world space)
 PLACE_VILLAGE = False          # place the houses from the manifest as actors (25,000 module actors for everything: start small)
 HOUSES = ['DISTRICT_*', 'TOWN_*', 'BRIDGE_*', 'PROP_*']   # fnmatch patterns on house names in the manifest, e.g. ['DISTRICT_*'], ['TWN_1*', 'DISTRICT_HALL'], None = all
-PLACE_FIELDS = False           # crops, paddies and canal bank from village/fields_manifest.json as instanced static meshes (about 100k instances)
-LANTERN_LIGHTS = True
+PLACE_FIELDS = False           # crops, paddies and canal bank from village/fields_manifest.json (about 50,000 instances, always instanced)
+LANTERN_LIGHTS = 'clustered'   # 'clustered' (about 30 real lights, recommended), 'all' (one point light per lantern, about 100) or False
+PLACE_AS = 'instances'         # 'instances': hierarchical instanced meshes per module and 128 m cell (about 1,200 actors for the houses), 'actors': one actor per module instance (40,000+, slow)
+CELL_M = 128.0                 # cell size (m) for the instanced actors = the default World Partition cell (12800 cm)
 
 MOSS = {'Kawara': 0.50, 'Stone': 0.38, 'Timber': 0.10, 'Planks': 0.08, 'Thatch': 0.30, 'StoneWall': 0.40}
 EMISSIVE = {'Lantern': 6.0}
@@ -212,7 +214,10 @@ if IMPORT_DISTRICT_GROUND:
     ground_dir = os.path.join(KIT_DIR, 'export', 'district')
     ground_mats = {'MAT_Edo_Plaza': color_material('M_Edo_Plaza', (0.52, 0.46, 0.34)),
                    'MAT_Edo_Road': color_material('M_Edo_Road', (0.42, 0.34, 0.24)),
-                   'MAT_Edo_Path': color_material('M_Edo_Path', (0.38, 0.30, 0.20))}
+                   'MAT_Edo_Path': color_material('M_Edo_Path', (0.38, 0.30, 0.20)),
+                   'MAT_Edo_Water': color_material('M_Edo_Water', (0.10, 0.22, 0.30), 0.15),          # flat placeholders: replace water with the Water plugin or a water material
+                   'MAT_Edo_PaddyWater': color_material('M_Edo_PaddyWater', (0.12, 0.25, 0.22), 0.15),
+                   'MAT_Edo_FieldSoil': color_material('M_Edo_FieldSoil', (0.16, 0.10, 0.06))}
     ground_actors = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
     if os.path.isdir(ground_dir):
         for f in sorted(os.listdir(ground_dir)):
@@ -240,50 +245,100 @@ if IMPORT_DISTRICT_GROUND:
         unreal.log_warning(f'no district ground folder: {ground_dir}')
 
 
-# ------------------------------------------------------------------ village
+# ------------------------------------------------------------------ placement
+actors_sub = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
+_warned = set()
+
+
+def to_ue(x, y, z):
+    return unreal.Vector(x * 100.0, -y * 100.0, z * 100.0)           # Blender (x, y, z) m -> Unreal (x, -y, z) cm
+
+
+def instanced_actor(label, folder, mesh, rows):
+    """One actor with a hierarchical instanced mesh. rows: [x, y, z, yaw_deg, sx, sy, sz] in Blender metres / degrees."""
+    a = actors_sub.spawn_actor_from_class(unreal.Actor, unreal.Vector(0, 0, 0))
+    comp = a.add_component_by_class(unreal.HierarchicalInstancedStaticMeshComponent, False, unreal.Transform(), False)
+    comp.set_static_mesh(mesh)
+    tf = [unreal.Transform(to_ue(r[0], r[1], r[2]), unreal.Rotator(roll=0.0, pitch=0.0, yaw=-r[3]), unreal.Vector(r[4], r[5], r[6])) for r in rows]
+    try:
+        comp.add_instances(tf, should_return_indices=False)
+    except Exception:
+        for t in tf: comp.add_instance(t)
+    a.set_actor_label(label); a.set_folder_path(folder)
+    return a
+
+
+def place_rows(label, folder, mesh, rows):
+    """rows -> instanced actors per CELL_M square, or one StaticMeshActor per row when PLACE_AS = 'actors' or instancing fails."""
+    if PLACE_AS == 'instances':
+        try:
+            cells = {}
+            for r in rows: cells.setdefault((int(r[0] // CELL_M), int(r[1] // CELL_M)), []).append(r)
+            for (cx, cy), rs in cells.items():
+                instanced_actor(f'{label}_{cx}_{cy}', folder, mesh, rs)
+            return len(cells)
+        except Exception as e:
+            if 'inst' not in _warned: unreal.log_warning(f'instanced placement failed ({e}); using one actor per module'); _warned.add('inst')
+    for r in rows:
+        a = actors_sub.spawn_actor_from_object(mesh, to_ue(r[0], r[1], r[2]), unreal.Rotator(roll=0.0, pitch=0.0, yaw=-r[3]))
+        a.set_actor_scale3d(unreal.Vector(r[4], r[5], r[6])); a.set_folder_path(folder)
+    return len(rows)
+
+
 if PLACE_VILLAGE:
     man = json.load(open(os.path.join(KIT_DIR, 'village', 'village_manifest.json')))
-    actors = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
-    n = 0
+    per_module = {}
+    n_mod = 0
     for h in man['houses']:
         if HOUSES and not any(fnmatch.fnmatch(h['house'], pat) for pat in HOUSES): continue
-        folder = f"EdoVillage/{h['house']}"
         for m in h['modules']:
-            mesh = meshes.get(m['module'])
-            if mesh is None: continue
-            x, y, z = m['location']; rz = m['rotation_deg'][2]
-            a = actors.spawn_actor_from_object(mesh, unreal.Vector(x * 100, -y * 100, z * 100), unreal.Rotator(roll=0.0, pitch=0.0, yaw=-rz))
-            a.set_folder_path(folder); n += 1
-        if LANTERN_LIGHTS:
+            x, y, z = m['location']
+            per_module.setdefault(m['module'], []).append([x, y, z, m['rotation_deg'][2], *m['scale']]); n_mod += 1
+    n_actors = 0
+    for mname, rows in per_module.items():
+        mesh = meshes.get(mname)
+        if mesh is None: unreal.log_warning(f'no mesh for module {mname}'); continue
+        n_actors += place_rows(f'EdoKit_{mname}', 'EdoVillage/Houses', mesh, rows)
+    log(f'EdoKit: placed {n_mod} module instances in {n_actors} actors')
+
+# ------------------------------------------------------------------ lights: lantern glow is the emissive material; a few real lights give the warmth
+if PLACE_VILLAGE and LANTERN_LIGHTS:
+    def add_light(x, y, z, intensity, radius, folder):
+        l = actors_sub.spawn_actor_from_class(unreal.PointLight, to_ue(x, y, z))
+        c = l.get_component_by_class(unreal.PointLightComponent)
+        c.set_editor_property('intensity', intensity); c.set_editor_property('attenuation_radius', radius)
+        c.set_editor_property('light_color', unreal.Color(255, 160, 80, 255))
+        try: c.set_editor_property('cast_shadows', False)
+        except Exception: pass
+        l.set_folder_path(folder)
+    n = 0
+    if LANTERN_LIGHTS == 'clustered':
+        lp = os.path.join(KIT_DIR, 'village', 'lights_clustered.json')
+        if os.path.exists(lp):
+            for L in json.load(open(lp))['lights']:
+                add_light(L['x'], L['y'], L['z'], 6.0 * L['count'] ** 0.5, 400.0 + 120.0 * L['radius'], 'EdoVillage/Lights'); n += 1
+        else:
+            unreal.log_warning(f'{lp} not found: run tools/kit/cluster_lights.py')
+    else:
+        for h in man['houses']:
+            if HOUSES and not any(fnmatch.fnmatch(h['house'], pat) for pat in HOUSES): continue
             for x, y, z in h['lantern_lights']:
-                l = actors.spawn_actor_from_class(unreal.PointLight, unreal.Vector(x * 100, -y * 100, z * 100))
-                c = l.get_component_by_class(unreal.PointLightComponent)
-                c.set_editor_property('intensity', 6.0); c.set_editor_property('attenuation_radius', 900.0)
-                c.set_editor_property('light_color', unreal.Color(255, 160, 80, 255))
-                l.set_folder_path(folder)
-    log(f'EdoKit: placed {n} module actors')
+                add_light(x, y, z, 6.0, 900.0, 'EdoVillage/Lights'); n += 1
+    log(f'EdoKit: {n} lantern lights ({LANTERN_LIGHTS})')
 
-
-# ------------------------------------------------------------------ fields and canal bank (instanced static meshes)
+# ------------------------------------------------------------------ fields and canal bank (instanced)
 if PLACE_FIELDS:
     fm = json.load(open(os.path.join(KIT_DIR, 'village', 'fields_manifest.json')))
-    actors = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
-    sub = unreal.get_engine_subsystem(unreal.SubobjectDataSubsystem)
-    total = 0
+    merged = {}
     for oname, per in fm['objects'].items():
         for mname, rows in per.items():
-            mesh = meshes.get(mname)
-            if mesh is None or not rows: continue
-            try:                                                   # one actor with a hierarchical instanced mesh per module
-                a = actors.spawn_actor_from_class(unreal.Actor, unreal.Vector(0, 0, 0))
-                root = sub.k2_gather_subobject_data_for_instance(a)[0]
-                params = unreal.AddNewSubobjectParams(parent_handle=root, new_class=unreal.HierarchicalInstancedStaticMeshComponent)
-                handle, fail = sub.add_new_subobject(params)
-                comp = unreal.SubobjectDataBlueprintFunctionLibrary.get_object(sub.k2_find_subobject_data_from_handle(handle))
-                comp.set_static_mesh(mesh)
-                for x, y, z, yaw, sx, sy, sz in rows:
-                    comp.add_instance(unreal.Transform(unreal.Vector(x * 100, -y * 100, z * 100), unreal.Rotator(0, 0, -yaw), unreal.Vector(sx, sy, sz)))
-                a.set_actor_label(f'{oname}_{mname}'); a.set_folder_path('EdoVillage/Fields'); total += len(rows)
-            except Exception as e:
-                unreal.log_warning(f'instanced placement failed for {oname}/{mname}: {e}'); break
-    log(f'EdoKit: {total} field / canal bank instances')
+            merged.setdefault(mname, []).extend(rows)
+    total = 0
+    for mname, rows in merged.items():
+        mesh = meshes.get(mname)
+        if mesh is None: unreal.log_warning(f'no mesh for {mname}'); continue
+        saved = PLACE_AS
+        PLACE_AS = 'instances'
+        place_rows(f'EdoKit_{mname}', 'EdoVillage/Fields', mesh, rows); total += len(rows)
+        PLACE_AS = saved
+    log(f'EdoKit: {total} field and canal bank instances')

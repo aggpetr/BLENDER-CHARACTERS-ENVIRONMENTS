@@ -102,6 +102,10 @@ transform, terrain and parameters; the originals are hidden, not deleted.
 
 ## Unreal Engine
 
+**Full guide: `docs/Edo_Village_Unreal_Guide.md` (and `.pdf`)**: terrain, import, lights, World Partition, instancing, collision, navigation, terrain blending.
+Extra tools: `export_heightmap.py` (Landscape heightmap, `kit/export/terrain/`), `cluster_lights.py` (30 real lights instead of 108, `kit/village/lights_clustered.json`),
+`md_to_pdf.py`. Planned additions (not built): `kit/previews/village_additions_plan.jpg`, data in `tools/kit/additions.py`.
+
 - `kit/export/modules/KIT_*/SM_Edo_*.fbx`: one mesh per module with its `UCX_` collision, origin at the module's pivot,
   metric scale, smoothing groups and tangents. Import with "Build Nanite" on; material slots are named `M_Edo_*`.
 - `kit/export/SM_Edo_House_dwellA_4x3_test.fbx`: one merged dwellA house for a quick look.

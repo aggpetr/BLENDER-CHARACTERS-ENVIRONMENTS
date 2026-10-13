@@ -45,3 +45,20 @@ roads = [o for o in D.objects if o.name.startswith('KITROAD_')]
 rm, pm = D.materials['MAT_Edo_Road'], D.materials['MAT_Edo_Path']
 export('SM_Edo_District_Roads', [rm, pm], [(o.evaluated_get(dg), 0 if rm in [m for m in o.evaluated_get(dg).data.materials] or True else 1) for o in roads if 'TRAIL' not in o.name]
        + [(o.evaluated_get(dg), 1) for o in roads if 'TRAIL' in o.name])
+# ---- the original town ground surfaces: streets and trails, canal / stream water, plazas, field soil (world space, flat colour materials in Unreal)
+def mat(name):
+    return D.materials.get(name) or D.materials.new(name)
+orig_roads = [o for o in D.objects if o.type == 'CURVE' and o.name.startswith('RD_')]
+orig_paths = [o for o in D.objects if o.type == 'CURVE' and o.name.startswith('PATH_')]
+if orig_roads or orig_paths:
+    export('SM_Edo_Town_Roads', [rm, pm], [(o.evaluated_get(dg), 0) for o in orig_roads] + [(o.evaluated_get(dg), 1) for o in orig_paths])
+water = [o for o in D.objects if o.type == 'CURVE' and o.name.startswith('WT_')]
+paddy = [D.objects[n] for n in ('LD_PaddyWater',) if n in D.objects]
+if water or paddy:
+    export('SM_Edo_Water', [mat('MAT_Edo_Water'), mat('MAT_Edo_PaddyWater')], [(o.evaluated_get(dg), 0) for o in water] + [(o.evaluated_get(dg), 1) for o in paddy])
+plazas = [D.objects[n] for n in ('LD_Plaza1', 'LD_Plaza2') if n in D.objects]
+if plazas:
+    export('SM_Edo_Town_Plazas', [mat('MAT_Edo_Plaza')], [(o.evaluated_get(dg), 0) for o in plazas])
+soil = [D.objects[n] for n in ('LD_FieldSoil',) if n in D.objects]
+if soil:
+    export('SM_Edo_Town_FieldSoil', [mat('MAT_Edo_FieldSoil')], [(o.evaluated_get(dg), 0) for o in soil])
