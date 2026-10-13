@@ -1,0 +1,686 @@
+[
+ {
+  "collection": "KIT_Footing",
+  "module": "SM_Edo_Footing_A",
+  "file": "modules/KIT_Footing/SM_Edo_Footing_A.fbx",
+  "tris": 70,
+  "materials": [
+   "M_Edo_Stone"
+  ]
+ },
+ {
+  "collection": "KIT_Footing",
+  "module": "SM_Edo_Footing_B",
+  "file": "modules/KIT_Footing/SM_Edo_Footing_B.fbx",
+  "tris": 70,
+  "materials": [
+   "M_Edo_Stone"
+  ]
+ },
+ {
+  "collection": "KIT_Footing",
+  "module": "SM_Edo_Footing_C",
+  "file": "modules/KIT_Footing/SM_Edo_Footing_C.fbx",
+  "tris": 70,
+  "materials": [
+   "M_Edo_Stone"
+  ]
+ },
+ {
+  "collection": "KIT_Stilt",
+  "module": "SM_Edo_Stilt_L1",
+  "file": "modules/KIT_Stilt/SM_Edo_Stilt_L1.fbx",
+  "tris": 10,
+  "materials": [
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Stilt",
+  "module": "SM_Edo_Stilt_L2",
+  "file": "modules/KIT_Stilt/SM_Edo_Stilt_L2.fbx",
+  "tris": 10,
+  "materials": [
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Stilt",
+  "module": "SM_Edo_Stilt_L3",
+  "file": "modules/KIT_Stilt/SM_Edo_Stilt_L3.fbx",
+  "tris": 10,
+  "materials": [
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_FloorBeam",
+  "module": "SM_Edo_FloorBeam",
+  "file": "modules/KIT_FloorBeam/SM_Edo_FloorBeam.fbx",
+  "tris": 12,
+  "materials": [
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_FloorDeck",
+  "module": "SM_Edo_FloorDeck",
+  "file": "modules/KIT_FloorDeck/SM_Edo_FloorDeck.fbx",
+  "tris": 12,
+  "materials": [
+   "M_Edo_Planks"
+  ]
+ },
+ {
+  "collection": "KIT_PostStorey",
+  "module": "SM_Edo_Post_Storey",
+  "file": "modules/KIT_PostStorey/SM_Edo_Post_Storey.fbx",
+  "tris": 10,
+  "materials": [
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Wall",
+  "module": "SM_Edo_Wall_A_Plaster",
+  "file": "modules/KIT_Wall/SM_Edo_Wall_A_Plaster.fbx",
+  "tris": 102,
+  "materials": [
+   "M_Edo_Plaster",
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Wall",
+  "module": "SM_Edo_Wall_B_Lattice",
+  "file": "modules/KIT_Wall/SM_Edo_Wall_B_Lattice.fbx",
+  "tris": 394,
+  "materials": [
+   "M_Edo_Plaster",
+   "M_Edo_Planks",
+   "M_Edo_Timber",
+   "M_Edo_Paper"
+  ]
+ },
+ {
+  "collection": "KIT_Wall",
+  "module": "SM_Edo_Wall_C_Door",
+  "file": "modules/KIT_Wall/SM_Edo_Wall_C_Door.fbx",
+  "tris": 214,
+  "materials": [
+   "M_Edo_Timber",
+   "M_Edo_Planks",
+   "M_Edo_Plaster"
+  ]
+ },
+ {
+  "collection": "KIT_Wall",
+  "module": "SM_Edo_Wall_D_Shoji",
+  "file": "modules/KIT_Wall/SM_Edo_Wall_D_Shoji.fbx",
+  "tris": 430,
+  "materials": [
+   "M_Edo_Timber",
+   "M_Edo_Planks",
+   "M_Edo_Paper",
+   "M_Edo_Plaster"
+  ]
+ },
+ {
+  "collection": "KIT_Wall",
+  "module": "SM_Edo_Wall_E_PlasterFull",
+  "file": "modules/KIT_Wall/SM_Edo_Wall_E_PlasterFull.fbx",
+  "tris": 58,
+  "materials": [
+   "M_Edo_Plaster",
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofEnd",
+  "module": "SM_Edo_RoofEnd_D1",
+  "file": "modules/KIT_RoofEnd/SM_Edo_RoofEnd_D1.fbx",
+  "tris": 1631,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofEnd",
+  "module": "SM_Edo_RoofEnd_D2",
+  "file": "modules/KIT_RoofEnd/SM_Edo_RoofEnd_D2.fbx",
+  "tris": 2583,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofEnd",
+  "module": "SM_Edo_RoofEnd_D3",
+  "file": "modules/KIT_RoofEnd/SM_Edo_RoofEnd_D3.fbx",
+  "tris": 3767,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofEnd",
+  "module": "SM_Edo_RoofEnd_D4",
+  "file": "modules/KIT_RoofEnd/SM_Edo_RoofEnd_D4.fbx",
+  "tris": 4871,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofEnd",
+  "module": "SM_Edo_RoofEnd_D5",
+  "file": "modules/KIT_RoofEnd/SM_Edo_RoofEnd_D5.fbx",
+  "tris": 6455,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofEnd",
+  "module": "SM_Edo_RoofEnd_D6",
+  "file": "modules/KIT_RoofEnd/SM_Edo_RoofEnd_D6.fbx",
+  "tris": 8231,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofEndApex",
+  "module": "SM_Edo_RoofEndApex_D1",
+  "file": "modules/KIT_RoofEndApex/SM_Edo_RoofEndApex_D1.fbx",
+  "tris": 1590,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofEndApex",
+  "module": "SM_Edo_RoofEndApex_D2",
+  "file": "modules/KIT_RoofEndApex/SM_Edo_RoofEndApex_D2.fbx",
+  "tris": 2542,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofEndApex",
+  "module": "SM_Edo_RoofEndApex_D3",
+  "file": "modules/KIT_RoofEndApex/SM_Edo_RoofEndApex_D3.fbx",
+  "tris": 3726,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofEndApex",
+  "module": "SM_Edo_RoofEndApex_D4",
+  "file": "modules/KIT_RoofEndApex/SM_Edo_RoofEndApex_D4.fbx",
+  "tris": 4830,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofEndApex",
+  "module": "SM_Edo_RoofEndApex_D5",
+  "file": "modules/KIT_RoofEndApex/SM_Edo_RoofEndApex_D5.fbx",
+  "tris": 6414,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofEndApex",
+  "module": "SM_Edo_RoofEndApex_D6",
+  "file": "modules/KIT_RoofEndApex/SM_Edo_RoofEndApex_D6.fbx",
+  "tris": 8190,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofMid",
+  "module": "SM_Edo_RoofMid_D1",
+  "file": "modules/KIT_RoofMid/SM_Edo_RoofMid_D1.fbx",
+  "tris": 812,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofMid",
+  "module": "SM_Edo_RoofMid_D2",
+  "file": "modules/KIT_RoofMid/SM_Edo_RoofMid_D2.fbx",
+  "tris": 1036,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofMid",
+  "module": "SM_Edo_RoofMid_D3",
+  "file": "modules/KIT_RoofMid/SM_Edo_RoofMid_D3.fbx",
+  "tris": 1260,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofMid",
+  "module": "SM_Edo_RoofMid_D4",
+  "file": "modules/KIT_RoofMid/SM_Edo_RoofMid_D4.fbx",
+  "tris": 1372,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofMid",
+  "module": "SM_Edo_RoofMid_D5",
+  "file": "modules/KIT_RoofMid/SM_Edo_RoofMid_D5.fbx",
+  "tris": 1596,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofMid",
+  "module": "SM_Edo_RoofMid_D6",
+  "file": "modules/KIT_RoofMid/SM_Edo_RoofMid_D6.fbx",
+  "tris": 1820,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RoofApex",
+  "module": "SM_Edo_RoofApex_D1",
+  "file": "modules/KIT_RoofApex/SM_Edo_RoofApex_D1.fbx",
+  "tris": 100,
+  "materials": [
+   "M_Edo_Kawara"
+  ]
+ },
+ {
+  "collection": "KIT_RoofApex",
+  "module": "SM_Edo_RoofApex_D2",
+  "file": "modules/KIT_RoofApex/SM_Edo_RoofApex_D2.fbx",
+  "tris": 100,
+  "materials": [
+   "M_Edo_Kawara"
+  ]
+ },
+ {
+  "collection": "KIT_RoofApex",
+  "module": "SM_Edo_RoofApex_D3",
+  "file": "modules/KIT_RoofApex/SM_Edo_RoofApex_D3.fbx",
+  "tris": 100,
+  "materials": [
+   "M_Edo_Kawara"
+  ]
+ },
+ {
+  "collection": "KIT_RoofApex",
+  "module": "SM_Edo_RoofApex_D4",
+  "file": "modules/KIT_RoofApex/SM_Edo_RoofApex_D4.fbx",
+  "tris": 100,
+  "materials": [
+   "M_Edo_Kawara"
+  ]
+ },
+ {
+  "collection": "KIT_RoofApex",
+  "module": "SM_Edo_RoofApex_D5",
+  "file": "modules/KIT_RoofApex/SM_Edo_RoofApex_D5.fbx",
+  "tris": 100,
+  "materials": [
+   "M_Edo_Kawara"
+  ]
+ },
+ {
+  "collection": "KIT_RoofApex",
+  "module": "SM_Edo_RoofApex_D6",
+  "file": "modules/KIT_RoofApex/SM_Edo_RoofApex_D6.fbx",
+  "tris": 100,
+  "materials": [
+   "M_Edo_Kawara"
+  ]
+ },
+ {
+  "collection": "KIT_EngawaDeck",
+  "module": "SM_Edo_EngawaDeck",
+  "file": "modules/KIT_EngawaDeck/SM_Edo_EngawaDeck.fbx",
+  "tris": 120,
+  "materials": [
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_EngawaPost",
+  "module": "SM_Edo_EngawaPost_L1",
+  "file": "modules/KIT_EngawaPost/SM_Edo_EngawaPost_L1.fbx",
+  "tris": 10,
+  "materials": [
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_EngawaPost",
+  "module": "SM_Edo_EngawaPost_L2",
+  "file": "modules/KIT_EngawaPost/SM_Edo_EngawaPost_L2.fbx",
+  "tris": 10,
+  "materials": [
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_EngawaPost",
+  "module": "SM_Edo_EngawaPost_L3",
+  "file": "modules/KIT_EngawaPost/SM_Edo_EngawaPost_L3.fbx",
+  "tris": 10,
+  "materials": [
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Railing",
+  "module": "SM_Edo_Railing_Bay",
+  "file": "modules/KIT_Railing/SM_Edo_Railing_Bay.fbx",
+  "tris": 204,
+  "materials": [
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Railing",
+  "module": "SM_Edo_Railing_Open",
+  "file": "modules/KIT_Railing/SM_Edo_Railing_Open.fbx",
+  "tris": 12,
+  "materials": [
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RailingEnd",
+  "module": "SM_Edo_RailingEnd",
+  "file": "modules/KIT_RailingEnd/SM_Edo_RailingEnd.fbx",
+  "tris": 108,
+  "materials": [
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_RailPost",
+  "module": "SM_Edo_RailPost",
+  "file": "modules/KIT_RailPost/SM_Edo_RailPost.fbx",
+  "tris": 12,
+  "materials": [
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Steps",
+  "module": "SM_Edo_Steps_N02",
+  "file": "modules/KIT_Steps/SM_Edo_Steps_N02.fbx",
+  "tris": 36,
+  "materials": [
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Steps",
+  "module": "SM_Edo_Steps_N03",
+  "file": "modules/KIT_Steps/SM_Edo_Steps_N03.fbx",
+  "tris": 48,
+  "materials": [
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Steps",
+  "module": "SM_Edo_Steps_N04",
+  "file": "modules/KIT_Steps/SM_Edo_Steps_N04.fbx",
+  "tris": 60,
+  "materials": [
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Steps",
+  "module": "SM_Edo_Steps_N05",
+  "file": "modules/KIT_Steps/SM_Edo_Steps_N05.fbx",
+  "tris": 72,
+  "materials": [
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Steps",
+  "module": "SM_Edo_Steps_N06",
+  "file": "modules/KIT_Steps/SM_Edo_Steps_N06.fbx",
+  "tris": 84,
+  "materials": [
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Steps",
+  "module": "SM_Edo_Steps_N07",
+  "file": "modules/KIT_Steps/SM_Edo_Steps_N07.fbx",
+  "tris": 96,
+  "materials": [
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Steps",
+  "module": "SM_Edo_Steps_N08",
+  "file": "modules/KIT_Steps/SM_Edo_Steps_N08.fbx",
+  "tris": 108,
+  "materials": [
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Steps",
+  "module": "SM_Edo_Steps_N09",
+  "file": "modules/KIT_Steps/SM_Edo_Steps_N09.fbx",
+  "tris": 120,
+  "materials": [
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Steps",
+  "module": "SM_Edo_Steps_N10",
+  "file": "modules/KIT_Steps/SM_Edo_Steps_N10.fbx",
+  "tris": 132,
+  "materials": [
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Steps",
+  "module": "SM_Edo_Steps_N11",
+  "file": "modules/KIT_Steps/SM_Edo_Steps_N11.fbx",
+  "tris": 144,
+  "materials": [
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Steps",
+  "module": "SM_Edo_Steps_N12",
+  "file": "modules/KIT_Steps/SM_Edo_Steps_N12.fbx",
+  "tris": 156,
+  "materials": [
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Steps",
+  "module": "SM_Edo_Steps_N13",
+  "file": "modules/KIT_Steps/SM_Edo_Steps_N13.fbx",
+  "tris": 168,
+  "materials": [
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Steps",
+  "module": "SM_Edo_Steps_N14",
+  "file": "modules/KIT_Steps/SM_Edo_Steps_N14.fbx",
+  "tris": 180,
+  "materials": [
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_FenceSeg",
+  "module": "SM_Edo_FenceSeg",
+  "file": "modules/KIT_FenceSeg/SM_Edo_FenceSeg.fbx",
+  "tris": 156,
+  "materials": [
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_FencePost",
+  "module": "SM_Edo_FencePost",
+  "file": "modules/KIT_FencePost/SM_Edo_FencePost.fbx",
+  "tris": 22,
+  "materials": [
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Props",
+  "module": "SM_Edo_Prop_Bale",
+  "file": "modules/KIT_Props/SM_Edo_Prop_Bale.fbx",
+  "tris": 308,
+  "materials": [
+   "M_Edo_Thatch"
+  ]
+ },
+ {
+  "collection": "KIT_Props",
+  "module": "SM_Edo_Prop_Barrel",
+  "file": "modules/KIT_Props/SM_Edo_Prop_Barrel.fbx",
+  "tris": 236,
+  "materials": [
+   "M_Edo_Planks",
+   "M_Edo_Thatch"
+  ]
+ },
+ {
+  "collection": "KIT_Props",
+  "module": "SM_Edo_Prop_Firewood",
+  "file": "modules/KIT_Props/SM_Edo_Prop_Firewood.fbx",
+  "tris": 220,
+  "materials": [
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Props",
+  "module": "SM_Edo_Prop_Jar",
+  "file": "modules/KIT_Props/SM_Edo_Prop_Jar.fbx",
+  "tris": 178,
+  "materials": [
+   "M_Edo_Ceramic",
+   "M_Edo_Planks"
+  ]
+ },
+ {
+  "collection": "TEST",
+  "module": "SM_Edo_House_dwellA_4x3_test",
+  "file": "SM_Edo_House_dwellA_4x3_test.fbx",
+  "tris": 23222,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Planks",
+   "M_Edo_Timber",
+   "M_Edo_Ceramic",
+   "M_Edo_Stone",
+   "M_Edo_Kawara",
+   "M_Edo_Plaster",
+   "M_Edo_Paper"
+  ]
+ }
+]
