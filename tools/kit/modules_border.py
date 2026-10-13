@@ -43,29 +43,32 @@ def pier():
 
 
 def stone_marker(v):
-    mb = MB(f'SM_Edo_BorderStone_{"ABC"[v]}'); rnd = mb.rng           # standing boundary stone, a little different each time
-    h = (1.25, 1.05, 1.45)[v]; w = (0.40, 0.46, 0.34)[v]
-    prof = [(0.0, 0.0), (w * 0.95, 0.0), (w, h * 0.35), (w * 0.82, h * 0.75), (w * 0.45, h * 0.95), (0.0, h)]
+    mb = MB(f'SM_Edo_BorderStone_{"ABC"[v]}'); rnd = mb.rng           # tall standing boundary stone (2.1 to 2.6 m), a little different each time
+    h = (2.2, 1.9, 2.6)[v]; w = (0.72, 0.85, 0.62)[v]
+    prof = [(0.0, 0.0), (w * 0.95, 0.0), (w, h * 0.30), (w * 0.88, h * 0.62), (w * 0.62, h * 0.86), (w * 0.28, h * 0.97), (0.0, h)]
     s = len(mb.bm.verts)
-    mb.lathe(prof, 8, 'StoneWall', cap_top=False, smooth=True, phase=rnd.random() * 3)
+    mb.lathe(prof, 9, 'StoneWall', cap_top=False, smooth=True, phase=rnd.random() * 3)
     for vv in list(mb.bm.verts)[s:]:
-        vv.co.x *= 1.0 + rnd.uniform(-0.12, 0.12); vv.co.y *= 0.8 + rnd.uniform(-0.1, 0.15); vv.co.z += rnd.uniform(-0.02, 0.03) * vv.co.z
-    mb.box((-0.06, -0.03, h * 0.62), (0.06, 0.03, h * 0.62 + 0.06), 'Iron')        # an iron ring to hang the rope from (stone is not smooth enough for a clip)
+        vv.co.x *= 1.0 + rnd.uniform(-0.12, 0.12); vv.co.y *= 0.75 + rnd.uniform(-0.1, 0.15); vv.co.z += rnd.uniform(-0.02, 0.03) * vv.co.z
+    s = len(mb.bm.verts)                                                       # a carved band where the rope is tied
+    mb.lathe([(w * 1.0, h * 0.60), (w * 1.07, h * 0.64), (w * 1.07, h * 0.70), (w * 0.98, h * 0.74)], 9, 'Stone', cap_top=False, smooth=True)
     return mb
 
 
 def rope():
-    mb = MB('SM_Edo_BorderRope'); L = 6.0; sag = 0.42; z0 = 0.95
+    mb = MB('SM_Edo_BorderRope'); L = 6.0; sag = 0.55; z0 = 1.55; R = 0.13       # thick white sacred rope (26 cm), hung between two stones
     rings = []
-    for i in range(31):
-        t = i / 30; x = -L / 2 + t * L; z = z0 - sag * 4 * t * (1 - t)
-        rings.append([(x, 0.055 * math.cos(a), z + 0.055 * math.sin(a)) for a in [j * PI / 3 for j in range(6)]])
-    mb.loft(rings, 'Thatch', closed=True, smooth=True, cap0=True, cap1=True, want_out=lambda m: Vector((0, m.y, m.z - z0 + 0.2)), uv_scale=0.4)
-    for t in (0.17, 0.33, 0.5, 0.67, 0.83):                                    # paper streamers (shide): three zig-zag folds each
-        x = -L / 2 + t * L; z = z0 - sag * 4 * t * (1 - t)
+    for i in range(41):
+        t = i / 40; x = -L / 2 + t * L; z = z0 - sag * 4 * t * (1 - t)
+        rings.append([(x, R * math.cos(a), z + R * math.sin(a)) for a in [j * PI / 4 for j in range(8)]])
+    mb.loft(rings, 'RopeWhite', closed=True, smooth=True, cap0=True, cap1=True, want_out=lambda m: Vector((0, m.y, m.z - z0 + 0.3)), uv_scale=0.5)
+    for x0 in (-L / 2, L / 2 - 0.0):                                           # tassel at each knot
+        pass
+    for t in (0.15, 0.3, 0.45, 0.6, 0.75, 0.9):                                # paper streamers (shide): three zig-zag folds each, bigger
+        x = -L / 2 + t * L; z = z0 - sag * 4 * t * (1 - t) - R
         for k in range(3):
-            zz = z - 0.08 - k * 0.17
-            mb.box((x - 0.065 + 0.03 * (k % 2), -0.012, zz - 0.15), (x + 0.065 + 0.03 * (k % 2), 0.012, zz), 'Paper')
+            zz = z - 0.03 - k * 0.27
+            mb.box((x - 0.11 + 0.05 * (k % 2), -0.02, zz - 0.25), (x + 0.11 + 0.05 * (k % 2), 0.02, zz), 'Paper')
     return mb
 
 

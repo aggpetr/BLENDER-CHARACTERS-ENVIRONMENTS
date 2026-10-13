@@ -23,6 +23,9 @@ GATES = [                # name, a point on the road inside the village, directi
     ('south', (-212.0, -200.0), (0.0, -1.0), 'RD_Main (arch bridge)', 'torii'),
     ('west', (-228.0, -130.0), (-1.0, 0.0), 'WEST_ROAD (new)', 'torii'),
 ]
+RIVER_UPPER = [(255.0, -296.0), (232.0, -282.0), (205.0, -272.0), (175.0, -266.0), (145.0, -266.0), (125.0, -264.0), (110.0, -262.0)]   # the river continues up into the mountain
+RIVER_UPPER_WIDTH = 9.0  # the upper river (own ribbon, steeper ground) is a bit narrower than the 12 m river below it
+EAST_LINE = [(167.0, 26.0), (150.0, -28.0), (128.0, -72.0), (110.0, -103.0), (107.0, -118.0), (112.0, -160.0), (123.0, -198.0), (125.0, -248.0), (124.0, -257.0)]   # the east side as drawn by you, north to south
 RIVER_WIDTH = 12.0       # the river is made wider (it was 7 m); the border stays 5 m back from its bank on the south
 GAP_TORII = 11.2         # border stones stop this far from a torii gate centre (the stone piers stand 5.2 m out, the rope runs pier to stone)
 GAP_OPEN = 3.4           # open door / side gate: a stone on each side of the road
@@ -65,13 +68,9 @@ def resample(poly, step):
 def make(seed=11):
     C = A._setup(); ctx = town.load_context()[0]
     pts = [p for name, poly in C['polys'] for p in poly]
-    man = town.load_context()[2]                                                          # the mountain hub hut stays inside the border
-    for h in man['houses']:
-        if h['house'].startswith('MT_') and h['location'][0] < 150:
-            hx, hy = h['location'][:2]; pts += [(hx - 10, hy - 10), (hx + 10, hy - 10), (hx + 10, hy + 10), (hx - 10, hy + 10)]
     xs = [p[0] for p in pts]; ys = [p[1] for p in pts]
     c0 = ((min(xs) + max(xs)) / 2.0, (min(ys) + max(ys)) / 2.0)
-    river = [tuple(p) for p in next(r for r in ctx['streams'] if r['name'] == 'WT_Stream')['pts']]
+    river = RIVER_UPPER[:-1] + [tuple(p) for p in next(r for r in ctx['streams'] if r['name'] == 'WT_Stream')['pts']]
     rnd = random.Random(seed); NA = 180
     ang = [2 * math.pi * k / NA for k in range(NA)]
     need = []
@@ -105,6 +104,22 @@ def make(seed=11):
         r = [max(r0[k] + 2.0, min(r[k], capv[k]) if capv[k] is not None else r[k]) for k in range(NA)]
     poly = [(c0[0] + r[k] * math.cos(th), c0[1] + r[k] * math.sin(th)) for k, th in enumerate(ang)]
     P = resample(poly, 3.0)
+    # ---- the east side follows the drawn line (north to south) instead of the generated outline
+    def nearest(Q, pt): return min(range(len(Q)), key=lambda i: math.hypot(Q[i][0] - pt[0], Q[i][1] - pt[1]))
+    E = []
+    for a, c in zip(EAST_LINE[:-1], EAST_LINE[1:]):
+        m = max(1, int(math.hypot(c[0] - a[0], c[1] - a[1]) / 3.0)); E += [(a[0] + (c[0] - a[0]) * k / m, a[1] + (c[1] - a[1]) * k / m) for k in range(m)]
+    E.append(EAST_LINE[-1])
+    for _shift in range(8):                                                          # nudge outward until every plot corner is inside
+        Es = [(x + 2.5 * _shift, y) for x, y in E]
+        i0, i1 = nearest(P, Es[0]), nearest(P, Es[-1]); keep = []; i = i0
+        while True:
+            keep.append(P[i])
+            if i == i1: break
+            i = (i + 1) % len(P)
+        Pn = keep + list(reversed(Es))
+        if sum(1 for p in pts if not inpoly(p, Pn)) == 0: break
+    P = Pn
     # ---- gates: where each road leaves the village, the border is straight and square to the road
     gates = []
     for name, p0, d, road, gkind in GATES:
@@ -216,7 +231,7 @@ def to_json(b):
                 points=[r(p) for p in b['points']], stones=[r(p) for p in b['stones']],
                 gates=[dict(name=g['name'], pos=r(g['pos']), road_dir=list(g['dir']), road=g['road']) for g in b['gates']],
                 side_gates=[dict(road=s['name'], pos=r(s['pos'])) for s in b['side_gates']],
-                river_width_m=RIVER_WIDTH, style='standing stones every 6 m with a shimenawa rope; torii at north, west and south; open gap on the east trail; the river is the south border',
+                river_width_m=RIVER_WIDTH, river_upper=[list(p) for p in RIVER_UPPER], river_upper_width_m=RIVER_UPPER_WIDTH, style='standing stones every 6 m with a shimenawa rope; torii at north, west and south; open gap on the east trail; the river is the south border',
                 instances=[[k, round(x, 2), round(y, 2), round(yw, 4), round(sx, 3)] for k, x, y, yw, sx in instances(b)])
 
 

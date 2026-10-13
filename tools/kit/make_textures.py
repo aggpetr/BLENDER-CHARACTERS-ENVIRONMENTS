@@ -267,4 +267,10 @@ if want('Lacquer'):
     gr = periodic_noise(N3, 1.4, aniso=(0.15, 1.0), seed=141)
     col = np.array([0.022, 0.021, 0.02], dtype=np.float32) * (0.85 + 0.3 * gr)[..., None]
     save_set('Lacquer', np.clip(col, 0, 1), normal_from_height(gr * 0.001, px3), np.clip(0.24 + 0.1 * (gr - 0.5), 0.12, 0.4), np.ones((N3, N3), np.float32))
+# ---------------------------------------------------------------- White rope (twisted cotton / paper rope, 1K, 0.5 m along the rope)
+if want('RopeWhite'):
+    N3 = 1024; yy, xx = np.mgrid[0:N3, 0:N3].astype(np.float32)
+    tw = 0.5 + 0.5 * np.sin((xx + yy * 1.6) * 2 * np.pi / 64.0); fz = periodic_noise(N3, 1.2, seed=151)
+    col = np.array([0.90, 0.89, 0.85], dtype=np.float32) * (0.78 + 0.22 * tw + 0.05 * fz)[..., None]
+    save_set('RopeWhite', np.clip(col, 0, 1), normal_from_height(tw * 0.004 + fz * 0.001, 0.5 / N3), np.full((N3, N3), 0.9, np.float32), np.clip(0.7 + 0.3 * tw, 0, 1).astype(np.float32))
 print('done')

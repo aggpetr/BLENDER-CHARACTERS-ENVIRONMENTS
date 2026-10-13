@@ -51,7 +51,7 @@ def coll(name, parent=None):
 
 # ------------------------------------------------------------------ 1. remove the previous kit install, append the new one
 for o in list(D.objects):
-    if o.name in ('EdoKitVillage_01', 'EdoKitTown_01', 'EdoKitTownOuter_01', 'EdoKitBorder_01') or o.name.startswith(('KITROAD_', 'KITLIGHT_', 'EdoKitField_', 'KITEMBANK_')) or \
+    if o.name in ('EdoKitVillage_01', 'EdoKitTown_01', 'EdoKitTownOuter_01', 'EdoKitBorder_01') or o.name.startswith(('KITROAD_', 'KITLIGHT_', 'EdoKitField_', 'KITEMBANK_', 'KITRIVER_')) or \
             (o.name.endswith('_KIT') and o.type == 'MESH' and o.data and o.data.name.startswith('SM_Edo_')):      # kit bridges and props
         D.objects.remove(o, do_unlink=True)
 twins = [o for o in D.objects if o.name.endswith('_KIT')]
@@ -231,7 +231,16 @@ if VILLAGE_BORDER:
     river = D.objects.get('WT_Stream')                       # the south border: the river itself, made wider
     if river is not None and ribbon is not None:
         rm_ = next((m for m in river.modifiers if m.type == 'NODES' and m.node_group == ribbon), None)
-        if rm_ is not None: rm_.properties.inputs[rid['Width']]['value'] = BORDER['river_width_m']
+        if rm_ is not None:
+            rm_.properties.inputs[rid['Width']]['value'] = BORDER['river_width_m']
+            cu = D.curves.new('KITRIVER_Upper', 'CURVE'); cu.dimensions = '3D'                    # the river continues up into the mountain (own ribbon on the full terrain)
+            sp = cu.splines.new('POLY'); up = BORDER['river_upper']; sp.points.add(len(up) - 1)
+            for p, (x, y) in zip(sp.points, up): p.co = (x, y, 0.0, 1.0)
+            uo = D.objects.new('KITRIVER_Upper', cu); (D.collections.get('EdoTown_Roads') or sc.collection).objects.link(uo)
+            um = uo.modifiers.new('EdoRibbon', 'NODES'); um.node_group = ribbon
+            for kk in ('Material', 'Offset Z', 'Resample'): um.properties.inputs[rid[kk]]['value'] = rm_.properties.inputs[rid[kk]]['value']
+            um.properties.inputs[rid['Ground']]['value'] = D.objects.get('EDO_Terrain') or rm_.properties.inputs[rid['Ground']]['value']
+            um.properties.inputs[rid['Width']]['value'] = BORDER['river_upper_width_m']
 
 # ------------------------------------------------------------------ 5. hide the old compound village and its lights, light the new lanterns
 old = D.objects.get(OLD_VILLAGE)
