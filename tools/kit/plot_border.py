@@ -76,10 +76,10 @@ g.line([(cx - 3.8 * U, cy), (cx + 3.8 * U, cy)], fill=(215, 35, 35, 255), width=
 for sgn in (-1, 1):                                                                                        # stone lanterns on the village side
     g.rectangle((cx + sgn * 3.3 * U - 6, cy - 3.6 * U - 6, cx + sgn * 3.3 * U + 6, cy - 3.6 * U + 6), fill=(190, 190, 185, 255), outline=(40, 40, 40, 255))
 g.rectangle((cx - 9.5 * U, cy - 7.5 * U, cx - 5.2 * U, cy - 3.5 * U), fill=(160, 120, 80, 255), outline=(60, 40, 20, 255))                     # keeper's hut
-g.text((cx - 7.35 * U, cy - 5.5 * U), "keeper's hut", fill=(255, 255, 255, 255), font=FS, anchor='mm')
+g.text((cx - 7.35 * U, cy - 5.5 * U), 'hut', fill=(255, 255, 255, 255), font=FS, anchor='mm')
 for sgn in (-1, 1): g.line([(cx + sgn * 5.0 * U, cy + 3.2 * U), (cx + sgn * 10 * U, cy + 3.2 * U)], fill=(60, 130, 190, 255), width=4)  # ditch outside
 g.rectangle((cx - 5.0 * U, cy + 2.6 * U, cx + 5.0 * U, cy + 3.8 * U), fill=(150, 110, 60, 255), outline=(60, 40, 20, 255))                    # plank bridge over the ditch
-g.text((cx, cy + 3.2 * U), 'short plank bridge over the ditch', fill=(255, 255, 255, 255), font=FS, anchor='mm')
+g.text((cx, cy + 3.2 * U), 'plank bridge', fill=(255, 255, 255, 255), font=FS, anchor='mm')
 g.text((x + 10, y + 12), 'OUTSIDE', fill=(90, 90, 90, 255), font=FS); g.text((x + 10, y + 388), 'VILLAGE', fill=(90, 90, 90, 255), font=FS)
 g.text((x + 10, y + 12), '', font=FS)
 g.text((cx + 5.6 * U, cy - 1.5 * U), 'stone pier', fill=(40, 40, 40, 255), font=FS, anchor='lm')

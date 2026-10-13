@@ -84,12 +84,18 @@ def make(seed=11):
     lo = min(noise); noise = [n - lo for n in noise]; hi = max(noise); noise = [n * min(1.0, 22.0 / hi) for n in noise]
     r = [a + 3.0 + n for a, n in zip(r1, noise)]
     rv = polyline_samples(river, 1.0)
+    capv = [None] * NA
     for k, th in enumerate(ang):                                                        # the river is the south border
         d = (math.cos(th), math.sin(th)); best = None
         for q in rv:
             dx, dy = q[0] - c0[0], q[1] - c0[1]; t = dx * d[0] + dy * d[1]
             if t > 0 and abs(-dx * d[1] + dy * d[0]) < 1.5 and t > r0[k] - 6.0: best = t if best is None else min(best, t)
-        if best is not None: r[k] = min(r[k], max(best - 9.0, r0[k] - 4.0))
+        capv[k] = None if best is None else max(best - 9.0, r0[k] - 4.0)
+        if best is not None: r[k] = min(r[k], capv[k])
+    # the river cap is jagged where the ray grazes the river: smooth the radius, then keep it outside the houses and on this side of the river
+    for _ in range(3):
+        r = [sum(r[(k + j) % NA] for j in range(-3, 4)) / 7.0 for k in range(NA)]
+        r = [max(r0[k] + 2.0, min(r[k], capv[k]) if capv[k] is not None else r[k]) for k in range(NA)]
     poly = [(c0[0] + r[k] * math.cos(th), c0[1] + r[k] * math.sin(th)) for k, th in enumerate(ang)]
     P = resample(poly, 3.0)
     # ---- gates: where each road leaves the village, the border is straight and square to the road

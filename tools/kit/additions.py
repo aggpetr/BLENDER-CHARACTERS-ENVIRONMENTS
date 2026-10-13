@@ -16,8 +16,8 @@ from district import corners, sat_overlap, point_poly_dist, polyline_samples
 ITEMS = [
     # ---- inside the village
     dict(id=1, name='Fire-watch tower (hinomi yagura)', group='landmark', area='in', c=(-27.0, -84.0), size=(6, 6), note='beside the north street, off the plaza, 12 m tall, bell + ladder'),
-    dict(id=2, name='Temple + pagoda / bell tower', group='landmark', area='in', c=(-100.0, 108.0), size=(46, 40), note='outside the north border, stone stairs, reached by a side gate'),
-    dict(id=3, name='Graveyard', group='landmark', area='in', c=(-148.0, 110.0), size=(24, 16), note='beside the temple, stone markers, Jizo statues'),
+    dict(id=2, name='Temple + pagoda / bell tower', group='landmark', area='in', c=(-100.0, 132.0), size=(46, 40), note='outside the north border, stone stairs, reached by a side gate'),
+    dict(id=3, name='Graveyard', group='landmark', area='in', c=(-152.0, 128.0), size=(24, 16), note='beside the temple, stone markers, Jizo statues'),
     dict(id=4, name='Samurai quarter (3 walled compounds)', group='civic', area='in', c=(-48.0, 58.0), size=(64, 28), note='long walls + gate houses along a new street (LANE_NORTH)'),
     dict(id=6, name='School (terakoya)', group='civic', area='in', c=(-72.0, -50.0), size=(16, 12), note='next to the hospital, small yard, bell'),
     dict(id=7, name='Stable + horse yard', group='civic', area='in', c=(38.0, -66.0), size=(22, 16), note='east entrance, hitching rails, troughs'),
@@ -41,7 +41,7 @@ TERRACES = [
 ]
 STREETS = [      # new streets / paths the additions need (dashed in the map)
     dict(name='LANE_NORTH', pts=[(-128, 27), (-95, 30), (-55, 31), (-28, 27), (-28, -6), (-28, -22)], note='links FIELD_RING, the samurai quarter and the north street'),
-    dict(name='TEMPLE_ST', pts=[(-96, 30), (-99, 52), (-100, 88)], note='stone paved, to the temple through a side torii in the border'),
+    dict(name='TEMPLE_ST', pts=[(-96, 30), (-99, 52), (-100, 112)], note='stone paved, to the temple through a side torii in the border'),
     dict(name='SHRINE_PATH', pts=[(103, -104), (116, -82), (124, -72)], note='torii avenue'),
     dict(name='WATCH_PATH', pts=[(138, -11), (148, 4), (150, 14)], note=''),
     dict(name='FERRY_PATH', pts=[(-70.2, -228), (-70.2, -285)], note='3 m footpath between the paddies'),
