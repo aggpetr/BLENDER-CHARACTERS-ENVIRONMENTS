@@ -55,6 +55,27 @@ SH = {
     'street':     (Vector((-62, 22, 2.0)), Vector((-28, -6, 4.0)), 26),
     'north_lane': (Vector((-26, 8, 3.0)), Vector((-22, 52, 3.5)), 28),
 }
+import json
+LAY = os.environ.get('KIT_LAYOUT') or os.path.join(os.path.dirname(blend), 'village', 'district_layout.json')
+if os.path.exists(LAY):
+    lay = json.load(open(LAY)); cx, cy = lay['center']
+    def front_shot(sl, side=0.0, dist=9.0, h=3.6, lens=24):
+        a = math.radians(sl['angle_deg']); R = lambda x, y: Vector((x * math.cos(a) - y * math.sin(a), x * math.sin(a) + y * math.cos(a), 0))
+        p = Vector((sl['pos'][0] - cx, sl['pos'][1] - cy, 0)); r2 = sl['rect'][2]
+        return (p + R(side, r2 - dist) + Vector((0, 0, h)), p + R(side * 0.3, r2 * 0.55) + Vector((0, 0, 1.5)), lens)
+    for sl in lay['slots']:
+        if sl['arch'] in ('smithy', 'restB', 'tea', 'clinic', 'shopA', 'farmhouse', 'hutA', 'dwellA'):
+            SH.setdefault('front_' + sl['arch'], front_shot(sl))
+            SH.setdefault('yard_' + sl['arch'], front_shot(sl, 0.0, 4.5, 8.5, 30))
+            _a = math.radians(sl['angle_deg']); _p = Vector((sl['pos'][0] - cx, sl['pos'][1] - cy, 0)); _r = sl['rect']
+            _c = _p + Vector((-math.sin(_a) * 0.0 + (0 * 1.0), 0, 0))
+            _fy = Vector((math.sin(_a), -math.cos(_a), 0)) * (-_r[2] * 0.45)
+            SH.setdefault('top_' + sl['arch'], (_p + _fy + Vector((0.01, 0.01, 17.0)), _p + _fy, 35))
+        if sl['arch'] == 'hospital':
+            SH['hospital_front'] = front_shot(sl, 0.0, 16.0, 7.0, 22)
+            _a = math.radians(sl['angle_deg']); _p = Vector((sl['pos'][0] - cx, sl['pos'][1] - cy, 0))
+            SH['hospital_court'] = (_p + Vector((0.01, -9.0, 24.0)), _p + Vector((0, -9.0, 0)), 30)
+            SH['hospital_wide'] = (Vector((sl['pos'][0] - cx - 60, sl['pos'][1] - cy - 52, 38)), Vector((sl['pos'][0] - cx, sl['pos'][1] - cy, 2)), 26)
 for name in (shots or list(SH)):
     loc, tgt, lens = SH[name]
     co.location = O + loc; cam.lens = lens

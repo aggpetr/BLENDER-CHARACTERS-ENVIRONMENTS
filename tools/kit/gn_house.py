@@ -186,6 +186,7 @@ def build():
     sock('Fence', 'NodeSocketInt', 0, 0, 2, '0 none, 1 board fence, 2 stone compound wall')
     sock('Gate', 'NodeSocketBool', False, desc='Roofed gate in the front opening of the fence')
     sock('Props', 'NodeSocketFloat', 0.6, 0.0, 1.0, 'Amount of yard props along the back and sides')
+    sock('Category', 'NodeSocketInt', 0, 0, 9, 'House type props: 0 none, 1 restaurant, 2 weapon smith, 3 tea house, 4 shop, 5 storehouse, 6 farm, 7 inn, 8 clinic/hospital, 9 home')
     sock('Raise', 'NodeSocketFloat', 1.12, 0.0, 3.0, 'Stilt height: floor = highest ground under the posts + Raise + 0.18 m (original default 1.12)')
     sock('Seed', 'NodeSocketInt', 0, 0, 100000, 'Variant seed (wall layout, footing stones, props)')
     s_off = sock('Offset', 'NodeSocketVector', (0.0, 0.0, 0.0), None, None, 'Place the house at this position (used when the house sits inside a district group)')
@@ -362,6 +363,22 @@ def build():
     jit = g.vec(g.rnd('FLOAT', -0.12, 0.12, seed, 78), g.rnd('FLOAT', -0.12, 0.12, seed, 79), 0.0)
     cand = g.set_z(g.set_pos(cand, offset=jit), gz())
     parts.append(g.inst(cand, 'KIT_Props', g.rnd('INT', 0, 3, seed, 80), g.rnd('FLOAT', 0.0, 2 * PI, seed, 81)))
+
+    # ---------------------------------------------------------- category props (type of house): kitchen, forge, herb racks ...
+    import modules_cat
+    cat_sets = []
+    for cid, (cname, mods) in modules_cat.CATS.items():
+        idx = {n: i for i, n in enumerate(mods.split())}
+        items = []
+        for mod, xa, dx, ya, dy, rot, side in modules_cat.PLACE[cid]:
+            x = {'L': lambda: g.add(g.mul(hW, -1), dx), 'R': lambda: g.add(hW, dx), 'C': lambda: dx, 'D': lambda: g.add(xd, dx)}[xa]()
+            y = {'F': lambda: g.add(fy, dy), 'B': lambda: g.add(hD, dy), 'M': lambda: dy}[ya]()
+            it = g.inst(on_ground(g.point(g.vec(x, y, 0.0))), cname, g.toint(float(idx[mod])), rot)   # linked constant: an unlinked Instance Index would use the point index (always 0 here)
+            if side:
+                it = g.sw('GEOMETRY', g.cmp('GREATER_THAN', G('Fence'), 0.5), empty, it)
+            items.append(it)
+        cat_sets.append(g.sw('GEOMETRY', g.cmp('EQUAL', G('Category'), float(cid), 0.1), empty, g.join(*items)))
+    parts.append(g.join(*cat_sets))
 
     # ---------------------------------------------------------- output
     allg = g.join(*parts)

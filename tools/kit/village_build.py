@@ -30,6 +30,8 @@ if 'GN_EdoKitHouse' not in bpy.data.node_groups:
         dt.node_groups = ['GN_EdoKitHouse']
 gn = bpy.data.node_groups['GN_EdoKitHouse']
 kdir = os.path.dirname(KIT); KIT_DIR = kdir
+ARCH = json.load(open(os.path.join(kdir, 'archetypes.json')))
+CATEGORY_PROPS = True
 for im in bpy.data.images:
     if im.filepath.startswith('//textures'):
         im.filepath = os.path.join(kdir, im.filepath[2:])
@@ -54,6 +56,10 @@ for o in [o for o in bpy.data.objects if any(m.type == 'NODES' and m.node_group 
     if fresh: km.node_group = gn
     params = {n: get(n) for n in ('Ground', 'Bays X', 'Bays Y', 'Floors', 'Roof', 'Engawa', 'Balcony', 'Shopfront', 'Lanterns', 'Gate', 'Fence', 'Seed', 'Props', 'Raise')}
     params['Balcony'] = bool(params['Balcony']) and params['Floors'] >= 2
+    sig = lambda a: (a['bx'], a['by'], a.get('fl', 1), a['roof'], bool(a.get('eng')), bool(a.get('bal')), bool(a.get('shop')), bool(a.get('lan')), a.get('fence', 0), bool(a.get('gate')))
+    mine = (params['Bays X'], params['Bays Y'], params['Floors'], params['Roof'], bool(params['Engawa']), params['Balcony'], bool(params['Shopfront']), bool(params['Lanterns']), params['Fence'], bool(params['Gate']))
+    params['Category'] = next((a.get('cat', 0) for a in ARCH.values() if sig(a) == mine), 0)     # house-type props (set CATEGORY_PROPS = False to skip)
+    if not CATEGORY_PROPS: params['Category'] = 0
     if fresh:
         for n, v in params.items():
             km.properties.inputs[kid[n]]['value'] = v
@@ -122,7 +128,7 @@ if dist is not None and os.path.exists(layout_path):
         fk = min([M.translation.z for n, M in items if n == 'SM_Edo_Post_Storey'] or [float('nan')])
         lights = [list(map(lambda v: round(v, 3), M @ Vector((0, -0.58, 1.95)))) for n, M in items if n == 'SM_Edo_Lantern']
         houses.append(dict(house='DISTRICT_' + sl['id'], archetype=sl['arch'], location=[round(sl['pos'][0] + shift.x, 4), round(sl['pos'][1] + shift.y, 4), 0.0],
-                           rotation_z_deg=sl['angle_deg'], params={k: sl[k] for k in ('bx', 'by', 'fl', 'roof', 'eng', 'bal', 'shop', 'lan', 'fence', 'gate', 'props', 'seed')},
+                           rotation_z_deg=sl['angle_deg'], params={k: sl.get(k, 0) for k in ('bx', 'by', 'fl', 'roof', 'eng', 'bal', 'shop', 'lan', 'fence', 'gate', 'props', 'seed', 'cat')},
                            floor_z=round(fk, 4), lantern_lights=lights, modules=mods))
 json.dump(dict(units='metres, Blender world space (Z up, right-handed)', houses=houses), open(os.path.join(OUT, 'village_manifest.json'), 'w'))
 json.dump(check, open(os.path.join(OUT, 'village_floor_check.json'), 'w'), indent=1)

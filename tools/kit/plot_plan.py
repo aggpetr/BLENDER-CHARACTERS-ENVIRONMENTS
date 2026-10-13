@@ -1,10 +1,10 @@
 """Draw the district plan (plaza, roads, house plots) as an image: python tools/kit/plot_plan.py out.png"""
 import sys, os, math
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import district
+import district, collections
 from PIL import Image, ImageDraw
 pl = district.plan(); cx, cy = pl['center']
-X0, X1, Y0, Y1 = -140, 45, -215, 10; S = 5.0
+X0, X1, Y0, Y1 = -165, 65, -235, 10; S = 4.2
 W, H = int((X1 - X0) * S), int((Y1 - Y0) * S)
 im = Image.new('RGB', (W, H), (226, 222, 210)); d = ImageDraw.Draw(im)
 P = lambda x, y: ((x - X0) * S, (Y1 - y) * S)
@@ -16,7 +16,7 @@ d.rectangle((*P(-119, 27), *P(36, -212)), outline=(220, 60, 60), width=2)
 d.ellipse((*P(cx - pl['plaza_radius'], cy + pl['plaza_radius']), *P(cx + pl['plaza_radius'], cy - pl['plaza_radius'])), fill=(205, 185, 150), outline=(120, 100, 70))
 for r in pl['roads']:
     d.line([P(*p) for p in r['pts']], fill=(150, 120, 90) if r['kind'] == 'road' else (130, 105, 75), width=max(2, int(r['width'] * S)))
-cols = {'hall': (120, 40, 40), 'R1': (60, 90, 150), 'R2': (70, 120, 70), 'H': (150, 120, 40)}
+cols = {'hosp': (150, 0, 150), 'hall': (120, 40, 40), 'R1': (60, 90, 150), 'R2': (70, 120, 70), 'H': (150, 120, 40)}
 for s in pl['slots']:
     c = district.corners(s); d.polygon([P(*p) for p in c], outline=cols[s['ring']], fill=None, width=2)
     x, y = P(*s['pos']); d.text((x - 14, y - 5), s['arch'][:8], fill=(30, 30, 30))

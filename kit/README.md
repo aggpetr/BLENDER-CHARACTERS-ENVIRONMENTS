@@ -18,6 +18,7 @@
 | Lanterns | Paper lanterns either side of the door (lit) |
 | Fence | 0 none, 1 board fence, 2 stone compound wall |
 | Gate | Roofed gate in the front opening of the fence |
+| Category | Props for the type of house (see below): 0 none, 1 restaurant, 2 weapon smith, 3 tea house, 4 shop, 5 storehouse, 6 farm, 7 inn, 8 clinic / hospital, 9 home |
 | Raise | Stilt height (default 1.12 as in the original) |
 | Props | Amount of barrels, jars, rice bales and firewood along the back and sides |
 | Seed | Picks the wall layout, footing stones and props |
@@ -37,6 +38,28 @@ It (1) refreshes the kit data, (2) makes a kit twin `<name>_KIT` of every genera
 hides the original, (3) creates the new plaza district `EdoKitVillage_01`, (4) creates the district streets as curves with your
 own `GN_EdoRibbon` group, joined to the existing town streets and the mountain trail, (5) hides the old compound village
 `EdoVillage_01` and its lights and adds point lights for the new lanterns (collection `EDO_KitLights`).
+
+### Props per house type (`Category`)
+
+Every category has its own collection of small modules (`KIT_Cat*`, 31 meshes, 90 to 3,100 triangles each) that the node group
+places in the yard, relative to the house footprint and on the terrain:
+
+| Category | Props |
+|---|---|
+| 1 Restaurant | dining sets (low table, two benches, bowls, teapot), kamado furnaces with rice pot and chimney, food stall (only with a fenced yard) |
+| 2 Weapon smith | forge with hood and bellows, anvil on a log stump with hammer, grindstone with water trough, quench tub, katana display rack (sheathed swords and one bare blade), axe rack (felling axes, hatchets). Swords and axes only |
+| 3 Tea house | red parasol over a bench, low tea table with stools and cups, kettle stove with cup shelf |
+| 4 Shop | market stand with indigo awning and baskets, open goods shelf (cloth, jars, bowls), crates with sack and barrel |
+| 5 Storehouse (kura) | pyramid of rice bales on a pallet, hand cart with a load, row of storage jars |
+| 6 Farm | rice drying rack (hazakake), haystack, tool rack (hoe, rake, scythe), water trough |
+| 7 Inn | horse hitching rail, palanquin (kago), goemon bath (iron tub on a clay stove) |
+| 8 Clinic / hospital | herb drying rack, yagen herb grinder, stretcher with futon, decoction stove with medicine pot and jars, raised herb bed |
+| 9 Home | laundry pole, stone water basin, small garden (pine, rocks) |
+
+`install_kit.py` sets the category on the kit twins of your town houses by matching their parameters to the 17 designs
+(`kit/archetypes.json`), and the district planner sets it per slot. Set `CATEGORY_PROPS = False` at the top of
+`install_kit.py` (and `village_build.py`) if you do not want the extra props on your town houses. The props are normal kit
+modules (iron, leaf and red cloth are three more texture sets: `T_Edo_Iron`, `T_Edo_Leaf`, `T_Edo_ClothRed`).
 
 ### The plaza district (`GN_EdoKitVillage`)
 

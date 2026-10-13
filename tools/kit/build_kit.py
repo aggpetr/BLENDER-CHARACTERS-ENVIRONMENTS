@@ -62,7 +62,7 @@ for i, (name, a) in enumerate(ARCH.items()):
     house(f'ARCH_{name}', (-96 + (i % 5) * 48, 120 + (i // 5) * 48, 0), flat,
           **{'Bays X': a['bx'], 'Bays Y': a['by'], 'Floors': a.get('fl', 1), 'Roof': a['roof'], 'Engawa': bool(a.get('eng')),
              'Balcony': bool(a.get('bal')), 'Shopfront': bool(a.get('shop')), 'Lanterns': bool(a.get('lan')),
-             'Fence': a.get('fence', 0), 'Gate': bool(a.get('gate')), 'Props': 0.6, 'Seed': 10 + i})
+             'Fence': a.get('fence', 0), 'Gate': bool(a.get('gate')), 'Props': 0.6, 'Seed': 10 + i, 'Category': a.get('cat', 0)})
 json.dump(ARCH, open(os.path.join(os.path.dirname(OUT), 'archetypes.json'), 'w'), indent=1)
 
 # district test: the whole plaza district on its own flat ground

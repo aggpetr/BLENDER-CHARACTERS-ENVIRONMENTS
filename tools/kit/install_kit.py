@@ -17,6 +17,7 @@ import sys, os, json, math, bpy
 KIT_PATH = '//kit/Edo_Kit.blend'        # <-- when run inside Blender: path to kit/Edo_Kit.blend
 OLD_VILLAGE = 'EdoVillage_01'           # the compound village the district replaces
 LIGHTS = True                           # warm point lights at the new lanterns
+CATEGORY_PROPS = True                   # per house type props (kitchen/furnace, forge, herb racks ...) on the kit twins of your town houses
 
 in_ui = not bpy.app.background
 args = [] if in_ui else sys.argv[1:]
@@ -29,6 +30,7 @@ else:
     SRC, KIT = os.path.abspath(args[0]), os.path.abspath(args[1])
     bpy.ops.wm.open_mainfile(filepath=SRC)
 KIT_DIR = os.path.dirname(KIT)
+ARCH = json.load(open(os.path.join(KIT_DIR, 'archetypes.json')))
 LAYOUT = json.load(open(os.path.join(KIT_DIR, 'village', 'district_layout.json')))
 sc = bpy.context.scene
 D = bpy.data
@@ -94,6 +96,9 @@ if old_gn is not None:
         km = k.modifiers.new('EdoKitHouse', 'NODES'); km.node_group = house_gn
         params = {n: get(n) for n in ('Ground', 'Bays X', 'Bays Y', 'Floors', 'Roof', 'Engawa', 'Balcony', 'Shopfront', 'Lanterns', 'Gate', 'Fence', 'Seed', 'Props', 'Raise')}
         params['Balcony'] = bool(params['Balcony']) and params['Floors'] >= 2
+        sig = lambda a: (a['bx'], a['by'], a.get('fl', 1), a['roof'], bool(a.get('eng')), bool(a.get('bal')), bool(a.get('shop')), bool(a.get('lan')), a.get('fence', 0), bool(a.get('gate')))
+        mine = (params['Bays X'], params['Bays Y'], params['Floors'], params['Roof'], bool(get('Engawa')), params['Balcony'], bool(get('Shopfront')), bool(get('Lanterns')), params['Fence'], bool(params['Gate']))
+        params['Category'] = next((a.get('cat', 0) for a in ARCH.values() if sig(a) == mine), 0) if CATEGORY_PROPS else 0
         for n, v in params.items():
             km.properties.inputs[hid[n]]['value'] = v
         o.hide_viewport = True; o.hide_render = True

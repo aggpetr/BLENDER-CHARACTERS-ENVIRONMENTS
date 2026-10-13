@@ -17,11 +17,19 @@ RING2 = dict(c=52.0, w=5.0)
 SPOKES = {                          # angle (deg, from +X around the plaza), road width
     'west': (180.0, 6.0), 'north_west': (112.0, 4.0), 'south_west': (248.0, 4.0), 'trail': (322.0, 2.4), 'north': (62.0, 3.6),
 }
+OUTWARD = {                         # roads leaving the district from the outer ring: name -> (ring angle deg, width, [further points])
+    'EAST':  (24.0, 5.0, [(20.0, -96.0), (40.0, -90.5), (58.0, -88.0)]),
+    'SOUTH': (285.0, 5.0, [(-33.0, -190.0), (-31.0, -208.0), (-29.0, -226.0)]),
+    'WNW':   (146.0, 4.0, [(-108.0, -88.0), (-130.0, -85.0), (-152.0, -87.0)]),
+    'SW2':   (215.0, 4.0, [(-108.0, -160.0), (-130.0, -163.0), (-152.0, -164.0)]),
+}
+HOSPITAL_C = (-89.0, -32.0)         # centre of the hospital's main building (north-west of the plaza, facing south)
+HOSPITAL_ROAD = [(-76.5, -78.5), (-81.0, -70.0), (-86.0, -58.0), (-88.1, -44.0)]   # from the outer ring to the hospital gate
 HALL = dict(bx=13, by=8, fl=2, roof=1, eng=1, bal=1, lan=1, fence=2, gate=1)
 RING1_SEQ = ['shopB', 'tea', 'shopA', 'restA', 'shopA', 'restB', 'shopB', 'tea', 'dwellB', 'shopA', 'restA', 'tea', 'shopA', 'shopB']
-RING2_SEQ = ['dwellA', 'farmhouse', 'dwellC', 'dwellB', 'hutA', 'dwellA', 'kura', 'hutB', 'dwellC', 'farmhouse', 'dwellA', 'dwellB', 'kura', 'hutA',
-             'dwellC', 'farmhouse', 'dwellA', 'hutB', 'dwellB', 'dwellC', 'farmhouse', 'dwellA']
-HAMLET_SEQ = ['farmhouse', 'hutA', 'barn', 'dwellC', 'hutB', 'farmhouse', 'barn', 'hutC']
+RING2_SEQ = ['dwellA', 'farmhouse', 'dwellC', 'dwellB', 'smithy', 'dwellA', 'kura', 'hutB', 'dwellC', 'farmhouse', 'dwellA', 'dwellB', 'kura', 'hutA',
+             'dwellC', 'farmhouse', 'smithy', 'hutB', 'dwellB', 'clinic', 'farmhouse', 'dwellA']
+HAMLET_SEQ = ['farmhouse', 'hutA', 'barn', 'dwellC', 'hutB', 'farmhouse', 'barn', 'smithy']
 
 
 def rot(v, a):
@@ -38,8 +46,9 @@ def plot_rect(p):
     elif f == 2:
         r = (-hW - B - 0.3, hW + B + 0.3, -hD - 2 * B - (1.3 if p.get('gate') else 0.0), hD + B + 0.3)
     else:
-        r = (-hW - 0.7, hW + 0.7, -hD - 0.6 - (1.1 if p.get('eng') else 0.0) - (0.9 if (p.get('shop') or p.get('lan')) else 0.0),
-             hD + 0.6 + (1.5 if p.get('props', 0) > 0.05 else 0.0))
+        cat = 1 if p.get('cat') else 0
+        r = (-hW - 0.7, hW + 0.7, -hD - 0.6 - (1.1 if p.get('eng') else 0.0) - (0.9 if (p.get('shop') or p.get('lan')) else 0.0) - 0.5 * cat,
+             hD + 0.6 + (1.5 if p.get('props', 0) > 0.05 else 0.4 * cat))
     return (r[0] - 0.8, r[1] + 0.8, r[2] - 0.8, r[3] + 0.8)
 
 
@@ -96,6 +105,9 @@ def roads():
     R.append(dict(name='SOUTH_WEST', pts=[(-128.0, -180.0), (-108.0, -178.0), (-88.0, -168.0), (-70.0, -152.0), at(248.0)], width=SPOKES['south_west'][1], kind='road'))
     R.append(dict(name='TRAIL', pts=[at(322.0), (-13.0, -146.0), (10.0, -150.5), (39.0, -150.0)], width=SPOKES['trail'][1], kind='path'))
     R.append(dict(name='NORTH', pts=[at(62.0), (-35.5, -84.0), (-32.0, -64.0), (-30.0, -44.0), (-28.0, -22.0)], width=SPOKES['north'][1], kind='road'))
+    for name, (ang, w, rest) in OUTWARD.items():       # roads leaving the district from the outer ring
+        R.append(dict(name=name, pts=[at(ang, RING2['c'])] + list(rest), width=w, kind='road'))
+    R.append(dict(name='HOSPITAL', pts=list(HOSPITAL_ROAD), width=6.0, kind='road'))
     return R
 
 
@@ -108,7 +120,7 @@ def plan():
     def make(arch, ring, i, override=None):
         p = copy.deepcopy(ARCH[arch]) if isinstance(arch, str) else copy.deepcopy(arch)
         d = dict(bx=p['bx'], by=p['by'], fl=p.get('fl', 1), roof=p['roof'], eng=bool(p.get('eng')), bal=bool(p.get('bal')),
-                 shop=bool(p.get('shop')), lan=bool(p.get('lan')), fence=p.get('fence', 0), gate=bool(p.get('gate')))
+                 shop=bool(p.get('shop')), lan=bool(p.get('lan')), fence=p.get('fence', 0), gate=bool(p.get('gate')), cat=p.get('cat', 0))
         if override: d.update(override)
         d['props'] = 0.0
         return d
@@ -116,7 +128,7 @@ def plan():
     def fits(slot, others):
         P = corners(slot)
         for o in others:
-            if math.hypot(slot['pos'][0] - o['pos'][0], slot['pos'][1] - o['pos'][1]) < 40 and sat_overlap(P, corners(o)):
+            if math.hypot(slot['pos'][0] - o['pos'][0], slot['pos'][1] - o['pos'][1]) < 70 and sat_overlap(P, corners(o)):
                 return False
         for samples, hw in road_polys:
             for pt in samples:
@@ -130,6 +142,18 @@ def plan():
     rc = hall_front - rect[2]
     hall = dict(id='HALL', arch='hall', ring='hall', **h, pos=(cx + rc, cy), angle=-math.pi / 2, rect=rect, seed=9001)
     slots.append(hall)
+
+    # ---- the hospital: a wide, low main building (16 x 6 bays, one storey) with a walled court and gate, and a ward on each side
+    hx, hy = HOSPITAL_C
+    hm = make('hospital', 'hosp', 0); hm['props'] = 0.3
+    rect = plot_rect(dict(hm)); hosp = dict(id='HOSP', arch='hospital', ring='hosp', **hm, pos=(hx, hy), angle=0.0, rect=rect, seed=9101)
+    slots.append(hosp)
+    for tag, side, sd in (('HOSP_W', -1, 9111), ('HOSP_E', 1, 9121)):
+        wd = make('ward', 'hosp', 0); wd['props'] = 0.3
+        wr = plot_rect(dict(wd))
+        gap = 1.0
+        wx = hx + side * ((rect[1] - rect[0]) / 2.0 + (wr[1] - wr[0]) / 2.0 + gap)
+        slots.append(dict(id=tag, arch='ward', ring='hosp', **wd, pos=(wx, hy + (rect[2] + rect[3]) / 2.0 - (wr[2] + wr[3]) / 2.0 + 0.0), angle=0.0, rect=wr, seed=sd))
 
     def ring(radius_front, seq, tag, alts=(), fence_override=None, props=0.0, start=0.0, shrink=0.0):
         phi = math.radians(start); end = phi + 2 * math.pi; k = 0; guard = 0
@@ -155,7 +179,7 @@ def plan():
         return slots
 
     ring(RING1['c'] + RING1['w'] / 2 + 0.8, RING1_SEQ, 'R1', alts=('tea', 'shopA', 'kura'), props=0.0)
-    ring(RING2['c'] + RING2['w'] / 2 + 0.8, RING2_SEQ, 'R2', alts=('hutA', 'kura', 'hutB'), fence_override=1, props=0.5, start=3.0)
+    ring(RING2['c'] + RING2['w'] / 2 + 0.8, RING2_SEQ, 'R2', alts=('hutA', 'kura', 'hutB', 'hutC'), fence_override=1, props=0.5, start=3.0)
 
     # ---- hamlet along the north road: houses on both sides, fronts to the road
     north = [r for r in rd if r['name'] == 'NORTH'][0]
@@ -236,7 +260,7 @@ def build_group(house_group, name='GN_EdoKitVillage', plan_data=None):
         n.location = ((i % 8) * 260 - 1200, -(i // 8) * 420 - 700)
         vals = {'Bays X': sl['bx'], 'Bays Y': sl['by'], 'Floors': sl['fl'], 'Roof': sl['roof'], 'Engawa': sl['eng'], 'Balcony': sl['bal'],
                 'Shopfront': sl['shop'], 'Lanterns': sl['lan'], 'Fence': sl['fence'], 'Gate': sl['gate'], 'Props': sl['props'], 'Seed': sl['seed'],
-                'Raise': 1.12, 'Angle': sl['angle'], 'Realize': False}
+                'Raise': 1.12, 'Angle': sl['angle'], 'Realize': False, 'Category': sl.get('cat', 0)}
         for k, v in vals.items():
             n.inputs[k].default_value = v
         n.inputs['Offset'].default_value = (sl['pos_local'][0], sl['pos_local'][1], 0.0)

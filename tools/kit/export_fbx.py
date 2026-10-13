@@ -16,8 +16,10 @@ FBX = dict(use_selection=True, apply_unit_scale=True, apply_scale_options='FBX_S
            use_tspace=True, add_leaf_bones=False, path_mode='STRIP', object_types={'MESH'}, use_mesh_modifiers=True)
 
 import bmesh
-NO_COLLISION = {'SM_Edo_Noren', 'SM_Edo_Lantern', 'SM_Edo_BalconyBracket', 'SM_Edo_ShopSign'}
-BOXES = {'SM_Edo_Gate': [((-1.25, -0.27, -0.30), (-0.85, 0.27, 3.30)), ((0.85, -0.27, -0.30), (1.25, 0.27, 3.30)),
+NO_COLLISION = {'SM_Edo_Noren', 'SM_Edo_Lantern', 'SM_Edo_BalconyBracket', 'SM_Edo_ShopSign',
+                'SM_Edo_Home_Laundry', 'SM_Edo_Farm_DryingRack', 'SM_Edo_Cln_HerbRack', 'SM_Edo_Smi_AxeRack', 'SM_Edo_Smi_SwordRack'}   # hanging / thin props: no blocking volume
+BOXES = {'SM_Edo_Tea_Parasol': [((-0.8, -0.55, 0.0), (0.8, -0.15, 0.47)), ((-0.4, -0.13, 0.0), (0.4, 0.63, 0.25))],
+         'SM_Edo_Gate': [((-1.25, -0.27, -0.30), (-0.85, 0.27, 3.30)), ((0.85, -0.27, -0.30), (1.25, 0.27, 3.30)),
                          ((-1.75, -1.20, 3.00), (1.75, 1.20, 4.05))]}
 
 def _hull(points, name):

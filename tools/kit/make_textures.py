@@ -219,4 +219,26 @@ if want('Lantern'):
     col = np.array([0.95, 0.86, 0.66], dtype=np.float32) * (0.95 + 0.08 * pap)[..., None]
     col = col * (1 - 0.35 * ring)[..., None]
     save_set('Lantern', np.clip(col, 0, 1), normal_from_height(ring.astype(np.float32) * 0.0008, px3), np.full((N3, N3), 0.8, np.float32), np.ones((N3, N3), np.float32))
+# ---------------------------------------------------------------- Iron (forged, slightly rusty, 1K, 0.5 m): ORM blue = metallic
+if want('Iron'):
+    n1 = periodic_noise(N3, 1.6, seed=81); n2 = periodic_noise(N3, 2.4, seed=82); hm = periodic_noise(N3, 1.0, seed=83)
+    rust = np.clip((n2 - 0.58) * 4.0, 0, 1)
+    col = np.array([0.17, 0.17, 0.18], dtype=np.float32) * (0.75 + 0.5 * n1)[..., None]
+    col = col * (1 - rust)[..., None] + np.array([0.33, 0.15, 0.07], dtype=np.float32) * (0.7 + 0.6 * n1)[..., None] * rust[..., None]
+    save_set('Iron', np.clip(col, 0, 1), normal_from_height(hm * 0.0006, px3), np.clip(0.42 + 0.35 * rust + 0.15 * (n1 - 0.5), 0.2, 0.95),
+             np.clip(1.0 - 0.3 * rust, 0, 1).astype(np.float32), metal=np.clip(0.95 - 0.7 * rust, 0, 1).astype(np.float32))
+# ---------------------------------------------------------------- Leaf (shrubs, pine needles, 1K, 0.5 m)
+if want('Leaf'):
+    l1 = periodic_noise(N3, 1.2, seed=91); l2 = periodic_noise(N3, 2.0, seed=92); l3 = periodic_noise(N3, 0.8, seed=93)
+    col = np.array([0.075, 0.17, 0.045], dtype=np.float32) * (0.65 + 0.9 * l1)[..., None]
+    col = col + (np.clip((l2 - 0.6) * 3, 0, 1) * 0.05)[..., None] * np.array([1.0, 0.9, 0.2], dtype=np.float32)
+    save_set('Leaf', np.clip(col, 0, 1), normal_from_height(l3 * 0.004, px3), np.clip(0.6 + 0.2 * l1, 0.3, 0.9), np.clip(0.5 + 0.5 * l1, 0, 1).astype(np.float32))
+# ---------------------------------------------------------------- Red cloth (stall awnings, parasol, 2K, 1 m)
+if want('ClothRed'):
+    yy2, xx2 = np.mgrid[0:N2, 0:N2].astype(np.float32)
+    weave = 0.5 + 0.25 * np.sin(xx2 * 2 * np.pi / 4.0) * np.sin(yy2 * 2 * np.pi / 4.0)
+    fade = periodic_noise(N2, 2.4, seed=101)
+    col = np.array([0.46, 0.065, 0.045], dtype=np.float32) * (0.9 + 0.2 * weave)[..., None]
+    col = col + (np.clip((fade - 0.55) * 2, 0, 1) * 0.07)[..., None] * np.array([1.0, 0.7, 0.5], dtype=np.float32)
+    save_set('ClothRed', np.clip(col, 0, 1), normal_from_height(weave * 0.0003, px2), np.full((N2, N2), 0.88, np.float32), 0.92 + 0.08 * weave)
 print('done')

@@ -18,7 +18,8 @@ MAX_DEPTH = 8            # roof modules exist for short sides of 1..8 bays
 
 # texture world size (metres per texture repeat) and which image direction the wood/plank grain runs in
 TEXSIZE = {'Timber': 2.0, 'Planks': 2.0, 'Plaster': 2.0, 'Kawara': B, 'Stone': 1.0, 'Paper': 1.0,
-           'Ceramic': 0.5, 'Thatch': 2.0, 'StoneWall': 2.0, 'Cloth': 1.0, 'Lantern': 0.5}
+           'Ceramic': 0.5, 'Thatch': 2.0, 'StoneWall': 2.0, 'Cloth': 1.0, 'Lantern': 0.5,
+           'Iron': 0.5, 'Leaf': 0.5, 'ClothRed': 1.0}
 GRAIN_IMG = {'Timber': 'v', 'Planks': 'u', 'Thatch': 'v'}
 
 
@@ -264,6 +265,8 @@ def make_materials(tex_rel):
             base_out = gm.outputs['Result']
         nt.links.new(base_out, bsdf.inputs['Base Color'])
         nt.links.new(rough_out, bsdf.inputs['Roughness'])
+        if name == 'Iron':    # metallic from the ORM blue channel
+            nt.links.new(sep.outputs['Blue'], bsdf.inputs['Metallic'])
         if name == 'Lantern':  # lit paper lantern (Unreal: emissive = BaseColor x strength)
             nt.links.new(base_out, bsdf.inputs['Emission Color'])
             bsdf.inputs['Emission Strength'].default_value = 2.0
