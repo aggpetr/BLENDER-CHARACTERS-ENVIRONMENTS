@@ -85,3 +85,20 @@ the end points of the town streets (`RD_VillageRoad`, `RD_Lane1`, `RD_Lane2`) an
 Added to the kit for this: roof modules for depths 7 and 8, bays up to 16, `Offset`/`Angle` inputs on `GN_EdoKitHouse`, plaza
 furniture (stone lantern, well, bench, notice board), 103 FBX files in total, district plaza and street meshes
 (`kit/export/district/`), and district entries (`DISTRICT_*`) in the village manifest (131 houses, 24,974 module instances).
+
+## District update: outward streets, hospital, props per house type
+
+- **Streets:** four more streets leave the outer ring (east, south, west-north-west, south-west, 4-5 m wide, ending in open
+  terrain where the ground is flat to gently sloped) plus a hospital street. 13 street curves in total.
+- **Hospital (north-west, `HOSP`, `HOSP_W`, `HOSP_E`):** main building 16 x 6 bays, one storey, tile hip roof, about 29 m wide and
+  about 8 m high, board-fence court with gate; two wards of 7 x 3 bays. The district now has 33 planned slots (the new streets
+  and the hospital take the room of three ring houses and part of the north hamlet); manifest: 128 houses, 25,994 module instances.
+  The position is the constant `HOSPITAL_C` in `tools/kit/district.py`.
+- **Props per house type:** new input `Category` (0-9) on `GN_EdoKitHouse`; 31 modules in 9 collections `KIT_Cat*` (restaurant,
+  smith, tea, shop, store, farm, inn, clinic, home), listed in `kit/README.md`. Three new texture sets: `T_Edo_Iron` (1K, metallic),
+  `T_Edo_Leaf` (1K), `T_Edo_ClothRed` (2K). The 17 town designs and the new designs smithy, clinic, ward and hospital carry a
+  category (`tools/kit/archetypes.py`); `install_kit.py` and `village_build.py` match each town house to its design.
+  FBX: 136 files; thin or hanging props (laundry, drying and herb racks, sword and axe racks) have no collision, the parasol has box collision.
+- Checks: floor height of all 94 town houses still within 1.5 cm of the originals; install is idempotent.
+- Not verified: Unreal import (script untested), the category props on every town house yard (clutter with neighbours possible; set
+  `CATEGORY_PROPS = False` to switch off).

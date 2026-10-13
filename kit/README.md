@@ -65,9 +65,12 @@ modules (iron, leaf and red cloth are three more texture sets: `T_Edo_Iron`, `T_
 
 A round plaza (radius 20 m, centred at x -48, y -122) with a well, stone lanterns, benches and a notice board; one very big
 hall (13 x 8 bays, two storeys, stone compound wall and gate) on the east side facing the plaza on the axis of the west entrance;
-shops, tea houses and restaurants around the plaza; a second ring of dwellings, farmhouses and huts; a small hamlet along the
-north street. Streets: ring street, outer ring street, the west street (continues your `RD_VillageRoad`), north-west and
-south-west streets (continue `RD_Lane1`/`RD_Lane2`), the trail to the mountain hub (joins `PATH_hub_p2`), the north street.
+shops, tea houses and restaurants around the plaza; a second ring of dwellings, farmhouses, huts, weapon smiths and a clinic; a small
+hamlet along the north street; and in the north-west a hospital compound: a wide, low main building (16 x 6 bays, one storey,
+board-fence court with gate, herb racks, stretchers, decoction stoves) with a ward on each side, reached by its own street.
+Streets: ring street, outer ring street, the west street (continues your `RD_VillageRoad`), north-west and south-west streets
+(continue `RD_Lane1`/`RD_Lane2`), the trail to the mountain hub (joins `PATH_hub_p2`), the north street, the hospital street, and
+four streets leaving the outer ring towards the surroundings (east, south, west-north-west, south-west).
 The houses are nested `GN_EdoKitHouse` nodes inside the group (open `GN_EdoKitVillage`: every house is a labelled group node
 whose Bays/Floors/Roof/... you can change); the plaza radius is a modifier input. Move the object `EdoKitVillage_01` to move
 the whole district. The layout comes from `tools/kit/district.py` (`python tools/kit/plot_plan.py out.png` draws the plan).

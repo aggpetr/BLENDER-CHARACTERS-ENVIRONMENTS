@@ -24,7 +24,7 @@ OUTWARD = {                         # roads leaving the district from the outer 
     'SW2':   (215.0, 4.0, [(-108.0, -160.0), (-130.0, -163.0), (-152.0, -164.0)]),
 }
 HOSPITAL_C = (-89.0, -32.0)         # centre of the hospital's main building (north-west of the plaza, facing south)
-HOSPITAL_ROAD = [(-76.5, -78.5), (-81.0, -70.0), (-86.0, -58.0), (-88.1, -44.0)]   # from the outer ring to the hospital gate
+HOSPITAL_ROAD = [(-76.5, -78.5), (-81.0, -70.0), (-86.0, -58.0), (-88.1, -41.7)]   # from the outer ring to the hospital gate
 HALL = dict(bx=13, by=8, fl=2, roof=1, eng=1, bal=1, lan=1, fence=2, gate=1)
 RING1_SEQ = ['shopB', 'tea', 'shopA', 'restA', 'shopA', 'restB', 'shopB', 'tea', 'dwellB', 'shopA', 'restA', 'tea', 'shopA', 'shopB']
 RING2_SEQ = ['dwellA', 'farmhouse', 'dwellC', 'dwellB', 'smithy', 'dwellA', 'kura', 'hutB', 'dwellC', 'farmhouse', 'dwellA', 'dwellB', 'kura', 'hutA',
