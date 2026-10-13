@@ -1322,5 +1322,165 @@
    "M_Edo_StoneWall",
    "M_Edo_Timber"
   ]
+ },
+ {
+  "collection": "KIT_Bridge",
+  "module": "SM_Edo_Bridge_Arch",
+  "tris": 1650,
+  "materials": [
+   "M_Edo_StoneWall",
+   "M_Edo_Stone"
+  ]
+ },
+ {
+  "collection": "KIT_Bridge",
+  "module": "SM_Edo_Bridge_Flat4",
+  "tris": 1980,
+  "materials": [
+   "M_Edo_StoneWall",
+   "M_Edo_Stone",
+   "M_Edo_Timber",
+   "M_Edo_Planks"
+  ]
+ },
+ {
+  "collection": "KIT_Bridge",
+  "module": "SM_Edo_Bridge_Flat6",
+  "tris": 2004,
+  "materials": [
+   "M_Edo_StoneWall",
+   "M_Edo_Stone",
+   "M_Edo_Timber",
+   "M_Edo_Planks"
+  ]
+ },
+ {
+  "collection": "KIT_Stall",
+  "module": "SM_Edo_Stall",
+  "tris": 788,
+  "materials": [
+   "M_Edo_Timber",
+   "M_Edo_Cloth",
+   "M_Edo_ClothRed",
+   "M_Edo_Planks",
+   "M_Edo_Thatch",
+   "M_Edo_Leaf",
+   "M_Edo_Ceramic"
+  ]
+ },
+ {
+  "collection": "KIT_EmbankCurb",
+  "module": "SM_Edo_EmbankCurb",
+  "tris": 308,
+  "materials": [
+   "M_Edo_StoneWall"
+  ]
+ },
+ {
+  "collection": "KIT_EmbankCobble",
+  "module": "SM_Edo_EmbankCobble",
+  "tris": 1942,
+  "materials": [
+   "M_Edo_StoneWall"
+  ]
+ },
+ {
+  "collection": "KIT_EmbankRock",
+  "module": "SM_Edo_EmbankRock_A",
+  "tris": 320,
+  "materials": [
+   "M_Edo_StoneWall"
+  ]
+ },
+ {
+  "collection": "KIT_EmbankRock",
+  "module": "SM_Edo_EmbankRock_B",
+  "tris": 320,
+  "materials": [
+   "M_Edo_StoneWall"
+  ]
+ },
+ {
+  "collection": "KIT_EmbankRock",
+  "module": "SM_Edo_EmbankRock_C",
+  "tris": 320,
+  "materials": [
+   "M_Edo_StoneWall"
+  ]
+ },
+ {
+  "collection": "KIT_CropRidge",
+  "module": "SM_Edo_CropRidge",
+  "tris": 128,
+  "materials": [
+   "M_Edo_Soil"
+  ]
+ },
+ {
+  "collection": "KIT_PaddyBund",
+  "module": "SM_Edo_PaddyBund",
+  "tris": 24,
+  "materials": [
+   "M_Edo_Soil"
+  ]
+ },
+ {
+  "collection": "KIT_CropVeg",
+  "module": "SM_Edo_CropCabbage_A",
+  "tris": 194,
+  "materials": [
+   "M_Edo_Leaf"
+  ]
+ },
+ {
+  "collection": "KIT_CropVeg",
+  "module": "SM_Edo_CropCabbage_B",
+  "tris": 194,
+  "materials": [
+   "M_Edo_Leaf"
+  ]
+ },
+ {
+  "collection": "KIT_CropVeg",
+  "module": "SM_Edo_CropDaikon",
+  "tris": 168,
+  "materials": [
+   "M_Edo_Leaf",
+   "M_Edo_Ceramic"
+  ]
+ },
+ {
+  "collection": "KIT_CropGrain",
+  "module": "SM_Edo_CropBarley_A",
+  "tris": 672,
+  "materials": [
+   "M_Edo_Leaf",
+   "M_Edo_Grain"
+  ]
+ },
+ {
+  "collection": "KIT_CropGrain",
+  "module": "SM_Edo_CropBarley_B",
+  "tris": 672,
+  "materials": [
+   "M_Edo_Leaf",
+   "M_Edo_Grain"
+  ]
+ },
+ {
+  "collection": "KIT_CropRice",
+  "module": "SM_Edo_CropRice_A",
+  "tris": 144,
+  "materials": [
+   "M_Edo_Leaf"
+  ]
+ },
+ {
+  "collection": "KIT_CropRice",
+  "module": "SM_Edo_CropRice_B",
+  "tris": 144,
+  "materials": [
+   "M_Edo_Grain"
+  ]
  }
 ]
