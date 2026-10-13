@@ -1,0 +1,9371 @@
+{
+ "iface": [
+  {
+   "name": "Geometry",
+   "id": "Socket_1",
+   "type": "NodeSocketGeometry",
+   "default": null,
+   "min": null,
+   "max": null,
+   "panel": ""
+  },
+  {
+   "name": "Ground",
+   "id": "Socket_2",
+   "type": "NodeSocketObject",
+   "default": null,
+   "min": null,
+   "max": null,
+   "panel": ""
+  },
+  {
+   "name": "Roof Detail",
+   "id": "Socket_48",
+   "type": "NodeSocketFloat",
+   "default": 1.0,
+   "min": 0.10000000149011612,
+   "max": 1.0,
+   "panel": ""
+  },
+  {
+   "name": "Bays X",
+   "id": "Socket_3",
+   "type": "NodeSocketInt",
+   "default": 4,
+   "min": 1,
+   "max": 14,
+   "panel": "Size"
+  },
+  {
+   "name": "Bays Y",
+   "id": "Socket_4",
+   "type": "NodeSocketInt",
+   "default": 3,
+   "min": 1,
+   "max": 16,
+   "panel": "Size"
+  },
+  {
+   "name": "Floors",
+   "id": "Socket_5",
+   "type": "NodeSocketInt",
+   "default": 2,
+   "min": 1,
+   "max": 5,
+   "panel": "Size"
+  },
+  {
+   "name": "Bay Scale",
+   "id": "Socket_6",
+   "type": "NodeSocketFloat",
+   "default": 1.0,
+   "min": 0.6000000238418579,
+   "max": 2.0,
+   "panel": "Size"
+  },
+  {
+   "name": "Raise",
+   "id": "Socket_7",
+   "type": "NodeSocketFloat",
+   "default": 0.44999998807907104,
+   "min": 0.0,
+   "max": 5.0,
+   "panel": "Size"
+  },
+  {
+   "name": "Roof",
+   "id": "Socket_9",
+   "type": "NodeSocketInt",
+   "default": 1,
+   "min": 0,
+   "max": 3,
+   "panel": "Style"
+  },
+  {
+   "name": "Shopfront",
+   "id": "Socket_13",
+   "type": "NodeSocketBool",
+   "default": false,
+   "min": null,
+   "max": null,
+   "panel": "Style"
+  },
+  {
+   "name": "Seed",
+   "id": "Socket_8",
+   "type": "NodeSocketInt",
+   "default": 0,
+   "min": 0,
+   "max": 100000,
+   "panel": "Style"
+  },
+  {
+   "name": "Engawa",
+   "id": "Socket_10",
+   "type": "NodeSocketBool",
+   "default": false,
+   "min": null,
+   "max": null,
+   "panel": "Details"
+  },
+  {
+   "name": "Balcony",
+   "id": "Socket_11",
+   "type": "NodeSocketBool",
+   "default": false,
+   "min": null,
+   "max": null,
+   "panel": "Details"
+  },
+  {
+   "name": "Lanterns",
+   "id": "Socket_12",
+   "type": "NodeSocketBool",
+   "default": false,
+   "min": null,
+   "max": null,
+   "panel": "Details"
+  },
+  {
+   "name": "Gate",
+   "id": "Socket_15",
+   "type": "NodeSocketBool",
+   "default": false,
+   "min": null,
+   "max": null,
+   "panel": "Details"
+  },
+  {
+   "name": "Fence",
+   "id": "Socket_14",
+   "type": "NodeSocketInt",
+   "default": 1,
+   "min": 0,
+   "max": 2,
+   "panel": "Details"
+  },
+  {
+   "name": "Wear",
+   "id": "Socket_18",
+   "type": "NodeSocketFloat",
+   "default": 0.3499999940395355,
+   "min": 0.0,
+   "max": 1.0,
+   "panel": "Weathering"
+  },
+  {
+   "name": "Props",
+   "id": "Socket_19",
+   "type": "NodeSocketFloat",
+   "default": 0.6000000238418579,
+   "min": 0.0,
+   "max": 1.0,
+   "panel": "Weathering"
+  },
+  {
+   "name": "Offset",
+   "id": "Socket_16",
+   "type": "NodeSocketVector",
+   "default": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "min": -3.4028234663852886e+38,
+   "max": 3.4028234663852886e+38,
+   "panel": "Cluster (set by village)"
+  },
+  {
+   "name": "Angle",
+   "id": "Socket_17",
+   "type": "NodeSocketFloat",
+   "default": 0.0,
+   "min": -3.4028234663852886e+38,
+   "max": 3.4028234663852886e+38,
+   "panel": "Cluster (set by village)"
+  },
+  {
+   "name": "Back Extend",
+   "id": "Socket_20",
+   "type": "NodeSocketFloat",
+   "default": 0.0,
+   "min": 0.0,
+   "max": 3.4028234663852886e+38,
+   "panel": "Cluster (set by village)"
+  },
+  {
+   "name": "Use Floor Override",
+   "id": "Socket_21",
+   "type": "NodeSocketBool",
+   "default": false,
+   "min": null,
+   "max": null,
+   "panel": "Cluster (set by village)"
+  },
+  {
+   "name": "Floor Override",
+   "id": "Socket_22",
+   "type": "NodeSocketFloat",
+   "default": 0.0,
+   "min": -3.4028234663852886e+38,
+   "max": 3.4028234663852886e+38,
+   "panel": "Cluster (set by village)"
+  },
+  {
+   "name": "Union Min",
+   "id": "Socket_31",
+   "type": "NodeSocketVector",
+   "default": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "min": -3.4028234663852886e+38,
+   "max": 3.4028234663852886e+38,
+   "panel": "Cluster (set by village)"
+  },
+  {
+   "name": "Union Max",
+   "id": "Socket_32",
+   "type": "NodeSocketVector",
+   "default": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "min": -3.4028234663852886e+38,
+   "max": 3.4028234663852886e+38,
+   "panel": "Cluster (set by village)"
+  },
+  {
+   "name": "Keepout 1 Min",
+   "id": "Socket_40",
+   "type": "NodeSocketVector",
+   "default": [
+    1000.0,
+    1000.0,
+    0.0
+   ],
+   "min": -3.4028234663852886e+38,
+   "max": 3.4028234663852886e+38,
+   "panel": "Cluster (set by village)"
+  },
+  {
+   "name": "Keepout 1 Max",
+   "id": "Socket_41",
+   "type": "NodeSocketVector",
+   "default": [
+    -1000.0,
+    -1000.0,
+    0.0
+   ],
+   "min": -3.4028234663852886e+38,
+   "max": 3.4028234663852886e+38,
+   "panel": "Cluster (set by village)"
+  },
+  {
+   "name": "Keepout 2 Min",
+   "id": "Socket_42",
+   "type": "NodeSocketVector",
+   "default": [
+    1000.0,
+    1000.0,
+    0.0
+   ],
+   "min": -3.4028234663852886e+38,
+   "max": 3.4028234663852886e+38,
+   "panel": "Cluster (set by village)"
+  },
+  {
+   "name": "Keepout 2 Max",
+   "id": "Socket_43",
+   "type": "NodeSocketVector",
+   "default": [
+    -1000.0,
+    -1000.0,
+    0.0
+   ],
+   "min": -3.4028234663852886e+38,
+   "max": 3.4028234663852886e+38,
+   "panel": "Cluster (set by village)"
+  },
+  {
+   "name": "Keepout 3 Min",
+   "id": "Socket_44",
+   "type": "NodeSocketVector",
+   "default": [
+    1000.0,
+    1000.0,
+    0.0
+   ],
+   "min": -3.4028234663852886e+38,
+   "max": 3.4028234663852886e+38,
+   "panel": "Cluster (set by village)"
+  },
+  {
+   "name": "Keepout 3 Max",
+   "id": "Socket_45",
+   "type": "NodeSocketVector",
+   "default": [
+    -1000.0,
+    -1000.0,
+    0.0
+   ],
+   "min": -3.4028234663852886e+38,
+   "max": 3.4028234663852886e+38,
+   "panel": "Cluster (set by village)"
+  },
+  {
+   "name": "Keepout 4 Min",
+   "id": "Socket_46",
+   "type": "NodeSocketVector",
+   "default": [
+    1000.0,
+    1000.0,
+    0.0
+   ],
+   "min": -3.4028234663852886e+38,
+   "max": 3.4028234663852886e+38,
+   "panel": "Cluster (set by village)"
+  },
+  {
+   "name": "Keepout 4 Max",
+   "id": "Socket_47",
+   "type": "NodeSocketVector",
+   "default": [
+    -1000.0,
+    -1000.0,
+    0.0
+   ],
+   "min": -3.4028234663852886e+38,
+   "max": 3.4028234663852886e+38,
+   "panel": "Cluster (set by village)"
+  }
+ ],
+ "rows": [
+  {
+   "obj": "EdoHouse_01",
+   "coll": [
+    "EDO_Generator"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_TestGround_Large",
+    "Roof Detail": 0.0,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 0.44999998807907104,
+    "Roof": 1,
+    "Shopfront": false,
+    "Seed": 0,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 0.3499999940395355,
+    "Props": 0.6000000238418579,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_1_barn",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    -282.0,
+    4.0,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 4,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 208,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.30000001192092896,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_1_farmhouse",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    -279.0,
+    -12.0,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 5,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 207,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_1_kura",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    -292.0,
+    -9.0,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 2,
+    "Bays Y": 2,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 209,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.20000000298023224,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_2_barn",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    -183.0,
+    16.0,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 4,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 215,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.30000001192092896,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_2_farmhouse",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    -186.0,
+    32.0,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 5,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 214,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_2_kura",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    -173.0,
+    29.0,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 2,
+    "Bays Y": 2,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 216,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.20000000298023224,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_3_barn",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    -246.0,
+    50.0,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 4,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 222,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.30000001192092896,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_3_farmhouse",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    -243.0,
+    34.0,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 5,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 221,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_3_kura",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    -256.0,
+    37.0,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 2,
+    "Bays Y": 2,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 223,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.20000000298023224,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_4_barn",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    -282.0,
+    -153.0,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 4,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 229,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.30000001192092896,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_4_farmhouse",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    -279.0,
+    -169.0,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 5,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 228,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_4_kura",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    -292.0,
+    -166.0,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 2,
+    "Bays Y": 2,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 230,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.20000000298023224,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_5_barn",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    -282.0,
+    -231.0,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 4,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 236,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.30000001192092896,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_5_farmhouse",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    -279.0,
+    -247.0,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 5,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 235,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_5_kura",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    -292.0,
+    -244.0,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 2,
+    "Bays Y": 2,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 237,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.20000000298023224,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_6_barn",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    11.0,
+    -224.0,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 4,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 243,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.30000001192092896,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_6_farmhouse",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    14.0,
+    -240.0,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 5,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 242,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_6_kura",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    30.0,
+    -240.0,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 2,
+    "Bays Y": 2,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 244,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.20000000298023224,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_7_barn",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    -282.0,
+    -89.0,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 4,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 251,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.30000001192092896,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_7_farmhouse",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    -279.0,
+    -105.0,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 5,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 250,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "FARM_7_kura",
+   "coll": [
+    "EdoTown_Farms"
+   ],
+   "loc": [
+    -292.0,
+    -102.0,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 2,
+    "Bays Y": 2,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 252,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.20000000298023224,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "K_barn",
+   "coll": [
+    "EdoTown_Kit"
+   ],
+   "loc": [
+    2000.0,
+    -68.0,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_KitFlat",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 4,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 23,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.30000001192092896,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "K_dwellA",
+   "coll": [
+    "EdoTown_Kit"
+   ],
+   "loc": [
+    2060.0,
+    0.0,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_KitFlat",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": false,
+    "Seed": 13,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "K_dwellB",
+   "coll": [
+    "EdoTown_Kit"
+   ],
+   "loc": [
+    2090.0,
+    0.0,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_KitFlat",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 14,
+    "Engawa": false,
+    "Balcony": true,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "K_dwellC",
+   "coll": [
+    "EdoTown_Kit"
+   ],
+   "loc": [
+    2120.0,
+    0.0,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_KitFlat",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 15,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "K_farmhouse",
+   "coll": [
+    "EdoTown_Kit"
+   ],
+   "loc": [
+    2150.0,
+    -34.0,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_KitFlat",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 5,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 22,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "K_hutA",
+   "coll": [
+    "EdoTown_Kit"
+   ],
+   "loc": [
+    2030.0,
+    -68.0,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_KitFlat",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 24,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "K_hutB",
+   "coll": [
+    "EdoTown_Kit"
+   ],
+   "loc": [
+    2060.0,
+    -68.0,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_KitFlat",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 25,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "K_hutC",
+   "coll": [
+    "EdoTown_Kit"
+   ],
+   "loc": [
+    2090.0,
+    -68.0,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_KitFlat",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 2,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 26,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.6000000238418579,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "K_inn",
+   "coll": [
+    "EdoTown_Kit"
+   ],
+   "loc": [
+    2060.0,
+    -34.0,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_KitFlat",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 9,
+    "Bays Y": 6,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": false,
+    "Seed": 19,
+    "Engawa": true,
+    "Balcony": true,
+    "Lanterns": true,
+    "Gate": true,
+    "Fence": 2,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "K_kura",
+   "coll": [
+    "EdoTown_Kit"
+   ],
+   "loc": [
+    2120.0,
+    -34.0,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_KitFlat",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 2,
+    "Bays Y": 2,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 21,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.20000000298023224,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "K_restA",
+   "coll": [
+    "EdoTown_Kit"
+   ],
+   "loc": [
+    2000.0,
+    -34.0,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_KitFlat",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 5,
+    "Bays Y": 4,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": true,
+    "Seed": 17,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "K_restB",
+   "coll": [
+    "EdoTown_Kit"
+   ],
+   "loc": [
+    2030.0,
+    -34.0,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_KitFlat",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 6,
+    "Bays Y": 4,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": true,
+    "Seed": 18,
+    "Engawa": false,
+    "Balcony": true,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "K_row",
+   "coll": [
+    "EdoTown_Kit"
+   ],
+   "loc": [
+    2150.0,
+    0.0,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_KitFlat",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 7,
+    "Bays Y": 2,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 16,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "K_shopA",
+   "coll": [
+    "EdoTown_Kit"
+   ],
+   "loc": [
+    2000.0,
+    0.0,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_KitFlat",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": true,
+    "Seed": 11,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "K_shopB",
+   "coll": [
+    "EdoTown_Kit"
+   ],
+   "loc": [
+    2030.0,
+    0.0,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_KitFlat",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 4,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": true,
+    "Seed": 12,
+    "Engawa": false,
+    "Balcony": true,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "K_tea",
+   "coll": [
+    "EdoTown_Kit"
+   ],
+   "loc": [
+    2090.0,
+    -34.0,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_KitFlat",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 20,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "MT_1_hutA",
+   "coll": [
+    "EdoTown_Mountain"
+   ],
+   "loc": [
+    195.74,
+    -264.91,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "MT_pad1",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 301,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "MT_2_farmhouse",
+   "coll": [
+    "EdoTown_Mountain"
+   ],
+   "loc": [
+    130.55,
+    -149.91,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "MT_pad2",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 5,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 302,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "MT_3_hutB",
+   "coll": [
+    "EdoTown_Mountain"
+   ],
+   "loc": [
+    195.73,
+    -79.8,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "MT_pad3",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 303,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "MT_4_hutC",
+   "coll": [
+    "EdoTown_Mountain"
+   ],
+   "loc": [
+    189.74,
+    55.49,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "MT_pad4",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 2,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 304,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.6000000238418579,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "MT_5_hutB",
+   "coll": [
+    "EdoTown_Mountain"
+   ],
+   "loc": [
+    160.73,
+    -354.8,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "MT_pad5",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 305,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_01_restA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -225.64,
+    -107.86,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 5,
+    "Bays Y": 4,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": true,
+    "Seed": 100,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_02_tea",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -202.76,
+    -108.77,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 107,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_03_inn",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -229.06,
+    -156.28,
+    0.0
+   ],
+   "rot": 3.142,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 9,
+    "Bays Y": 6,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": false,
+    "Seed": 114,
+    "Engawa": true,
+    "Balcony": true,
+    "Lanterns": true,
+    "Gate": true,
+    "Fence": 2,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_04_restB",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -236.01,
+    -130.07,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 6,
+    "Bays Y": 4,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": true,
+    "Seed": 121,
+    "Engawa": false,
+    "Balcony": true,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_05_shopA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -189.11,
+    -116.89,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": true,
+    "Seed": 128,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_06_restA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -186.86,
+    -141.36,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 5,
+    "Bays Y": 4,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": true,
+    "Seed": 135,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_07_tea",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -229.23,
+    -253.26,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 2,
+    "Shopfront": false,
+    "Seed": 142,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_08_shopA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -196.11,
+    -252.89,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": true,
+    "Seed": 149,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_09_shopA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -220.89,
+    -68.93,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": true,
+    "Seed": 156,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_10_dwellA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -223.49,
+    -81.97,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": false,
+    "Seed": 163,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_11_shopB",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -222.04,
+    -94.89,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 4,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": true,
+    "Seed": 170,
+    "Engawa": false,
+    "Balcony": true,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_12_dwellC",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -223.49,
+    -171.47,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 177,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_13_dwellB",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -223.49,
+    -188.81,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 184,
+    "Engawa": false,
+    "Balcony": true,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_14_shopA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -220.89,
+    -201.88,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": true,
+    "Seed": 191,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_15_dwellA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -223.49,
+    -214.91,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": false,
+    "Seed": 198,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_16_dwellB",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -200.51,
+    -69.93,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 205,
+    "Engawa": false,
+    "Balcony": true,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_17_shopA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -203.11,
+    -82.97,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": true,
+    "Seed": 212,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_18_dwellA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -200.51,
+    -96.03,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": false,
+    "Seed": 219,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_19_shopB",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -201.96,
+    -148.53,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 4,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": true,
+    "Seed": 226,
+    "Engawa": false,
+    "Balcony": true,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_20_dwellC",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -200.51,
+    -160.54,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 233,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_21_row",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -203.93,
+    -191.18,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 7,
+    "Bays Y": 2,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 240,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_22_dwellB",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -200.51,
+    -207.26,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 247,
+    "Engawa": false,
+    "Balcony": true,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_23_shopA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -203.11,
+    -220.29,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": true,
+    "Seed": 254,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_24_kura",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -234.17,
+    -79.89,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 2,
+    "Bays Y": 2,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 261,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.20000000298023224,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_25_kura",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -234.17,
+    -204.89,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 2,
+    "Bays Y": 2,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 268,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.20000000298023224,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_26_kura",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -186.83,
+    -82.11,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 2,
+    "Bays Y": 2,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 275,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.20000000298023224,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_27_kura",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -186.83,
+    -105.11,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 2,
+    "Bays Y": 2,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 282,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.20000000298023224,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_28_kura",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -186.83,
+    -165.11,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 2,
+    "Bays Y": 2,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 289,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.20000000298023224,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_29_kura",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -186.83,
+    -210.11,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 2,
+    "Bays Y": 2,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 296,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 0.20000000298023224,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_30_dwellA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -166.07,
+    -49.76,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": false,
+    "Seed": 303,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_31_dwellC",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -152.73,
+    -49.76,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 310,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_32_shopA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -140.61,
+    -52.36,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": true,
+    "Seed": 317,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_33_shopA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -167.07,
+    -67.64,
+    0.0
+   ],
+   "rot": 3.142,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": true,
+    "Seed": 324,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_34_dwellB",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -154.03,
+    -70.24,
+    0.0
+   ],
+   "rot": 3.142,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 331,
+    "Engawa": false,
+    "Balcony": true,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_35_dwellA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -139.78,
+    -70.24,
+    0.0
+   ],
+   "rot": 3.142,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": false,
+    "Seed": 338,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_36_dwellA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -166.07,
+    -119.76,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": false,
+    "Seed": 345,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_37_dwellC",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -152.73,
+    -119.76,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 352,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_38_shopA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -140.61,
+    -122.36,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": true,
+    "Seed": 359,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_39_shopA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -167.07,
+    -137.64,
+    0.0
+   ],
+   "rot": 3.142,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": true,
+    "Seed": 366,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_40_dwellB",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -154.03,
+    -140.24,
+    0.0
+   ],
+   "rot": 3.142,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 373,
+    "Engawa": false,
+    "Balcony": true,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_41_dwellA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -139.78,
+    -140.24,
+    0.0
+   ],
+   "rot": 3.142,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": false,
+    "Seed": 380,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_42_dwellA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -166.07,
+    -169.76,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": false,
+    "Seed": 387,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_43_dwellC",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -152.73,
+    -169.76,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 394,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_44_shopA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -140.61,
+    -172.36,
+    0.0
+   ],
+   "rot": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": true,
+    "Seed": 401,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_45_shopA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -167.07,
+    -187.64,
+    0.0
+   ],
+   "rot": 3.142,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": true,
+    "Seed": 408,
+    "Engawa": false,
+    "Balcony": false,
+    "Lanterns": true,
+    "Gate": false,
+    "Fence": 0,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_46_dwellB",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -154.03,
+    -190.24,
+    0.0
+   ],
+   "rot": 3.142,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 415,
+    "Engawa": false,
+    "Balcony": true,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_47_dwellA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -139.78,
+    -190.24,
+    0.0
+   ],
+   "rot": 3.142,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": false,
+    "Seed": 422,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_48_dwellB",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -160.24,
+    -107.09,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 436,
+    "Engawa": false,
+    "Balcony": true,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_49_dwellA",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -160.24,
+    -85.09,
+    0.0
+   ],
+   "rot": 1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 1,
+    "Shopfront": false,
+    "Seed": 443,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_50_dwellC",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -139.76,
+    -106.91,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 3,
+    "Bays Y": 3,
+    "Floors": 1,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 450,
+    "Engawa": true,
+    "Balcony": false,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "obj": "TWN_51_dwellB",
+   "coll": [
+    "EdoTown_Town"
+   ],
+   "loc": [
+    -139.76,
+    -84.91,
+    0.0
+   ],
+   "rot": -1.571,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mod_inputs": {
+    "Geometry": null,
+    "Ground": "EDO_Ground_Town",
+    "Roof Detail": 0.20000000298023224,
+    "Bays X": 4,
+    "Bays Y": 3,
+    "Floors": 2,
+    "Bay Scale": 1.0,
+    "Raise": 1.1200000047683716,
+    "Roof": 3,
+    "Shopfront": false,
+    "Seed": 457,
+    "Engawa": false,
+    "Balcony": true,
+    "Lanterns": false,
+    "Gate": false,
+    "Fence": 1,
+    "Wear": 1.0,
+    "Props": 1.0,
+    "Offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Angle": 0.0,
+    "Back Extend": 0.0,
+    "Use Floor Override": false,
+    "Floor Override": 0.0,
+    "Union Min": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Union Max": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "Keepout 1 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 1 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 2 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 2 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 3 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 3 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ],
+    "Keepout 4 Min": [
+     1000.0,
+     1000.0,
+     0.0
+    ],
+    "Keepout 4 Max": [
+     -1000.0,
+     -1000.0,
+     0.0
+    ]
+   }
+  }
+ ]
+}

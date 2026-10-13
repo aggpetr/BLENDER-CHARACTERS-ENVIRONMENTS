@@ -1,0 +1,76 @@
+"""Export every kit module (and a merged test house) to FBX for Unreal Engine.
+
+    python -I tools/kit/export_fbx.py <kit.blend> <out_dir>
+
+One FBX per module, object at the origin, metric scale (Unreal imports 1 m = 100 cm), smoothing groups and tangents
+included, no texture paths. Materials are referenced by name (M_Edo_*); textures are imported separately.
+"""
+import sys, os, json, bpy, addon_utils
+
+kit, out = os.path.abspath(sys.argv[-2]), os.path.abspath(sys.argv[-1])
+os.makedirs(out, exist_ok=True)
+addon_utils.enable('io_scene_fbx', default_set=True)
+bpy.ops.wm.open_mainfile(filepath=kit)
+sc = bpy.context.scene
+FBX = dict(use_selection=True, apply_unit_scale=True, apply_scale_options='FBX_SCALE_ALL', mesh_smooth_type='FACE',
+           use_tspace=True, add_leaf_bones=False, path_mode='STRIP', object_types={'MESH'}, use_mesh_modifiers=True)
+
+import bmesh
+NO_COLLISION = {'SM_Edo_Noren', 'SM_Edo_Lantern', 'SM_Edo_BalconyBracket', 'SM_Edo_ShopSign'}
+BOXES = {'SM_Edo_Gate': [((-1.25, -0.27, -0.30), (-0.85, 0.27, 3.30)), ((0.85, -0.27, -0.30), (1.25, 0.27, 3.30)),
+                         ((-1.75, -1.20, 3.00), (1.75, 1.20, 4.05))]}
+
+def _hull(points, name):
+    bm = bmesh.new()
+    for p in points: bm.verts.new(p)
+    bmesh.ops.convex_hull(bm, input=bm.verts)
+    for v in [v for v in bm.verts if not v.link_faces]: bm.verts.remove(v)
+    me = bpy.data.meshes.new(name); bm.to_mesh(me); bm.free()
+    return bpy.data.objects.new(name, me)
+
+def collisions(ob):
+    """Unreal simple collision: UCX_<mesh>_NN convex hulls (one per module, boxes for the gate)."""
+    if ob.name in NO_COLLISION: return []
+    if ob.name in BOXES:
+        return [_hull([(x, y, z) for x in (a[0], b[0]) for y in (a[1], b[1]) for z in (a[2], b[2])], f'UCX_{ob.name}_{i:02d}') for i, (a, b) in enumerate(BOXES[ob.name])]
+    pts = [tuple(v.co) for v in ob.data.vertices]
+    for q in (0.0, 0.05, 0.10, 0.20):          # keep the hull small: snap to a coarser grid until under 120 vertices
+        P = pts if q == 0 else list({(round(x / q) * q, round(y / q) * q, round(z / q) * q) for x, y, z in pts})
+        h = _hull(P, f'UCX_{ob.name}_00')
+        if len(h.data.vertices) <= 120: break
+    return [h]
+
+def export(ob, path, extra=()):
+    objs = [ob] + list(extra)
+    tmp = [o for o in objs if o.name not in sc.collection.objects]
+    for o in tmp: sc.collection.objects.link(o)
+    for o in bpy.context.view_layer.objects: o.select_set(False)
+    for o in objs: o.select_set(True)
+    bpy.context.view_layer.objects.active = ob
+    bpy.ops.export_scene.fbx(filepath=path, **FBX)
+    for o in tmp: sc.collection.objects.unlink(o)
+
+manifest = []
+for c in bpy.data.collections['KIT_Modules'].children:
+    for ob in sorted(c.objects, key=lambda o: o.name):
+        p = os.path.join(out, 'modules', c.name, ob.name + '.fbx'); os.makedirs(os.path.dirname(p), exist_ok=True)
+        ucx = collisions(ob)
+        export(ob, p, ucx)
+        manifest.append(dict(collection=c.name, module=ob.name, file=os.path.relpath(p, out),
+                             tris=sum(len(q.vertices) - 2 for q in ob.data.polygons), materials=[m.name for m in ob.data.materials],
+                             collision=[dict(name=u.name, verts=len(u.data.vertices)) for u in ucx]))
+
+# merged dwellA test house (realized geometry nodes output), for a quick look in Unreal
+src = bpy.data.objects['TEST_dwellA_4x3']
+gn = src.modifiers['EdoKitHouse'].node_group
+rid = next(s.identifier for s in gn.interface.items_tree if s.item_type == 'SOCKET' and s.in_out == 'INPUT' and s.name == 'Realize')
+src.modifiers['EdoKitHouse'].properties.inputs[rid]['value'] = True
+src.location = (0, 0, 0)
+dg = bpy.context.evaluated_depsgraph_get()
+me = bpy.data.meshes.new_from_object(src.evaluated_get(dg), preserve_all_data_layers=True, depsgraph=dg)
+house = bpy.data.objects.new('SM_Edo_House_dwellA_4x3_test', me)
+export(house, os.path.join(out, 'SM_Edo_House_dwellA_4x3_test.fbx'))
+manifest.append(dict(collection='TEST', module=house.name, file='SM_Edo_House_dwellA_4x3_test.fbx',
+                     tris=sum(len(q.vertices) - 2 for q in me.polygons), materials=[m.name for m in me.materials if m]))
+json.dump(manifest, open(os.path.join(out, 'fbx_manifest.json'), 'w'), indent=1)
+print('exported', len(manifest), 'files; test house tris', manifest[-1]['tris'], 'materials', manifest[-1]['materials'])

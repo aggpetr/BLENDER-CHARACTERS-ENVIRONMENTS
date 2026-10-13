@@ -1,0 +1,125 @@
+{
+ "kura": {
+  "bx": 2,
+  "by": 2,
+  "fl": 2,
+  "roof": 3
+ },
+ "shopA": {
+  "bx": 3,
+  "by": 3,
+  "roof": 1,
+  "shop": 1,
+  "lan": 1
+ },
+ "dwellA": {
+  "bx": 4,
+  "by": 3,
+  "roof": 1,
+  "eng": 1,
+  "fence": 1
+ },
+ "farmhouse": {
+  "bx": 5,
+  "by": 3,
+  "roof": 2,
+  "eng": 1,
+  "fence": 1
+ },
+ "dwellB": {
+  "bx": 4,
+  "by": 3,
+  "fl": 2,
+  "roof": 3,
+  "bal": 1,
+  "fence": 1
+ },
+ "barn": {
+  "bx": 3,
+  "by": 4,
+  "roof": 2
+ },
+ "dwellC": {
+  "bx": 3,
+  "by": 3,
+  "roof": 3,
+  "eng": 1,
+  "fence": 1
+ },
+ "hutB": {
+  "bx": 4,
+  "by": 3,
+  "roof": 2,
+  "eng": 1,
+  "lan": 1,
+  "fence": 1
+ },
+ "restA": {
+  "bx": 5,
+  "by": 4,
+  "roof": 1,
+  "shop": 1,
+  "eng": 1,
+  "lan": 1
+ },
+ "shopB": {
+  "bx": 3,
+  "by": 4,
+  "fl": 2,
+  "roof": 3,
+  "shop": 1,
+  "bal": 1,
+  "lan": 1
+ },
+ "tea": {
+  "bx": 3,
+  "by": 3,
+  "roof": 2,
+  "eng": 1,
+  "lan": 1
+ },
+ "hutA": {
+  "bx": 3,
+  "by": 3,
+  "roof": 2,
+  "eng": 1,
+  "fence": 1
+ },
+ "hutC": {
+  "bx": 3,
+  "by": 2,
+  "roof": 2
+ },
+ "inn": {
+  "bx": 9,
+  "by": 6,
+  "fl": 2,
+  "roof": 1,
+  "eng": 1,
+  "bal": 1,
+  "lan": 1,
+  "gate": 1,
+  "fence": 2
+ },
+ "restB": {
+  "bx": 6,
+  "by": 4,
+  "fl": 2,
+  "roof": 3,
+  "shop": 1,
+  "bal": 1,
+  "lan": 1
+ },
+ "row": {
+  "bx": 7,
+  "by": 2,
+  "roof": 3
+ },
+ "EdoHouse01": {
+  "bx": 4,
+  "by": 3,
+  "fl": 2,
+  "roof": 1,
+  "fence": 1
+ }
+}
