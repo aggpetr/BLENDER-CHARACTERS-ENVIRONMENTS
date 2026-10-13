@@ -75,6 +75,25 @@ The houses are nested `GN_EdoKitHouse` nodes inside the group (open `GN_EdoKitVi
 whose Bays/Floors/Roof/... you can change); the plaza radius is a modifier input. Move the object `EdoKitVillage_01` to move
 the whole district. The layout comes from `tools/kit/district.py` (`python tools/kit/plot_plan.py out.png` draws the plan).
 
+### Town extension (streets, houses, farms, fields, canal banks, bridges, props)
+
+`install_kit.py` also builds the town extension (set `TOWN_EXTENSION = False` at the top to skip it). It is planned by
+`tools/kit/town.py` from `kit/village/town_context.json` (roads, streams, fields, props and bridges extracted from your village
+file by `tools/kit/extract_context.py`) and written to `kit/village/town_layout.json`. `python tools/kit/plot_town.py out.png` draws it.
+
+| Part | What it is |
+|---|---|
+| Streets | 7 more streets (`KITROAD_T_*`, built with your `GN_EdoRibbon`): west outer street, north link, field ring, hospital link, two southern lanes, east link |
+| Houses | `EdoKitTown_01` (node group `GN_EdoKitTown`, one labelled `GN_EdoKitHouse` node per house): 59 houses in your marked areas and along the new streets, 18 of them farmhouses, plus barns, kuras, huts, dwellings, 2 weapon smiths, all with their category props |
+| Fields | `EdoKitField_*` (node group `GN_EdoKitField`: Size X / Size Y / Crop 0 vegetables, 1 barley, 2 rice paddy with bunds). 6 farmland patches and 7 paddies from your `LD_Field*` / `LD_Paddy*` meshes (their crop meshes are hidden, soil and water stay). About 47,000 crop instances from 7 crop modules (cabbage x2, daikon, barley x2, rice x2), ridges and bunds |
+| Canal bank | `KITEMBANK_Canal` (node group `GN_EdoKitEmbank`) along the vertical canal at x = -178: ashlar curb on both banks, 2 x 2 m cobblestone tiles (individual stones) 4 m wide on each side, scattered boulders; no bank where the bridges are |
+| Bridges | `BR_*` replaced by kit bridges (`BR_*_KIT`): 2 timber bridges (4.0 and 6.4 m wide, stone abutments, beams, planks, balustrade with onion caps) and the stone arch bridge (18 m, cobbled deck, parapets). Originals are hidden, not deleted |
+| Props | your 12 `PR_*` props replaced by kit modules (well, notice board, stall, bench, stone lantern); originals hidden |
+
+Unreal: the manifest has `TOWN_*`, `BRIDGE_*` and `PROP_*` entries; fields and canal bank are in `kit/village/fields_manifest.json`
+(per module: `[x, y, z, yaw, sx, sy, sz]`) and are placed as hierarchical instanced meshes with `PLACE_FIELDS = True` in
+`tools/kit/unreal_import.py` (untested).
+
 ## Rebuild your village with the kit (Blender), manifest only
 
 Open your village .blend, open `tools/kit/village_build.py` in Blender's Text Editor, set `KIT_PATH` at the top to

@@ -102,3 +102,22 @@ furniture (stone lantern, well, bench, notice board), 103 FBX files in total, di
 - Checks: floor height of all 94 town houses still within 1.5 cm of the originals; install is idempotent.
 - Not verified: Unreal import (script untested), the category props on every town house yard (clutter with neighbours possible; set
   `CATEGORY_PROPS = False` to switch off).
+
+## Town extension (streets, farms, fields, canal banks, bridges, props)
+
+- **Answer to "have you made ultra quality versions of the bridges, benches and other existing props?"**: before this update only the plaza
+  furniture of the new district existed in the kit (stone lantern, well, bench, notice board, 90 to 700 triangles). Your town still used its
+  old low-poly props (bench 36 triangles, well 92, stall 84) and bridges (612 to 792 triangles, untextured boxes), and the fields
+  were flat meshes (the paddies 6 triangles). Now: 3 bridges (1,650 to 2,000 triangles each), stall (788), bank curb (308), cobble tile
+  (about 1,900), 3 boulders, 7 crop modules (140 to 670), ridge and bund, all with UVs and Nanite-ready; `install_kit.py` swaps your
+  `PR_*` and `BR_*` objects for them in the same place.
+- **Streets:** 7 new streets from your red lines (20 street curves in total).
+- **Houses:** 59 in the blue areas and along the new streets (18 farmhouses, 8 barns, 4 kuras, huts, dwellings, 2 smiths). Planned in code
+  (no overlaps with your 94 town houses, the district, streets, fields, canal, bridges or props).
+- **Fields:** 13 patches (6 farmland, 7 paddies), about 47,000 crop instances.
+- **Canal bank:** about 100 sections per side along the canal, gaps at the 4 bridges.
+- Manifest: 205 houses, 36,780 module instances (`kit/village/village_manifest.json`), plus `fields_manifest.json`; 154 FBX files; floor
+  height of the 94 original houses still within 1.5 cm.
+- New texture sets: `T_Edo_Soil`, `T_Edo_Grain` (1K), brighter `T_Edo_Leaf`.
+- Not verified: Unreal import (script untested, including the instanced field placement), performance with about 47,000 crop instances
+  in the Blender viewport (they are instances, not geometry), appearance under Unreal lighting.

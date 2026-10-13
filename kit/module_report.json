@@ -1379,9 +1379,10 @@
  {
   "collection": "KIT_EmbankCobble",
   "module": "SM_Edo_EmbankCobble",
-  "tris": 1942,
+  "tris": 1900,
   "materials": [
-   "M_Edo_StoneWall"
+   "M_Edo_StoneWall",
+   "M_Edo_Stone"
   ]
  },
  {
