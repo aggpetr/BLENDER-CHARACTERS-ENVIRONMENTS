@@ -57,6 +57,8 @@ for ob in bpy.data.objects:
         if ob.name == 'TEST_Ground_Flat':
             ob.scale = (25, 25, 1)          # reach the horizon (preview only; houses sample it the same way)
 
+for nm in ('TEST_Ground_Slope', 'TEST_dwellA_slope'):     # keep the slope test above the horizon-sized flat ground
+    if nm in bpy.data.objects: bpy.data.objects[nm].location.z += 4.5
 cam = bpy.data.cameras.new('PreviewCam'); co = bpy.data.objects.new('PreviewCam', cam); sc.collection.objects.link(co); sc.camera = co
 
 def look(loc, target, lens=35):
@@ -69,7 +71,7 @@ SHOTS = {
     'eave':     ((-5.8, -5.6, 1.7), (-3.6, -3.0, 3.3), 20),
     'back':     ((12.0, 14.0, 6.0), (0.0, 0.0, 2.6), 30),
     'variants': ((2.0, -42.0, 15.0), (1.0, 0.0, 2.5), 32),
-    'slope':    ((-14.0, 62.0, 6.0), (0.0, 80.0, 3.0), 30),
+    'slope':    ((-16.0, 60.0, 9.5), (0.0, 80.0, 6.5), 30),
 }
 for name in (shots or list(SHOTS)):
     loc, tgt, lens = SHOTS[name]
