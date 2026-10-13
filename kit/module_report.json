@@ -601,5 +601,213 @@
    "M_Edo_Ceramic",
    "M_Edo_Planks"
   ]
+ },
+ {
+  "collection": "KIT_PentSide",
+  "module": "SM_Edo_PentSide",
+  "tris": 174,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_PentCorner",
+  "module": "SM_Edo_PentCorner",
+  "tris": 227,
+  "materials": [
+   "M_Edo_Kawara",
+   "M_Edo_Planks"
+  ]
+ },
+ {
+  "collection": "KIT_BalconyBracket",
+  "module": "SM_Edo_BalconyBracket",
+  "tris": 12,
+  "materials": [
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Noren",
+  "module": "SM_Edo_Noren",
+  "tris": 72,
+  "materials": [
+   "M_Edo_Timber",
+   "M_Edo_Cloth"
+  ]
+ },
+ {
+  "collection": "KIT_ShopSign",
+  "module": "SM_Edo_ShopSign",
+  "tris": 60,
+  "materials": [
+   "M_Edo_Timber",
+   "M_Edo_Planks"
+  ]
+ },
+ {
+  "collection": "KIT_Lantern",
+  "module": "SM_Edo_Lantern",
+  "tris": 232,
+  "materials": [
+   "M_Edo_Timber",
+   "M_Edo_Lantern"
+  ]
+ },
+ {
+  "collection": "KIT_ThatchEnd",
+  "module": "SM_Edo_ThatchEnd_D1",
+  "tris": 342,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_ThatchEnd",
+  "module": "SM_Edo_ThatchEnd_D2",
+  "tris": 342,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_ThatchEnd",
+  "module": "SM_Edo_ThatchEnd_D3",
+  "tris": 342,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_ThatchEnd",
+  "module": "SM_Edo_ThatchEnd_D4",
+  "tris": 342,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_ThatchEnd",
+  "module": "SM_Edo_ThatchEnd_D5",
+  "tris": 342,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_ThatchEnd",
+  "module": "SM_Edo_ThatchEnd_D6",
+  "tris": 342,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_ThatchMid",
+  "module": "SM_Edo_ThatchMid_D1",
+  "tris": 284,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_ThatchMid",
+  "module": "SM_Edo_ThatchMid_D2",
+  "tris": 284,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_ThatchMid",
+  "module": "SM_Edo_ThatchMid_D3",
+  "tris": 284,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_ThatchMid",
+  "module": "SM_Edo_ThatchMid_D4",
+  "tris": 284,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_ThatchMid",
+  "module": "SM_Edo_ThatchMid_D5",
+  "tris": 284,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_ThatchMid",
+  "module": "SM_Edo_ThatchMid_D6",
+  "tris": 284,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Plaster",
+   "M_Edo_Timber"
+  ]
+ },
+ {
+  "collection": "KIT_Wall2Seg",
+  "module": "SM_Edo_Wall2Seg",
+  "tris": 170,
+  "materials": [
+   "M_Edo_StoneWall",
+   "M_Edo_Plaster",
+   "M_Edo_Timber",
+   "M_Edo_Kawara",
+   "M_Edo_Planks"
+  ]
+ },
+ {
+  "collection": "KIT_Wall2Pier",
+  "module": "SM_Edo_Wall2Pier",
+  "tris": 54,
+  "materials": [
+   "M_Edo_StoneWall",
+   "M_Edo_Plaster",
+   "M_Edo_Timber",
+   "M_Edo_Kawara"
+  ]
+ },
+ {
+  "collection": "KIT_Gate",
+  "module": "SM_Edo_Gate",
+  "tris": 420,
+  "materials": [
+   "M_Edo_Timber",
+   "M_Edo_Stone",
+   "M_Edo_Kawara",
+   "M_Edo_Planks"
+  ]
  }
 ]

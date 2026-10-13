@@ -18,7 +18,7 @@ MAX_DEPTH = 6            # roof modules exist for short sides of 1..6 bays
 
 # texture world size (metres per texture repeat) and which image direction the wood/plank grain runs in
 TEXSIZE = {'Timber': 2.0, 'Planks': 2.0, 'Plaster': 2.0, 'Kawara': B, 'Stone': 1.0, 'Paper': 1.0,
-           'Ceramic': 0.5, 'Thatch': 2.0, 'StoneWall': 2.0}
+           'Ceramic': 0.5, 'Thatch': 2.0, 'StoneWall': 2.0, 'Cloth': 1.0, 'Lantern': 0.5}
 GRAIN_IMG = {'Timber': 'v', 'Planks': 'u', 'Thatch': 'v'}
 
 
@@ -180,7 +180,7 @@ def tri_count(ob):
 # ---------------------------------------------------------------- materials
 def make_materials(tex_rel):
     """tex_rel: path prefix for textures, e.g. '//textures' (relative to the saved kit .blend)."""
-    moss = {'Kawara': 0.32, 'Stone': 0.30, 'Timber': 0.08, 'Planks': 0.06, 'Thatch': 0.25, 'StoneWall': 0.35}
+    moss = {'Kawara': 0.50, 'Stone': 0.38, 'Timber': 0.10, 'Planks': 0.08, 'Thatch': 0.30, 'StoneWall': 0.40}
     for name in TEXSIZE:
         mat = bpy.data.materials.get(f'M_Edo_{name}') or bpy.data.materials.new(f'M_Edo_{name}')
         mat.use_nodes = True
@@ -192,7 +192,7 @@ def make_materials(tex_rel):
 
         def img(kind, cs):
             n = nt.nodes.new('ShaderNodeTexImage')
-            path = f'{tex_rel}/T_Edo_{name}/{kind}.png'
+            path = f'{tex_rel}/T_Edo_{name}/{kind}.jpg'
             im = bpy.data.images.get(f'T_Edo_{name}_{kind}') or bpy.data.images.load(bpy.path.abspath(path), check_existing=True)
             im.name = f'T_Edo_{name}_{kind}'; im.filepath = path
             im.colorspace_settings.name = cs
@@ -219,8 +219,8 @@ def make_materials(tex_rel):
         base_out = aomix.outputs['Result']; rough_out = sep.outputs['Green']
         if name in moss:
             # moss on up-facing surfaces, broken up by world-space noise (Blender preview; recreate as a world-aligned blend in Unreal)
-            mc = img('BaseColor', 'sRGB'); mc.image = bpy.data.images.load(bpy.path.abspath(f'{tex_rel}/T_Edo_Moss/BaseColor.png'), check_existing=True)
-            mc.image.name = 'T_Edo_Moss_BaseColor'; mc.image.filepath = f'{tex_rel}/T_Edo_Moss/BaseColor.png'; mc.location = (-500, 600)
+            mc = img('BaseColor', 'sRGB'); mc.image = bpy.data.images.load(bpy.path.abspath(f'{tex_rel}/T_Edo_Moss/BaseColor.jpg'), check_existing=True)
+            mc.image.name = 'T_Edo_Moss_BaseColor'; mc.image.filepath = f'{tex_rel}/T_Edo_Moss/BaseColor.jpg'; mc.location = (-500, 600)
             mapn = nt.nodes.new('ShaderNodeMapping'); mapn.inputs['Scale'].default_value = (1.3, 1.3, 1.3); mapn.location = (-700, 600)
             nt.links.new(uvn.outputs['UV'], mapn.inputs['Vector']); nt.links.new(mapn.outputs['Vector'], mc.inputs['Vector'])
             geo = nt.nodes.new('ShaderNodeNewGeometry'); geo.location = (-900, 900)
@@ -262,6 +262,9 @@ def make_materials(tex_rel):
             base_out = gm.outputs['Result']
         nt.links.new(base_out, bsdf.inputs['Base Color'])
         nt.links.new(rough_out, bsdf.inputs['Roughness'])
+        if name == 'Lantern':  # lit paper lantern (Unreal: emissive = BaseColor x strength)
+            nt.links.new(base_out, bsdf.inputs['Emission Color'])
+            bsdf.inputs['Emission Strength'].default_value = 2.0
         if name == 'Paper':   # a little light through the shoji paper
             bsdf.inputs['Transmission Weight'].default_value = 0.0
             bsdf.inputs['Subsurface Weight'].default_value = 0.15

@@ -177,10 +177,14 @@ def build():
     sock('Ground', 'NodeSocketObject', None, desc='Terrain the house stands on (floor = highest ground under the posts + 1.30 m)')
     sock('Bays X', 'NodeSocketInt', 4, 1, 9, 'Bays along X (1 bay = 1.82 m)')
     sock('Bays Y', 'NodeSocketInt', 3, 1, MAX_DEPTH, 'Bays along Y')
-    sock('Floors', 'NodeSocketInt', 1, 1, 2, 'Storeys (2: upper walls; pent roof comes in a later stage)')
-    sock('Roof', 'NodeSocketInt', 1, 0, 3, '0 none, 1 tile hip, 2 thatch (tile until thatch modules exist), 3 tile hip')
+    sock('Floors', 'NodeSocketInt', 1, 1, 2, 'Storeys (2 adds the pent roof ring between the floors)')
+    sock('Roof', 'NodeSocketInt', 1, 0, 3, '0 none, 1 tile hip, 2 thatched gable, 3 tile hip')
     sock('Engawa', 'NodeSocketBool', False, desc='Veranda with railing and steps on the front (-Y) side')
-    sock('Fence', 'NodeSocketInt', 0, 0, 2, '0 none, 1 board fence (2: stone wall, later stage)')
+    sock('Balcony', 'NodeSocketBool', False, desc='Upper-floor balcony on the front (needs Floors 2)')
+    sock('Shopfront', 'NodeSocketBool', False, desc='Noren curtain over the door and a hanging sign')
+    sock('Lanterns', 'NodeSocketBool', False, desc='Paper lanterns either side of the door')
+    sock('Fence', 'NodeSocketInt', 0, 0, 2, '0 none, 1 board fence, 2 stone compound wall')
+    sock('Gate', 'NodeSocketBool', False, desc='Roofed gate in the front opening of the fence')
     sock('Props', 'NodeSocketFloat', 0.6, 0.0, 1.0, 'Amount of yard props along the back and sides')
     sock('Seed', 'NodeSocketInt', 0, 0, 100000, 'Variant seed (wall layout, footing stones, props)')
     sock('Realize', 'NodeSocketBool', False, desc='Output real geometry instead of instances (for export as one mesh)')
@@ -192,6 +196,8 @@ def build():
     nx, ny, floors, seed = G('Bays X'), G('Bays Y'), G('Floors'), G('Seed')
     W = g.mul(nx, B); D = g.mul(ny, B)
     hW = g.mul(W, 0.5); hD = g.mul(D, 0.5)
+    empty = g.node('GeometryNodeJoinGeometry').outputs[0]
+    fx0 = g.add(g.mul(hW, -1), B / 2); fy = g.mul(hD, -1)
 
     # ground
     oi = g.node('GeometryNodeObjectInfo', transform_space='RELATIVE'); g.L.new(G('Ground'), g.I(oi, 'Object'))
@@ -252,31 +258,55 @@ def build():
 
     parts.append(walls(F, 0))
     F2 = g.add(F, STOREY)
+    xd = g.add(g.mul(hW, -1), g.mul(g.add(kdoor, 0.5), B))
+
+    def perim(zf):
+        return [(g.line(nx, g.vec(fx0, fy, zf), g.vec(B, 0, 0)), 0.0),
+                (g.line(ny, g.vec(hW, g.add(fy, B / 2), zf), g.vec(0, B, 0)), PI / 2),
+                (g.line(nx, g.vec(g.sub(hW, B / 2), hD, zf), g.vec(-B, 0, 0)), PI),
+                (g.line(ny, g.vec(g.mul(hW, -1), g.sub(hD, B / 2), zf), g.vec(0, -B, 0)), -PI / 2)]
+    pent = [g.inst(pts, 'KIT_PentSide', 0, r) for pts, r in perim(F)]
+    for sx, sy, r in ((-1, -1, 0.0), (1, -1, PI / 2), (1, 1, PI), (-1, 1, -PI / 2)):
+        pent.append(g.inst(g.point(g.vec(g.mul(hW, sx), g.mul(hD, sy), F)), 'KIT_PentCorner', 0, r))
+    bpts = g.line(nx, g.vec(fx0, fy, F2), g.vec(B, 0, 0))
+    balc = g.join(g.inst(bpts, 'KIT_EngawaDeck'), g.inst(bpts, 'KIT_Railing', 0),
+                  g.inst(g.line(2, g.vec(g.mul(hW, -1), fy, F2), g.vec(W, 0, 0)), 'KIT_RailingEnd'),
+                  g.inst(g.point(g.vec(hW, fy, F2)), 'KIT_RailPost'),
+                  g.inst(g.line(g.add(nx, 1), g.vec(g.mul(hW, -1), fy, F2), g.vec(B, 0, 0)), 'KIT_BalconyBracket'))
     upper = g.join(walls(F2, 1),
                    g.inst(g.set_z(gp, F2), 'KIT_PostStorey'),
                    g.inst(g.set_z(g.grid(nx, g.add(ny, 1), g.sub(W, B), D), F2), 'KIT_FloorBeam'),
-                   g.inst(g.set_z(g.grid(g.add(nx, 1), ny, W, g.sub(D, B)), F2), 'KIT_FloorBeam', 0, PI / 2))
-    empty = g.node('GeometryNodeJoinGeometry').outputs[0]
+                   g.inst(g.set_z(g.grid(g.add(nx, 1), ny, W, g.sub(D, B)), F2), 'KIT_FloorBeam', 0, PI / 2),
+                   *pent, g.sw('GEOMETRY', G('Balcony'), empty, balc))
     parts.append(g.sw('GEOMETRY', g.cmp('GREATER_THAN', floors, 1.5), empty, upper))
 
-    # ---------------------------------------------------------- roof
+    # ---------------------------------------------------------- shopfront and lanterns (front, storey 1)
+    shop = g.join(g.inst(g.point(g.vec(xd, fy, F)), 'KIT_Noren'), g.inst(g.point(g.vec(g.sub(hW, 0.30), fy, F)), 'KIT_ShopSign'))
+    parts.append(g.sw('GEOMETRY', G('Shopfront'), empty, shop))
+    parts.append(g.sw('GEOMETRY', G('Lanterns'), empty, g.inst(g.line(2, g.vec(g.sub(xd, 0.84), fy, F), g.vec(1.68, 0, 0)), 'KIT_Lantern')))
+
+    # ---------------------------------------------------------- roof: tile hip (1, 3) or thatched gable (2)
     ns = g.m('MINIMUM', nx, ny); nl = g.m('MAXIMUM', nx, ny)
     Lh = g.mul(nl, B / 2); Ds2 = g.mul(ns, B / 2)
     mid = g.sub(nl, ns)
     zR = g.add(F, g.mul(g.sub(floors, 1), STOREY))
     di = g.toint(g.sub(g.m('MINIMUM', ns, MAX_DEPTH), 1))
+    rotz = g.mul(g.cmp('GREATER_THAN', ny, nx), PI / 2)
     no_mid = g.cmp('LESS_THAN', mid, 0.5)
     end_geo = g.sw('GEOMETRY', no_mid, g.coll('KIT_RoofEnd'), g.coll('KIT_RoofEndApex'))
-    ends = g.inst(g.line(2, g.vec(g.mul(Lh, -1), 0.0, zR), g.vec(g.mul(Lh, 2), 0.0, 0.0)), None, di,
-                  g.mul(g.index(), PI), instance_geo=end_geo)
+    two_ends = lambda: g.line(2, g.vec(g.mul(Lh, -1), 0.0, zR), g.vec(g.mul(Lh, 2), 0.0, 0.0))
+    ends = g.inst(two_ends(), None, di, g.mul(g.index(), PI), instance_geo=end_geo)
     mids = g.inst(g.line(g.toint(mid), g.vec(g.add(g.mul(Lh, -1), Ds2), 0.0, zR), g.vec(B, 0, 0)), 'KIT_RoofMid', di)
     apex = g.sw('GEOMETRY', no_mid, empty, g.inst(g.point(g.vec(0.0, 0.0, zR)), 'KIT_RoofApex', di))
-    roof = g.transform_rot(g.join(ends, mids, apex), g.mul(g.cmp('GREATER_THAN', ny, nx), PI / 2))
+    tile_roof = g.transform_rot(g.join(ends, mids, apex), rotz)
+    th = g.join(g.inst(two_ends(), 'KIT_ThatchEnd', di, g.mul(g.index(), PI)),
+                g.inst(g.line(g.toint(nl), g.vec(g.mul(Lh, -1), 0.0, zR), g.vec(B, 0, 0)), 'KIT_ThatchMid', di))
+    thatch_roof = g.transform_rot(th, rotz)
+    roof = g.sw('GEOMETRY', g.cmp('EQUAL', G('Roof'), 2.0, 0.1), tile_roof, thatch_roof)
     parts.append(g.sw('GEOMETRY', g.cmp('GREATER_THAN', G('Roof'), 0.5), empty, roof))
 
     # ---------------------------------------------------------- engawa, railing, steps (front side)
     EDGE = -1.03
-    fx0 = g.add(g.mul(hW, -1), B / 2); fy = g.mul(hD, -1)
     deck_pts = g.line(nx, g.vec(fx0, fy, F), g.vec(B, 0, 0))
     eng = [g.inst(deck_pts, 'KIT_EngawaDeck'),
            g.inst(deck_pts, 'KIT_Railing', g.toint(g.cmp('EQUAL', g.index(), kdoor))),
@@ -286,28 +316,28 @@ def build():
     eoff = EDGE + 0.06
     eng.append(g.inst(g.set_pos(g.set_z(epts, gz(0.0, eoff)), offset=g.vec(0.0, eoff, 0.0)), 'KIT_Footing', g.rnd('INT', 0, 2, seed, 5), g.rnd('FLOAT', 0.0, 2 * PI, seed, 6)))
     eng.append(g.inst(g.set_z(epts, F), 'KIT_EngawaPost', stilt_index(g.sub(F, 0.37), gz(0.0, eoff))))
-    xd = g.add(g.mul(hW, -1), g.mul(g.add(kdoor, 0.5), B))
     land = g.point(g.vec(xd, g.add(fy, EDGE - 1.2), 0.0))
     gl = g.stat_max(land, gz())
     nsteps = g.m('MINIMUM', g.m('MAXIMUM', g.toint(g.m('DIVIDE', g.sub(g.sub(F, 0.15), gl), 0.19)), 2), 14)
     eng.append(g.inst(g.point(g.vec(xd, fy, F)), 'KIT_Steps', g.toint(g.sub(nsteps, 2))))
     parts.append(g.sw('GEOMETRY', engawa, empty, g.join(*eng)))
 
-    # ---------------------------------------------------------- fence (board fence) around the plot
+    # ---------------------------------------------------------- fence 1 (boards) or 2 (stone compound wall), gate
     yf = g.sub(fy, 2 * B); yb = g.add(hD, B); xl = g.sub(g.mul(hW, -1), B); xr = g.add(hW, B)
     on_ground = lambda pts: g.set_z(pts, gz())
-    front_segs = g.delete(g.line(g.add(nx, 2), g.vec(g.add(xl, B / 2), yf, 0.0), g.vec(B, 0, 0)), g.cmp('EQUAL', g.index(), g.add(kdoor, 1)))
-    fence = [
-        g.inst(on_ground(front_segs), 'KIT_FenceSeg', 0, 0.0),
-        g.inst(on_ground(g.line(g.add(nx, 2), g.vec(g.sub(xr, B / 2), yb, 0.0), g.vec(-B, 0, 0))), 'KIT_FenceSeg', 0, PI),
-        g.inst(on_ground(g.line(g.add(ny, 3), g.vec(xl, g.sub(yb, B / 2), 0.0), g.vec(0, -B, 0))), 'KIT_FenceSeg', 0, -PI / 2),
-        g.inst(on_ground(g.line(g.add(ny, 3), g.vec(xr, g.add(yf, B / 2), 0.0), g.vec(0, B, 0))), 'KIT_FenceSeg', 0, PI / 2),
-        g.inst(on_ground(g.line(g.add(nx, 3), g.vec(xl, yf, 0.0), g.vec(B, 0, 0))), 'KIT_FencePost'),
-        g.inst(on_ground(g.line(g.add(nx, 3), g.vec(xl, yb, 0.0), g.vec(B, 0, 0))), 'KIT_FencePost'),
-        g.inst(on_ground(g.line(g.add(ny, 2), g.vec(xl, g.add(yf, B), 0.0), g.vec(0, B, 0))), 'KIT_FencePost'),
-        g.inst(on_ground(g.line(g.add(ny, 2), g.vec(xr, g.add(yf, B), 0.0), g.vec(0, B, 0))), 'KIT_FencePost'),
-    ]
-    parts.append(g.sw('GEOMETRY', g.cmp('GREATER_THAN', G('Fence'), 0.5), empty, g.join(*fence)))
+    def seg_lines():
+        return [(g.delete(g.line(g.add(nx, 2), g.vec(g.add(xl, B / 2), yf, 0.0), g.vec(B, 0, 0)), g.cmp('EQUAL', g.index(), g.add(kdoor, 1))), 0.0),
+                (g.line(g.add(nx, 2), g.vec(g.sub(xr, B / 2), yb, 0.0), g.vec(-B, 0, 0)), PI),
+                (g.line(g.add(ny, 3), g.vec(xl, g.sub(yb, B / 2), 0.0), g.vec(0, -B, 0)), -PI / 2),
+                (g.line(g.add(ny, 3), g.vec(xr, g.add(yf, B / 2), 0.0), g.vec(0, B, 0)), PI / 2)]
+    def post_lines():
+        return [g.line(g.add(nx, 3), g.vec(xl, yf, 0.0), g.vec(B, 0, 0)), g.line(g.add(nx, 3), g.vec(xl, yb, 0.0), g.vec(B, 0, 0)),
+                g.line(g.add(ny, 2), g.vec(xl, g.add(yf, B), 0.0), g.vec(0, B, 0)), g.line(g.add(ny, 2), g.vec(xr, g.add(yf, B), 0.0), g.vec(0, B, 0))]
+    def fence_of(seg, post):
+        return g.join(*[g.inst(on_ground(l), seg, 0, r) for l, r in seg_lines()], *[g.inst(on_ground(l), post) for l in post_lines()])
+    fence = g.sw('GEOMETRY', g.cmp('GREATER_THAN', G('Fence'), 1.5), fence_of('KIT_FenceSeg', 'KIT_FencePost'), fence_of('KIT_Wall2Seg', 'KIT_Wall2Pier'))
+    gate = g.sw('GEOMETRY', G('Gate'), empty, g.inst(on_ground(g.point(g.vec(xd, yf, 0.0))), 'KIT_Gate'))
+    parts.append(g.sw('GEOMETRY', g.cmp('GREATER_THAN', G('Fence'), 0.5), empty, g.join(fence, gate)))
 
     # ---------------------------------------------------------- yard props along the back and the sides
     step = 0.8; off = 0.65

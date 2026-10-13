@@ -7,7 +7,7 @@ def tris(me):
     if me.name not in tri: tri[me.name] = sum(len(p.vertices) - 2 for p in me.polygons)
     return tri[me.name]
 for ob in bpy.data.objects:
-    if not ob.name.startswith('TEST_') or ob.type != 'MESH' or not ob.modifiers: continue
+    if not ob.name.startswith(('TEST_', 'ARCH_')) or ob.type != 'MESH' or not ob.modifiers: continue
     cnt = collections.Counter(); total = 0; mn = [1e9]*3; mx = [-1e9]*3
     fam = collections.Counter()
     for inst in dg.object_instances:

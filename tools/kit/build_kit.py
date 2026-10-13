@@ -34,7 +34,7 @@ def ground(name, size, loc, tilt_deg=0.0):
     ob = bpy.data.objects.new(name, me); tests.objects.link(ob)
     ob.location = loc; ob.rotation_euler = (math.radians(tilt_deg), 0, 0)
     return ob
-flat = ground('TEST_Ground_Flat', 120, (0, 0, 0))
+flat = ground('TEST_Ground_Flat', 700, (0, 150, 0))
 slope = ground('TEST_Ground_Slope', 60, (0, 80, 0), tilt_deg=8.0)
 
 def house(name, loc, ground_ob, **kw):
@@ -53,6 +53,33 @@ house('TEST_3x3', (-22, 0, 0), flat, **{**dwellA, 'Bays X': 3, 'Seed': 3})
 house('TEST_5x3', (24, 0, 0), flat, **{**dwellA, 'Bays X': 5, 'Seed': 11})
 house('TEST_dwellA_slope', (0, 80, 0), slope, **dwellA)
 house('TEST_3x4_rotatedRidge', (0, -26, 0), flat, **{**dwellA, 'Bays X': 3, 'Bays Y': 4, 'Engawa': False, 'Fence': 0})
+
+# all 17 original house types with their original parameters (analysis/KIT_ANALYSIS.md)
+ARCH = {
+    'kura':      dict(bx=2, by=2, fl=2, roof=3),
+    'shopA':     dict(bx=3, by=3, roof=1, shop=1, lan=1),
+    'dwellA':    dict(bx=4, by=3, roof=1, eng=1, fence=1),
+    'farmhouse': dict(bx=5, by=3, roof=2, eng=1, fence=1),
+    'dwellB':    dict(bx=4, by=3, fl=2, roof=3, bal=1, fence=1),
+    'barn':      dict(bx=3, by=4, roof=2),
+    'dwellC':    dict(bx=3, by=3, roof=3, eng=1, fence=1),
+    'hutB':      dict(bx=4, by=3, roof=2, eng=1, lan=1, fence=1),
+    'restA':     dict(bx=5, by=4, roof=1, shop=1, eng=1, lan=1),
+    'shopB':     dict(bx=3, by=4, fl=2, roof=3, shop=1, bal=1, lan=1),
+    'tea':       dict(bx=3, by=3, roof=2, eng=1, lan=1),
+    'hutA':      dict(bx=3, by=3, roof=2, eng=1, fence=1),
+    'hutC':      dict(bx=3, by=2, roof=2),
+    'inn':       dict(bx=9, by=6, fl=2, roof=1, eng=1, bal=1, lan=1, gate=1, fence=2),
+    'restB':     dict(bx=6, by=4, fl=2, roof=3, shop=1, bal=1, lan=1),
+    'row':       dict(bx=7, by=2, roof=3),
+    'EdoHouse01': dict(bx=4, by=3, fl=2, roof=1, fence=1),
+}
+for i, (name, a) in enumerate(ARCH.items()):
+    house(f'ARCH_{name}', (-96 + (i % 5) * 48, 120 + (i // 5) * 48, 0), flat,
+          **{'Bays X': a['bx'], 'Bays Y': a['by'], 'Floors': a.get('fl', 1), 'Roof': a['roof'], 'Engawa': bool(a.get('eng')),
+             'Balcony': bool(a.get('bal')), 'Shopfront': bool(a.get('shop')), 'Lanterns': bool(a.get('lan')),
+             'Fence': a.get('fence', 0), 'Gate': bool(a.get('gate')), 'Props': 0.6, 'Seed': 10 + i})
+json.dump(ARCH, open(os.path.join(os.path.dirname(OUT), 'archetypes.json'), 'w'), indent=1)
 
 bpy.ops.wm.save_as_mainfile(filepath=OUT, relative_remap=True)
 json.dump(report, open(os.path.join(os.path.dirname(OUT), 'module_report.json'), 'w'), indent=1)

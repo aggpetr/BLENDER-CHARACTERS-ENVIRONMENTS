@@ -2,7 +2,7 @@
 
     python -I tools/kit/make_textures.py <repo_root> <out_dir>      (needs bpy for the .exr normal maps)
 
-Writes <out_dir>/T_Edo_<Name>/{BaseColor.png, Normal_DX.png, ORM.png} (ORM: R=AO, G=Roughness, B=Metallic).
+Writes <out_dir>/T_Edo_<Name>/{BaseColor.jpg, Normal_DX.jpg, ORM.jpg} (ORM: R=AO, G=Roughness, B=Metallic).
 Photo sets come from the CC0 downloads in the repo root (Poly Haven zips, ambientCG Moss001); Kawara, Stone,
 Paper and Ceramic are generated procedurally. All sets tile seamlessly. Downloads are only read as image data.
 """
@@ -46,10 +46,10 @@ def save_set(name, color, normal_dx, rough, ao, metal=None):
     d = os.path.join(OUT, f'T_Edo_{name}'); os.makedirs(d, exist_ok=True)
     def s8(a, p):
         a = (np.clip(a, 0, 1) * 255 + 0.5).astype(np.uint8)
-        Image.fromarray(a, 'RGB' if a.ndim == 3 else 'L').save(p, compress_level=6)
-    s8(color, f'{d}/BaseColor.png'); s8(normal_dx, f'{d}/Normal_DX.png')
+        Image.fromarray(a, 'RGB' if a.ndim == 3 else 'L').save(p, quality=95 if 'Normal' in p else 93, subsampling=0 if 'Normal' in p else 2)
+    s8(color, f'{d}/BaseColor.jpg'); s8(normal_dx, f'{d}/Normal_DX.jpg')
     m = np.zeros_like(rough) if metal is None else metal
-    s8(np.stack([ao, rough, m], -1), f'{d}/ORM.png')
+    s8(np.stack([ao, rough, m], -1), f'{d}/ORM.jpg')
     print(f'T_Edo_{name}: {color.shape[1]}x{color.shape[0]}  color mean {color.mean():.3f}  rough {rough.mean():.2f}  ao {ao.mean():.2f}', flush=True)
 
 
@@ -98,6 +98,7 @@ def gl_to_dx(n):
     n = n.copy(); n[..., 1] = 1.0 - n[..., 1]; return n
 
 
+N2 = 2048; px2 = 1.0 / N2; N3 = 1024; px3 = 0.5 / N3
 os.makedirs(OUT, exist_ok=True)
 SRC = {'Timber': 'rough_wood', 'Planks': 'dark_wooden_planks', 'Plaster': 'white_stucco', 'Thatch': 'reed_roof_03', 'StoneWall': 'stacked_stone_wall', 'Kawara': 'roof_tiles'}
 NEEDS = {SRC[w] for w in WANT if w in SRC}
@@ -140,64 +141,82 @@ if want('Moss'):
 
 # ---------------------------------------------------------------- Kawara (procedural, matched to the roof geometry)
 if want('Kawara'):
-  pass
-# Texture = 7 ribs x 7 courses = 1.82 m x 1.82 m (one bay). U=0 is a rib crest (geometry crest), image top = ridge side.
-N = 4096; CELLS = 7; TEX_M = 1.82; px_m = TEX_M / N
-yy, xx = np.mgrid[0:N, 0:N].astype(np.float32)
-u = xx / N * CELLS; v = yy / N * CELLS
-ci = np.floor(u).astype(np.int32) % CELLS; cj = np.floor(v).astype(np.int32) % CELLS
-fu = u - np.floor(u); fv = v - np.floor(v)                 # fv: 0 at the top of a tile (under the course above), 1 at its exposed lower edge
-r_val = rng.normal(0, 1, (CELLS, CELLS)).astype(np.float32)[cj, ci]
-r_tilt = rng.normal(0, 1, (CELLS, CELLS)).astype(np.float32)[cj, ci]
-r_rgh = rng.normal(0, 1, (CELLS, CELLS)).astype(np.float32)[cj, ci]
-r_tint = rng.normal(0, 1, (CELLS, CELLS, 3)).astype(np.float32)[cj, ci]
-ss = lambda a, b, x: np.clip((x - a) / (b - a), 0, 1) ** 2 * (3 - 2 * np.clip((x - a) / (b - a), 0, 1))
-fine = periodic_noise(N, 1.4, seed=11); mid = periodic_noise(N, 2.0, seed=12)
-h = 0.2 + 0.8 * ss(0.0, 0.93, fv)                           # each tile rises toward its exposed lower edge
-h *= 1.0 - 0.9 * ss(0.94, 1.0, fv)                          # rounded drop onto the next course
-lip = np.exp(-((fu - 0.47) / 0.018) ** 2)                   # side overlap of the S-tile, in the trough
-h += 0.12 * lip + 0.04 * r_tilt * (fu - 0.5) + 0.05 * (fine - 0.5) + 0.04 * (mid - 0.5)
-h_m = h * 0.016                                             # ~16 mm course step
-nrm = normal_from_height(h_m, px_m, 1.0)
-ao = (0.5 + 0.5 * ss(0.0, 0.10, fv)) * (1 - 0.35 * np.exp(-((fu - 0.505) / 0.012) ** 2))
-ao = np.clip(ao * (0.9 + 0.1 * ao_from_height(h)), 0, 1)
-src = polyhaven('roof_tiles')['color']                      # photo grain from the real tile scan (high-pass only)
-lum = src @ LUM; grain = lum - blur(lum, 1.6); grain = np.clip(grain / (grain.std() * 4 + 1e-6), -0.5, 0.5)
-streak = periodic_noise(N, 2.4, aniso=(1.0, 0.18), seed=21)  # vertical water streaks / grime
-grime = np.clip((streak - 0.5) * 2.2, 0, 1)
-base = np.array([0.295, 0.298, 0.305], dtype=np.float32)   # ibushi (smoked) grey, sRGB, near neutral
-col = base * (1 + 0.09 * r_val)[..., None] * (1 + 0.025 * r_tint)
-col = col * (1 + 0.10 * ss(0.86, 0.94, fv) * (1 - ss(0.94, 1.0, fv)))[..., None]   # worn lower edge
-col = col * (1 + 0.22 * grain + 0.06 * (fine - 0.5))[..., None] * (1 - 0.28 * grime)[..., None] * (0.55 + 0.45 * ao)[..., None]
-rough = np.clip(0.60 + 0.07 * r_rgh + 0.25 * grime + 0.12 * (1 - ao) + 0.05 * (fine - 0.5), 0.25, 0.95)
-save_set('Kawara', np.clip(col, 0, 1), nrm, rough, ao)
-del xx, yy, u, v, fu, fv, h, h_m, nrm, src, lum, grain, streak
+    # Texture = 7 ribs x 7 courses = 1.82 m x 1.82 m (one bay). U=0 is a rib crest (geometry crest), image top = ridge side.
+    N = 4096; CELLS = 7; TEX_M = 1.82; px_m = TEX_M / N
+    yy, xx = np.mgrid[0:N, 0:N].astype(np.float32)
+    u = xx / N * CELLS; v = yy / N * CELLS
+    ci = np.floor(u).astype(np.int32) % CELLS; cj = np.floor(v).astype(np.int32) % CELLS
+    fu = u - np.floor(u); fv = v - np.floor(v)                 # fv: 0 at the top of a tile (under the course above), 1 at its exposed lower edge
+    r_val = rng.normal(0, 1, (CELLS, CELLS)).astype(np.float32)[cj, ci]
+    r_tilt = rng.normal(0, 1, (CELLS, CELLS)).astype(np.float32)[cj, ci]
+    r_rgh = rng.normal(0, 1, (CELLS, CELLS)).astype(np.float32)[cj, ci]
+    r_tint = rng.normal(0, 1, (CELLS, CELLS, 3)).astype(np.float32)[cj, ci]
+    ss = lambda a, b, x: np.clip((x - a) / (b - a), 0, 1) ** 2 * (3 - 2 * np.clip((x - a) / (b - a), 0, 1))
+    fine = periodic_noise(N, 1.4, seed=11); mid = periodic_noise(N, 2.0, seed=12)
+    h = 0.2 + 0.8 * ss(0.0, 0.93, fv)                           # each tile rises toward its exposed lower edge
+    h *= 1.0 - 0.9 * ss(0.94, 1.0, fv)                          # rounded drop onto the next course
+    lip = np.exp(-((fu - 0.47) / 0.018) ** 2)                   # side overlap of the S-tile, in the trough
+    h += 0.12 * lip + 0.04 * r_tilt * (fu - 0.5) + 0.05 * (fine - 0.5) + 0.04 * (mid - 0.5)
+    h_m = h * 0.016                                             # ~16 mm course step
+    nrm = normal_from_height(h_m, px_m, 1.0)
+    ao = (0.5 + 0.5 * ss(0.0, 0.10, fv)) * (1 - 0.35 * np.exp(-((fu - 0.505) / 0.012) ** 2))
+    ao = np.clip(ao * (0.9 + 0.1 * ao_from_height(h)), 0, 1)
+    src = polyhaven('roof_tiles')['color']                      # photo grain from the real tile scan (high-pass only)
+    lum = src @ LUM; grain = lum - blur(lum, 1.6); grain = np.clip(grain / (grain.std() * 4 + 1e-6), -0.5, 0.5)
+    streak = periodic_noise(N, 2.4, aniso=(1.0, 0.18), seed=21)  # vertical water streaks / grime
+    grime = np.clip((streak - 0.5) * 2.2, 0, 1)
+    base = np.array([0.295, 0.298, 0.305], dtype=np.float32)   # ibushi (smoked) grey, sRGB, near neutral
+    col = base * (1 + 0.09 * r_val)[..., None] * (1 + 0.025 * r_tint)
+    col = col * (1 + 0.10 * ss(0.86, 0.94, fv) * (1 - ss(0.94, 1.0, fv)))[..., None]   # worn lower edge
+    col = col * (1 + 0.22 * grain + 0.06 * (fine - 0.5))[..., None] * (1 - 0.28 * grime)[..., None] * (0.55 + 0.45 * ao)[..., None]
+    rough = np.clip(0.60 + 0.07 * r_rgh + 0.25 * grime + 0.12 * (1 - ao) + 0.05 * (fine - 0.5), 0.25, 0.95)
+    save_set('Kawara', np.clip(col, 0, 1), nrm, rough, ao)
+    del xx, yy, u, v, fu, fv, h, h_m, nrm, src, lum, grain, streak
 
 # ---------------------------------------------------------------- Footing stone (granite boulder, 2K, 1 m)
-N2 = 2048; px2 = 1.0 / N2
-big = periodic_noise(N2, 2.6, seed=31); med = periodic_noise(N2, 1.9, seed=32); fin = periodic_noise(N2, 1.1, seed=33)
-spk = periodic_noise(N2, 0.6, seed=34)
-hgt = 0.6 * big + 0.3 * med + 0.1 * fin
-col = np.array([0.46, 0.45, 0.42], dtype=np.float32) * (0.86 + 0.22 * med + 0.08 * big)[..., None]
-col = col * (1 - 0.55 * (spk > 0.74))[..., None] + 0.16 * (spk < 0.24)[..., None] + 0.05 * (fin - 0.5)[..., None]
-lichen = np.clip((periodic_noise(N2, 2.3, seed=35) - 0.62) * 4, 0, 1)[..., None]
-col = col * (1 - lichen * 0.5) + lichen * 0.5 * np.array([0.47, 0.48, 0.30], dtype=np.float32)
-save_set('Stone', np.clip(col, 0, 1), normal_from_height(hgt * 0.02, px2), np.clip(0.72 + 0.15 * (med - 0.5) + 0.1 * lichen[..., 0], 0, 1), ao_from_height(hgt))
+if want('Stone'):
+    N2 = 2048; px2 = 1.0 / N2
+    big = periodic_noise(N2, 2.6, seed=31); med = periodic_noise(N2, 1.9, seed=32); fin = periodic_noise(N2, 1.1, seed=33)
+    spk = periodic_noise(N2, 0.6, seed=34)
+    hgt = 0.6 * big + 0.3 * med + 0.1 * fin
+    col = np.array([0.46, 0.45, 0.42], dtype=np.float32) * (0.86 + 0.22 * med + 0.08 * big)[..., None]
+    col = col * (1 - 0.55 * (spk > 0.74))[..., None] + 0.16 * (spk < 0.24)[..., None] + 0.05 * (fin - 0.5)[..., None]
+    lichen = np.clip((periodic_noise(N2, 2.3, seed=35) - 0.62) * 4, 0, 1)[..., None]
+    col = col * (1 - lichen * 0.5) + lichen * 0.5 * np.array([0.47, 0.48, 0.30], dtype=np.float32)
+    save_set('Stone', np.clip(col, 0, 1), normal_from_height(hgt * 0.02, px2), np.clip(0.72 + 0.15 * (med - 0.5) + 0.1 * lichen[..., 0], 0, 1), ao_from_height(hgt))
 
 # ---------------------------------------------------------------- Shoji paper (washi, 2K, 1 m)
-fib = np.zeros((N2, N2), np.float32)
-for k, (ax, ay) in enumerate([(1, 0.08), (0.08, 1), (1, 0.3), (0.3, 1)]):
-    fib += periodic_noise(N2, 0.9, aniso=(ax, ay), seed=40 + k)
-fib = (fib - fib.min()) / (fib.max() - fib.min())
-yel = periodic_noise(N2, 2.5, seed=45)
-col = np.array([0.91, 0.89, 0.82], dtype=np.float32) * (0.94 + 0.08 * fib)[..., None]
-col = col * (1 - 0.03 * np.clip((yel - 0.5) * 3, 0, 1))[..., None] * np.array([1.0, 0.99, 0.95], dtype=np.float32)
-save_set('Paper', np.clip(col, 0, 1), normal_from_height(fib * 0.0004, px2), np.full((N2, N2), 0.86, np.float32), np.ones((N2, N2), np.float32))
+if want('Paper'):
+    fib = np.zeros((N2, N2), np.float32)
+    for k, (ax, ay) in enumerate([(1, 0.08), (0.08, 1), (1, 0.3), (0.3, 1)]):
+        fib += periodic_noise(N2, 0.9, aniso=(ax, ay), seed=40 + k)
+    fib = (fib - fib.min()) / (fib.max() - fib.min())
+    yel = periodic_noise(N2, 2.5, seed=45)
+    col = np.array([0.91, 0.89, 0.82], dtype=np.float32) * (0.94 + 0.08 * fib)[..., None]
+    col = col * (1 - 0.03 * np.clip((yel - 0.5) * 3, 0, 1))[..., None] * np.array([1.0, 0.99, 0.95], dtype=np.float32)
+    save_set('Paper', np.clip(col, 0, 1), normal_from_height(fib * 0.0004, px2), np.full((N2, N2), 0.86, np.float32), np.ones((N2, N2), np.float32))
 
 # ---------------------------------------------------------------- Glazed ceramic (jars, 1K, 0.5 m)
-N3 = 1024; px3 = 0.5 / N3
-drip = periodic_noise(N3, 2.0, aniso=(1.0, 0.25), seed=51); spot = periodic_noise(N3, 1.2, seed=52)
-col = np.array([0.23, 0.14, 0.085], dtype=np.float32) * (0.8 + 0.45 * drip)[..., None]
-col = col + 0.05 * (spot > 0.75)[..., None]
-save_set('Ceramic', np.clip(col, 0, 1), normal_from_height(drip * 0.0015, px3), np.clip(0.28 + 0.2 * (spot - 0.5), 0.1, 0.6), np.ones((N3, N3), np.float32))
+if want('Ceramic'):
+    N3 = 1024; px3 = 0.5 / N3
+    drip = periodic_noise(N3, 2.0, aniso=(1.0, 0.25), seed=51); spot = periodic_noise(N3, 1.2, seed=52)
+    col = np.array([0.23, 0.14, 0.085], dtype=np.float32) * (0.8 + 0.45 * drip)[..., None]
+    col = col + 0.05 * (spot > 0.75)[..., None]
+    save_set('Ceramic', np.clip(col, 0, 1), normal_from_height(drip * 0.0015, px3), np.clip(0.28 + 0.2 * (spot - 0.5), 0.1, 0.6), np.ones((N3, N3), np.float32))
+# ---------------------------------------------------------------- Noren cloth (indigo cotton, 2K, 1 m)
+if want('Cloth'):
+    yy2, xx2 = np.mgrid[0:N2, 0:N2].astype(np.float32)
+    weave = 0.5 + 0.25 * np.sin(xx2 * 2 * np.pi / 4.0) * np.sin(yy2 * 2 * np.pi / 4.0)
+    fade = periodic_noise(N2, 2.4, seed=61)
+    col = np.array([0.10, 0.16, 0.31], dtype=np.float32) * (0.9 + 0.2 * weave)[..., None]
+    col = col + (np.clip((fade - 0.55) * 2, 0, 1) * 0.08)[..., None] * np.array([1.0, 1.1, 1.3], dtype=np.float32)
+    save_set('Cloth', np.clip(col, 0, 1), normal_from_height(weave * 0.0003, px2), np.full((N2, N2), 0.88, np.float32), 0.92 + 0.08 * weave)
+# ---------------------------------------------------------------- Lantern paper (1K, 0.5 m): washi with bamboo rings
+if want('Lantern'):
+    yy3 = np.mgrid[0:N3, 0:N3][0].astype(np.float32)
+    ring = np.abs(((yy3 / N3 * 0.5) / 0.03) % 1.0 - 0.5) < 0.06
+    pap = periodic_noise(N3, 1.0, seed=71)
+    col = np.array([0.95, 0.86, 0.66], dtype=np.float32) * (0.95 + 0.08 * pap)[..., None]
+    col = col * (1 - 0.35 * ring)[..., None]
+    save_set('Lantern', np.clip(col, 0, 1), normal_from_height(ring.astype(np.float32) * 0.0008, px3), np.full((N3, N3), 0.8, np.float32), np.ones((N3, N3), np.float32))
 print('done')

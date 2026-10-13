@@ -608,7 +608,295 @@ def prop_firewood():
     return mb
 
 
+# ======================================================================= pent roof (hisashi) between storeys 1 and 2
+PENT_O, PENT_ZE, PENT_ZW, PENT_RISE = 1.05, 2.39, 2.93, 0.10   # depth from wall line, eave z, z at the wall, corner upturn
+
+
+def _pent_z(d):
+    return PENT_ZE + (PENT_ZW - PENT_ZE) * min(max(d / PENT_O, 0.0), 1.0)
+
+
+def _pent_rise(t):
+    c = max(0.0, 1.0 - t / PENT_O)
+    return PENT_RISE * c * c
+
+
+def pent_side():
+    """One bay of pent roof on the storey-1 wall (local wall frame, exterior -Y, origin storey-1 floor)."""
+    mb = MB('SM_Edo_PentSide')
+    q = RIB / 4
+    xs = [-H + k * q for k in range(29)]
+    rip = lambda x: RIB_A * math.cos(2 * math.pi * (x + H) / RIB)
+    rows = []
+    for d in (0.0, PENT_O + 0.03):
+        y = -PENT_O + d
+        rows.append([(x, mb.v((x, y, _pent_z(d) + rip(x))), ((x + H) / B, d / B)) for x in xs])
+    _surface(mb, rows)
+    for x0, x1 in zip(xs[:-1], xs[1:]):
+        quad = [mb.v((x0, -PENT_O, PENT_ZE + rip(x0))), mb.v((x1, -PENT_O, PENT_ZE + rip(x1))),
+                mb.v((x1, -PENT_O, PENT_ZE - 0.12)), mb.v((x0, -PENT_O, PENT_ZE - 0.12))]
+        mb.face(quad, 'Kawara', [((x0 + H) / B, 0.0), ((x1 + H) / B, 0.0), ((x1 + H) / B, -0.07), ((x0 + H) / B, -0.07)], want=(0, -1, 0))
+    zw = _pent_z(PENT_O - 0.045) - 0.12
+    soff = [mb.v((-H, -PENT_O, PENT_ZE - 0.12)), mb.v((H, -PENT_O, PENT_ZE - 0.12)), mb.v((H, -0.045, zw)), mb.v((-H, -0.045, zw))]
+    mb.face(soff, 'Planks', [(0, -H / 2), (0, H / 2), (PENT_O / 2, H / 2), (PENT_O / 2, -H / 2)], want=(0, 0, -1))
+    a = math.atan2(PENT_ZW - PENT_ZE, PENT_O); L = (PENT_O - 0.09) / math.cos(a)
+    for i in range(4):
+        x = -H + B / 8 + i * B / 4
+        M = Matrix.Translation((x, -PENT_O + 0.04, PENT_ZE - 0.12 + 0.02 * math.tan(a))) @ Matrix.Rotation(a, 4, 'X')
+        mb.box((-0.03, 0.0, -0.075), (0.03, L, 0.0), 'Timber', grain=1, M=M)
+    mb.box((-H, -0.11, PENT_ZW - 0.03), (H, -0.045, PENT_ZW + 0.06), 'Kawara', grain=0)     # flashing against the upper wall
+    return mb
+
+
+def pent_corner():
+    """Corner of the pent roof: origin on the corner of the wall lines, covers the outer quadrant x<0, y<0."""
+    mb = MB('SM_Edo_PentCorner')
+    q = RIB / 4; O = PENT_O
+    rip = lambda c: RIB_A * math.cos(2 * math.pi * c / RIB)
+    for face in ('front', 'side'):
+        rows = []; eave = []
+        for d in (0.0, O * 0.5, O):
+            lo = -O + d
+            al = [lo] + _grid(lo, 0.0, q, 0.0) + [0.0] if -lo > 1e-6 else [0.0]
+            row = []
+            for a in al:
+                t = max(a + O, d)
+                z = _pent_z(d) + _pent_rise(t) + rip(a)
+                co = (a, -O + d, z) if face == 'front' else (-O + d, a, z)
+                u = a / B if face == 'front' else -a / B
+                row.append((a, mb.v(co), (u, d / B)))
+            rows.append(row)
+            if d == 0.0: eave = al
+        _surface(mb, rows)
+        outward = (0, -1, 0) if face == 'front' else (-1, 0, 0)
+        for a0, a1 in zip(eave[:-1], eave[1:]):
+            pts = []
+            for a, top in ((a0, 1), (a1, 1), (a1, 0), (a0, 0)):
+                z = PENT_ZE + _pent_rise(a + O) + (rip(a) if top else -0.12)
+                pts.append(mb.v((a, -O, z) if face == 'front' else (-O, a, z)))
+            mb.face(pts, 'Kawara', [(a0 / B, 0), (a1 / B, 0), (a1 / B, -0.07), (a0 / B, -0.07)], want=outward)
+        srows = []
+        for d in (0.0, O - 0.045):
+            lo = -O + d
+            al = [lo] + _grid(lo, 0.0, B / 8, 0.0) + [0.0] if -lo > 1e-6 else [0.0]
+            srows.append([(a, mb.v(((a, -O + d, _pent_z(d) + _pent_rise(max(a + O, d)) - 0.12) if face == 'front'
+                                    else (-O + d, a, _pent_z(d) + _pent_rise(max(a + O, d)) - 0.12))), (d / 2, a / 2)) for a in al])
+        for r0, r1 in zip(srows[:-1], srows[1:]):
+            _zipper(mb, r0, r1, 'Planks', (0, 0, -1))
+    path = []
+    for i in range(7):
+        t = 0.03 + 0.97 * i / 6
+        p = Vector((-O + O * t, -O + O * t, 0)); d = t * O
+        p.z = _pent_z(d) + _pent_rise(d) + RIB_A + 0.005
+        path.append((p, Vector((1, 1, 0)).normalized()))
+    _sweep(mb, path, [(s * 0.75, h * 0.75) for s, h in CAP_HIP], cap0=True)
+    return mb
+
+
+# ======================================================================= balcony, shopfront, lanterns
+def balcony_bracket():
+    mb = MB('SM_Edo_BalconyBracket')        # diagonal strut under the upper-floor balcony, at a post
+    a = math.atan2(0.60, 0.85); L = math.hypot(0.60, 0.85)
+    M = Matrix.Translation((0.0, -0.08, DECK - 0.95)) @ Matrix.Rotation(-a, 4, 'X') @ Matrix.Rotation(math.pi, 4, 'Z')
+    mb.box((-0.04, 0.0, -0.05), (0.04, L, 0.05), 'Timber', grain=1, M=M)
+    return mb
+
+
+def noren():
+    mb = MB('SM_Edo_Noren')                 # shop curtain over the door bay
+    mb.box((-0.74, -0.135, 1.78), (0.74, -0.105, 1.83), 'Timber', grain=0)
+    for x in (-0.70, 0.70):
+        mb.box((x - 0.02, -0.135, 1.80), (x + 0.02, -0.045, 1.84), 'Timber', grain=1)
+    for x in (-0.45, 0.0, 0.45):
+        mb.box((x - 0.21, -0.125, 0.94), (x + 0.21, -0.115, 1.76), 'Cloth', grain=2)
+    return mb
+
+
+def shop_sign():
+    mb = MB('SM_Edo_ShopSign')              # hanging sign board, perpendicular to the facade
+    for z in (2.22, 1.12):
+        mb.box((-0.03, -0.80, z), (0.03, -0.045, z + 0.06), 'Timber', grain=1)
+    mb.box((-0.025, -0.72, 1.18), (0.025, -0.30, 2.22), 'Planks', grain=2)
+    mb.box((-0.035, -0.74, 1.15), (0.035, -0.28, 1.19), 'Timber', grain=1)
+    mb.box((-0.035, -0.74, 2.21), (0.035, -0.28, 2.25), 'Timber', grain=1)
+    return mb
+
+
+def lantern():
+    mb = MB('SM_Edo_Lantern')               # paper lantern (chochin) on a wall arm
+    mb.box((-0.025, -0.64, 2.23), (0.025, -0.045, 2.28), 'Timber', grain=1)
+    mb.box((-0.01, -0.59, 2.17), (0.01, -0.57, 2.23), 'Timber', grain=2)
+    body = [(0.09, 1.73), (0.15, 1.77), (0.17, 1.86), (0.17, 2.04), (0.15, 2.13), (0.09, 2.17)]
+    start = len(mb.bm.verts)
+    mb.lathe(body, 12, 'Lantern', cap_top=False)
+    for r0, z0, z1 in ((0.095, 1.71, 1.75), (0.095, 2.15, 2.19)):
+        mb.lathe([(r0, z0), (r0, z1)], 12, 'Timber', cap_top=True, cap_bottom=True, smooth=False)
+    for v in mb.bm.verts:
+        v.co.y += -0.58
+    # undo the shift on the arm/hook boxes (first 16 verts)
+    for v in list(mb.bm.verts)[:16]:
+        v.co.y += 0.58
+    return mb
+
+
+# ======================================================================= thatched gable roof (Roof 2)
+TH_O, TH_ZE, TH_PITCH, TH_E, TH_R = 1.19, 2.49, 0.888, 0.55, 0.30
+
+
+class Thatch:
+    def __init__(self, n):
+        self.n = n; self.D = n * B; self.R = self.D / 2 + TH_O; self.H = TH_PITCH * self.R
+
+    def zt(self, d):
+        s = min(max(d / self.R, 0.0), 1.0)
+        return TH_ZE + self.H * (1 - (1 - s) ** 1.12)
+
+    def th(self, d):
+        s = min(max(d / self.R, 0.0), 1.0)
+        return TH_E + (TH_R - TH_E) * s
+
+    def bump(self, x, d):
+        s = min(max(d / self.R, 0.0), 1.0)
+        return 0.035 * math.sin(2 * math.pi * 2 * x / B + 1.3) * math.sin(math.pi * min(1.0, s * 1.2)) + 0.02 * math.sin(2 * math.pi * 3 * x / B + 2.0 * s)
+
+
+def _thatch_slab(mb, tf, xs, sign, eave=True):
+    """Both surfaces of one slope (sign -1: -Y side) between the x values in xs."""
+    ds = [tf.R * j / 5 for j in range(6)]
+    top, und = [], []
+    for d in ds:
+        y = sign * (tf.R - d)
+        top.append([(x, mb.v((x, y, tf.zt(d) + tf.bump(x, d))), (x / 2.0, d / 2.0)) for x in xs])
+        und.append([(x, mb.v((x, y, tf.zt(d) - tf.th(d))), (x / 2.0, d / 2.0)) for x in xs])
+    for r0, r1 in zip(top[:-1], top[1:]):
+        _zipper(mb, r0, r1, 'Thatch', (0, 0, 1))
+    for r0, r1 in zip(und[:-1], und[1:]):
+        _zipper(mb, r0, r1, 'Thatch', (0, 0, -1))
+    if eave:
+        y = sign * tf.R; yi = sign * (tf.R - 0.12)
+        for x0, x1 in zip(xs[:-1], xs[1:]):
+            q = [mb.v((x0, y, tf.zt(0) + tf.bump(x0, 0))), mb.v((x1, y, tf.zt(0) + tf.bump(x1, 0))),
+                 mb.v((x1, yi, tf.zt(0.12) - tf.th(0.12))), mb.v((x0, yi, tf.zt(0.12) - tf.th(0.12)))]
+            mb.face(q, 'Thatch', [(x0 / 2, 0), (x1 / 2, 0), (x1 / 2, 0.3), (x0 / 2, 0.3)], want=(0, sign, -0.3))
+    return ds
+
+
+def _thatch_frieze(mb, tf, x0, x1, sign):
+    dw = TH_O - 0.05; y = sign * (tf.R - dw)
+    zt = tf.zt(dw) - tf.th(dw) + 0.02
+    q = [mb.v((x0, y, KETA_TOP - 0.05)), mb.v((x1, y, KETA_TOP - 0.05)), mb.v((x1, y, zt)), mb.v((x0, y, zt))]
+    mb.face(q, 'Plaster', [(x0 / 2, 0), (x1 / 2, 0), (x1 / 2, 0.3), (x0 / 2, 0.3)], want=(0, sign, 0))
+
+
+def _ridge_log(mb, tf, x0, x1, cap0=False):
+    z = tf.zt(tf.R) + 0.18; r = 0.26
+    ring = lambda x: [(x, r * math.cos(2 * math.pi * k / 8), z + r * math.sin(2 * math.pi * k / 8)) for k in range(8)]
+    mb.loft([ring(x0), ring(x1)], 'Timber', closed=True, smooth=True, cap0=cap0, want_out=_axis_want([(x0, 0, z), (x1, 0, z)]))
+
+
+def thatch_mid(n):
+    tf = Thatch(n); mb = MB(f'SM_Edo_ThatchMid_D{n}')
+    xs = [B * k / 6 for k in range(7)]
+    for sign in (-1, 1):
+        _thatch_slab(mb, tf, xs, sign)
+        _thatch_frieze(mb, tf, 0.0, B, sign)
+    _ridge_log(mb, tf, 0.0, B)
+    return mb
+
+
+def thatch_end(n):
+    """Gable end: the thatch overhang beyond the end wall (x' = 0), verge, gable wall, ridge log end and crossed finials."""
+    tf = Thatch(n); mb = MB(f'SM_Edo_ThatchEnd_D{n}')
+    xs = [-TH_O + TH_O * k / 4 for k in range(5)]
+    for sign in (-1, 1):
+        ds = _thatch_slab(mb, tf, xs, sign)
+        _thatch_frieze(mb, tf, -0.05, 0.0, sign)
+        for d0, d1 in zip(ds[:-1], ds[1:]):                       # verge (cut edge of the gable overhang)
+            y0, y1 = sign * (tf.R - d0), sign * (tf.R - d1); x = -TH_O
+            q = [mb.v((x, y0, tf.zt(d0) + tf.bump(x, d0))), mb.v((x, y1, tf.zt(d1) + tf.bump(x, d1))),
+                 mb.v((x, y1, tf.zt(d1) - tf.th(d1))), mb.v((x, y0, tf.zt(d0) - tf.th(d0)))]
+            mb.face(q, 'Thatch', [(d0 / 2, 0.3), (d1 / 2, 0.3), (d1 / 2, 0), (d0 / 2, 0)], want=(-1, 0, 0))
+    # gable wall (plaster) on the end wall line, under the thatch
+    prof = [(-tf.D / 2, KETA_TOP)]
+    for j in range(9):
+        d = TH_O + (tf.R - TH_O) * j / 8
+        prof.append((-(tf.R - d), tf.zt(d) - tf.th(d) - 0.02))
+    prof += [(-y, z) for y, z in reversed(prof[1:-1])] + [(tf.D / 2, KETA_TOP)]
+    _prism(mb, [(-0.045, y, z) for y, z in prof], [(0.045, y, z) for y, z in prof], mat='Plaster')
+    ztop = tf.zt(tf.R) - tf.th(tf.R)
+    mb.box((-0.07, -0.07, KETA_TOP), (0.07, 0.07, ztop), 'Timber', grain=2)                  # king post
+    zb = KETA_TOP + 0.55; half = tf.R - TH_O - 0.1
+    mb.box((-0.075, -half * 0.85, zb), (0.075, half * 0.85, zb + 0.14), 'Timber', grain=1)  # tie beam
+    _ridge_log(mb, tf, -TH_O - 0.18, 0.0, cap0=True)
+    z = tf.zt(tf.R) + 0.18
+    for ang in (math.radians(38), -math.radians(38)):                                         # crossed finials (X)
+        M = Matrix.Translation((-TH_O + 0.12, 0.0, z)) @ Matrix.Rotation(ang, 4, 'X')
+        mb.box((-0.05, -0.08, -0.55), (0.05, 0.08, 0.95), 'Timber', grain=2, M=M)
+    return mb
+
+
+# ======================================================================= stone compound wall (Fence 2) and gate
+def _coping(mb, half_len, half_w, z_eave, z_ridge, xs=None):
+    """Small tiled gable coping along local X (ripples aligned to the bay grid)."""
+    q = RIB / 2
+    xs = xs or [-half_len + k * q for k in range(int(round(2 * half_len / q)) + 1)]
+    rip = lambda x: RIB_A * 0.8 * math.cos(2 * math.pi * (x + half_len) / RIB)
+    for sign in (-1, 1):
+        rows = []
+        for d, z in ((0.0, z_eave), (half_w, z_ridge)):
+            y = sign * (half_w - d)
+            rows.append([(x, mb.v((x, y, z + rip(x))), ((x + half_len) / B, d / B)) for x in xs])
+        _surface(mb, rows)
+        y = sign * half_w
+        for x0, x1 in zip(xs[:-1], xs[1:]):
+            qd = [mb.v((x0, y, z_eave + rip(x0))), mb.v((x1, y, z_eave + rip(x1))), mb.v((x1, y, z_eave - 0.08)), mb.v((x0, y, z_eave - 0.08))]
+            mb.face(qd, 'Kawara', [(x0 / B, 0), (x1 / B, 0), (x1 / B, -0.04), (x0 / B, -0.04)], want=(0, sign, 0))
+    soff = [mb.v((-half_len, -half_w, z_eave - 0.08)), mb.v((half_len, -half_w, z_eave - 0.08)), mb.v((half_len, half_w, z_eave - 0.08)), mb.v((-half_len, half_w, z_eave - 0.08))]
+    mb.face(soff, 'Planks', [(0, 0), (1, 0), (1, 0.3), (0, 0.3)], want=(0, 0, -1))
+    path = [(Vector((-half_len, 0, z_ridge + RIB_A * 0.8)), Vector((1, 0, 0))), (Vector((half_len, 0, z_ridge + RIB_A * 0.8)), Vector((1, 0, 0)))]
+    _sweep(mb, path, [(s * 0.7, h * 0.6) for s, h in CAP_RIDGE], cap0=True, cap1=True)
+
+
+def wall2_segment():
+    mb = MB('SM_Edo_Wall2Seg')              # stone base, plaster wall, tiled coping (nerikabe)
+    mb.box((-H, -0.25, -0.75), (H, 0.25, 0.31), 'StoneWall', skip=('-z',))
+    mb.box((-H, -0.17, 0.31), (H, 0.17, 1.60), 'Plaster')
+    mb.box((-H, -0.19, 1.60), (H, 0.19, 1.66), 'Timber', grain=0)
+    _coping(mb, H, 0.36, 1.92, 2.20)
+    return mb
+
+
+def wall2_pier():
+    mb = MB('SM_Edo_Wall2Pier')             # pier at segment joints / gate sides (hides height steps on slopes)
+    mb.box((-0.30, -0.30, -0.75), (0.30, 0.30, 0.36), 'StoneWall', skip=('-z',))
+    mb.box((-0.22, -0.22, 0.36), (0.22, 0.22, 1.75), 'Plaster')
+    mb.box((-0.26, -0.26, 1.75), (0.26, 0.26, 1.82), 'Timber', grain=0)
+    mb.lathe([(0.40, 1.82), (0.30, 2.05), (0.12, 2.28), (0.0, 2.34)], 4, 'Kawara', cap_top=False, phase=math.pi / 4, smooth=False, uv_scale=B)
+    return mb
+
+
+def gate():
+    mb = MB('SM_Edo_Gate')                  # roofed gate in the compound wall, doors open inward (+Y)
+    for x in (-1.05, 1.05):
+        mb.box((x - 0.15, -0.15, -0.30), (x + 0.15, 0.15, 3.30), 'Timber', grain=2, skip=('-z',))
+        mb.box((x - 0.25, -0.25, -0.20), (x + 0.25, 0.25, 0.12), 'Stone')
+    mb.box((-1.50, -0.09, 2.45), (1.50, 0.09, 2.65), 'Timber', grain=0)
+    mb.box((-1.62, -0.16, 3.00), (1.62, 0.16, 3.22), 'Timber', grain=0)
+    for x in (-0.95, 0.95):                                                      # ridge-direction purlins
+        mb.box((x - 0.06, -1.05, 3.22), (x + 0.06, 1.05, 3.30), 'Timber', grain=1)
+    _coping(mb, 1.68, 1.15, 3.32, 3.92)
+    for sx in (-1, 1):                                                           # door leaves
+        piv = Vector((sx * 0.90, 0.02, 0.0)); ang = sx * math.radians(78)
+        M = Matrix.Translation(piv) @ Matrix.Rotation(ang, 4, 'Z')
+        x0, x1 = (0.0, 0.88) if sx < 0 else (-0.88, 0.0)
+        mb.box((x0, 0.0, 0.05), (x1, 0.05, 2.35), 'Planks', grain=2, M=M)
+        for z in (0.35, 1.25, 2.05):
+            mb.box((x0 + 0.04, 0.05, z), (x1 - 0.04, 0.09, z + 0.10), 'Timber', grain=0, M=M)
+    return mb
+
+
 # ======================================================================= registry
+
 def build_all():
     """Returns {collection name: [MB, ...]} -- children are named so alphabetical order = variant index."""
     kit = {
@@ -631,5 +919,16 @@ def build_all():
         'KIT_FenceSeg': [fence_segment()],
         'KIT_FencePost': [fence_post()],
         'KIT_Props': [prop_bale(), prop_barrel(), prop_firewood(), prop_jar()],
+        'KIT_PentSide': [pent_side()],
+        'KIT_PentCorner': [pent_corner()],
+        'KIT_BalconyBracket': [balcony_bracket()],
+        'KIT_Noren': [noren()],
+        'KIT_ShopSign': [shop_sign()],
+        'KIT_Lantern': [lantern()],
+        'KIT_ThatchEnd': [thatch_end(n) for n in range(1, MAX_DEPTH + 1)],
+        'KIT_ThatchMid': [thatch_mid(n) for n in range(1, MAX_DEPTH + 1)],
+        'KIT_Wall2Seg': [wall2_segment()],
+        'KIT_Wall2Pier': [wall2_pier()],
+        'KIT_Gate': [gate()],
     }
     return kit
