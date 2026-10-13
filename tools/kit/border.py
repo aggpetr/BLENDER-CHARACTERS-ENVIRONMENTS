@@ -23,7 +23,7 @@ GATES = [                # name, a point on the road inside the village, directi
     ('south', (-212.0, -200.0), (0.0, -1.0), 'RD_Main (arch bridge)', 'torii'),
     ('west', (-228.0, -130.0), (-1.0, 0.0), 'WEST_ROAD (new)', 'torii'),
 ]
-RIVER_UPPER = [(255.0, -296.0), (232.0, -282.0), (205.0, -272.0), (175.0, -266.0), (145.0, -266.0), (125.0, -264.0), (110.0, -262.0)]   # the river continues up into the mountain
+RIVER_UPPER = [(255.0, -302.0), (232.0, -296.0), (205.0, -291.0), (175.0, -284.0), (146.0, -273.0), (125.0, -266.0), (110.0, -262.0)]   # the river continues up into the mountain
 RIVER_UPPER_WIDTH = 9.0  # the upper river (own ribbon, steeper ground) is a bit narrower than the 12 m river below it
 EAST_LINE = [(167.0, 26.0), (150.0, -28.0), (128.0, -72.0), (110.0, -103.0), (107.0, -118.0), (112.0, -160.0), (123.0, -198.0), (125.0, -248.0), (124.0, -257.0)]   # the east side as drawn by you, north to south
 RIVER_WIDTH = 12.0       # the river is made wider (it was 7 m); the border stays 5 m back from its bank on the south
