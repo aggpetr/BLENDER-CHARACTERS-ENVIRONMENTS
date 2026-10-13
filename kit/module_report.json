@@ -1483,5 +1483,70 @@
   "materials": [
    "M_Edo_Grain"
   ]
+ },
+ {
+  "collection": "KIT_Torii",
+  "module": "SM_Edo_Torii",
+  "tris": 896,
+  "materials": [
+   "M_Edo_Stone",
+   "M_Edo_Vermilion",
+   "M_Edo_Lacquer",
+   "M_Edo_Planks"
+  ]
+ },
+ {
+  "collection": "KIT_ToriiPier",
+  "module": "SM_Edo_ToriiPier",
+  "tris": 48,
+  "materials": [
+   "M_Edo_Stone",
+   "M_Edo_StoneWall"
+  ]
+ },
+ {
+  "collection": "KIT_BorderStone",
+  "module": "SM_Edo_BorderStone_A",
+  "tris": 84,
+  "materials": [
+   "M_Edo_StoneWall",
+   "M_Edo_Iron"
+  ]
+ },
+ {
+  "collection": "KIT_BorderStone",
+  "module": "SM_Edo_BorderStone_B",
+  "tris": 84,
+  "materials": [
+   "M_Edo_StoneWall",
+   "M_Edo_Iron"
+  ]
+ },
+ {
+  "collection": "KIT_BorderStone",
+  "module": "SM_Edo_BorderStone_C",
+  "tris": 84,
+  "materials": [
+   "M_Edo_StoneWall",
+   "M_Edo_Iron"
+  ]
+ },
+ {
+  "collection": "KIT_BorderRope",
+  "module": "SM_Edo_BorderRope",
+  "tris": 548,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Paper"
+  ]
+ },
+ {
+  "collection": "KIT_Jizo",
+  "module": "SM_Edo_Jizo",
+  "tris": 176,
+  "materials": [
+   "M_Edo_StoneWall",
+   "M_Edo_ClothRed"
+  ]
  }
 ]

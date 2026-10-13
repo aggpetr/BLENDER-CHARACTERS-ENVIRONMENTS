@@ -2557,6 +2557,119 @@
   "collision": []
  },
  {
+  "collection": "KIT_Torii",
+  "module": "SM_Edo_Torii",
+  "file": "modules/KIT_Torii/SM_Edo_Torii.fbx",
+  "tris": 896,
+  "materials": [
+   "M_Edo_Stone",
+   "M_Edo_Vermilion",
+   "M_Edo_Lacquer",
+   "M_Edo_Planks"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Torii_00",
+    "verts": 8
+   },
+   {
+    "name": "UCX_SM_Edo_Torii_01",
+    "verts": 8
+   }
+  ]
+ },
+ {
+  "collection": "KIT_ToriiPier",
+  "module": "SM_Edo_ToriiPier",
+  "file": "modules/KIT_ToriiPier/SM_Edo_ToriiPier.fbx",
+  "tris": 48,
+  "materials": [
+   "M_Edo_Stone",
+   "M_Edo_StoneWall"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_ToriiPier_00",
+    "verts": 13
+   }
+  ]
+ },
+ {
+  "collection": "KIT_BorderStone",
+  "module": "SM_Edo_BorderStone_A",
+  "file": "modules/KIT_BorderStone/SM_Edo_BorderStone_A.fbx",
+  "tris": 84,
+  "materials": [
+   "M_Edo_StoneWall",
+   "M_Edo_Iron"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_BorderStone_A_00",
+    "verts": 32
+   }
+  ]
+ },
+ {
+  "collection": "KIT_BorderStone",
+  "module": "SM_Edo_BorderStone_B",
+  "file": "modules/KIT_BorderStone/SM_Edo_BorderStone_B.fbx",
+  "tris": 84,
+  "materials": [
+   "M_Edo_StoneWall",
+   "M_Edo_Iron"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_BorderStone_B_00",
+    "verts": 33
+   }
+  ]
+ },
+ {
+  "collection": "KIT_BorderStone",
+  "module": "SM_Edo_BorderStone_C",
+  "file": "modules/KIT_BorderStone/SM_Edo_BorderStone_C.fbx",
+  "tris": 84,
+  "materials": [
+   "M_Edo_StoneWall",
+   "M_Edo_Iron"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_BorderStone_C_00",
+    "verts": 33
+   }
+  ]
+ },
+ {
+  "collection": "KIT_BorderRope",
+  "module": "SM_Edo_BorderRope",
+  "file": "modules/KIT_BorderRope/SM_Edo_BorderRope.fbx",
+  "tris": 548,
+  "materials": [
+   "M_Edo_Thatch",
+   "M_Edo_Paper"
+  ],
+  "collision": []
+ },
+ {
+  "collection": "KIT_Jizo",
+  "module": "SM_Edo_Jizo",
+  "file": "modules/KIT_Jizo/SM_Edo_Jizo.fbx",
+  "tris": 176,
+  "materials": [
+   "M_Edo_StoneWall",
+   "M_Edo_ClothRed"
+  ],
+  "collision": [
+   {
+    "name": "UCX_SM_Edo_Jizo_00",
+    "verts": 23
+   }
+  ]
+ },
+ {
   "collection": "TEST",
   "module": "SM_Edo_House_dwellA_4x3_test",
   "file": "SM_Edo_House_dwellA_4x3_test.fbx",
