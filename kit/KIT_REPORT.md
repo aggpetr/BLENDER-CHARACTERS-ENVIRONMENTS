@@ -121,3 +121,9 @@ furniture (stone lantern, well, bench, notice board), 103 FBX files in total, di
 - New texture sets: `T_Edo_Soil`, `T_Edo_Grain` (1K), brighter `T_Edo_Leaf`.
 - Not verified: Unreal import (script untested, including the instanced field placement), performance with about 47,000 crop instances
   in the Blender viewport (they are instances, not geometry), appearance under Unreal lighting.
+
+## Streets towards the mountain trail
+
+- `EAST_TRAIL` (district east street to `PATH_p2_p3`), `NE_ROAD` (north street to `PATH_p3_p4` at about (198, -10)), `SE_ROAD` (from the south-east corner to the foothills) and a short link from the south-west street to `RD_Lane2`; they follow the terrain (ribbons use `EDO_Terrain`).
+- 32 more houses along them (outer houses on the full terrain, kept off slopes steeper than 3.6 m across the plot, extracted terrain heights in `town_context.json`). Town extension now: 91 houses; manifest 237 houses, 42,285 module instances.
+- Not done: nothing is built on the steeper slopes between x = 100 and the trail (terraces and steps would be needed there).
