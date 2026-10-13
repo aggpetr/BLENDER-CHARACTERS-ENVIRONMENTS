@@ -249,7 +249,21 @@ at the north and west gates, and an open gap (a stone on each side, a Jizo statu
 (object `EdoKitBorder_01`). Torii collision is the two pillars only, the rope has none. The rope is a visual line: add an invisible *Blocking Volume* or a soft barrier along it if
 the border must stop the player.
 
-## 17. What comes next
+## 17. Water: the canal, the thin river and the big river
+
+The village water is one connected system. The big river (`WT_Stream`, 12 m, south border) continues up the mountain as `KITRIVER_Upper`. A thin river (`KITRIVER_Branch`, 2 m, like the canal)
+leaves the upper river near the south-east corner, runs up the east side, passes north of the plaza ring (under three timber bridges and one footbridge) and ends at the north-west corner of the
+canal (`WT_Channel`). The canal runs south and now flows into the big river through `KITRIVER_Link`, so the loop is closed. The route follows the line you drew: it keeps 2 m away from every house plot, field
+and paddy and stays inside the village border (`tools/kit/water.py`, data in `kit/village/village_water.json`).
+
+* **Bridges:** `BR_branch_1..4` (Flat6 at the hospital street, Flat4 at the north street, Flat6 at the east street, a new 1.8 m `SM_Edo_Bridge_Foot` where the hub trail crosses). They are in the manifest-style
+  data of `village_water.json` (`branch_bridges`: module, x, y, yaw) and are placed in Blender by the installer.
+* **Banks:** both banks of the thin river carry the same stone kerb as the canal (`KITEMBANK_Branch`, cut open under the bridges). The water sits at ground level between the kerbs.
+* **In Unreal:** use the Water plugin (*Water Body River*) along the same spline points (`branch`, `link` in `village_water.json`; Blender x, y, convert as in section 3). The Blender ribbons are
+  placeholders. Set the river bed with the plugin's *Landscape* carving instead of the kerbs if you prefer a natural bank. The terrain was notched where the canal meets the big river; that is in the exported heightmap.
+* **Collision / navmesh:** a *NavModifierVolume* with a *Null* area over the water and no volume over the bridge decks, as for the canal.
+
+## 18. What comes next
 
 The next additions (shrine, temple, watchtower, gates, samurai quarter, watermill, terraces and more) are laid out on the planning map
 `kit/previews/village_additions_plan.jpg` (data in `tools/kit/additions.py`). Nothing on it is built yet. Do the Unreal import and the checks above first, so

@@ -33,9 +33,9 @@ def _rail_side(mb, y, x0, x1, z0=0.0, post_gap=1.15):
         mb.box((x - 0.015, y - 0.025, z0 + 0.27), (x + 0.015, y + 0.025, z0 + 0.98), 'Timber', grain=2)
 
 
-def bridge_flat(width, name):
+def bridge_flat(width, name, L=9.2):
     mb = MB(name)
-    L = 9.2; hw = width / 2.0
+    hw = width / 2.0
     for sx in (-1, 1):                                            # stone abutments down to the stream bed, wing stones
         a, b = sorted((sx * (L / 2 - 1.1), sx * (L / 2 + 0.25)))
         mb.box((a, -hw - 0.30, -2.6), (b, hw + 0.30, -0.12), 'StoneWall')
@@ -47,12 +47,12 @@ def bridge_flat(width, name):
     for i in range(nb):
         y = -hw + 0.35 + i * (width - 0.7) / (nb - 1)
         mb.box((-L / 2 + 0.55, y - 0.15, -0.46), (L / 2 - 0.55, y + 0.15, -0.09), 'Timber', grain=0)
-    for x in (-2.2, 0.0, 2.2):
+    for x in ((-2.2, 0.0, 2.2) if L > 8 else (-1.5, 0.0, 1.5)):
         mb.box((x - 0.07, -hw + 0.1, -0.56), (x + 0.07, hw - 0.1, -0.46), 'Timber', grain=1)
     for sx in (-1, 1):                                            # knee braces from the abutments to the beams
         for k in (-1, 1):
             yb = k * (hw - 0.35)
-            M = Matrix.Translation((sx * 3.55, yb, -0.46)) @ Matrix.Rotation(sx * 0.80, 4, 'Y')
+            M = Matrix.Translation((sx * (L / 2 - 1.05), yb, -0.46)) @ Matrix.Rotation(sx * 0.80, 4, 'Y')
             mb.box((-0.07, -0.07, -1.05), (0.07, 0.07, 0.0), 'Timber', grain=2, M=M)
     n = int((L - 0.9) / 0.30)                                     # deck planks, across the span
     for i in range(n):
@@ -289,7 +289,7 @@ def crop_rice(v):
 
 def build_town():
     return {
-        'KIT_Bridge': [bridge_arch(), bridge_flat(4.0, 'SM_Edo_Bridge_Flat4'), bridge_flat(6.4, 'SM_Edo_Bridge_Flat6')],
+        'KIT_Bridge': [bridge_arch(), bridge_flat(4.0, 'SM_Edo_Bridge_Flat4'), bridge_flat(6.4, 'SM_Edo_Bridge_Flat6'), bridge_flat(1.8, 'SM_Edo_Bridge_Foot', L=6.0)],
         'KIT_Stall': [stall()],
         'KIT_EmbankCurb': [embank_curb()],
         'KIT_EmbankCobble': [embank_cobble()],

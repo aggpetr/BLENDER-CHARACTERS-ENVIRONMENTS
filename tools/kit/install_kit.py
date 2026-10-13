@@ -20,6 +20,7 @@ OLD_VILLAGE = 'EdoVillage_01'           # the compound village the district repl
 LIGHTS = True                           # warm point lights at the new lanterns
 VILLAGE_BORDER = True                   # standing stones + sacred rope around the village, torii gates north / west / south, the river is the south border; the river is made wider
 TOWN_EXTENSION = True                   # new streets, houses in the marked areas, farmhouses, fields, canal bank, kit bridges and props
+WATER_BRANCH = True                     # thin river along the line you drew (stone kerbs, timber bridges at the streets) and the link from the canal end into the big river
 CATEGORY_PROPS = True                   # per house type props (kitchen/furnace, forge, herb racks ...) on the kit twins of your town houses
 
 in_ui = not bpy.app.background
@@ -37,6 +38,7 @@ ARCH = json.load(open(os.path.join(KIT_DIR, 'archetypes.json')))
 LAYOUT = json.load(open(os.path.join(KIT_DIR, 'village', 'district_layout.json')))
 TOWN = json.load(open(os.path.join(KIT_DIR, 'village', 'town_layout.json')))
 BORDER = json.load(open(os.path.join(KIT_DIR, 'village', 'village_border.json')))
+WATER = json.load(open(os.path.join(KIT_DIR, 'village', 'village_water.json')))
 sc = bpy.context.scene
 D = bpy.data
 
@@ -194,10 +196,11 @@ if TOWN_EXTENSION:
         hit = tground.ray_cast(Vector((x, y, 500.0)), Vector((0, 0, -1)), distance=2000.0, depsgraph=dgz)
         return hit[1].z if hit[0] else 0.0
     bcoll = D.collections.get('EdoTown_Bridges') or sc.collection
-    for oname, (mod, (bx_, by_), rotd) in TOWN['bridges'].items():
+    all_bridges = list(TOWN['bridges'].items()) + ([(b[0], (b[1], (b[2], b[3]), b[4])) for b in WATER['branch_bridges']] if WATER_BRANCH else [])
+    for oname, (mod, (bx_, by_), rotd) in all_bridges:
         orig = D.objects.get(oname); src = D.objects.get(mod)
         if src is None: continue
-        half = 9.1 if 'Arch' in mod else 4.6
+        half = 9.1 if 'Arch' in mod else (3.0 if 'Foot' in mod else 4.6)
         ca, sa = math.cos(math.radians(rotd)), math.sin(math.radians(rotd))
         ends = (zat(bx_ + ca * half, by_ + sa * half), zat(bx_ - ca * half, by_ - sa * half))
         z = (min(ends) + 0.05) if 'Arch' in mod else (max(ends) + 0.18)      # the arch sinks into the higher bank, a flat bridge sits on the higher end
@@ -242,6 +245,46 @@ if VILLAGE_BORDER:
             um.properties.inputs[rid['Ground']]['value'] = D.objects.get('EDO_Terrain') or rm_.properties.inputs[rid['Ground']]['value']
             um.properties.inputs[rid['Width']]['value'] = BORDER['river_upper_width_m']
 
+# ------------------------------------------------------------------ 4d. thin river along the drawn line, and the link from the canal end into the big river
+n_water = 0
+if WATER_BRANCH and ribbon is not None:
+    chan = D.objects.get('WT_Channel')
+    cm_ = next((m for m in chan.modifiers if m.type == 'NODES' and m.node_group == ribbon), None) if chan is not None else None
+    if cm_ is not None:
+        terr = D.objects.get('EDO_Terrain') or town_ground
+        def water_curve(name, pts, offset, coll_=None):
+            cu = D.curves.new(name, 'CURVE'); cu.dimensions = '3D'
+            sp = cu.splines.new('POLY'); sp.points.add(len(pts) - 1)
+            for p, (x, y) in zip(sp.points, pts): p.co = (x, y, 0.0, 1.0)
+            o = D.objects.new(name, cu); (D.collections.get('EdoTown_Roads') or sc.collection).objects.link(o)
+            m = o.modifiers.new('EdoRibbon', 'NODES'); m.node_group = ribbon
+            m.properties.inputs[rid['Material']]['value'] = cm_.properties.inputs[rid['Material']]['value']
+            m.properties.inputs[rid['Ground']]['value'] = terr
+            m.properties.inputs[rid['Width']]['value'] = WATER['width_m']
+            m.properties.inputs[rid['Offset Z']]['value'] = offset
+            m.properties.inputs[rid['Resample']]['value'] = 2.0
+            return o
+        # the link: the terrain between the canal end and the river is a low ridge, notch it so the water can run through
+        tm_ = terr.data; lk = WATER['link']
+        import numpy as np
+        co = np.empty(len(tm_.vertices) * 3, dtype=np.float32); tm_.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
+        sel = (co[:, 0] >= -10.5) & (co[:, 0] <= -4.5) & (co[:, 1] >= -283.5) & (co[:, 1] <= -280.5)
+        co[sel, 2] = np.minimum(co[sel, 2], -0.70)
+        tm_.vertices.foreach_set('co', co.ravel()); tm_.update()
+        water_curve('KITRIVER_Link', lk, cm_.properties.inputs[rid['Offset Z']]['value']); n_water += 1
+        water_curve('KITRIVER_Branch', WATER['branch'], 0.05); n_water += 1
+        # stone kerbs on both banks (same module as the canal), cut open under the bridges
+        cu = D.curves.new('KITEMBANK_Branch', 'CURVE'); cu.dimensions = '3D'
+        for run in WATER['kerb_runs']:
+            sp = cu.splines.new('POLY'); sp.points.add(len(run) - 1)
+            for p, (x, y) in zip(sp.points, run): p.co = (x, y, 0.0, 1.0)
+        eo = D.objects.new('KITEMBANK_Branch', cu); (D.collections.get('EdoTown_Roads') or sc.collection).objects.link(eo)
+        em = eo.modifiers.new('EdoKitEmbank', 'NODES'); em.node_group = embank_gn
+        eid_ = {s_.name: s_.identifier for s_ in embank_gn.interface.items_tree if s_.item_type == 'SOCKET' and s_.in_out == 'INPUT'}
+        em.properties.inputs[eid_['Ground']]['value'] = terr
+        em.properties.inputs[eid_['Half Width']]['value'] = 1.15
+        em.properties.inputs[eid_['Rocks']]['value'] = 0.2
+
 # ------------------------------------------------------------------ 5. hide the old compound village and its lights, light the new lanterns
 old = D.objects.get(OLD_VILLAGE)
 if old is not None:
@@ -261,6 +304,6 @@ if LIGHTS:
             lo = D.objects.new(f'KITLIGHT_{n_lights:03d}', ld); lc.objects.link(lo)
             lo.location = inst.matrix_world @ __import__('mathutils').Vector((0.0, -0.58, 1.95)); n_lights += 1
 
-print(f'kit installed: {n_twins} house twins, district {dist.name} at ({cx}, {cy}), town extension {n_town} houses, {n_fields} fields, {n_br} bridges, {n_pr} props, {n_roads} streets, border with {n_border} parts, {n_lights} lantern lights; old village hidden')
+print(f'kit installed: {n_twins} house twins, district {dist.name} at ({cx}, {cy}), town extension {n_town} houses, {n_fields} fields, {n_br} bridges, {n_water} river parts, {n_pr} props, {n_roads} streets, border with {n_border} parts, {n_lights} lantern lights; old village hidden')
 if save_to:
     bpy.ops.wm.save_as_mainfile(filepath=save_to)
