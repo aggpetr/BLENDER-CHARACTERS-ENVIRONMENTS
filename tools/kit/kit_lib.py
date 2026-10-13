@@ -19,7 +19,7 @@ MAX_DEPTH = 8            # roof modules exist for short sides of 1..8 bays
 # texture world size (metres per texture repeat) and which image direction the wood/plank grain runs in
 TEXSIZE = {'Timber': 2.0, 'Planks': 2.0, 'Plaster': 2.0, 'Kawara': B, 'Stone': 1.0, 'Paper': 1.0,
            'Ceramic': 0.5, 'Thatch': 2.0, 'StoneWall': 2.0, 'Cloth': 1.0, 'Lantern': 0.5,
-           'Iron': 0.5, 'Leaf': 0.5, 'ClothRed': 1.0, 'Soil': 1.0, 'Grain': 0.5}
+           'Iron': 0.5, 'Leaf': 0.5, 'ClothRed': 1.0, 'Soil': 1.0, 'Grain': 0.5, 'Vermilion': 1.0, 'Lacquer': 1.0}
 GRAIN_IMG = {'Timber': 'v', 'Planks': 'u', 'Thatch': 'v'}
 
 

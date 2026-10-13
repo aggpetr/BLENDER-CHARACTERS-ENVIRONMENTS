@@ -5,7 +5,7 @@
 import sys, os, math, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bpy
-import kit_lib, modules, gn_house, district, gn_town, town
+import kit_lib, modules, gn_house, district, gn_town, town, border as border_mod
 
 OUT = os.path.abspath(sys.argv[-1])
 bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -25,7 +25,7 @@ bpy.context.view_layer.layer_collection.children['KIT_Modules'].exclude = True
 
 gn = gn_house.build()
 BRIDGE_GAPS = town.bridge_gaps()     # canal x -178: where the town's bridges are (no bank there)
-fgroup = gn_town.build_field(); egroup = gn_town.build_embank(BRIDGE_GAPS)
+fgroup = gn_town.build_field(); egroup = gn_town.build_embank(BRIDGE_GAPS); bgroup = gn_town.build_border()
 plan = district.plan()
 os.makedirs(os.path.join(os.path.dirname(OUT), 'village'), exist_ok=True)
 json.dump(district.to_json(plan), open(os.path.join(os.path.dirname(OUT), 'village', 'district_layout.json'), 'w'), indent=1)     # the town planner reads it
@@ -33,7 +33,7 @@ dgroup = district.build_group(gn, plan_data=plan)
 tplan = town.plan()
 tgroup = district.build_group(gn, name='GN_EdoKitTown', plan_data=dict(tplan, slots=[x for x in tplan['slots'] if not x['outer']]), plaza=False)
 ogroup = district.build_group(gn, name='GN_EdoKitTownOuter', plan_data=dict(tplan, slots=[x for x in tplan['slots'] if x['outer']]), plaza=False)      # beyond x = 62: stands on the full terrain
-for g_ in (tgroup, ogroup, fgroup, egroup, dgroup, gn): g_.use_fake_user = True      # keep every group in the saved kit even without a user
+for g_ in (tgroup, ogroup, fgroup, egroup, bgroup, dgroup, gn): g_.use_fake_user = True      # keep every group in the saved kit even without a user
 
 # ---------------------------------------------------------------- test houses (dwellA and size variants)
 tests = bpy.data.collections.new('KIT_TestHouses'); scene.collection.children.link(tests)
@@ -102,6 +102,7 @@ dm.properties.inputs[did['Ground']]['value'] = dg_ground
 os.makedirs(os.path.join(os.path.dirname(OUT), 'village'), exist_ok=True)
 json.dump(district.to_json(plan), open(os.path.join(os.path.dirname(OUT), 'village', 'district_layout.json'), 'w'), indent=1)
 
+json.dump(border_mod.to_json(border_mod.make(11)), open(os.path.join(os.path.dirname(OUT), 'village', 'village_border.json'), 'w'), indent=1)
 json.dump(town.to_json(tplan), open(os.path.join(os.path.dirname(OUT), 'village', 'town_layout.json'), 'w'), indent=1)
 bpy.ops.wm.save_as_mainfile(filepath=OUT, relative_remap=True)
 json.dump(report, open(os.path.join(os.path.dirname(OUT), 'module_report.json'), 'w'), indent=1)

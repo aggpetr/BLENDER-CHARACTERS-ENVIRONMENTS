@@ -162,7 +162,7 @@ for o in bpy.data.objects:       # kit bridges and props (twins of the originals
                            modules=[dict(module=o.data.name, location=[round(v, 4) for v in o.location], rotation_deg=[0.0, 0.0, round(math.degrees(o.rotation_euler.z), 3)], scale=[1.0, 1.0, 1.0])]))
 compact = {}
 for o in bpy.data.objects:       # fields and canal bank: thousands of instances, stored per module as [x, y, z, yaw_deg, sx, sy, sz]
-    if o.name.startswith(('EdoKitField_', 'KITEMBANK_')):
+    if o.name.startswith(('EdoKitField_', 'KITEMBANK_', 'EdoKitBorder_')):
         per = {}
         for n, M in inst.get(o.name, []):
             loc, rot, scl = M.decompose()

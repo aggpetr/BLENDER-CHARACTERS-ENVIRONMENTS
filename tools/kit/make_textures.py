@@ -255,4 +255,16 @@ if want('Grain'):
     col = np.array([0.55, 0.42, 0.16], dtype=np.float32) * (0.75 + 0.5 * g1)[..., None]
     col = col + (np.clip((g2 - 0.6) * 3, 0, 1) * 0.06)[..., None] * np.array([1.0, 0.8, 0.3], dtype=np.float32)
     save_set('Grain', np.clip(col, 0, 1), normal_from_height(g1 * 0.002, px3), np.clip(0.62 + 0.2 * g2, 0.3, 0.9), np.clip(0.6 + 0.4 * g1, 0, 1).astype(np.float32))
+# ---------------------------------------------------------------- Vermilion lacquer (torii pillars, 1K, 1 m) and black lacquer (kasagi)
+if want('Vermilion'):
+    N3 = 1024; px3 = 1.0 / N3
+    gr = periodic_noise(N3, 1.4, aniso=(0.15, 1.0), seed=131); fd = periodic_noise(N3, 2.2, seed=132)
+    col = np.array([0.60, 0.065, 0.035], dtype=np.float32) * (0.9 + 0.22 * gr)[..., None]
+    col = col + (np.clip((fd - 0.62) * 3, 0, 1) * 0.07)[..., None] * np.array([1.0, 0.7, 0.4], dtype=np.float32)
+    save_set('Vermilion', np.clip(col, 0, 1), normal_from_height(gr * 0.0015, px3), np.clip(0.34 + 0.16 * (fd - 0.5), 0.2, 0.6), np.clip(0.8 + 0.2 * gr, 0, 1).astype(np.float32))
+if want('Lacquer'):
+    N3 = 1024; px3 = 1.0 / N3
+    gr = periodic_noise(N3, 1.4, aniso=(0.15, 1.0), seed=141)
+    col = np.array([0.022, 0.021, 0.02], dtype=np.float32) * (0.85 + 0.3 * gr)[..., None]
+    save_set('Lacquer', np.clip(col, 0, 1), normal_from_height(gr * 0.001, px3), np.clip(0.24 + 0.1 * (gr - 0.5), 0.12, 0.4), np.ones((N3, N3), np.float32))
 print('done')

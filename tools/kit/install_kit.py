@@ -18,6 +18,7 @@ from mathutils import Vector
 KIT_PATH = '//kit/Edo_Kit.blend'        # <-- when run inside Blender: path to kit/Edo_Kit.blend
 OLD_VILLAGE = 'EdoVillage_01'           # the compound village the district replaces
 LIGHTS = True                           # warm point lights at the new lanterns
+VILLAGE_BORDER = True                   # standing stones + sacred rope around the village, torii gates north / west / south, the river is the south border; the river is made wider
 TOWN_EXTENSION = True                   # new streets, houses in the marked areas, farmhouses, fields, canal bank, kit bridges and props
 CATEGORY_PROPS = True                   # per house type props (kitchen/furnace, forge, herb racks ...) on the kit twins of your town houses
 
@@ -35,6 +36,7 @@ KIT_DIR = os.path.dirname(KIT)
 ARCH = json.load(open(os.path.join(KIT_DIR, 'archetypes.json')))
 LAYOUT = json.load(open(os.path.join(KIT_DIR, 'village', 'district_layout.json')))
 TOWN = json.load(open(os.path.join(KIT_DIR, 'village', 'town_layout.json')))
+BORDER = json.load(open(os.path.join(KIT_DIR, 'village', 'village_border.json')))
 sc = bpy.context.scene
 D = bpy.data
 
@@ -49,7 +51,7 @@ def coll(name, parent=None):
 
 # ------------------------------------------------------------------ 1. remove the previous kit install, append the new one
 for o in list(D.objects):
-    if o.name in ('EdoKitVillage_01', 'EdoKitTown_01', 'EdoKitTownOuter_01') or o.name.startswith(('KITROAD_', 'KITLIGHT_', 'EdoKitField_', 'KITEMBANK_')) or \
+    if o.name in ('EdoKitVillage_01', 'EdoKitTown_01', 'EdoKitTownOuter_01', 'EdoKitBorder_01') or o.name.startswith(('KITROAD_', 'KITLIGHT_', 'EdoKitField_', 'KITEMBANK_')) or \
             (o.name.endswith('_KIT') and o.type == 'MESH' and o.data and o.data.name.startswith('SM_Edo_')):      # kit bridges and props
         D.objects.remove(o, do_unlink=True)
 twins = [o for o in D.objects if o.name.endswith('_KIT')]
@@ -59,14 +61,14 @@ for c in list(D.collections):
     if c.name == 'KIT_Modules' or (c.name.startswith('KIT_') and c.name not in ('KIT_Village',)):
         for ob in list(c.objects): D.objects.remove(ob, do_unlink=True)
         D.collections.remove(c)
-for n in ('GN_EdoKitVillage', 'GN_EdoKitTown', 'GN_EdoKitTownOuter', 'GN_EdoKitField', 'GN_EdoKitEmbank', 'GN_EdoKitHouse'):
+for n in ('GN_EdoKitVillage', 'GN_EdoKitTown', 'GN_EdoKitTownOuter', 'GN_EdoKitField', 'GN_EdoKitEmbank', 'GN_EdoKitBorder', 'GN_EdoKitHouse'):
     if n in D.node_groups: D.node_groups.remove(D.node_groups[n])
 for m in [m for m in D.materials if m.name.startswith('M_Edo_')]: D.materials.remove(m)
 for im in [i for i in D.images if i.name.startswith('T_Edo_')]: D.images.remove(im)
 for me in [m for m in D.meshes if m.name.startswith('SM_Edo_') and m.users == 0]: D.meshes.remove(me)
 
 with D.libraries.load(KIT, link=False) as (df, dt):
-    dt.node_groups = ['GN_EdoKitHouse', 'GN_EdoKitVillage', 'GN_EdoKitTown', 'GN_EdoKitTownOuter', 'GN_EdoKitField', 'GN_EdoKitEmbank']
+    dt.node_groups = ['GN_EdoKitHouse', 'GN_EdoKitVillage', 'GN_EdoKitTown', 'GN_EdoKitTownOuter', 'GN_EdoKitField', 'GN_EdoKitEmbank', 'GN_EdoKitBorder']
     dt.collections = ['KIT_Modules']      # all kit modules (bridges, props, crops, stones too)
 house_gn, village_gn = D.node_groups['GN_EdoKitHouse'], D.node_groups['GN_EdoKitVillage']
 town_gn, field_gn, embank_gn = D.node_groups['GN_EdoKitTown'], D.node_groups['GN_EdoKitField'], D.node_groups['GN_EdoKitEmbank']
@@ -163,7 +165,7 @@ if TOWN_EXTENSION:
             for p, (x, y) in zip(sp.points, r['pts']): p.co = (x, y, 0.0, 1.0)
             ob = D.objects.new('KITROAD_T_' + r['name'], cu); road_coll.objects.link(ob)
             rm = ob.modifiers.new('EdoRibbon', 'NODES'); rm.node_group = ribbon
-            for kk, v in (('Ground', terrain if max(p[0] for p in r['pts']) > 62.0 else town_ground), ('Width', r['width']), ('Offset Z', 0.030 + 0.004 * (len(LAYOUT['roads']) + k)), ('Resample', 2.0), ('Material', D.materials.get('MAT_Edo_Road'))):
+            for kk, v in (('Ground', terrain if (max(p[0] for p in r['pts']) > 62.0 or min(p[0] for p in r['pts']) < -318.0 or max(p[1] for p in r['pts']) > 66.0) else town_ground), ('Width', r['width']), ('Offset Z', 0.030 + 0.004 * (len(LAYOUT['roads']) + k)), ('Resample', 2.0), ('Material', D.materials.get('MAT_Edo_Road'))):
                 rm.properties.inputs[rid[kk]]['value'] = v
             n_roads += 1
     # fields: kit crops replace the flat crop meshes (the soil and paddy water meshes stay)
@@ -209,6 +211,28 @@ if TOWN_EXTENSION:
         ob = D.objects.new(pr['name'] + '_KIT', src.data); ob.location = orig.location; ob.rotation_euler = orig.rotation_euler; pcoll.objects.link(ob)
         orig.hide_viewport = True; orig.hide_render = True; n_pr += 1
 
+
+# ------------------------------------------------------------------ 4c. village border and a wider river
+n_border = 0
+if VILLAGE_BORDER:
+    bg = D.node_groups['GN_EdoKitBorder']
+    bid = {s.name: s.identifier for s in bg.interface.items_tree if s.item_type == 'SOCKET' and s.in_out == 'INPUT'}
+    pts = BORDER['instances']
+    me = D.meshes.new('EdoKitBorder_01'); me.vertices.add(len(pts))
+    me.vertices.foreach_set('co', [c for r in pts for c in (r[1], r[2], 0.0)])
+    ak = me.attributes.new('kind', 'INT', 'POINT'); ak.data.foreach_set('value', [int(r[0]) for r in pts])
+    ay = me.attributes.new('yaw', 'FLOAT', 'POINT'); ay.data.foreach_set('value', [float(r[3]) for r in pts])
+    ax = me.attributes.new('sx', 'FLOAT', 'POINT'); ax.data.foreach_set('value', [float(r[4]) for r in pts])
+    bo = D.objects.new('EdoKitBorder_01', me)
+    bm_ = bo.modifiers.new('EdoKitBorder', 'NODES'); bm_.node_group = bg
+    bm_.properties.inputs[bid['Ground']]['value'] = D.objects.get('EDO_Terrain') or D.objects.get('EDO_Ground_Town')
+    (D.collections.get('EDO_Generator') or sc.collection).objects.link(bo)
+    n_border = len(pts)
+    river = D.objects.get('WT_Stream')                       # the south border: the river itself, made wider
+    if river is not None and ribbon is not None:
+        rm_ = next((m for m in river.modifiers if m.type == 'NODES' and m.node_group == ribbon), None)
+        if rm_ is not None: rm_.properties.inputs[rid['Width']]['value'] = BORDER['river_width_m']
+
 # ------------------------------------------------------------------ 5. hide the old compound village and its lights, light the new lanterns
 old = D.objects.get(OLD_VILLAGE)
 if old is not None:
@@ -228,6 +252,6 @@ if LIGHTS:
             lo = D.objects.new(f'KITLIGHT_{n_lights:03d}', ld); lc.objects.link(lo)
             lo.location = inst.matrix_world @ __import__('mathutils').Vector((0.0, -0.58, 1.95)); n_lights += 1
 
-print(f'kit installed: {n_twins} house twins, district {dist.name} at ({cx}, {cy}), town extension {n_town} houses, {n_fields} fields, {n_br} bridges, {n_pr} props, {n_roads} streets, {n_lights} lantern lights; old village hidden')
+print(f'kit installed: {n_twins} house twins, district {dist.name} at ({cx}, {cy}), town extension {n_town} houses, {n_fields} fields, {n_br} bridges, {n_pr} props, {n_roads} streets, border with {n_border} parts, {n_lights} lantern lights; old village hidden')
 if save_to:
     bpy.ops.wm.save_as_mainfile(filepath=save_to)

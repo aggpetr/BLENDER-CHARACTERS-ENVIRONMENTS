@@ -162,3 +162,34 @@ def build_embank(gaps=()):
     rz = g.node('GeometryNodeRealizeInstances'); g.L.new(both, g.I(rz, 'Geometry'))
     g.L.new(g.sw('GEOMETRY', G('Realize'), both, rz.outputs[0]), g.I(go, 'Geometry'))
     return t
+
+
+def build_border():
+    """GN_EdoKitBorder: modifier on a points mesh. Per point attributes: kind (0 stone, 1 rope, 2 torii, 3 pier, 4 stone lantern, 5 Jizo),
+    yaw (radians) and sx (rope length / 6 m). Instances stand on the Ground object."""
+    t = _new_group('GN_EdoKitBorder')
+    it = t.interface
+    s = it.new_socket('Ground', in_out='INPUT', socket_type='NodeSocketObject'); s.description = 'Terrain the border stands on'
+    s = it.new_socket('Realize', in_out='INPUT', socket_type='NodeSocketBool'); s.default_value = False
+    it.new_socket('Geometry', in_out='OUTPUT', socket_type='NodeSocketGeometry')
+    g = GB(t); gi = g.node('NodeGroupInput'); go = g.node('NodeGroupOutput'); G = lambda n: g.O(gi, n)
+    gz = _ground(g, G)
+
+    def named(name, typ):
+        n = g.node('GeometryNodeInputNamedAttribute', data_type=typ); g.put(n, 'Name', name); return g.O(n, 'Attribute')
+    kind = named('kind', 'INT'); yaw = named('yaw', 'FLOAT'); sx = named('sx', 'FLOAT')
+    pts = g.set_z(g.O(gi, 'Geometry'), gz())
+    sel = lambda k: g.cmp('EQUAL', kind, float(k), 0.1)
+    stone_i = g.toint(g.rnd('FLOAT', 0.0, 2.999, 5), 'FLOOR'); stone_s = g.rnd('FLOAT', 0.85, 1.25, 6)
+    parts = [
+        _inst(g, pts, 'KIT_BorderStone', stone_i, g.rnd('FLOAT', 0.0, 2 * PI, 7), scale=g.vec(stone_s, stone_s, stone_s), selection=sel(0)),
+        _inst(g, pts, 'KIT_BorderRope', g.toint(0.0), yaw, scale=g.vec(sx, 1.0, 1.0), selection=sel(1)),
+        _inst(g, pts, 'KIT_Torii', g.toint(0.0), yaw, selection=sel(2)),
+        _inst(g, pts, 'KIT_ToriiPier', g.toint(0.0), yaw, selection=sel(3)),
+        _inst(g, pts, 'KIT_Toro', g.toint(0.0), yaw, selection=sel(4)),
+        _inst(g, pts, 'KIT_Jizo', g.toint(0.0), yaw, selection=sel(5)),
+    ]
+    allg = g.join(*parts)
+    rz = g.node('GeometryNodeRealizeInstances'); g.L.new(allg, g.I(rz, 'Geometry'))
+    g.L.new(g.sw('GEOMETRY', G('Realize'), allg, rz.outputs[0]), g.I(go, 'Geometry'))
+    return t

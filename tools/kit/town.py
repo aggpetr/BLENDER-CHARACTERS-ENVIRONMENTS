@@ -23,6 +23,8 @@ NEW_ROADS = [
     dict(name='HOSPITAL_WEST', pts=[(-88.1, -41.7), (-100, -46), (-115, -46), (-128, -44)], width=4.5),
     dict(name='LANE_SOUTH1', pts=[(-172, -201.3), (-140, -201.0), (-100, -201.5), (-60, -201.0), (-20, -201.3), (22.5, -201.0)], width=4.0),
     dict(name='EAST_LINK', pts=[(22.5, -150.3), (22.5, -175), (22.5, -201), (22.5, -226)], width=4.0),
+    dict(name='WEST_ROAD', pts=[(-228, -130), (-254, -130), (-290, -131), (-325, -130), (-357, -130)], width=5.0, nofront=True),       # RD_VillageRoad to the west gate
+    dict(name='NORTH_ROAD', pts=[(-212, 66), (-212, 88), (-212, 111)], width=6.0, nofront=True),                                       # RD_Main to the north gate
     dict(name='LANE3_EAST', pts=[(-150, -229), (-110, -228.5), (-60, -227.5), (-20, -226.5), (22.5, -226)], width=3.5),
 ]
 # ---- streets from the district towards the mountain trail (ground = the full terrain beyond x = OUTER_X), lined with farms and huts
@@ -187,7 +189,9 @@ def plan(seed=7):
         return None
 
     # ---- 1. frontage along the streets: both sides, fronts to the street
+    skip = {tuple(map(tuple, r['pts'])) for r in NEW_ROADS if r.get('nofront')}
     for pts, w in all_roads:
+        if tuple(map(tuple, pts)) in skip: continue
         L = [tuple(p) for p in pts]
         cum = [0.0]
         for a, b in zip(L[:-1], L[1:]): cum.append(cum[-1] + math.hypot(b[0] - a[0], b[1] - a[1]))
