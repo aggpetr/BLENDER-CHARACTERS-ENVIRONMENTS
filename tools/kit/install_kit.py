@@ -91,6 +91,14 @@ D.materials.get('MAT_Edo_Plaza.001') and D.materials.remove(D.materials['MAT_Edo
 hid = {s.name: s.identifier for s in house_gn.interface.items_tree if s.item_type == 'SOCKET' and s.in_out == 'INPUT'}
 vid = {s.name: s.identifier for s in village_gn.interface.items_tree if s.item_type == 'SOCKET' and s.in_out == 'INPUT'}
 
+# the test scene of the house generator (a house at the origin and two green grass planes): not part of the village
+TEST_OBJECTS = ('EdoHouse_01', 'EdoHouse_01_KIT')
+for o in D.objects:
+    if o.name in TEST_OBJECTS or (o.type == 'MESH' and any(sl.material and sl.material.name.startswith('TMP_Grass') for sl in o.material_slots)):
+        o.hide_viewport = True; o.hide_render = True
+for n in ('EdoHouse_01_KIT',):
+    if n in D.objects: D.objects.remove(D.objects[n], do_unlink=True)
+
 # ------------------------------------------------------------------ 2. kit twins of every generated house
 old_gn = D.node_groups.get('GN_EdoHouse')
 twin_coll = coll('KIT_Village')
@@ -98,6 +106,8 @@ n_twins = 0
 if old_gn is not None:
     sid = {s.name: s.identifier for s in old_gn.interface.items_tree if s.item_type == 'SOCKET' and s.in_out == 'INPUT'}
     for o in [o for o in D.objects if any(m.type == 'NODES' and m.node_group == old_gn for m in o.modifiers)]:
+        if o.name in TEST_OBJECTS:                                    # the generator's test house at the origin: it stands inside the town houses, leave it out
+            o.hide_viewport = True; o.hide_render = True; continue
         m = next(m for m in o.modifiers if m.type == 'NODES' and m.node_group == old_gn)
         get = lambda k: m.properties.inputs[sid[k]]['value']
         name = o.name + '_KIT'
