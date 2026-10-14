@@ -15,7 +15,7 @@ Everything is in the repository branch `claude/unreal-mcp-server-access-xyax0u`,
 
 | Item | Where | Numbers |
 |---|---|---|
-| Module meshes with simple collision (`UCX_`) | `kit/export/modules/<collection>/SM_Edo_*.fbx` | 160 files in 58 collections, Nanite-ready, metric scale, origin at the module pivot |
+| Module meshes with simple collision (`UCX_`) | `kit/export/modules/<collection>/SM_Edo_*.fbx` | 161 files in 58 collections, Nanite-ready, metric scale, origin at the module pivot |
 | Textures | `kit/textures/T_Edo_<Set>/{BaseColor, Normal_DX, ORM}.jpg` | 19 sets, about 175 MB of JPG. Normal maps are DirectX (Unreal's convention), ORM = R ambient occlusion, G roughness, B metallic |
 | Ground meshes in world space | `kit/export/district/*.fbx` | plaza, district streets, town streets and trails, water, plazas, field soil (flat placeholder materials) |
 | Heightmap for a Landscape | `kit/export/terrain/Edo_Heightmap_1009.png` (+ `.r16`, `heightmap_info.json`) | 1009 x 1009, 1 m per quad, built from the surfaces your houses stand on |
@@ -74,7 +74,7 @@ To regenerate the heightmap after changing the terrain in Blender:
 2. **First run, no placement:** leave `PLACE_VILLAGE = False`, `PLACE_FIELDS = False`. This imports textures and meshes, builds the master
    material and the material instances, and imports the ground meshes. In Unreal: *Tools > Execute Python Script*, pick the file.
 3. Watch the **Output Log** (filter by `LogPython`) and read every warning. The script logs `EdoKit: N meshes, N material instances` at the end of
-   the first part; expect 160 meshes and 19 material instances.
+   the first part; expect 161 meshes and 19 material instances.
 
 Settings at the top of the script:
 

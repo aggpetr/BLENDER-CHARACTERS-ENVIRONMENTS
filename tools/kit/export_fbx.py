@@ -20,13 +20,13 @@ NO_COLLISION = {'SM_Edo_Noren', 'SM_Edo_Lantern', 'SM_Edo_BalconyBracket', 'SM_E
                 'SM_Edo_EmbankCobble', 'SM_Edo_CropRidge', 'SM_Edo_PaddyBund', 'SM_Edo_CropDaikon', 'SM_Edo_CropCabbage_A', 'SM_Edo_CropCabbage_B',
                 'SM_Edo_CropBarley_A', 'SM_Edo_CropBarley_B', 'SM_Edo_CropRice_A', 'SM_Edo_CropRice_B',
                 'SM_Edo_BorderRope', 'SM_Edo_Home_Laundry', 'SM_Edo_Farm_DryingRack', 'SM_Edo_Cln_HerbRack', 'SM_Edo_Smi_AxeRack', 'SM_Edo_Smi_SwordRack'}   # hanging / thin props: no blocking volume
-def _flat_bridge(hw):
-    return [((-4.6, -hw, -0.46), (4.6, hw, 0.0)), ((-4.85, -hw - 0.3, -2.6), (-3.5, hw + 0.3, -0.1)), ((3.5, -hw - 0.3, -2.6), (4.85, hw + 0.3, -0.1)),
-            ((-4.6, hw - 0.2, 0.0), (4.6, hw, 1.2)), ((-4.6, -hw, 0.0), (4.6, -hw + 0.2, 1.2))]
+def _flat_bridge(hw, h=4.6):                 # h = half span (4.6 for the 9.2 m bridges, 3.0 for the footbridge)
+    return [((-h, -hw, -0.46), (h, hw, 0.0)), ((-h - 0.25, -hw - 0.3, -2.6), (-h + 1.1, hw + 0.3, -0.1)), ((h - 1.1, -hw - 0.3, -2.6), (h + 0.25, hw + 0.3, -0.1)),
+            ((-h, hw - 0.2, 0.0), (h, hw, 1.2)), ((-h, -hw, 0.0), (h, -hw + 0.2, 1.2))]
 
 
 BOXES = {'SM_Edo_Torii': [((-4.0, -0.5, 0.0), (-3.0, 0.5, 5.2)), ((3.0, -0.5, 0.0), (4.0, 0.5, 5.2))],      # the two pillars only: the opening stays free
-         'SM_Edo_Bridge_Flat4': _flat_bridge(2.0), 'SM_Edo_Bridge_Flat6': _flat_bridge(3.2),
+         'SM_Edo_Bridge_Flat4': _flat_bridge(2.0), 'SM_Edo_Bridge_Flat6': _flat_bridge(3.2), 'SM_Edo_Bridge_Foot': _flat_bridge(0.9, 3.0),
          'SM_Edo_Tea_Parasol': [((-0.8, -0.55, 0.0), (0.8, -0.15, 0.47)), ((-0.4, -0.13, 0.0), (0.4, 0.63, 0.25))],
          'SM_Edo_Gate': [((-1.25, -0.27, -0.30), (-0.85, 0.27, 3.30)), ((0.85, -0.27, -0.30), (1.25, 0.27, 3.30)),
                          ((-1.75, -1.20, 3.00), (1.75, 1.20, 4.05))]}
