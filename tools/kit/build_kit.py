@@ -5,7 +5,7 @@
 import sys, os, math, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bpy
-import kit_lib, modules, gn_house
+import kit_lib, modules, gn_house, district, gn_town, town, border as border_mod
 
 OUT = os.path.abspath(sys.argv[-1])
 bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -24,6 +24,16 @@ for cname, mbs in modules.build_all().items():
 bpy.context.view_layer.layer_collection.children['KIT_Modules'].exclude = True
 
 gn = gn_house.build()
+BRIDGE_GAPS = town.bridge_gaps()     # canal x -178: where the town's bridges are (no bank there)
+fgroup = gn_town.build_field(); egroup = gn_town.build_embank(BRIDGE_GAPS); bgroup = gn_town.build_border()
+plan = district.plan()
+os.makedirs(os.path.join(os.path.dirname(OUT), 'village'), exist_ok=True)
+json.dump(district.to_json(plan), open(os.path.join(os.path.dirname(OUT), 'village', 'district_layout.json'), 'w'), indent=1)     # the town planner reads it
+dgroup = district.build_group(gn, plan_data=plan)
+tplan = town.plan()
+tgroup = district.build_group(gn, name='GN_EdoKitTown', plan_data=dict(tplan, slots=[x for x in tplan['slots'] if not x['outer']]), plaza=False)
+ogroup = district.build_group(gn, name='GN_EdoKitTownOuter', plan_data=dict(tplan, slots=[x for x in tplan['slots'] if x['outer']]), plaza=False)      # beyond x = 62: stands on the full terrain
+for g_ in (tgroup, ogroup, fgroup, egroup, bgroup, dgroup, gn): g_.use_fake_user = True      # keep every group in the saved kit even without a user
 
 # ---------------------------------------------------------------- test houses (dwellA and size variants)
 tests = bpy.data.collections.new('KIT_TestHouses'); scene.collection.children.link(tests)
@@ -55,32 +65,45 @@ house('TEST_dwellA_slope', (0, 80, 0), slope, **dwellA)
 house('TEST_3x4_rotatedRidge', (0, -26, 0), flat, **{**dwellA, 'Bays X': 3, 'Bays Y': 4, 'Engawa': False, 'Fence': 0})
 
 # all 17 original house types with their original parameters (analysis/KIT_ANALYSIS.md)
-ARCH = {
-    'kura':      dict(bx=2, by=2, fl=2, roof=3),
-    'shopA':     dict(bx=3, by=3, roof=1, shop=1, lan=1),
-    'dwellA':    dict(bx=4, by=3, roof=1, eng=1, fence=1),
-    'farmhouse': dict(bx=5, by=3, roof=2, eng=1, fence=1),
-    'dwellB':    dict(bx=4, by=3, fl=2, roof=3, bal=1, fence=1),
-    'barn':      dict(bx=3, by=4, roof=2),
-    'dwellC':    dict(bx=3, by=3, roof=3, eng=1, fence=1),
-    'hutB':      dict(bx=4, by=3, roof=2, eng=1, lan=1, fence=1),
-    'restA':     dict(bx=5, by=4, roof=1, shop=1, eng=1, lan=1),
-    'shopB':     dict(bx=3, by=4, fl=2, roof=3, shop=1, bal=1, lan=1),
-    'tea':       dict(bx=3, by=3, roof=2, eng=1, lan=1),
-    'hutA':      dict(bx=3, by=3, roof=2, eng=1, fence=1),
-    'hutC':      dict(bx=3, by=2, roof=2),
-    'inn':       dict(bx=9, by=6, fl=2, roof=1, eng=1, bal=1, lan=1, gate=1, fence=2),
-    'restB':     dict(bx=6, by=4, fl=2, roof=3, shop=1, bal=1, lan=1),
-    'row':       dict(bx=7, by=2, roof=3),
-    'EdoHouse01': dict(bx=4, by=3, fl=2, roof=1, fence=1),
-}
+from archetypes import ARCH
 for i, (name, a) in enumerate(ARCH.items()):
     house(f'ARCH_{name}', (-96 + (i % 5) * 48, 120 + (i // 5) * 48, 0), flat,
           **{'Bays X': a['bx'], 'Bays Y': a['by'], 'Floors': a.get('fl', 1), 'Roof': a['roof'], 'Engawa': bool(a.get('eng')),
              'Balcony': bool(a.get('bal')), 'Shopfront': bool(a.get('shop')), 'Lanterns': bool(a.get('lan')),
-             'Fence': a.get('fence', 0), 'Gate': bool(a.get('gate')), 'Props': 0.6, 'Seed': 10 + i})
+             'Fence': a.get('fence', 0), 'Gate': bool(a.get('gate')), 'Props': 0.6, 'Seed': 10 + i, 'Category': a.get('cat', 0)})
 json.dump(ARCH, open(os.path.join(os.path.dirname(OUT), 'archetypes.json'), 'w'), indent=1)
 
+# fields and canal bank tests
+def mod_obj(name, loc, group, **kw):
+    ob = bpy.data.objects.new(name, bpy.data.meshes.new(name)); tests.objects.link(ob); ob.location = loc
+    m = ob.modifiers.new(group.name, 'NODES'); m.node_group = group
+    ids = {x.name: x.identifier for x in group.interface.items_tree if x.item_type == 'SOCKET' and x.in_out == 'INPUT'}
+    m.properties.inputs[ids['Ground']]['value'] = flat
+    for k, v in kw.items(): m.properties.inputs[ids[k]]['value'] = v
+    return ob
+mod_obj('TEST_Field_Veg', (-60, 40, 0), fgroup, **{'Size X': 24.0, 'Size Y': 14.0, 'Crop': 0, 'Seed': 3})
+mod_obj('TEST_Field_Grain', (-60, 60, 0), fgroup, **{'Size X': 24.0, 'Size Y': 14.0, 'Crop': 1, 'Seed': 4})
+mod_obj('TEST_Paddy', (-60, 80, 0), fgroup, **{'Size X': 24.0, 'Size Y': 14.0, 'Crop': 2, 'Seed': 5})
+cu = bpy.data.curves.new('TEST_Canal', 'CURVE'); cu.dimensions = '3D'
+sp = cu.splines.new('POLY'); sp.points.add(2)
+for p_, (x_, y_) in zip(sp.points, ((60, 40), (60, 90), (60, 140))): p_.co = (x_, y_, 0.0, 1.0)
+cob = bpy.data.objects.new('TEST_Canal', cu); tests.objects.link(cob)
+em = cob.modifiers.new('EdoKitEmbank', 'NODES'); em.node_group = egroup
+eid = {x.name: x.identifier for x in egroup.interface.items_tree if x.item_type == 'SOCKET' and x.in_out == 'INPUT'}
+em.properties.inputs[eid['Ground']]['value'] = flat
+
+# district test: the whole plaza district on its own flat ground
+dg_ground = ground('TEST_Ground_District', 400, (0, 900, 0))
+dobj = bpy.data.objects.new('DISTRICT_TEST', bpy.data.meshes.new('DISTRICT_TEST')); tests.objects.link(dobj)
+dobj.location = (0, 900, 0)
+dm = dobj.modifiers.new('EdoKitVillage', 'NODES'); dm.node_group = dgroup
+did = {x.name: x.identifier for x in dgroup.interface.items_tree if x.item_type == 'SOCKET' and x.in_out == 'INPUT'}
+dm.properties.inputs[did['Ground']]['value'] = dg_ground
+os.makedirs(os.path.join(os.path.dirname(OUT), 'village'), exist_ok=True)
+json.dump(district.to_json(plan), open(os.path.join(os.path.dirname(OUT), 'village', 'district_layout.json'), 'w'), indent=1)
+
+json.dump(border_mod.to_json(border_mod.make(11)), open(os.path.join(os.path.dirname(OUT), 'village', 'village_border.json'), 'w'), indent=1)
+json.dump(town.to_json(tplan), open(os.path.join(os.path.dirname(OUT), 'village', 'town_layout.json'), 'w'), indent=1)
 bpy.ops.wm.save_as_mainfile(filepath=OUT, relative_remap=True)
 json.dump(report, open(os.path.join(os.path.dirname(OUT), 'module_report.json'), 'w'), indent=1)
 for r in report:

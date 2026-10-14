@@ -16,8 +16,19 @@ FBX = dict(use_selection=True, apply_unit_scale=True, apply_scale_options='FBX_S
            use_tspace=True, add_leaf_bones=False, path_mode='STRIP', object_types={'MESH'}, use_mesh_modifiers=True)
 
 import bmesh
-NO_COLLISION = {'SM_Edo_Noren', 'SM_Edo_Lantern', 'SM_Edo_BalconyBracket', 'SM_Edo_ShopSign'}
-BOXES = {'SM_Edo_Gate': [((-1.25, -0.27, -0.30), (-0.85, 0.27, 3.30)), ((0.85, -0.27, -0.30), (1.25, 0.27, 3.30)),
+NO_COLLISION = {'SM_Edo_Noren', 'SM_Edo_Lantern', 'SM_Edo_BalconyBracket', 'SM_Edo_ShopSign',
+                'SM_Edo_EmbankCobble', 'SM_Edo_CropRidge', 'SM_Edo_PaddyBund', 'SM_Edo_CropDaikon', 'SM_Edo_CropCabbage_A', 'SM_Edo_CropCabbage_B',
+                'SM_Edo_CropBarley_A', 'SM_Edo_CropBarley_B', 'SM_Edo_CropRice_A', 'SM_Edo_CropRice_B',
+                'SM_Edo_BorderRope', 'SM_Edo_Home_Laundry', 'SM_Edo_Farm_DryingRack', 'SM_Edo_Cln_HerbRack', 'SM_Edo_Smi_AxeRack', 'SM_Edo_Smi_SwordRack'}   # hanging / thin props: no blocking volume
+def _flat_bridge(hw, h=4.6):                 # h = half span (4.6 for the 9.2 m bridges, 3.0 for the footbridge)
+    return [((-h, -hw, -0.46), (h, hw, 0.0)), ((-h - 0.25, -hw - 0.3, -2.6), (-h + 1.1, hw + 0.3, -0.1)), ((h - 1.1, -hw - 0.3, -2.6), (h + 0.25, hw + 0.3, -0.1)),
+            ((-h, hw - 0.2, 0.0), (h, hw, 1.2)), ((-h, -hw, 0.0), (h, -hw + 0.2, 1.2))]
+
+
+BOXES = {'SM_Edo_Torii': [((-4.0, -0.5, 0.0), (-3.0, 0.5, 5.2)), ((3.0, -0.5, 0.0), (4.0, 0.5, 5.2))],      # the two pillars only: the opening stays free
+         'SM_Edo_Bridge_Flat4': _flat_bridge(2.0), 'SM_Edo_Bridge_Flat6': _flat_bridge(3.2), 'SM_Edo_Bridge_Foot': _flat_bridge(0.9, 3.0),
+         'SM_Edo_Tea_Parasol': [((-0.8, -0.55, 0.0), (0.8, -0.15, 0.47)), ((-0.4, -0.13, 0.0), (0.4, 0.63, 0.25))],
+         'SM_Edo_Gate': [((-1.25, -0.27, -0.30), (-0.85, 0.27, 3.30)), ((0.85, -0.27, -0.30), (1.25, 0.27, 3.30)),
                          ((-1.75, -1.20, 3.00), (1.75, 1.20, 4.05))]}
 
 def _hull(points, name):
@@ -31,6 +42,18 @@ def _hull(points, name):
 def collisions(ob):
     """Unreal simple collision: UCX_<mesh>_NN convex hulls (one per module, boxes for the gate)."""
     if ob.name in NO_COLLISION: return []
+    if ob.name == 'SM_Edo_Bridge_Arch':        # arch: one convex hull per 2 m column (walkable deck, open arch for the water)
+        import math
+        L, H, hw, ax, zc, ry, bed = 18.2, 2.0, 3.0, 6.4, -1.4, 2.9, -2.8
+        zd = lambda x: H * (1.0 - (2.0 * x / L) ** 2)
+        zb = lambda x: zc + ry * math.sqrt(max(0.0, 1.0 - (x / ax) ** 2))
+        out = []
+        xs = [-9.1 + i * 1.3 for i in range(15)]
+        for i in range(len(xs) - 1):
+            a, b = xs[i], xs[i + 1]; mid = (a + b) / 2
+            bot = min(zb(a), zb(b)) if abs(mid) < ax else bed
+            out.append(_hull([(x, y, z) for x in (a, b) for y in (-hw, hw) for z in (bot, max(zd(a), zd(b)) + 0.9)], f'UCX_{ob.name}_{i:02d}'))
+        return out
     if ob.name in BOXES:
         return [_hull([(x, y, z) for x in (a[0], b[0]) for y in (a[1], b[1]) for z in (a[2], b[2])], f'UCX_{ob.name}_{i:02d}') for i, (a, b) in enumerate(BOXES[ob.name])]
     pts = [tuple(v.co) for v in ob.data.vertices]

@@ -1,0 +1,5713 @@
+{
+ "center": [
+  0.0,
+  0.0
+ ],
+ "slots": [
+  {
+   "id": "T_Z7_00",
+   "arch": "farmhouse",
+   "ring": "Z7",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    47.0,
+    -159.27
+   ],
+   "angle": -3.141592653589793,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3000,
+   "pos_local": [
+    47.0,
+    -159.27
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     54.17,
+     -152.1
+    ],
+    [
+     39.83,
+     -152.1
+    ],
+    [
+     39.83,
+     -164.62
+    ],
+    [
+     54.17,
+     -164.62
+    ]
+   ],
+   "angle_deg": -180.0
+  },
+  {
+   "id": "T_Z7_01",
+   "arch": "barn",
+   "ring": "Z7",
+   "bx": 3,
+   "by": 4,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    59.67,
+    -157.64
+   ],
+   "angle": -3.141592653589793,
+   "rect": [
+    -4.23,
+    4.23,
+    -5.54,
+    6.54
+   ],
+   "seed": 3007,
+   "pos_local": [
+    59.67,
+    -157.64
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     63.9,
+     -152.1
+    ],
+    [
+     55.44,
+     -152.1
+    ],
+    [
+     55.44,
+     -164.18
+    ],
+    [
+     63.9,
+     -164.18
+    ]
+   ],
+   "angle_deg": -180.0
+  },
+  {
+   "id": "T_F1_00",
+   "arch": "farmhouse",
+   "ring": "F1",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -242.0,
+    -70.32
+   ],
+   "angle": -3.141592653589793,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3014,
+   "pos_local": [
+    -242.0,
+    -70.32
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -234.83,
+     -63.15
+    ],
+    [
+     -249.17,
+     -63.15
+    ],
+    [
+     -249.17,
+     -75.67
+    ],
+    [
+     -234.83,
+     -75.67
+    ]
+   ],
+   "angle_deg": -180.0
+  },
+  {
+   "id": "T_F1_01",
+   "arch": "barn",
+   "ring": "F1",
+   "bx": 3,
+   "by": 4,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -245.0,
+    -171.31
+   ],
+   "angle": 0.0,
+   "rect": [
+    -4.23,
+    4.23,
+    -5.54,
+    6.54
+   ],
+   "seed": 3021,
+   "pos_local": [
+    -245.0,
+    -171.31
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -249.23,
+     -176.85
+    ],
+    [
+     -240.77,
+     -176.85
+    ],
+    [
+     -240.77,
+     -164.77
+    ],
+    [
+     -249.23,
+     -164.77
+    ]
+   ],
+   "angle_deg": 0.0
+  },
+  {
+   "id": "T_F1_02",
+   "arch": "hutC",
+   "ring": "F1",
+   "bx": 3,
+   "by": 2,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -235.27,
+    -170.59
+   ],
+   "angle": 0.0,
+   "rect": [
+    -5.35,
+    5.35,
+    -6.26,
+    4.44
+   ],
+   "seed": 3028,
+   "pos_local": [
+    -235.27,
+    -170.59
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -240.62,
+     -176.85
+    ],
+    [
+     -229.92,
+     -176.85
+    ],
+    [
+     -229.92,
+     -166.15
+    ],
+    [
+     -240.62,
+     -166.15
+    ]
+   ],
+   "angle_deg": 0.0
+  },
+  {
+   "id": "T_F1_03",
+   "arch": "kura",
+   "ring": "F1",
+   "bx": 2,
+   "by": 2,
+   "fl": 2,
+   "roof": 3,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 5,
+   "props": 0.5,
+   "pos": [
+    -245.0,
+    -186.87
+   ],
+   "angle": -3.141592653589793,
+   "rect": [
+    -3.32,
+    3.32,
+    -3.72,
+    4.72
+   ],
+   "seed": 3035,
+   "pos_local": [
+    -245.0,
+    -186.87
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -241.68,
+     -183.15
+    ],
+    [
+     -248.32,
+     -183.15
+    ],
+    [
+     -248.32,
+     -191.59
+    ],
+    [
+     -241.68,
+     -191.59
+    ]
+   ],
+   "angle_deg": -180.0
+  },
+  {
+   "id": "T_F1_04",
+   "arch": "farmhouse",
+   "ring": "F1",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -242.0,
+    -218.68
+   ],
+   "angle": 0.0,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3042,
+   "pos_local": [
+    -242.0,
+    -218.68
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -249.17,
+     -225.85
+    ],
+    [
+     -234.83,
+     -225.85
+    ],
+    [
+     -234.83,
+     -213.33
+    ],
+    [
+     -249.17,
+     -213.33
+    ]
+   ],
+   "angle_deg": 0.0
+  },
+  {
+   "id": "T_Z5_00",
+   "arch": "farmhouse",
+   "ring": "Z5",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -161.33,
+    -218.68
+   ],
+   "angle": 0.0,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3049,
+   "pos_local": [
+    -161.33,
+    -218.68
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -168.5,
+     -225.85
+    ],
+    [
+     -154.16,
+     -225.85
+    ],
+    [
+     -154.16,
+     -213.33
+    ],
+    [
+     -168.5,
+     -213.33
+    ]
+   ],
+   "angle_deg": 0.0
+  },
+  {
+   "id": "T_Z2_00",
+   "arch": "dwellA",
+   "ring": "Z2",
+   "bx": 4,
+   "by": 3,
+   "fl": 1,
+   "roof": 1,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    -121.091,
+    -71.314
+   ],
+   "angle": 3.0419240010986313,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3056,
+   "pos_local": [
+    -121.091,
+    -71.314
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -114.149,
+     -64.802
+    ],
+    [
+     -126.607,
+     -63.556
+    ],
+    [
+     -127.853,
+     -76.014
+    ],
+    [
+     -115.395,
+     -77.26
+    ]
+   ],
+   "angle_deg": 174.289
+  },
+  {
+   "id": "T_Z2_01",
+   "arch": "dwellC",
+   "ring": "Z2",
+   "bx": 3,
+   "by": 3,
+   "fl": 1,
+   "roof": 3,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    -107.664,
+    -73.985
+   ],
+   "angle": 2.677945044588987,
+   "rect": [
+    -5.35,
+    5.35,
+    -7.17,
+    5.35
+   ],
+   "seed": 3063,
+   "pos_local": [
+    -107.664,
+    -73.985
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -99.673,
+     -69.965
+    ],
+    [
+     -109.243,
+     -65.18
+    ],
+    [
+     -114.842,
+     -76.378
+    ],
+    [
+     -105.272,
+     -81.163
+    ]
+   ],
+   "angle_deg": 153.435
+  },
+  {
+   "id": "T_Z4_00",
+   "arch": "dwellA",
+   "ring": "Z4",
+   "bx": 4,
+   "by": 3,
+   "fl": 1,
+   "roof": 1,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    -111.028,
+    -188.925
+   ],
+   "angle": -3.0419240010986313,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3070,
+   "pos_local": [
+    -111.028,
+    -188.925
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -105.512,
+     -181.168
+    ],
+    [
+     -117.97,
+     -182.414
+    ],
+    [
+     -116.724,
+     -194.872
+    ],
+    [
+     -104.266,
+     -193.626
+    ]
+   ],
+   "angle_deg": -174.289
+  },
+  {
+   "id": "T_Z4_01",
+   "arch": "smithy",
+   "ring": "Z4",
+   "bx": 4,
+   "by": 3,
+   "fl": 1,
+   "roof": 1,
+   "eng": false,
+   "bal": false,
+   "shop": true,
+   "lan": true,
+   "fence": 1,
+   "gate": true,
+   "cat": 2,
+   "props": 0.35,
+   "pos": [
+    -96.421,
+    -184.028
+   ],
+   "angle": -2.677945044588987,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3077,
+   "pos_local": [
+    -96.421,
+    -184.028
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -94.029,
+     -174.816
+    ],
+    [
+     -105.227,
+     -180.415
+    ],
+    [
+     -99.628,
+     -191.613
+    ],
+    [
+     -88.43,
+     -186.014
+    ]
+   ],
+   "angle_deg": -153.435
+  },
+  {
+   "id": "T_Z5_01",
+   "arch": "dwellA",
+   "ring": "Z5",
+   "bx": 4,
+   "by": 3,
+   "fl": 1,
+   "roof": 1,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    -41.665,
+    -212.254
+   ],
+   "angle": 1.6814535479687922,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3084,
+   "pos_local": [
+    -41.665,
+    -212.254
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -33.848,
+     -217.684
+    ],
+    [
+     -35.231,
+     -205.241
+    ],
+    [
+     -47.674,
+     -206.623
+    ],
+    [
+     -46.291,
+     -219.067
+    ]
+   ],
+   "angle_deg": 96.34
+  },
+  {
+   "id": "T_Z3_00",
+   "arch": "dwellC",
+   "ring": "Z3",
+   "bx": 3,
+   "by": 3,
+   "fl": 1,
+   "roof": 3,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    -118.749,
+    -97.202
+   ],
+   "angle": 3.0060649396042924,
+   "rect": [
+    -5.35,
+    5.35,
+    -7.17,
+    5.35
+   ],
+   "seed": 3091,
+   "pos_local": [
+    -118.749,
+    -97.202
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -112.48,
+     -90.821
+    ],
+    [
+     -123.082,
+     -89.375
+    ],
+    [
+     -124.773,
+     -101.78
+    ],
+    [
+     -114.171,
+     -103.226
+    ]
+   ],
+   "angle_deg": 172.235
+  },
+  {
+   "id": "T_F1_05",
+   "arch": "hutB",
+   "ring": "F1",
+   "bx": 4,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": true,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    -243.18,
+    -90.0
+   ],
+   "angle": -1.5707963267948966,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3098,
+   "pos_local": [
+    -243.18,
+    -90.0
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -250.35,
+     -83.74
+    ],
+    [
+     -250.35,
+     -96.26
+    ],
+    [
+     -237.83,
+     -96.26
+    ],
+    [
+     -237.83,
+     -83.74
+    ]
+   ],
+   "angle_deg": -90.0
+  },
+  {
+   "id": "T_F1_06",
+   "arch": "farmhouse",
+   "ring": "F1",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -243.18,
+    -104.76
+   ],
+   "angle": -1.5707963267948966,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3105,
+   "pos_local": [
+    -243.18,
+    -104.76
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -250.35,
+     -97.59
+    ],
+    [
+     -250.35,
+     -111.93
+    ],
+    [
+     -237.83,
+     -111.93
+    ],
+    [
+     -237.83,
+     -97.59
+    ]
+   ],
+   "angle_deg": -90.0
+  },
+  {
+   "id": "T_F1_07",
+   "arch": "hutA",
+   "ring": "F1",
+   "bx": 3,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    -243.18,
+    -117.43
+   ],
+   "angle": -1.5707963267948966,
+   "rect": [
+    -5.35,
+    5.35,
+    -7.17,
+    5.35
+   ],
+   "seed": 3112,
+   "pos_local": [
+    -243.18,
+    -117.43
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -250.35,
+     -112.08
+    ],
+    [
+     -250.35,
+     -122.78
+    ],
+    [
+     -237.83,
+     -122.78
+    ],
+    [
+     -237.83,
+     -112.08
+    ]
+   ],
+   "angle_deg": -90.0
+  },
+  {
+   "id": "T_F1_08",
+   "arch": "farmhouse",
+   "ring": "F1",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -264.82,
+    -84.0
+   ],
+   "angle": 1.5707963267948966,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3119,
+   "pos_local": [
+    -264.82,
+    -84.0
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -257.65,
+     -91.17
+    ],
+    [
+     -257.65,
+     -76.83
+    ],
+    [
+     -270.17,
+     -76.83
+    ],
+    [
+     -270.17,
+     -91.17
+    ]
+   ],
+   "angle_deg": 90.0
+  },
+  {
+   "id": "T_F1_09",
+   "arch": "barn",
+   "ring": "F1",
+   "bx": 3,
+   "by": 4,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -263.19,
+    -96.67
+   ],
+   "angle": 1.5707963267948966,
+   "rect": [
+    -4.23,
+    4.23,
+    -5.54,
+    6.54
+   ],
+   "seed": 3126,
+   "pos_local": [
+    -263.19,
+    -96.67
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -257.65,
+     -100.9
+    ],
+    [
+     -257.65,
+     -92.44
+    ],
+    [
+     -269.73,
+     -92.44
+    ],
+    [
+     -269.73,
+     -100.9
+    ]
+   ],
+   "angle_deg": 90.0
+  },
+  {
+   "id": "T_F1_10",
+   "arch": "hutC",
+   "ring": "F1",
+   "bx": 3,
+   "by": 2,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -263.91,
+    -106.4
+   ],
+   "angle": 1.5707963267948966,
+   "rect": [
+    -5.35,
+    5.35,
+    -6.26,
+    4.44
+   ],
+   "seed": 3133,
+   "pos_local": [
+    -263.91,
+    -106.4
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -257.65,
+     -111.75
+    ],
+    [
+     -257.65,
+     -101.05
+    ],
+    [
+     -268.35,
+     -101.05
+    ],
+    [
+     -268.35,
+     -111.75
+    ]
+   ],
+   "angle_deg": 90.0
+  },
+  {
+   "id": "T_F1_11",
+   "arch": "kura",
+   "ring": "F1",
+   "bx": 2,
+   "by": 2,
+   "fl": 2,
+   "roof": 3,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 5,
+   "props": 0.5,
+   "pos": [
+    -261.37,
+    -117.25
+   ],
+   "angle": 1.5707963267948966,
+   "rect": [
+    -3.32,
+    3.32,
+    -3.72,
+    4.72
+   ],
+   "seed": 3140,
+   "pos_local": [
+    -261.37,
+    -117.25
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -257.65,
+     -120.57
+    ],
+    [
+     -257.65,
+     -113.93
+    ],
+    [
+     -266.09,
+     -113.93
+    ],
+    [
+     -266.09,
+     -120.57
+    ]
+   ],
+   "angle_deg": 90.0
+  },
+  {
+   "id": "T_F1_12",
+   "arch": "farmhouse",
+   "ring": "F1",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -264.82,
+    -141.07
+   ],
+   "angle": 1.5707963267948966,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3147,
+   "pos_local": [
+    -264.82,
+    -141.07
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -257.65,
+     -148.24
+    ],
+    [
+     -257.65,
+     -133.9
+    ],
+    [
+     -270.17,
+     -133.9
+    ],
+    [
+     -270.17,
+     -148.24
+    ]
+   ],
+   "angle_deg": 90.0
+  },
+  {
+   "id": "T_F1_13",
+   "arch": "hutB",
+   "ring": "F1",
+   "bx": 4,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": true,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    -264.82,
+    -156.74
+   ],
+   "angle": 1.5707963267948966,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3154,
+   "pos_local": [
+    -264.82,
+    -156.74
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -257.65,
+     -163.0
+    ],
+    [
+     -257.65,
+     -150.48
+    ],
+    [
+     -270.17,
+     -150.48
+    ],
+    [
+     -270.17,
+     -163.0
+    ]
+   ],
+   "angle_deg": 90.0
+  },
+  {
+   "id": "T_F3_00",
+   "arch": "farmhouse",
+   "ring": "F3",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -117.68,
+    -19.0
+   ],
+   "angle": -1.5707963267948966,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3161,
+   "pos_local": [
+    -117.68,
+    -19.0
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -124.85,
+     -11.83
+    ],
+    [
+     -124.85,
+     -26.17
+    ],
+    [
+     -112.33,
+     -26.17
+    ],
+    [
+     -112.33,
+     -11.83
+    ]
+   ],
+   "angle_deg": -90.0
+  },
+  {
+   "id": "T_F3_01",
+   "arch": "hutC",
+   "ring": "F3",
+   "bx": 3,
+   "by": 2,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -118.59,
+    -6.33
+   ],
+   "angle": -1.5707963267948966,
+   "rect": [
+    -5.35,
+    5.35,
+    -6.26,
+    4.44
+   ],
+   "seed": 3168,
+   "pos_local": [
+    -118.59,
+    -6.33
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -124.85,
+     -0.98
+    ],
+    [
+     -124.85,
+     -11.68
+    ],
+    [
+     -114.15,
+     -11.68
+    ],
+    [
+     -114.15,
+     -0.98
+    ]
+   ],
+   "angle_deg": -90.0
+  },
+  {
+   "id": "T_F3_02",
+   "arch": "barn",
+   "ring": "F3",
+   "bx": 3,
+   "by": 4,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -119.31,
+    4.52
+   ],
+   "angle": -1.5707963267948966,
+   "rect": [
+    -4.23,
+    4.23,
+    -5.54,
+    6.54
+   ],
+   "seed": 3175,
+   "pos_local": [
+    -119.31,
+    4.52
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -124.85,
+     8.75
+    ],
+    [
+     -124.85,
+     0.29
+    ],
+    [
+     -112.77,
+     0.29
+    ],
+    [
+     -112.77,
+     8.75
+    ]
+   ],
+   "angle_deg": -90.0
+  },
+  {
+   "id": "T_F2_00",
+   "arch": "farmhouse",
+   "ring": "F2",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -128.391,
+    37.316
+   ],
+   "angle": 0.013635518501502556,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3182,
+   "pos_local": [
+    -128.391,
+    37.316
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -135.462,
+     30.049
+    ],
+    [
+     -121.124,
+     30.244
+    ],
+    [
+     -121.294,
+     42.763
+    ],
+    [
+     -135.633,
+     42.567
+    ]
+   ],
+   "angle_deg": 0.781
+  },
+  {
+   "id": "T_F2_01",
+   "arch": "barn",
+   "ring": "F2",
+   "bx": 3,
+   "by": 4,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -141.037,
+    35.513
+   ],
+   "angle": 0.013635518501502556,
+   "rect": [
+    -4.23,
+    4.23,
+    -5.54,
+    6.54
+   ],
+   "seed": 3189,
+   "pos_local": [
+    -141.037,
+    35.513
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -145.191,
+     29.916
+    ],
+    [
+     -136.732,
+     30.031
+    ],
+    [
+     -136.897,
+     42.11
+    ],
+    [
+     -145.356,
+     41.995
+    ]
+   ],
+   "angle_deg": 0.781
+  },
+  {
+   "id": "T_F2_02",
+   "arch": "hutA",
+   "ring": "F2",
+   "bx": 3,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    -150.751,
+    37.013
+   ],
+   "angle": 0.009999666686665203,
+   "rect": [
+    -5.35,
+    5.35,
+    -7.17,
+    5.35
+   ],
+   "seed": 3196,
+   "pos_local": [
+    -150.751,
+    37.013
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -156.029,
+     29.79
+    ],
+    [
+     -145.33,
+     29.897
+    ],
+    [
+     -145.455,
+     42.416
+    ],
+    [
+     -156.154,
+     42.309
+    ]
+   ],
+   "angle_deg": 0.573
+  },
+  {
+   "id": "T_Z4_02",
+   "arch": "dwellC",
+   "ring": "Z4",
+   "bx": 3,
+   "by": 3,
+   "fl": 1,
+   "roof": 3,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    -82.138,
+    -190.706
+   ],
+   "angle": 0.012499349019361679,
+   "rect": [
+    -5.35,
+    5.35,
+    -7.17,
+    5.35
+   ],
+   "seed": 3203,
+   "pos_local": [
+    -82.138,
+    -190.706
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -87.398,
+     -197.942
+    ],
+    [
+     -76.699,
+     -197.808
+    ],
+    [
+     -76.855,
+     -185.289
+    ],
+    [
+     -87.555,
+     -185.423
+    ]
+   ],
+   "angle_deg": 0.716
+  },
+  {
+   "id": "T_Z6_00",
+   "arch": "farmhouse",
+   "ring": "Z6",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -11.234,
+    -190.668
+   ],
+   "angle": 0.007058706292941362,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3210,
+   "pos_local": [
+    -11.234,
+    -190.668
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -18.353,
+     -197.888
+    ],
+    [
+     -4.013,
+     -197.787
+    ],
+    [
+     -4.102,
+     -185.267
+    ],
+    [
+     -18.441,
+     -185.369
+    ]
+   ],
+   "angle_deg": 0.404
+  },
+  {
+   "id": "T_Z6_01",
+   "arch": "dwellA",
+   "ring": "Z6",
+   "bx": 4,
+   "by": 3,
+   "fl": 1,
+   "roof": 1,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    4.436,
+    -190.557
+   ],
+   "angle": 0.007058706292941362,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3217,
+   "pos_local": [
+    4.436,
+    -190.557
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -1.773,
+     -197.771
+    ],
+    [
+     10.746,
+     -197.683
+    ],
+    [
+     10.658,
+     -185.163
+    ],
+    [
+     -1.862,
+     -185.252
+    ]
+   ],
+   "angle_deg": 0.404
+  },
+  {
+   "id": "T_Z5_02",
+   "arch": "barn",
+   "ring": "Z5",
+   "bx": 3,
+   "by": 4,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -148.917,
+    -210.024
+   ],
+   "angle": -3.132217928233513,
+   "rect": [
+    -4.23,
+    4.23,
+    -5.54,
+    6.54
+   ],
+   "seed": 3224,
+   "pos_local": [
+    -148.917,
+    -210.024
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -144.739,
+     -204.445
+    ],
+    [
+     -153.199,
+     -204.524
+    ],
+    [
+     -153.086,
+     -216.603
+    ],
+    [
+     -144.626,
+     -216.524
+    ]
+   ],
+   "angle_deg": -179.463
+  },
+  {
+   "id": "T_Z5_03",
+   "arch": "dwellC",
+   "ring": "Z5",
+   "bx": 3,
+   "by": 3,
+   "fl": 1,
+   "roof": 3,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    -136.404,
+    -211.616
+   ],
+   "angle": 3.1290933045704317,
+   "rect": [
+    -5.35,
+    5.35,
+    -7.17,
+    5.35
+   ],
+   "seed": 3231,
+   "pos_local": [
+    -136.404,
+    -211.616
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -130.965,
+     -204.513
+    ],
+    [
+     -141.664,
+     -204.379
+    ],
+    [
+     -141.82,
+     -216.898
+    ],
+    [
+     -131.121,
+     -217.032
+    ]
+   ],
+   "angle_deg": 179.284
+  },
+  {
+   "id": "T_Z5_04",
+   "arch": "hutB",
+   "ring": "Z5",
+   "bx": 4,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": true,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    -122.555,
+    -211.789
+   ],
+   "angle": 3.1290933045704317,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3238,
+   "pos_local": [
+    -122.555,
+    -211.789
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -116.206,
+     -204.698
+    ],
+    [
+     -128.725,
+     -204.541
+    ],
+    [
+     -128.881,
+     -217.06
+    ],
+    [
+     -116.362,
+     -217.217
+    ]
+   ],
+   "angle_deg": 179.284
+  },
+  {
+   "id": "T_Z5_05",
+   "arch": "farmhouse",
+   "ring": "Z5",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -107.796,
+    -211.973
+   ],
+   "angle": 3.1290933045704317,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3245,
+   "pos_local": [
+    -107.796,
+    -211.973
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -100.537,
+     -204.894
+    ],
+    [
+     -114.876,
+     -204.714
+    ],
+    [
+     -115.032,
+     -217.233
+    ],
+    [
+     -100.693,
+     -217.413
+    ]
+   ],
+   "angle_deg": 179.284
+  },
+  {
+   "id": "T_Z5_06",
+   "arch": "smithy",
+   "ring": "Z5",
+   "bx": 4,
+   "by": 3,
+   "fl": 1,
+   "roof": 1,
+   "eng": false,
+   "bal": false,
+   "shop": true,
+   "lan": true,
+   "fence": 1,
+   "gate": true,
+   "cat": 2,
+   "props": 0.35,
+   "pos": [
+    -91.863,
+    -211.969
+   ],
+   "angle": -3.1290933045704317,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3252,
+   "pos_local": [
+    -91.863,
+    -211.969
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -85.693,
+     -204.721
+    ],
+    [
+     -98.212,
+     -204.878
+    ],
+    [
+     -98.056,
+     -217.397
+    ],
+    [
+     -85.537,
+     -217.24
+    ]
+   ],
+   "angle_deg": -179.284
+  },
+  {
+   "id": "T_Z5_07",
+   "arch": "dwellB",
+   "ring": "Z5",
+   "bx": 4,
+   "by": 3,
+   "fl": 2,
+   "roof": 3,
+   "eng": false,
+   "bal": true,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    -77.104,
+    -211.785
+   ],
+   "angle": -3.1290933045704317,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3259,
+   "pos_local": [
+    -77.104,
+    -211.785
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -70.934,
+     -204.537
+    ],
+    [
+     -83.453,
+     -204.693
+    ],
+    [
+     -83.297,
+     -217.212
+    ],
+    [
+     -70.778,
+     -217.056
+    ]
+   ],
+   "angle_deg": -179.284
+  },
+  {
+   "id": "T_Z5_08",
+   "arch": "farmhouse",
+   "ring": "Z5",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -62.345,
+    -211.6
+   ],
+   "angle": -3.1290933045704317,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3266,
+   "pos_local": [
+    -62.345,
+    -211.6
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -55.266,
+     -204.341
+    ],
+    [
+     -69.604,
+     -204.52
+    ],
+    [
+     -69.448,
+     -217.039
+    ],
+    [
+     -55.109,
+     -216.86
+    ]
+   ],
+   "angle_deg": -179.284
+  },
+  {
+   "id": "T_Z7_02",
+   "arch": "dwellA",
+   "ring": "Z7",
+   "bx": 4,
+   "by": 3,
+   "fl": 1,
+   "roof": 1,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    33.07,
+    -161.3
+   ],
+   "angle": -1.5707963267948966,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3273,
+   "pos_local": [
+    33.07,
+    -161.3
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     25.9,
+     -155.04
+    ],
+    [
+     25.9,
+     -167.56
+    ],
+    [
+     38.42,
+     -167.56
+    ],
+    [
+     38.42,
+     -155.04
+    ]
+   ],
+   "angle_deg": -90.0
+  },
+  {
+   "id": "T_Z7_03",
+   "arch": "farmhouse",
+   "ring": "Z7",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    33.07,
+    -176.06
+   ],
+   "angle": -1.5707963267948966,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3280,
+   "pos_local": [
+    33.07,
+    -176.06
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     25.9,
+     -168.89
+    ],
+    [
+     25.9,
+     -183.23
+    ],
+    [
+     38.42,
+     -183.23
+    ],
+    [
+     38.42,
+     -168.89
+    ]
+   ],
+   "angle_deg": -90.0
+  },
+  {
+   "id": "T_Z7_04",
+   "arch": "hutB",
+   "ring": "Z7",
+   "bx": 4,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": true,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    33.07,
+    -191.73
+   ],
+   "angle": -1.5707963267948966,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3287,
+   "pos_local": [
+    33.07,
+    -191.73
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     25.9,
+     -185.47
+    ],
+    [
+     25.9,
+     -197.99
+    ],
+    [
+     38.42,
+     -197.99
+    ],
+    [
+     38.42,
+     -185.47
+    ]
+   ],
+   "angle_deg": -90.0
+  },
+  {
+   "id": "T_Z7_05",
+   "arch": "dwellC",
+   "ring": "Z7",
+   "bx": 3,
+   "by": 3,
+   "fl": 1,
+   "roof": 3,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    33.07,
+    -203.49
+   ],
+   "angle": -1.5707963267948966,
+   "rect": [
+    -5.35,
+    5.35,
+    -7.17,
+    5.35
+   ],
+   "seed": 3294,
+   "pos_local": [
+    33.07,
+    -203.49
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     25.9,
+     -198.14
+    ],
+    [
+     25.9,
+     -208.84
+    ],
+    [
+     38.42,
+     -208.84
+    ],
+    [
+     38.42,
+     -198.14
+    ]
+   ],
+   "angle_deg": -90.0
+  },
+  {
+   "id": "T_Z7_06",
+   "arch": "kura",
+   "ring": "Z7",
+   "bx": 2,
+   "by": 2,
+   "fl": 2,
+   "roof": 3,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 5,
+   "props": 0.5,
+   "pos": [
+    29.62,
+    -214.34
+   ],
+   "angle": -1.5707963267948966,
+   "rect": [
+    -3.32,
+    3.32,
+    -3.72,
+    4.72
+   ],
+   "seed": 3301,
+   "pos_local": [
+    29.62,
+    -214.34
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     25.9,
+     -211.02
+    ],
+    [
+     25.9,
+     -217.66
+    ],
+    [
+     34.34,
+     -217.66
+    ],
+    [
+     34.34,
+     -211.02
+    ]
+   ],
+   "angle_deg": -90.0
+  },
+  {
+   "id": "T_Z6_02",
+   "arch": "hutA",
+   "ring": "Z6",
+   "bx": 3,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    11.93,
+    -168.3
+   ],
+   "angle": 1.5707963267948966,
+   "rect": [
+    -5.35,
+    5.35,
+    -7.17,
+    5.35
+   ],
+   "seed": 3308,
+   "pos_local": [
+    11.93,
+    -168.3
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     19.1,
+     -173.65
+    ],
+    [
+     19.1,
+     -162.95
+    ],
+    [
+     6.58,
+     -162.95
+    ],
+    [
+     6.58,
+     -173.65
+    ]
+   ],
+   "angle_deg": 90.0
+  },
+  {
+   "id": "T_Z6_03",
+   "arch": "dwellC",
+   "ring": "Z6",
+   "bx": 3,
+   "by": 3,
+   "fl": 1,
+   "roof": 3,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    11.93,
+    -179.15
+   ],
+   "angle": 1.5707963267948966,
+   "rect": [
+    -5.35,
+    5.35,
+    -7.17,
+    5.35
+   ],
+   "seed": 3315,
+   "pos_local": [
+    11.93,
+    -179.15
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     19.1,
+     -184.5
+    ],
+    [
+     19.1,
+     -173.8
+    ],
+    [
+     6.58,
+     -173.8
+    ],
+    [
+     6.58,
+     -184.5
+    ]
+   ],
+   "angle_deg": 90.0
+  },
+  {
+   "id": "T_Z7_07",
+   "arch": "hutA",
+   "ring": "Z7",
+   "bx": 3,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    39.459,
+    -222.141
+   ],
+   "angle": -0.4114562434137023,
+   "rect": [
+    -5.35,
+    5.35,
+    -7.17,
+    5.35
+   ],
+   "seed": 3322,
+   "pos_local": [
+    39.459,
+    -222.141
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     31.688,
+     -226.572
+    ],
+    [
+     41.495,
+     -230.852
+    ],
+    [
+     46.502,
+     -219.377
+    ],
+    [
+     36.695,
+     -215.097
+    ]
+   ],
+   "angle_deg": -23.575
+  },
+  {
+   "id": "T_OEA_00",
+   "arch": "hutB",
+   "ring": "OEA",
+   "bx": 4,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": true,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    74.142,
+    -81.524
+   ],
+   "angle": -0.2536740961386427,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3329,
+   "pos_local": [
+    74.142,
+    -81.524
+   ],
+   "outer": true,
+   "plot_corners_world": [
+    [
+     66.283,
+     -86.893
+    ],
+    [
+     78.402,
+     -90.035
+    ],
+    [
+     81.544,
+     -77.916
+    ],
+    [
+     69.425,
+     -74.774
+    ]
+   ],
+   "angle_deg": -14.534
+  },
+  {
+   "id": "T_OEA_01",
+   "arch": "hutA",
+   "ring": "OEA",
+   "bx": 3,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    86.978,
+    -84.852
+   ],
+   "angle": -0.2536740961386427,
+   "rect": [
+    -5.35,
+    5.35,
+    -7.17,
+    5.35
+   ],
+   "seed": 3336,
+   "pos_local": [
+    86.978,
+    -84.852
+   ],
+   "outer": true,
+   "plot_corners_world": [
+    [
+     79.999,
+     -90.449
+    ],
+    [
+     90.357,
+     -93.135
+    ],
+    [
+     93.499,
+     -81.015
+    ],
+    [
+     83.141,
+     -78.33
+    ]
+   ],
+   "angle_deg": -14.534
+  },
+  {
+   "id": "T_OEA_02",
+   "arch": "farmhouse",
+   "ring": "OEA",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    68.962,
+    -101.503
+   ],
+   "angle": 2.8879185574511506,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3343,
+   "pos_local": [
+    68.962,
+    -101.503
+   ],
+   "outer": true,
+   "plot_corners_world": [
+    [
+     77.702,
+     -96.362
+    ],
+    [
+     63.821,
+     -92.763
+    ],
+    [
+     60.679,
+     -104.883
+    ],
+    [
+     74.56,
+     -108.481
+    ]
+   ],
+   "angle_deg": 165.466
+  },
+  {
+   "id": "T_OEA_03",
+   "arch": "hutB",
+   "ring": "OEA",
+   "bx": 4,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": true,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    84.034,
+    -106.129
+   ],
+   "angle": 2.662073361597197,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3350,
+   "pos_local": [
+    84.034,
+    -106.129
+   ],
+   "outer": true,
+   "plot_corners_world": [
+    [
+     92.896,
+     -102.656
+    ],
+    [
+     81.788,
+     -96.88
+    ],
+    [
+     76.012,
+     -107.988
+    ],
+    [
+     87.12,
+     -113.764
+    ]
+   ],
+   "angle_deg": 152.526
+  },
+  {
+   "id": "T_ONE_00",
+   "arch": "farmhouse",
+   "ring": "ONE",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -19.398,
+    -6.884
+   ],
+   "angle": 0.4182243295792291,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3357,
+   "pos_local": [
+    -19.398,
+    -6.884
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -23.038,
+     -16.348
+    ],
+    [
+     -9.934,
+     -10.524
+    ],
+    [
+     -15.019,
+     0.917
+    ],
+    [
+     -28.123,
+     -4.907
+    ]
+   ],
+   "angle_deg": 23.962
+  },
+  {
+   "id": "T_ONE_01",
+   "arch": "hutA",
+   "ring": "ONE",
+   "bx": 3,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    -2.966,
+    -2.651
+   ],
+   "angle": 0.13255153229667402,
+   "rect": [
+    -5.35,
+    5.35,
+    -7.17,
+    5.35
+   ],
+   "seed": 3364,
+   "pos_local": [
+    -2.966,
+    -2.651
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -7.321,
+     -10.465
+    ],
+    [
+     3.285,
+     -9.051
+    ],
+    [
+     1.63,
+     3.359
+    ],
+    [
+     -8.976,
+     1.945
+    ]
+   ],
+   "angle_deg": 7.595
+  },
+  {
+   "id": "T_ONE_02",
+   "arch": "barn",
+   "ring": "ONE",
+   "bx": 3,
+   "by": 4,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    9.491,
+    -2.634
+   ],
+   "angle": 0.13255153229667402,
+   "rect": [
+    -4.23,
+    4.23,
+    -5.54,
+    6.54
+   ],
+   "seed": 3371,
+   "pos_local": [
+    9.491,
+    -2.634
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     6.03,
+     -8.685
+    ],
+    [
+     14.416,
+     -7.567
+    ],
+    [
+     12.82,
+     4.407
+    ],
+    [
+     4.434,
+     3.289
+    ]
+   ],
+   "angle_deg": 7.595
+  },
+  {
+   "id": "T_ONE_03",
+   "arch": "hutC",
+   "ring": "ONE",
+   "bx": 3,
+   "by": 2,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    21.787,
+    -0.59
+   ],
+   "angle": 0.0,
+   "rect": [
+    -5.35,
+    5.35,
+    -6.26,
+    4.44
+   ],
+   "seed": 3378,
+   "pos_local": [
+    21.787,
+    -0.59
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     16.437,
+     -6.85
+    ],
+    [
+     27.137,
+     -6.85
+    ],
+    [
+     27.137,
+     3.85
+    ],
+    [
+     16.437,
+     3.85
+    ]
+   ],
+   "angle_deg": 0.0
+  },
+  {
+   "id": "T_ONE_04",
+   "arch": "farmhouse",
+   "ring": "ONE",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    38.137,
+    0.32
+   ],
+   "angle": 0.0,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3385,
+   "pos_local": [
+    38.137,
+    0.32
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     30.967,
+     -6.85
+    ],
+    [
+     45.307,
+     -6.85
+    ],
+    [
+     45.307,
+     5.67
+    ],
+    [
+     30.967,
+     5.67
+    ]
+   ],
+   "angle_deg": 0.0
+  },
+  {
+   "id": "T_ONE_05",
+   "arch": "hutB",
+   "ring": "ONE",
+   "bx": 4,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": true,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    52.307,
+    0.32
+   ],
+   "angle": 0.0,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3392,
+   "pos_local": [
+    52.307,
+    0.32
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     46.047,
+     -6.85
+    ],
+    [
+     58.567,
+     -6.85
+    ],
+    [
+     58.567,
+     5.67
+    ],
+    [
+     46.047,
+     5.67
+    ]
+   ],
+   "angle_deg": 0.0
+  },
+  {
+   "id": "T_ONE_06",
+   "arch": "kura",
+   "ring": "ONE",
+   "bx": 2,
+   "by": 2,
+   "fl": 2,
+   "roof": 3,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 5,
+   "props": 0.5,
+   "pos": [
+    65.393,
+    -2.993
+   ],
+   "angle": 0.02499479361892016,
+   "rect": [
+    -3.32,
+    3.32,
+    -3.72,
+    4.72
+   ],
+   "seed": 3399,
+   "pos_local": [
+    65.393,
+    -2.993
+   ],
+   "outer": true,
+   "plot_corners_world": [
+    [
+     62.167,
+     -6.795
+    ],
+    [
+     68.805,
+     -6.629
+    ],
+    [
+     68.594,
+     1.808
+    ],
+    [
+     61.956,
+     1.643
+    ]
+   ],
+   "angle_deg": 1.432
+  },
+  {
+   "id": "T_ONE_07",
+   "arch": "hutA",
+   "ring": "ONE",
+   "bx": 3,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    75.624,
+    0.714
+   ],
+   "angle": 0.02499479361892016,
+   "rect": [
+    -5.35,
+    5.35,
+    -7.17,
+    5.35
+   ],
+   "seed": 3406,
+   "pos_local": [
+    75.624,
+    0.714
+   ],
+   "outer": true,
+   "plot_corners_world": [
+    [
+     70.455,
+     -6.588
+    ],
+    [
+     81.151,
+     -6.32
+    ],
+    [
+     80.839,
+     6.196
+    ],
+    [
+     70.142,
+     5.928
+    ]
+   ],
+   "angle_deg": 1.432
+  },
+  {
+   "id": "T_ONE_08",
+   "arch": "farmhouse",
+   "ring": "ONE",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    91.969,
+    1.122
+   ],
+   "angle": 0.02499479361892016,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3413,
+   "pos_local": [
+    91.969,
+    1.122
+   ],
+   "outer": true,
+   "plot_corners_world": [
+    [
+     84.98,
+     -6.225
+    ],
+    [
+     99.316,
+     -5.866
+    ],
+    [
+     99.003,
+     6.65
+    ],
+    [
+     84.667,
+     6.292
+    ]
+   ],
+   "angle_deg": 1.432
+  },
+  {
+   "id": "T_ONE_09",
+   "arch": "hutA",
+   "ring": "ONE",
+   "bx": 3,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    106.902,
+    0.988
+   ],
+   "angle": -0.04995839572194276,
+   "rect": [
+    -5.35,
+    5.35,
+    -7.17,
+    5.35
+   ],
+   "seed": 3420,
+   "pos_local": [
+    106.902,
+    0.988
+   ],
+   "outer": true,
+   "plot_corners_world": [
+    [
+     101.2,
+     -5.906
+    ],
+    [
+     111.887,
+     -6.44
+    ],
+    [
+     112.512,
+     6.064
+    ],
+    [
+     101.826,
+     6.598
+    ]
+   ],
+   "angle_deg": -2.862
+  },
+  {
+   "id": "T_ONE_10",
+   "arch": "hutC",
+   "ring": "ONE",
+   "bx": 3,
+   "by": 2,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -11.385,
+    -24.913
+   ],
+   "angle": -2.723368324010564,
+   "rect": [
+    -5.35,
+    5.35,
+    -6.26,
+    4.44
+   ],
+   "seed": 3427,
+   "pos_local": [
+    -11.385,
+    -24.913
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -9.038,
+     -17.02
+    ],
+    [
+     -18.816,
+     -21.365
+    ],
+    [
+     -14.471,
+     -31.143
+    ],
+    [
+     -4.693,
+     -26.798
+    ]
+   ],
+   "angle_deg": -156.038
+  },
+  {
+   "id": "T_ONE_11",
+   "arch": "farmhouse",
+   "ring": "ONE",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    5.888,
+    -22.293
+   ],
+   "angle": -3.0090411212931194,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3434,
+   "pos_local": [
+    5.888,
+    -22.293
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     12.047,
+     -14.238
+    ],
+    [
+     -2.167,
+     -16.133
+    ],
+    [
+     -0.512,
+     -28.544
+    ],
+    [
+     13.702,
+     -26.648
+    ]
+   ],
+   "angle_deg": -172.405
+  },
+  {
+   "id": "T_ONE_12",
+   "arch": "hutB",
+   "ring": "ONE",
+   "bx": 4,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": true,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    19.933,
+    -20.42
+   ],
+   "angle": -3.0090411212931194,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3441,
+   "pos_local": [
+    19.933,
+    -20.42
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     25.191,
+     -12.486
+    ],
+    [
+     12.781,
+     -14.14
+    ],
+    [
+     14.435,
+     -26.551
+    ],
+    [
+     26.846,
+     -24.896
+    ]
+   ],
+   "angle_deg": -172.405
+  },
+  {
+   "id": "T_ONE_13",
+   "arch": "kura",
+   "ring": "ONE",
+   "bx": 2,
+   "by": 2,
+   "fl": 2,
+   "roof": 3,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 5,
+   "props": 0.5,
+   "pos": [
+    31.817,
+    -16.87
+   ],
+   "angle": -3.141592653589793,
+   "rect": [
+    -3.32,
+    3.32,
+    -3.72,
+    4.72
+   ],
+   "seed": 3448,
+   "pos_local": [
+    31.817,
+    -16.87
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     35.137,
+     -13.15
+    ],
+    [
+     28.497,
+     -13.15
+    ],
+    [
+     28.497,
+     -21.59
+    ],
+    [
+     35.137,
+     -21.59
+    ]
+   ],
+   "angle_deg": -180.0
+  },
+  {
+   "id": "T_ONE_14",
+   "arch": "hutA",
+   "ring": "ONE",
+   "bx": 3,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    42.137,
+    -20.32
+   ],
+   "angle": -3.141592653589793,
+   "rect": [
+    -5.35,
+    5.35,
+    -7.17,
+    5.35
+   ],
+   "seed": 3455,
+   "pos_local": [
+    42.137,
+    -20.32
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     47.487,
+     -13.15
+    ],
+    [
+     36.787,
+     -13.15
+    ],
+    [
+     36.787,
+     -25.67
+    ],
+    [
+     47.487,
+     -25.67
+    ]
+   ],
+   "angle_deg": -180.0
+  },
+  {
+   "id": "T_ONE_15",
+   "arch": "farmhouse",
+   "ring": "ONE",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    58.487,
+    -20.32
+   ],
+   "angle": -3.141592653589793,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3462,
+   "pos_local": [
+    58.487,
+    -20.32
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     65.657,
+     -13.15
+    ],
+    [
+     51.317,
+     -13.15
+    ],
+    [
+     51.317,
+     -25.67
+    ],
+    [
+     65.657,
+     -25.67
+    ]
+   ],
+   "angle_deg": -180.0
+  },
+  {
+   "id": "T_ONE_16",
+   "arch": "hutA",
+   "ring": "ONE",
+   "bx": 3,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    72.911,
+    -20.0
+   ],
+   "angle": -3.1165978599708732,
+   "rect": [
+    -5.35,
+    5.35,
+    -7.17,
+    5.35
+   ],
+   "seed": 3469,
+   "pos_local": [
+    72.911,
+    -20.0
+   ],
+   "outer": true,
+   "plot_corners_world": [
+    [
+     78.08,
+     -12.699
+    ],
+    [
+     67.383,
+     -12.966
+    ],
+    [
+     67.696,
+     -25.482
+    ],
+    [
+     78.393,
+     -25.215
+    ]
+   ],
+   "angle_deg": -178.568
+  },
+  {
+   "id": "T_ONE_17",
+   "arch": "barn",
+   "ring": "ONE",
+   "bx": 3,
+   "by": 4,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    85.216,
+    -18.062
+   ],
+   "angle": -3.1165978599708732,
+   "rect": [
+    -4.23,
+    4.23,
+    -5.54,
+    6.54
+   ],
+   "seed": 3476,
+   "pos_local": [
+    85.216,
+    -18.062
+   ],
+   "outer": true,
+   "plot_corners_world": [
+    [
+     89.306,
+     -12.418
+    ],
+    [
+     80.849,
+     -12.63
+    ],
+    [
+     81.151,
+     -24.706
+    ],
+    [
+     89.608,
+     -24.495
+    ]
+   ],
+   "angle_deg": -178.568
+  },
+  {
+   "id": "T_ONE_18",
+   "arch": "hutC",
+   "ring": "ONE",
+   "bx": 3,
+   "by": 2,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    96.461,
+    -18.501
+   ],
+   "angle": -3.1165978599708732,
+   "rect": [
+    -5.35,
+    5.35,
+    -6.26,
+    4.44
+   ],
+   "seed": 3483,
+   "pos_local": [
+    96.461,
+    -18.501
+   ],
+   "outer": true,
+   "plot_corners_world": [
+    [
+     101.653,
+     -12.11
+    ],
+    [
+     90.956,
+     -12.377
+    ],
+    [
+     91.223,
+     -23.074
+    ],
+    [
+     101.92,
+     -22.806
+    ]
+   ],
+   "angle_deg": -178.568
+  },
+  {
+   "id": "T_ONE_19",
+   "arch": "farmhouse",
+   "ring": "ONE",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    112.043,
+    -19.935
+   ],
+   "angle": 3.0916342578678506,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3490,
+   "pos_local": [
+    112.043,
+    -19.935
+   ],
+   "outer": true,
+   "plot_corners_world": [
+    [
+     119.562,
+     -13.132
+    ],
+    [
+     105.24,
+     -12.416
+    ],
+    [
+     104.615,
+     -24.92
+    ],
+    [
+     118.937,
+     -25.636
+    ]
+   ],
+   "angle_deg": 177.138
+  },
+  {
+   "id": "T_ONE_20",
+   "arch": "hutB",
+   "ring": "ONE",
+   "bx": 4,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": true,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    126.196,
+    -20.643
+   ],
+   "angle": 3.0916342578678506,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3497,
+   "pos_local": [
+    126.196,
+    -20.643
+   ],
+   "outer": true,
+   "plot_corners_world": [
+    [
+     132.806,
+     -13.794
+    ],
+    [
+     120.301,
+     -13.169
+    ],
+    [
+     119.676,
+     -25.673
+    ],
+    [
+     132.181,
+     -26.299
+    ]
+   ],
+   "angle_deg": 177.138
+  },
+  {
+   "id": "T_ONE_21",
+   "arch": "kura",
+   "ring": "ONE",
+   "bx": 2,
+   "by": 2,
+   "fl": 2,
+   "roof": 3,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 5,
+   "props": 0.5,
+   "pos": [
+    139.611,
+    -17.859
+   ],
+   "angle": 3.0916342578678506,
+   "rect": [
+    -3.32,
+    3.32,
+    -3.72,
+    4.72
+   ],
+   "seed": 3504,
+   "pos_local": [
+    139.611,
+    -17.859
+   ],
+   "outer": true,
+   "plot_corners_world": [
+    [
+     143.113,
+     -14.31
+    ],
+    [
+     136.481,
+     -13.978
+    ],
+    [
+     136.06,
+     -22.407
+    ],
+    [
+     142.691,
+     -22.739
+    ]
+   ],
+   "angle_deg": 177.138
+  },
+  {
+   "id": "T_OSE_00",
+   "arch": "farmhouse",
+   "ring": "OSE",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    56.52,
+    -229.058
+   ],
+   "angle": -0.26060239174734096,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3511,
+   "pos_local": [
+    56.52,
+    -229.058
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     47.745,
+     -234.138
+    ],
+    [
+     61.6,
+     -237.833
+    ],
+    [
+     64.826,
+     -225.736
+    ],
+    [
+     50.971,
+     -222.041
+    ]
+   ],
+   "angle_deg": -14.931
+  },
+  {
+   "id": "T_OSE_01",
+   "arch": "barn",
+   "ring": "OSE",
+   "bx": 3,
+   "by": 4,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    69.792,
+    -234.284
+   ],
+   "angle": -0.26060239174734096,
+   "rect": [
+    -4.23,
+    4.23,
+    -5.54,
+    6.54
+   ],
+   "seed": 3518,
+   "pos_local": [
+    69.792,
+    -234.284
+   ],
+   "outer": true,
+   "plot_corners_world": [
+    [
+     64.277,
+     -238.547
+    ],
+    [
+     72.451,
+     -240.727
+    ],
+    [
+     75.564,
+     -229.055
+    ],
+    [
+     67.389,
+     -226.875
+    ]
+   ],
+   "angle_deg": -14.931
+  },
+  {
+   "id": "T_OSE_02",
+   "arch": "farmhouse",
+   "ring": "OSE",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    42.203,
+    -245.857
+   ],
+   "angle": 2.7301364101760908,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3525,
+   "pos_local": [
+    42.203,
+    -245.857
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     51.642,
+     -242.153
+    ],
+    [
+     38.499,
+     -236.418
+    ],
+    [
+     33.491,
+     -247.893
+    ],
+    [
+     46.634,
+     -253.628
+    ]
+   ],
+   "angle_deg": 156.425
+  },
+  {
+   "id": "T_OSE_03",
+   "arch": "hutC",
+   "ring": "OSE",
+   "bx": 3,
+   "by": 2,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    57.398,
+    -249.712
+   ],
+   "angle": 2.8809902618424523,
+   "rect": [
+    -5.35,
+    5.35,
+    -6.26,
+    4.44
+   ],
+   "seed": 3532,
+   "pos_local": [
+    57.398,
+    -249.712
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     64.18,
+     -245.041
+    ],
+    [
+     53.842,
+     -242.285
+    ],
+    [
+     51.085,
+     -252.623
+    ],
+    [
+     61.423,
+     -255.38
+    ]
+   ],
+   "angle_deg": 165.069
+  },
+  {
+   "id": "T_OSE_04",
+   "arch": "kura",
+   "ring": "OSE",
+   "bx": 2,
+   "by": 2,
+   "fl": 2,
+   "roof": 3,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 5,
+   "props": 0.5,
+   "pos": [
+    86.288,
+    -253.964
+   ],
+   "angle": 2.9829373914033916,
+   "rect": [
+    -3.32,
+    3.32,
+    -3.72,
+    4.72
+   ],
+   "seed": 3539,
+   "pos_local": [
+    86.288,
+    -253.964
+   ],
+   "outer": true,
+   "plot_corners_world": [
+    [
+     90.154,
+     -250.815
+    ],
+    [
+     83.598,
+     -249.766
+    ],
+    [
+     82.264,
+     -258.1
+    ],
+    [
+     88.821,
+     -259.149
+    ]
+   ],
+   "angle_deg": 170.91
+  },
+  {
+   "id": "T_Z1_00",
+   "arch": "farmhouse",
+   "ring": "Z1",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    1.545,
+    -43.637
+   ],
+   "angle": -3.0266365958500714,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3546,
+   "pos_local": [
+    1.545,
+    -43.637
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     7.845,
+     -35.692
+    ],
+    [
+     -6.4,
+     -37.337
+    ],
+    [
+     -4.964,
+     -49.774
+    ],
+    [
+     9.282,
+     -48.129
+    ]
+   ],
+   "angle_deg": -173.414
+  },
+  {
+   "id": "T_Z1_01",
+   "arch": "hutA",
+   "ring": "Z1",
+   "bx": 3,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    14.358,
+    -64.943
+   ],
+   "angle": 0.24543853526575835,
+   "rect": [
+    -5.35,
+    5.35,
+    -7.17,
+    5.35
+   ],
+   "seed": 3553,
+   "pos_local": [
+    14.358,
+    -64.943
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     10.911,
+     -73.198
+    ],
+    [
+     21.29,
+     -70.598
+    ],
+    [
+     18.248,
+     -58.454
+    ],
+    [
+     7.869,
+     -61.054
+    ]
+   ],
+   "angle_deg": 14.063
+  },
+  {
+   "id": "T_Z1_02",
+   "arch": "dwellC",
+   "ring": "Z1",
+   "bx": 3,
+   "by": 3,
+   "fl": 1,
+   "roof": 3,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    15.484,
+    -43.372
+   ],
+   "angle": -3.0341643180281634,
+   "rect": [
+    -5.35,
+    5.35,
+    -7.17,
+    5.35
+   ],
+   "seed": 3560,
+   "pos_local": [
+    15.484,
+    -43.372
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     20.034,
+     -35.669
+    ],
+    [
+     9.396,
+     -36.817
+    ],
+    [
+     10.738,
+     -49.264
+    ],
+    [
+     21.377,
+     -48.117
+    ]
+   ],
+   "angle_deg": -173.845
+  },
+  {
+   "id": "T_Z1_03",
+   "arch": "barn",
+   "ring": "Z1",
+   "bx": 3,
+   "by": 4,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -7.806,
+    -54.067
+   ],
+   "angle": -1.6604607465167458,
+   "rect": [
+    -4.23,
+    4.23,
+    -5.54,
+    6.54
+   ],
+   "seed": 3567,
+   "pos_local": [
+    -7.806,
+    -54.067
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -12.945,
+     -49.358
+    ],
+    [
+     -13.703,
+     -57.784
+    ],
+    [
+     -1.672,
+     -58.866
+    ],
+    [
+     -0.914,
+     -50.44
+    ]
+   ],
+   "angle_deg": -95.137
+  },
+  {
+   "id": "T_Z3_01",
+   "arch": "dwellA",
+   "ring": "Z3",
+   "bx": 4,
+   "by": 3,
+   "fl": 1,
+   "roof": 1,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    -127.021,
+    -113.628
+   ],
+   "angle": -0.05971944487140224,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3574,
+   "pos_local": [
+    -127.021,
+    -113.628
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -133.698,
+     -120.411
+    ],
+    [
+     -121.2,
+     -121.158
+    ],
+    [
+     -120.453,
+     -108.661
+    ],
+    [
+     -132.951,
+     -107.914
+    ]
+   ],
+   "angle_deg": -3.422
+  },
+  {
+   "id": "T_Z7_08",
+   "arch": "farmhouse",
+   "ring": "Z7",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    52.417,
+    -177.967
+   ],
+   "angle": 3.120735095282336,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3581,
+   "pos_local": [
+    52.417,
+    -177.967
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     59.735,
+     -170.949
+    ],
+    [
+     45.398,
+     -170.649
+    ],
+    [
+     45.137,
+     -183.167
+    ],
+    [
+     59.473,
+     -183.466
+    ]
+   ],
+   "angle_deg": 178.805
+  },
+  {
+   "id": "T_Z7_09",
+   "arch": "barn",
+   "ring": "Z7",
+   "bx": 3,
+   "by": 4,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    50.207,
+    -189.24
+   ],
+   "angle": -1.579448421550617,
+   "rect": [
+    -4.23,
+    4.23,
+    -5.54,
+    6.54
+   ],
+   "seed": 3588,
+   "pos_local": [
+    50.207,
+    -189.24
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     44.704,
+     -184.962
+    ],
+    [
+     44.631,
+     -193.422
+    ],
+    [
+     56.71,
+     -193.526
+    ],
+    [
+     56.783,
+     -185.066
+    ]
+   ],
+   "angle_deg": -90.496
+  },
+  {
+   "id": "T_Z7_10",
+   "arch": "dwellA",
+   "ring": "Z7",
+   "bx": 4,
+   "by": 3,
+   "fl": 1,
+   "roof": 1,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 9,
+   "props": 0.35,
+   "pos": [
+    51.528,
+    -211.935
+   ],
+   "angle": -0.45132641640394916,
+   "rect": [
+    -6.26,
+    6.26,
+    -7.17,
+    5.35
+   ],
+   "seed": 3595,
+   "pos_local": [
+    51.528,
+    -211.935
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     42.768,
+     -215.656
+    ],
+    [
+     54.034,
+     -221.117
+    ],
+    [
+     59.495,
+     -209.851
+    ],
+    [
+     48.228,
+     -204.39
+    ]
+   ],
+   "angle_deg": -25.859
+  },
+  {
+   "id": "T_F2_03",
+   "arch": "farmhouse",
+   "ring": "F2",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -175.71,
+    57.753
+   ],
+   "angle": 0.1807177315076898,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3602,
+   "pos_local": [
+    -175.71,
+    57.753
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -181.475,
+     49.411
+    ],
+    [
+     -167.368,
+     51.989
+    ],
+    [
+     -169.619,
+     64.305
+    ],
+    [
+     -183.725,
+     61.728
+    ]
+   ],
+   "angle_deg": 10.354
+  },
+  {
+   "id": "T_F2_04",
+   "arch": "kura",
+   "ring": "F2",
+   "bx": 2,
+   "by": 2,
+   "fl": 2,
+   "roof": 3,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 5,
+   "props": 0.5,
+   "pos": [
+    -152.929,
+    54.517
+   ],
+   "angle": 0.0333448360121154,
+   "rect": [
+    -3.32,
+    3.32,
+    -3.72,
+    4.72
+   ],
+   "seed": 3609,
+   "pos_local": [
+    -152.929,
+    54.517
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -156.123,
+     50.688
+    ],
+    [
+     -149.486,
+     50.91
+    ],
+    [
+     -149.768,
+     59.345
+    ],
+    [
+     -156.404,
+     59.124
+    ]
+   ],
+   "angle_deg": 1.911
+  },
+  {
+   "id": "T_F2_05",
+   "arch": "farmhouse",
+   "ring": "F2",
+   "bx": 5,
+   "by": 3,
+   "fl": 1,
+   "roof": 2,
+   "eng": true,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 1,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -130.0,
+    54.712
+   ],
+   "angle": -1.277627453511648e-05,
+   "rect": [
+    -7.17,
+    7.17,
+    -7.17,
+    5.35
+   ],
+   "seed": 3616,
+   "pos_local": [
+    -130.0,
+    54.712
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -137.17,
+     47.542
+    ],
+    [
+     -122.83,
+     47.542
+    ],
+    [
+     -122.83,
+     60.062
+    ],
+    [
+     -137.17,
+     60.062
+    ]
+   ],
+   "angle_deg": -0.001
+  },
+  {
+   "id": "T_F2_06",
+   "arch": "barn",
+   "ring": "F2",
+   "bx": 3,
+   "by": 4,
+   "fl": 1,
+   "roof": 2,
+   "eng": false,
+   "bal": false,
+   "shop": false,
+   "lan": false,
+   "fence": 0,
+   "gate": false,
+   "cat": 6,
+   "props": 0.5,
+   "pos": [
+    -142.798,
+    54.807
+   ],
+   "angle": 0.02851151034946919,
+   "rect": [
+    -4.23,
+    4.23,
+    -5.54,
+    6.54
+   ],
+   "seed": 3623,
+   "pos_local": [
+    -142.798,
+    54.807
+   ],
+   "outer": false,
+   "plot_corners_world": [
+    [
+     -146.869,
+     49.149
+    ],
+    [
+     -138.412,
+     49.39
+    ],
+    [
+     -138.757,
+     61.465
+    ],
+    [
+     -147.213,
+     61.224
+    ]
+   ],
+   "angle_deg": 1.634
+  }
+ ],
+ "roads": [
+  {
+   "name": "OUTER_WEST",
+   "pts": [
+    [
+     -254,
+     -33
+    ],
+    [
+     -254,
+     -90
+    ],
+    [
+     -254,
+     -150
+    ],
+    [
+     -254,
+     -210
+    ],
+    [
+     -254,
+     -262
+    ]
+   ],
+   "width": 4.5,
+   "kind": "road"
+  },
+  {
+   "name": "NORTH_LINK",
+   "pts": [
+    [
+     -286,
+     -12
+    ],
+    [
+     -287.5,
+     -22
+    ],
+    [
+     -285,
+     -32.5
+    ],
+    [
+     -254,
+     -32.5
+    ],
+    [
+     -212,
+     -32.5
+    ],
+    [
+     -170,
+     -32.5
+    ],
+    [
+     -128,
+     -32.5
+    ]
+   ],
+   "width": 4.0,
+   "kind": "road"
+  },
+  {
+   "name": "FIELD_RING",
+   "pts": [
+    [
+     -128,
+     -44
+    ],
+    [
+     -128,
+     -32.5
+    ],
+    [
+     -128,
+     -5
+    ],
+    [
+     -128,
+     27
+    ],
+    [
+     -150,
+     26.7
+    ],
+    [
+     -170,
+     26.5
+    ]
+   ],
+   "width": 3.5,
+   "kind": "road"
+  },
+  {
+   "name": "HOSPITAL_WEST",
+   "pts": [
+    [
+     -88.1,
+     -41.7
+    ],
+    [
+     -100,
+     -46
+    ],
+    [
+     -115,
+     -46
+    ],
+    [
+     -128,
+     -44
+    ]
+   ],
+   "width": 4.5,
+   "kind": "road"
+  },
+  {
+   "name": "LANE_SOUTH1",
+   "pts": [
+    [
+     -172,
+     -201.3
+    ],
+    [
+     -140,
+     -201.0
+    ],
+    [
+     -100,
+     -201.5
+    ],
+    [
+     -60,
+     -201.0
+    ],
+    [
+     -20,
+     -201.3
+    ],
+    [
+     22.5,
+     -201.0
+    ]
+   ],
+   "width": 4.0,
+   "kind": "road"
+  },
+  {
+   "name": "EAST_LINK",
+   "pts": [
+    [
+     22.5,
+     -150.3
+    ],
+    [
+     22.5,
+     -175
+    ],
+    [
+     22.5,
+     -201
+    ],
+    [
+     22.5,
+     -226
+    ]
+   ],
+   "width": 4.0,
+   "kind": "road"
+  },
+  {
+   "name": "WEST_ROAD",
+   "pts": [
+    [
+     -228,
+     -130
+    ],
+    [
+     -254,
+     -130
+    ],
+    [
+     -290,
+     -131
+    ],
+    [
+     -325,
+     -130
+    ],
+    [
+     -357,
+     -130
+    ]
+   ],
+   "width": 5.0,
+   "nofront": true,
+   "kind": "road"
+  },
+  {
+   "name": "NORTH_ROAD",
+   "pts": [
+    [
+     -212,
+     66
+    ],
+    [
+     -212,
+     88
+    ],
+    [
+     -212,
+     111
+    ]
+   ],
+   "width": 6.0,
+   "nofront": true,
+   "kind": "road"
+  },
+  {
+   "name": "LANE3_EAST",
+   "pts": [
+    [
+     -150,
+     -229
+    ],
+    [
+     -110,
+     -228.5
+    ],
+    [
+     -60,
+     -227.5
+    ],
+    [
+     -20,
+     -226.5
+    ],
+    [
+     22.5,
+     -226
+    ]
+   ],
+   "width": 3.5,
+   "kind": "road"
+  },
+  {
+   "name": "SW2_LINK",
+   "pts": [
+    [
+     -152,
+     -164
+    ],
+    [
+     -151,
+     -172
+    ],
+    [
+     -150,
+     -179.5
+    ]
+   ],
+   "width": 3.5,
+   "kind": "road"
+  },
+  {
+   "name": "EAST_TRAIL",
+   "pts": [
+    [
+     58,
+     -88
+    ],
+    [
+     85,
+     -95
+    ],
+    [
+     110,
+     -108
+    ],
+    [
+     128,
+     -122
+    ],
+    [
+     144,
+     -136
+    ]
+   ],
+   "width": 3.5,
+   "mix": [
+    "hutB",
+    "hutA",
+    "hutC",
+    "farmhouse"
+   ],
+   "kind": "road"
+  },
+  {
+   "name": "NE_ROAD",
+   "pts": [
+    [
+     -28,
+     -22
+    ],
+    [
+     -10,
+     -14
+    ],
+    [
+     20,
+     -10
+    ],
+    [
+     60,
+     -10
+    ],
+    [
+     100,
+     -9
+    ],
+    [
+     140,
+     -11
+    ],
+    [
+     170,
+     -11
+    ],
+    [
+     198,
+     -10
+    ]
+   ],
+   "width": 3.5,
+   "mix": [
+    "farmhouse",
+    "hutA",
+    "barn",
+    "hutC",
+    "farmhouse",
+    "hutB",
+    "kura",
+    "hutA"
+   ],
+   "kind": "road"
+  },
+  {
+   "name": "SE_ROAD",
+   "pts": [
+    [
+     22.5,
+     -226
+    ],
+    [
+     50,
+     -238
+    ],
+    [
+     80,
+     -246
+    ],
+    [
+     105,
+     -250
+    ]
+   ],
+   "width": 3.5,
+   "mix": [
+    "farmhouse",
+    "barn",
+    "hutA",
+    "farmhouse",
+    "hutC",
+    "kura"
+   ],
+   "kind": "road"
+  }
+ ],
+ "fields": [
+  {
+   "id": "FIELD_00",
+   "center": [
+    -283.0,
+    34.0
+   ],
+   "size": [
+    37.6,
+    43.6
+   ],
+   "crop": 0,
+   "seed": 500
+  },
+  {
+   "id": "FIELD_01",
+   "center": [
+    -150.0,
+    -6.0
+   ],
+   "size": [
+    35.6,
+    47.6
+   ],
+   "crop": 1,
+   "seed": 501
+  },
+  {
+   "id": "FIELD_02",
+   "center": [
+    -245.0,
+    -6.0
+   ],
+   "size": [
+    41.6,
+    51.6
+   ],
+   "crop": 0,
+   "seed": 502
+  },
+  {
+   "id": "FIELD_03",
+   "center": [
+    -284.0,
+    -195.5
+   ],
+   "size": [
+    35.6,
+    18.6
+   ],
+   "crop": 1,
+   "seed": 503
+  },
+  {
+   "id": "FIELD_04",
+   "center": [
+    -284.0,
+    -216.0
+   ],
+   "size": [
+    35.6,
+    11.6
+   ],
+   "crop": 1,
+   "seed": 504
+  },
+  {
+   "id": "FIELD_05",
+   "center": [
+    -284.0,
+    -60.5
+   ],
+   "size": [
+    31.6,
+    26.6
+   ],
+   "crop": 0,
+   "seed": 505
+  },
+  {
+   "id": "PADDY_00",
+   "center": [
+    -151.7,
+    -263.5
+   ],
+   "size": [
+    28.800000000000004,
+    19.19999999999998
+   ],
+   "crop": 2,
+   "seed": 600
+  },
+  {
+   "id": "PADDY_01",
+   "center": [
+    -119.10000000000001,
+    -263.5
+   ],
+   "size": [
+    28.800000000000004,
+    19.19999999999998
+   ],
+   "crop": 2,
+   "seed": 601
+  },
+  {
+   "id": "PADDY_02",
+   "center": [
+    -53.9,
+    -263.5
+   ],
+   "size": [
+    28.79999999999999,
+    19.19999999999998
+   ],
+   "crop": 2,
+   "seed": 602
+  },
+  {
+   "id": "PADDY_03",
+   "center": [
+    -21.3,
+    -263.5
+   ],
+   "size": [
+    28.799999999999997,
+    19.19999999999998
+   ],
+   "crop": 2,
+   "seed": 603
+  },
+  {
+   "id": "PADDY_04",
+   "center": [
+    -119.10000000000001,
+    -240.5
+   ],
+   "size": [
+    28.800000000000004,
+    19.20000000000001
+   ],
+   "crop": 2,
+   "seed": 604
+  },
+  {
+   "id": "PADDY_05",
+   "center": [
+    -86.5,
+    -240.5
+   ],
+   "size": [
+    28.800000000000004,
+    19.20000000000001
+   ],
+   "crop": 2,
+   "seed": 605
+  },
+  {
+   "id": "PADDY_06",
+   "center": [
+    -21.3,
+    -240.5
+   ],
+   "size": [
+    28.799999999999997,
+    19.20000000000001
+   ],
+   "crop": 2,
+   "seed": 606
+  }
+ ],
+ "canal": {
+  "pts": [
+   [
+    -178.0,
+    -42.0
+   ],
+   [
+    -178.0,
+    -150.0
+   ],
+   [
+    -178.0,
+    -270.0
+   ]
+  ],
+  "half_width": 1.15
+ },
+ "bridges": {
+  "BR_chan_y60": [
+   "SM_Edo_Bridge_Flat4",
+   [
+    -178.0,
+    -60.0
+   ],
+   0.0
+  ],
+  "BR_chan_y130": [
+   "SM_Edo_Bridge_Flat6",
+   [
+    -178.0,
+    -130.0
+   ],
+   0.0
+  ],
+  "BR_chan_y180": [
+   "SM_Edo_Bridge_Flat4",
+   [
+    -178.0,
+    -180.0
+   ],
+   0.0
+  ],
+  "BR_chan_y229": [
+   "SM_Edo_Bridge_Flat4",
+   [
+    -178.0,
+    -229.0
+   ],
+   0.0
+  ],
+  "BR_chan_main": [
+   "SM_Edo_Bridge_Flat6",
+   [
+    -212.0,
+    -40.0
+   ],
+   90.0
+  ],
+  "BR_arch_main": [
+   "SM_Edo_Bridge_Arch",
+   [
+    -212.0,
+    -290.0
+   ],
+   90.0
+  ]
+ },
+ "props": [
+  {
+   "name": "PR_well_p1",
+   "module": "SM_Edo_Well"
+  },
+  {
+   "name": "PR_board_p1",
+   "module": "SM_Edo_Board"
+  },
+  {
+   "name": "PR_stall_p1a",
+   "module": "SM_Edo_Stall"
+  },
+  {
+   "name": "PR_stall_p1b",
+   "module": "SM_Edo_Stall"
+  },
+  {
+   "name": "PR_bench_p1a",
+   "module": "SM_Edo_Bench"
+  },
+  {
+   "name": "PR_bench_p1b",
+   "module": "SM_Edo_Bench"
+  },
+  {
+   "name": "PR_toro_p1a",
+   "module": "SM_Edo_Toro"
+  },
+  {
+   "name": "PR_toro_p1b",
+   "module": "SM_Edo_Toro"
+  },
+  {
+   "name": "PR_well_p2",
+   "module": "SM_Edo_Well"
+  },
+  {
+   "name": "PR_bench_p2a",
+   "module": "SM_Edo_Bench"
+  },
+  {
+   "name": "PR_bench_p2b",
+   "module": "SM_Edo_Bench"
+  },
+  {
+   "name": "PR_board_p2",
+   "module": "SM_Edo_Board"
+  }
+ ],
+ "zones": [
+  {
+   "id": "Z1",
+   "poly": [
+    [
+     -9.76,
+     -29.32
+    ],
+    [
+     13.77,
+     -27.75
+    ],
+    [
+     27.89,
+     -43.44
+    ],
+    [
+     30.09,
+     -68.55
+    ],
+    [
+     15.34,
+     -79.53
+    ],
+    [
+     -1.91,
+     -68.55
+    ],
+    [
+     -11.95,
+     -48.15
+    ]
+   ]
+  },
+  {
+   "id": "Z2",
+   "poly": [
+    [
+     -128.05,
+     -65.41
+    ],
+    [
+     -111.74,
+     -63.53
+    ],
+    [
+     -96.05,
+     -71.68
+    ],
+    [
+     -98.56,
+     -79.84
+    ],
+    [
+     -124.29,
+     -79.84
+    ]
+   ]
+  },
+  {
+   "id": "Z3",
+   "poly": [
+    [
+     -132.13,
+     -90.51
+    ],
+    [
+     -113.3,
+     -88.94
+    ],
+    [
+     -112.36,
+     -103.06
+    ],
+    [
+     -120.52,
+     -117.49
+    ],
+    [
+     -132.13,
+     -116.24
+    ]
+   ]
+  },
+  {
+   "id": "Z4",
+   "poly": [
+    [
+     -113.3,
+     -184.64
+    ],
+    [
+     -92.91,
+     -177.74
+    ],
+    [
+     -61.53,
+     -181.5
+    ],
+    [
+     -36.43,
+     -188.41
+    ],
+    [
+     -35.8,
+     -198.45
+    ],
+    [
+     -111.74,
+     -199.08
+    ]
+   ]
+  },
+  {
+   "id": "Z5",
+   "poly": [
+    [
+     -165.08,
+     -209.74
+    ],
+    [
+     -136.84,
+     -205.04
+    ],
+    [
+     -39.57,
+     -205.98
+    ],
+    [
+     -37.68,
+     -217.59
+    ],
+    [
+     -111.74,
+     -221.04
+    ],
+    [
+     -163.51,
+     -219.16
+    ]
+   ]
+  },
+  {
+   "id": "Z6",
+   "poly": [
+    [
+     -19.17,
+     -186.21
+    ],
+    [
+     -6.62,
+     -178.37
+    ],
+    [
+     10.64,
+     -160.17
+    ],
+    [
+     19.42,
+     -165.82
+    ],
+    [
+     20.05,
+     -191.55
+    ],
+    [
+     1.22,
+     -199.7
+    ]
+   ]
+  },
+  {
+   "id": "Z7",
+   "poly": [
+    [
+     27.89,
+     -153.26
+    ],
+    [
+     42.01,
+     -148.56
+    ],
+    [
+     60.84,
+     -156.4
+    ],
+    [
+     63.35,
+     -190.92
+    ],
+    [
+     57.7,
+     -225.43
+    ],
+    [
+     32.6,
+     -227.0
+    ],
+    [
+     24.76,
+     -197.19
+    ]
+   ]
+  },
+  {
+   "id": "F1",
+   "poly": [
+    [
+     -278,
+     -228
+    ],
+    [
+     -232,
+     -228
+    ],
+    [
+     -232,
+     -56
+    ],
+    [
+     -278,
+     -56
+    ]
+   ]
+  },
+  {
+   "id": "F2",
+   "poly": [
+    [
+     -178,
+     30
+    ],
+    [
+     -120,
+     30
+    ],
+    [
+     -120,
+     66
+    ],
+    [
+     -178,
+     66
+    ]
+   ]
+  },
+  {
+   "id": "F3",
+   "poly": [
+    [
+     -124,
+     -30
+    ],
+    [
+     -92,
+     -30
+    ],
+    [
+     -92,
+     6
+    ],
+    [
+     -124,
+     6
+    ]
+   ]
+  }
+ ]
+}

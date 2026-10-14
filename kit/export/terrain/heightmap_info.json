@@ -1,0 +1,35 @@
+{
+ "size": [
+  1009,
+  1009
+ ],
+ "metres_per_quad": 1.0,
+ "x0_blender": -400.0,
+ "y_top_blender": 140.0,
+ "z_min_m": -80.34,
+ "z_max_m": 439.67,
+ "samples_without_surface": 0,
+ "landscape": {
+  "location_cm": [
+   -40000.0,
+   -14000.0,
+   0.0
+  ],
+  "scale": [
+   100.0,
+   100.0,
+   173
+  ],
+  "resolution": [
+   1009,
+   1009
+  ],
+  "section_quads": 63,
+  "sections_per_component": 1,
+  "components": [
+   16,
+   16
+  ],
+  "note": "import Edo_Heightmap_1009.png (or .r16 little endian); Sections 63x63 quads, 1 section/component, 16 x 16 components = 1009 x 1009"
+ }
+}

@@ -1,0 +1,25 @@
+"""The 17 original house designs (parameters of GN_EdoHouse, see analysis/KIT_ANALYSIS.md)."""
+ARCH = {
+    'kura':      dict(bx=2, by=2, fl=2, roof=3, cat=5),
+    'shopA':     dict(bx=3, by=3, roof=1, shop=1, lan=1, cat=4),
+    'dwellA':    dict(bx=4, by=3, roof=1, eng=1, fence=1, cat=9),
+    'farmhouse': dict(bx=5, by=3, roof=2, eng=1, fence=1, cat=6),
+    'dwellB':    dict(bx=4, by=3, fl=2, roof=3, bal=1, fence=1, cat=9),
+    'barn':      dict(bx=3, by=4, roof=2, cat=6),
+    'dwellC':    dict(bx=3, by=3, roof=3, eng=1, fence=1, cat=9),
+    'hutB':      dict(bx=4, by=3, roof=2, eng=1, lan=1, fence=1, cat=9),
+    'restA':     dict(bx=5, by=4, roof=1, shop=1, eng=1, lan=1, cat=1),
+    'shopB':     dict(bx=3, by=4, fl=2, roof=3, shop=1, bal=1, lan=1, cat=4),
+    'tea':       dict(bx=3, by=3, roof=2, eng=1, lan=1, cat=3),
+    'hutA':      dict(bx=3, by=3, roof=2, eng=1, fence=1, cat=9),
+    'hutC':      dict(bx=3, by=2, roof=2, cat=6),
+    'inn':       dict(bx=9, by=6, fl=2, roof=1, eng=1, bal=1, lan=1, gate=1, fence=2, cat=7),
+    'restB':     dict(bx=6, by=4, fl=2, roof=3, shop=1, bal=1, lan=1, cat=1),
+    'row':       dict(bx=7, by=2, roof=3, cat=4),
+    'EdoHouse01': dict(bx=4, by=3, fl=2, roof=1, fence=1, cat=9),
+    # new designs (the district): weapon smith, clinic, ward and the hospital's main building
+    'smithy':    dict(bx=4, by=3, roof=1, shop=1, lan=1, fence=1, gate=1, cat=2),
+    'clinic':    dict(bx=6, by=4, roof=3, eng=1, lan=1, fence=1, gate=1, cat=8),
+    'ward':      dict(bx=7, by=3, roof=3, eng=1, lan=1, fence=1, cat=8),
+    'hospital':  dict(bx=16, by=6, roof=1, eng=1, lan=1, fence=1, gate=1, cat=8),
+}

@@ -895,7 +895,60 @@ def gate():
     return mb
 
 
+# ======================================================================= plaza furniture
+def toro():
+    mb = MB('SM_Edo_Toro')                  # stone lantern
+    mb.box((-0.26, -0.26, 0.0), (0.26, 0.26, 0.16), 'Stone', skip=('-z',))
+    mb.lathe([(0.11, 0.16), (0.095, 0.30), (0.095, 0.62), (0.11, 0.76)], 8, 'Stone', cap_top=False, phase=math.pi / 8, smooth=False)
+    mb.lathe([(0.30, 0.76), (0.30, 0.84), (0.20, 0.88)], 8, 'Stone', cap_top=True, phase=math.pi / 8, smooth=False)
+    mb.box((-0.17, -0.17, 0.88), (0.17, 0.17, 1.22), 'Stone')
+    for sx, sy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+        cx, cy = sx * 0.172, sy * 0.172
+        if sx: mb.box((cx - 0.004, -0.085, 0.95), (cx + 0.004, 0.085, 1.14), 'Lantern')
+        else: mb.box((-0.085, cy - 0.004, 0.95), (0.085, cy + 0.004, 1.14), 'Lantern')
+    mb.lathe([(0.34, 1.22), (0.40, 1.24), (0.34, 1.34), (0.16, 1.52), (0.05, 1.62)], 8, 'Stone', cap_top=True, phase=math.pi / 8, smooth=False)
+    mb.lathe([(0.04, 1.62), (0.07, 1.68), (0.035, 1.78), (0.0, 1.82)], 8, 'Stone', cap_top=False, smooth=False)
+    return mb
+
+
+def well():
+    mb = MB('SM_Edo_Well')                  # stone well with a small tiled roof
+    segs = 16
+    mb.lathe([(0.88, 0.0), (0.88, 0.62)], segs, 'StoneWall', cap_top=False, want='radial')
+    mb.lathe([(0.88, 0.62), (0.60, 0.62)], segs, 'StoneWall', cap_top=False, want=(0, 0, 1))
+    mb.lathe([(0.60, 0.62), (0.60, -0.35)], segs, 'StoneWall', cap_top=False, want='inward')
+    mb.lathe([(0.60, -0.35), (0.0, -0.35)], segs, 'Ceramic', cap_top=False, want=(0, 0, 1))
+    for x in (-1.02, 1.02):
+        mb.box((x - 0.07, -0.07, 0.0), (x + 0.07, 0.07, 2.35), 'Timber', grain=2, skip=('-z',))
+    mb.box((-1.10, -0.06, 2.0), (1.10, 0.06, 2.12), 'Timber', grain=0)
+    mb.box((-0.04, -0.04, 1.35), (0.04, 0.04, 2.0), 'Timber', grain=2)
+    _coping(mb, 1.30, 1.0, 2.38, 2.82)
+    return mb
+
+
+def bench():
+    mb = MB('SM_Edo_Bench')
+    mb.box((-0.75, -0.21, 0.40), (0.75, 0.21, 0.45), 'Planks', grain=0)
+    for x in (-0.60, 0.60):
+        for y in (-0.14, 0.14):
+            mb.box((x - 0.035, y - 0.035, 0.0), (x + 0.035, y + 0.035, 0.40), 'Timber', grain=2, skip=('-z',))
+        mb.box((x - 0.025, -0.15, 0.16), (x + 0.025, 0.15, 0.20), 'Timber', grain=1)
+    return mb
+
+
+def board():
+    mb = MB('SM_Edo_Board')                 # notice board (kosatsu) with a small roof
+    for x in (-0.55, 0.55):
+        mb.box((x - 0.05, -0.05, 0.0), (x + 0.05, 0.05, 2.0), 'Timber', grain=2, skip=('-z',))
+    mb.box((-0.62, -0.025, 0.95), (0.62, 0.025, 1.78), 'Planks', grain=2)
+    mb.box((-0.66, -0.04, 0.92), (0.66, 0.04, 0.96), 'Timber', grain=0)
+    mb.box((-0.66, -0.04, 1.78), (0.66, 0.04, 1.82), 'Timber', grain=0)
+    _coping(mb, 0.80, 0.32, 2.02, 2.16)
+    return mb
+
+
 # ======================================================================= registry
+
 
 def build_all():
     """Returns {collection name: [MB, ...]} -- children are named so alphabetical order = variant index."""
@@ -930,5 +983,13 @@ def build_all():
         'KIT_Wall2Seg': [wall2_segment()],
         'KIT_Wall2Pier': [wall2_pier()],
         'KIT_Gate': [gate()],
+        'KIT_Toro': [toro()],
+        'KIT_Well': [well()],
+        'KIT_Bench': [bench()],
+        'KIT_Board': [board()],
     }
+    import modules_cat, modules_town, modules_border
+    kit.update(modules_cat.build_cat())
+    kit.update(modules_town.build_town())
+    kit.update(modules_border.build_border())
     return kit

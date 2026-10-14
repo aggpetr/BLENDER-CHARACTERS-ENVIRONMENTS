@@ -71,3 +71,70 @@ Whole village: 1.74 million triangles from 86 reusable meshes (original: 1.84 mi
 - Upper-storey windows use the same wall modules as the ground floor; there are no interiors (doors and windows are closed).
 - Moss and plaster grime are material effects (in Blender and in the Unreal master material), not baked into the textures.
 - The fence plot is whole bays (1 bay at the sides and back, 2 at the front), slightly different from the original plot size.
+
+## Plaza district (replaces the old compound village)
+
+`EdoVillage_01` (7 compounds of up to 5 houses, set by hand-entered positions) is replaced by `EdoKitVillage_01`, built by the
+node group `GN_EdoKitVillage` from kit houses: 36 houses, the plaza and its furniture, in 7,413 module instances / 664K triangles.
+Houses: 1 hall (13 x 8 bays, 2 storeys, roof depth 8), 12 around the plaza, 19 in the outer ring, 4 along the north street.
+The layout is planned by `tools/kit/district.py` (no plot overlaps, no plot on a street; checked in code), relative to the plaza
+centre, so the district can be moved as one object. Streets are built with the existing `GN_EdoRibbon` group and end exactly at
+the end points of the town streets (`RD_VillageRoad`, `RD_Lane1`, `RD_Lane2`) and the trail (`PATH_hub_p2`); ground is flat
+(-0.05 m) across the district and all three ground objects agree there, so houses, plaza and streets meet the terrain cleanly.
+
+Added to the kit for this: roof modules for depths 7 and 8, bays up to 16, `Offset`/`Angle` inputs on `GN_EdoKitHouse`, plaza
+furniture (stone lantern, well, bench, notice board), 103 FBX files in total, district plaza and street meshes
+(`kit/export/district/`), and district entries (`DISTRICT_*`) in the village manifest (131 houses, 24,974 module instances).
+
+## District update: outward streets, hospital, props per house type
+
+- **Streets:** four more streets leave the outer ring (east, south, west-north-west, south-west, 4-5 m wide, ending in open
+  terrain where the ground is flat to gently sloped) plus a hospital street. 13 street curves in total.
+- **Hospital (north-west, `HOSP`, `HOSP_W`, `HOSP_E`):** main building 16 x 6 bays, one storey, tile hip roof, about 29 m wide and
+  about 8 m high, board-fence court with gate; two wards of 7 x 3 bays. The district now has 33 planned slots (the new streets
+  and the hospital take the room of three ring houses and part of the north hamlet); manifest: 128 houses, 25,994 module instances.
+  The position is the constant `HOSPITAL_C` in `tools/kit/district.py`.
+- **Props per house type:** new input `Category` (0-9) on `GN_EdoKitHouse`; 31 modules in 9 collections `KIT_Cat*` (restaurant,
+  smith, tea, shop, store, farm, inn, clinic, home), listed in `kit/README.md`. Three new texture sets: `T_Edo_Iron` (1K, metallic),
+  `T_Edo_Leaf` (1K), `T_Edo_ClothRed` (2K). The 17 town designs and the new designs smithy, clinic, ward and hospital carry a
+  category (`tools/kit/archetypes.py`); `install_kit.py` and `village_build.py` match each town house to its design.
+  FBX: 136 files; thin or hanging props (laundry, drying and herb racks, sword and axe racks) have no collision, the parasol has box collision.
+- Checks: floor height of all 94 town houses still within 1.5 cm of the originals; install is idempotent.
+- Not verified: Unreal import (script untested), the category props on every town house yard (clutter with neighbours possible; set
+  `CATEGORY_PROPS = False` to switch off).
+
+## Town extension (streets, farms, fields, canal banks, bridges, props)
+
+- **Answer to "have you made ultra quality versions of the bridges, benches and other existing props?"**: before this update only the plaza
+  furniture of the new district existed in the kit (stone lantern, well, bench, notice board, 90 to 700 triangles). Your town still used its
+  old low-poly props (bench 36 triangles, well 92, stall 84) and bridges (612 to 792 triangles, untextured boxes), and the fields
+  were flat meshes (the paddies 6 triangles). Now: 3 bridges (1,650 to 2,000 triangles each), stall (788), bank curb (308), cobble tile
+  (about 1,900), 3 boulders, 7 crop modules (140 to 670), ridge and bund, all with UVs and Nanite-ready; `install_kit.py` swaps your
+  `PR_*` and `BR_*` objects for them in the same place.
+- **Streets:** 7 new streets from your red lines (20 street curves in total).
+- **Houses:** 59 in the blue areas and along the new streets (18 farmhouses, 8 barns, 4 kuras, huts, dwellings, 2 smiths). Planned in code
+  (no overlaps with your 94 town houses, the district, streets, fields, canal, bridges or props).
+- **Fields:** 13 patches (6 farmland, 7 paddies), about 47,000 crop instances.
+- **Canal bank:** about 100 sections per side along the canal, gaps at the 4 bridges.
+- Manifest: 205 houses, 36,780 module instances (`kit/village/village_manifest.json`), plus `fields_manifest.json`; 154 FBX files; floor
+  height of the 94 original houses still within 1.5 cm.
+- New texture sets: `T_Edo_Soil`, `T_Edo_Grain` (1K), brighter `T_Edo_Leaf`.
+- Not verified: Unreal import (script untested, including the instanced field placement), performance with about 47,000 crop instances
+  in the Blender viewport (they are instances, not geometry), appearance under Unreal lighting.
+
+## Streets towards the mountain trail
+
+- `EAST_TRAIL` (district east street to `PATH_p2_p3`), `NE_ROAD` (north street to `PATH_p3_p4` at about (198, -10)), `SE_ROAD` (from the south-east corner to the foothills) and a short link from the south-west street to `RD_Lane2`; they follow the terrain (ribbons use `EDO_Terrain`).
+- 32 more houses along them (outer houses on the full terrain, kept off slopes steeper than 3.6 m across the plot, extracted terrain heights in `town_context.json`). Town extension now: 91 houses; manifest 237 houses, 42,285 module instances.
+- Not done: nothing is built on the steeper slopes between x = 100 and the trail (terraces and steps would be needed there).
+
+## Village border
+
+- `EdoKitBorder_01` (`GN_EdoKitBorder`): 414 parts, a standing stone every 6 m with a shimenawa rope, about 1.7 km around the village, always 20 m or more outside every house, field and the canal bank (and outside the hub hut on the east).
+- Torii gates (new modules `SM_Edo_Torii`, `SM_Edo_ToriiPier`, texture sets `T_Edo_Vermilion`, `T_Edo_Lacquer`): north on `RD_Main` (new `NORTH_ROAD` from its end to the gate), west on the new `WEST_ROAD`, south on the arch bridge. No east gate: open gaps with a stone on each side where the trails cross.
+- The river (`WT_Stream`) is the south border and is widened from 7 m to 12 m (the installer sets its ribbon width).
+- Modules: `SM_Edo_BorderStone_A/B/C`, `SM_Edo_BorderRope` (6 m, paper streamers), `SM_Edo_Jizo`. Manifest: 236 houses, 42,042 module instances; 160 module FBX files.
+- Plan and shape: `tools/kit/border.py` (seed 11), `kit/village/village_border.json`, `kit/previews/village_border_plan.jpg`.
+- Update: stones are now 1.9 to 2.6 m tall, the rope is 26 cm thick and white (`T_Edo_RopeWhite`), the east side of the border follows the S-curve you drew (the hub hut and its trails stay outside), and the river continues up into the mountain as `KITRIVER_Upper` (9 m wide, around the hut at (195, -265)). 412 border parts.
+- Water update: the canal now joins the big river through a short link (the low ridge in the terrain between them is notched), and a thin 2 m river (`KITRIVER_Branch`) follows the line you drew from the canal corner, north of the plaza ring, down the east side to the upper river. The route is found on a 1 m grid (`tools/kit/water.py`), keeps clear of houses, fields and the border, has stone kerbs on both banks and four bridges (three timber Flat bridges and a new `SM_Edo_Bridge_Foot` footbridge) where it crosses streets and the hub trail. Data: `kit/village/village_water.json`.
+- Cleanup: the generator's test house at the origin (it overlapped two town houses) and the two green test grass planes (`EDO_TestGround`, `EDO_TestGround_Large`) are left out of the install and the manifest (239 houses, 41,787 instances). They are hidden, not deleted, in your blend.

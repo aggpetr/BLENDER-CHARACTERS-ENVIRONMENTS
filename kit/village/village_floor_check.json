@@ -1,11 +1,5 @@
 [
  {
-  "house": "EdoHouse_01",
-  "floor_original": -0.947,
-  "floor_kit": -0.943,
-  "diff": 0.004
- },
- {
   "house": "FARM_1_barn",
   "floor_original": -0.597,
   "floor_kit": -0.59,

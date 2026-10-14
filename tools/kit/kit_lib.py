@@ -14,11 +14,12 @@ ROOF_P = 1.25            # roof profile exponent (concave, steeper toward the ri
 CORNER_RISE = 0.24       # upturn of the eaves at the corners
 RIB = B / 7              # tile rib spacing: 7 ribs per bay = 0.26 m
 RIB_A = 0.032            # tile rib amplitude
-MAX_DEPTH = 6            # roof modules exist for short sides of 1..6 bays
+MAX_DEPTH = 8            # roof modules exist for short sides of 1..8 bays
 
 # texture world size (metres per texture repeat) and which image direction the wood/plank grain runs in
 TEXSIZE = {'Timber': 2.0, 'Planks': 2.0, 'Plaster': 2.0, 'Kawara': B, 'Stone': 1.0, 'Paper': 1.0,
-           'Ceramic': 0.5, 'Thatch': 2.0, 'StoneWall': 2.0, 'Cloth': 1.0, 'Lantern': 0.5}
+           'Ceramic': 0.5, 'Thatch': 2.0, 'StoneWall': 2.0, 'Cloth': 1.0, 'Lantern': 0.5,
+           'Iron': 0.5, 'Leaf': 0.5, 'ClothRed': 1.0, 'Soil': 1.0, 'Grain': 0.5, 'Vermilion': 1.0, 'Lacquer': 1.0, 'RopeWhite': 0.5}
 GRAIN_IMG = {'Timber': 'v', 'Planks': 'u', 'Thatch': 'v'}
 
 
@@ -123,7 +124,7 @@ class MB:
                 self.face(list(ring), mat, [((v.co - ctr).x / T, (v.co - ctr).z / T) for v in ring], smooth=False, want=want)
         return vs
 
-    def lathe(self, profile, segs, mat, axis='z', cap_top=True, cap_bottom=False, smooth=True, phase=0.0, uv_scale=None):
+    def lathe(self, profile, segs, mat, axis='z', cap_top=True, cap_bottom=False, smooth=True, phase=0.0, uv_scale=None, want=None):
         """profile: list of (radius, height). Revolves around the local axis."""
         T = uv_scale or TEXSIZE.get(mat, 2.0)
         rings = []
@@ -152,6 +153,8 @@ class MB:
                 mid = sum((v.co for v in quad), Vector()) / 4
                 ax = Vector((0, 0, 1)) if axis == 'z' else Vector((1, 0, 0))
                 radial = mid - ax * mid.dot(ax)
+                if want == 'inward': radial = -radial
+                elif want is not None and want != 'radial': radial = Vector(want)
                 self.face(quad, mat, uvs, smooth=smooth, want=radial)
         for flag, ring, sgn in ((cap_top, vs[-1], 1), (cap_bottom, vs[0], -1)):
             if flag:
@@ -262,6 +265,8 @@ def make_materials(tex_rel):
             base_out = gm.outputs['Result']
         nt.links.new(base_out, bsdf.inputs['Base Color'])
         nt.links.new(rough_out, bsdf.inputs['Roughness'])
+        if name == 'Iron':    # metallic from the ORM blue channel
+            nt.links.new(sep.outputs['Blue'], bsdf.inputs['Metallic'])
         if name == 'Lantern':  # lit paper lantern (Unreal: emissive = BaseColor x strength)
             nt.links.new(base_out, bsdf.inputs['Emission Color'])
             bsdf.inputs['Emission Strength'].default_value = 2.0
