@@ -44,6 +44,7 @@ if coll.name not in sc.collection.children: sc.collection.children.link(coll)
 
 pairs = []
 for o in [o for o in bpy.data.objects if any(m.type == 'NODES' and m.node_group == src_gn for m in o.modifiers)]:
+    if o.name == 'EdoHouse_01': continue                      # the generator's test house at the origin is not part of the village
     m = next(m for m in o.modifiers if m.type == 'NODES' and m.node_group == src_gn)
     get = lambda k: m.properties.inputs[sid[k]]['value']
     name = o.name + '_KIT'
