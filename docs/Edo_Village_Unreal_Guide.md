@@ -19,14 +19,14 @@ Everything is in the repository branch `claude/unreal-mcp-server-access-xyax0u`,
 | Textures | `kit/textures/T_Edo_<Set>/{BaseColor, Normal_DX, ORM}.jpg` | 19 sets, about 175 MB of JPG. Normal maps are DirectX (Unreal's convention), ORM = R ambient occlusion, G roughness, B metallic |
 | Ground meshes in world space | `kit/export/district/*.fbx` | plaza, district streets, town streets and trails, water, plazas, field soil (flat placeholder materials) |
 | Heightmap for a Landscape | `kit/export/terrain/Edo_Heightmap_1009.png` (+ `.r16`, `heightmap_info.json`) | 1009 x 1009, 1 m per quad, built from the surfaces your houses stand on |
-| Village manifest | `kit/village/village_manifest.json` | 236 houses, 42,042 module instances (world transforms), 108 lantern positions |
+| Village manifest | `kit/village/village_manifest.json` | 239 houses, 41,787 module instances (world transforms), 108 lantern positions |
 | Fields and canal bank | `kit/village/fields_manifest.json` | about 47,700 instances: crops, ridges, paddy bunds, canal bank, and the village border (stones, ropes, torii) |
 | Clustered lights | `kit/village/lights_clustered.json` | 30 lights merged from the 108 lanterns (radius 30 m) |
 | Import script | `tools/kit/unreal_import.py` | imports textures, builds the master material, imports meshes, places everything |
 | Planning data | `kit/village/town_layout.json`, `district_layout.json`, `town_context.json` | plots, streets, fields (useful for PCG and splines) |
 
 Triangle budget, all instanced and Nanite: the houses are about 4.2 M triangles in total; the fields are about 11 M (47k crop
-instances). The 101 house modules are shared by all 237 houses, so the memory cost is the 153 meshes, not the instance count.
+instances). The 101 house modules are shared by all 239 houses, so the memory cost is the 153 meshes, not the instance count.
 
 ## 2. Before you start
 
